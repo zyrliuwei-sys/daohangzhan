@@ -13,9 +13,33 @@ const procEnv: Record<string, string | undefined> =
 
 const publicEnv = (key: string) => metaEnv[key] ?? procEnv[key];
 
+const isProductionBuild =
+  metaEnv.MODE === 'production' || procEnv.NODE_ENV === 'production';
+
+// Canonical URLs, hreflang links, robots.txt, and the sitemap must all use the
+// public production origin. A localhost VITE_APP_URL is useful for local
+// development, but it must never leak into a production build when the deploy
+// environment forgot to replace the development default.
+const productionAppUrl = 'https://www.viddir.com';
+const developmentAppUrl = 'http://localhost:3000';
+const configuredAppUrl = publicEnv('VITE_APP_URL')?.trim();
+
+function resolveAppUrl(): string {
+  if (isProductionBuild) return productionAppUrl;
+
+  const value = configuredAppUrl || developmentAppUrl;
+  try {
+    return new URL(value).origin;
+  } catch {
+    return developmentAppUrl;
+  }
+}
+
+const appUrl = resolveAppUrl();
+
 export const envConfigs: Record<string, string> = {
   // App (public)
-  app_url: publicEnv('VITE_APP_URL') ?? 'http://localhost:3000',
+  app_url: appUrl,
   app_name: publicEnv('VITE_APP_NAME') ?? 'ShipAny',
   app_description: publicEnv('VITE_APP_DESCRIPTION') ?? 'Ship your SaaS faster',
   app_logo: publicEnv('VITE_APP_LOGO') ?? '/logo.svg',
@@ -29,7 +53,7 @@ export const envConfigs: Record<string, string> = {
   db_max_connections: procEnv.DB_MAX_CONNECTIONS ?? '1',
 
   // Auth
-  auth_url: procEnv.AUTH_URL ?? publicEnv('VITE_APP_URL') ?? '',
+  auth_url: procEnv.AUTH_URL ?? appUrl,
   auth_secret: procEnv.AUTH_SECRET ?? '',
 
   // Payment - Stripe
