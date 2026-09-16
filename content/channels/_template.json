@@ -1,0 +1,29 @@
+{
+  "_comment": "Pattern reference for channel pages — NOT a route. Copy to <slug>.json and replace every {{placeholder}}. Rules: meta title ≤60 chars around brand + 'AI livestream' variant; every fact in the MD must trace to data/channels.json verifiedFacts for this slug; related = 2-4 sibling slugs; FAQs must appear verbatim in the MD.",
+  "route": "/channel/{{slug}}",
+  "channel": "{{slug}}",
+  "meta": {
+    "title": "{{Name}}: {{hook — brand + what it is}}",
+    "description": "{{140-160 chars: what the channel is, the live mechanic, one concrete reason to open it now.}}"
+  },
+  "h1": "{{Name}}: {{promise in the viewer's words}}",
+  "keywords": {
+    "primary": "{{name lowercase}} ai livestream",
+    "secondary": ["{{name}} stream", "watch {{name lowercase}}"]
+  },
+  "related": ["{{sibling-1}}", "{{sibling-2}}", "{{sibling-3}}"],
+  "faqs": [
+    {
+      "q": "{{Question about what it is / how steering works / access or cost}}",
+      "a": "{{2-3 sentences, facts from verifiedFacts only; 'check the official site' for anything unverified.}}"
+    },
+    {
+      "q": "{{...}}",
+      "a": "{{...}}"
+    },
+    {
+      "q": "{{...}}",
+      "a": "{{...}}"
+    }
+  ]
+}

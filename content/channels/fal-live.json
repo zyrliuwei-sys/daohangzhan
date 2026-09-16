@@ -1,0 +1,28 @@
+{
+  "route": "/channel/fal-live",
+  "channel": "fal-live",
+  "meta": {
+    "title": "fal.live: AI Television Directed by Everyone",
+    "description": "fal.live is fal.ai's live channel platform: a resident Director prompt sets the world, chat proposes and votes, the winning scene renders in seconds, 24/7."
+  },
+  "h1": "fal.live: one Director session, a whole audience steering",
+  "keywords": {
+    "primary": "fal.live ai livestream",
+    "secondary": ["fal live stream", "watch fal live channels"]
+  },
+  "related": ["infinite-slop", "renoise-live", "infinite-tv"],
+  "faqs": [
+    {
+      "q": "What is fal.live?",
+      "a": "fal.ai's platform for live, audience-directed channels. Each channel runs a single realtime Director session that is broadcast to every viewer at once — official tagline: \"AI television directed by everyone.\""
+    },
+    {
+      "q": "How does voting on fal.live work?",
+      "a": "Viewers propose directions in chat and the room votes. The top-voted prompt becomes the instruction for the next scene, which is generated live within seconds. The channel keeps running 24/7 whether you participate or just watch."
+    },
+    {
+      "q": "Who writes the show on fal.live?",
+      "a": "Each channel's creator writes a system prompt that acts as its resident director — the worldview, characters, and tone. From then on, that prompt directs every scene while the audience supplies the story beats."
+    }
+  ]
+}

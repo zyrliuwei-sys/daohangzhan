@@ -1,0 +1,34 @@
+{
+  "route": "/director",
+  "meta": {
+    "title": "AI Video Director: Steer Live AI Video as It Renders",
+    "description": "What an AI video director does: write the resident prompt, take audience votes, and steer AI video live as it renders. Channels to direct tonight included."
+  },
+  "h1": "The AI video director: steering video while it renders",
+  "keywords": {
+    "primary": "ai video director",
+    "secondary": [
+      "ai film director",
+      "ai video directors",
+      "ai-directed channels"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What does an AI video director actually do?",
+      "a": "They write the premise that runs the show — the world, the characters, the tone — as a resident system prompt, then keep the story coherent while a live audience votes on every next scene. The model handles the frames; the director handles the consequences."
+    },
+    {
+      "q": "What goes into a resident director prompt?",
+      "a": "Four things: the worldview (where the show happens), the cast (who it happens to), the tone (how it should feel), and the rules (what the AI may never do). On fal.live, that one prompt stays in charge of the channel for its whole run."
+    },
+    {
+      "q": "How quickly do directed scenes change?",
+      "a": "On realtime channels, the top-voted direction is turned into the next scene and rendered live within seconds — no render queue, no overnight wait. Exact latency depends on the model and delivery setup."
+    },
+    {
+      "q": "Do I need filmmaking experience to direct an AI channel?",
+      "a": "No. You need a clear premise and the discipline to keep the cast consistent. The audience supplies most of the scene ideas; your prompt decides which ideas fit the show."
+    }
+  ]
+}

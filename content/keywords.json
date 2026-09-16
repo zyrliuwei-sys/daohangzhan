@@ -1,0 +1,96 @@
+{
+  "comment": "Keyword → page ownership registry. One keyword family = one page. Before writing any page, confirm every keyword you target is owned by THAT page. Volumes/KD: 2026-09 US, planner-exported; do not edit without new data.",
+  "bannedHeadTerms": {
+    "terms": [
+      "ai tv",
+      "ai television",
+      "ai channel",
+      "real time ai",
+      "ai streaming",
+      "ai tv show",
+      "ai director"
+    ],
+    "reason": "SERPs are TV hardware shopping (Samsung/LG/BestBuy), the A.I. movie on Netflix/Hulu, 'TV shows about AI' lists on IMDb/Wikipedia, job listings (Indeed/LinkedIn/ZipRecruiter), or the Left 4 Dead character. None of these visitors convert.",
+    "rule": "Never optimize a title, H1, meta, or section around these bare terms. Long-tail phrases explicitly registered below (e.g. 'ai tv channel', 'ai tv show generator', 'how to launch an AI channel') are owned and allowed. A brand's verbatim tagline is allowed on that brand's channel page only."
+  },
+  "pages": {
+    "/": {
+      "role": "Homepage, category head term",
+      "primary": "ai livestream",
+      "secondary": ["ai live stream", "ai live streaming"],
+      "volume": 260,
+      "kd": 33.7,
+      "note": "The three spellings are the same audience — one page, never split."
+    },
+    "/director": {
+      "role": "PRIORITY 1",
+      "primary": "ai video director",
+      "secondary": [
+        "ai film director",
+        "ai video directors",
+        "ai-directed channels"
+      ],
+      "volume": 410,
+      "kd": 28.6,
+      "note": "Highest volume × lowest KD of the money pages. NEVER target bare 'ai director'."
+    },
+    "/tv-show-generator": {
+      "role": "PRIORITY 2 — traffic entry, easiest KD",
+      "primary": "ai tv show generator",
+      "secondary": [
+        "ai series generator",
+        "ai sitcom generator",
+        "ai episode generator",
+        "ai soap opera generator"
+      ],
+      "volume": 260,
+      "kd": 18.8,
+      "note": "ai episode generator (110/mo) is the biggest sub-term — give it its own H3."
+    },
+    "/real-time": {
+      "role": "Explainer only, not a money page",
+      "primary": "real time ai video",
+      "secondary": [
+        "realtime video generation",
+        "ai video streaming",
+        "realtime ai video generator",
+        "real time ai video generator"
+      ],
+      "volume": 90,
+      "kd": 53.8,
+      "note": "Low volume + mid KD. Exists to explain the concept and to justify the 'Realtime / Low-latency' filter tag. Never a homepage/category primary."
+    },
+    "/interactive": {
+      "role": "Breakout-word catcher",
+      "primary": "interactive video generator",
+      "secondary": ["interactive ai video"],
+      "volume": null,
+      "kd": null,
+      "note": "Volume TBD. Positioned to catch the interactive-AI-video wave as it grows."
+    },
+    "/channels": {
+      "role": "Directory overview, zero-competition land grab",
+      "primary": "ai generated tv",
+      "secondary": ["ai tv channel"],
+      "volume": 20,
+      "kd": null,
+      "note": "Tiny volume, near-zero competition — own both spellings early."
+    },
+    "/creators": {
+      "role": "Creator guide",
+      "primary": "how to launch an AI channel",
+      "secondary": ["how to start an AI livestream", "run an AI streamer"],
+      "volume": null,
+      "kd": null,
+      "note": "Long-tail intent phrase; contains 'AI channel' but as registered long-tail, not the banned head term."
+    },
+    "/channel/[slug]": {
+      "role": "Long-tail workhorse, hundreds eventually",
+      "primary": "<brand> ai livestream",
+      "secondary": ["<brand> stream", "watch <brand>"],
+      "volume": null,
+      "kd": null,
+      "note": "One page per verified channel in data/channels.json. Brand + ai livestream variant."
+    }
+  }
+}

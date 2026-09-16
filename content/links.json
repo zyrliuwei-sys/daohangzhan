@@ -1,0 +1,297 @@
+{
+  "comment": "Internal link map, compiled from the actual MD bodies. Anchors marked 'canonical' are the preferred anchor text for the target's primary keyword — use that anchor at least once per page that links there. Variants are acceptable secondary anchors. Every page links out ≥3; no page is orphaned (every channel has ≥1 inbound from /channels).",
+  "canon": {
+    "/": { "anchor": "AI livestreams" },
+    "/director": { "anchor": "AI video director guide" },
+    "/tv-show-generator": { "anchor": "AI TV show generators" },
+    "/real-time": { "anchor": "real-time AI video" },
+    "/interactive": { "anchor": "interactive video generators" },
+    "/channels": { "anchor": "live AI channel directory" },
+    "/creators": { "anchor": "how to launch an AI channel" }
+  },
+  "map": {
+    "/": [
+      {
+        "to": "/channels",
+        "anchor": "live AI channel directory",
+        "canonical": true
+      },
+      {
+        "to": "/director",
+        "anchor": "the AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/interactive",
+        "anchor": "interactive video generators",
+        "canonical": true
+      },
+      {
+        "to": "/real-time",
+        "anchor": "real-time AI video explainer",
+        "canonical": true
+      },
+      {
+        "to": "/creators",
+        "anchor": "how to launch an AI channel",
+        "canonical": true
+      },
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" }
+    ],
+    "/director": [
+      {
+        "to": "/channel/fal-live",
+        "anchor": "fal.live",
+        "note": "resident-director mechanics live here"
+      },
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      {
+        "to": "/real-time",
+        "anchor": "real-time AI video explainer",
+        "canonical": true
+      },
+      {
+        "to": "/tv-show-generator",
+        "anchor": "how AI TV show generators work",
+        "canonical": true
+      },
+      { "to": "/creators", "anchor": "launch playbook", "canonical": true },
+      {
+        "to": "/channels",
+        "anchor": "every live AI channel",
+        "canonical": true
+      },
+      {
+        "to": "/interactive",
+        "anchor": "interactive video generators",
+        "canonical": true
+      }
+    ],
+    "/tv-show-generator": [
+      { "to": "/channel/flow-tv", "anchor": "Flow TV" },
+      {
+        "to": "/channel/nothing-forever",
+        "anchor": "Nothing, Forever",
+        "note": "sitcom H3 anchor"
+      },
+      {
+        "to": "/channel/renoise-live",
+        "anchor": "Renoise Live",
+        "note": "series H3 anchor"
+      },
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      {
+        "to": "/channel/infinite-slop",
+        "anchor": "Infinite Slop",
+        "note": "soap-arc H3 anchor"
+      },
+      { "to": "/channels", "anchor": "channel directory", "canonical": true },
+      {
+        "to": "/creators",
+        "anchor": "how to launch an AI channel",
+        "canonical": true
+      },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      }
+    ],
+    "/channels": [
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/nothing-forever", "anchor": "Nothing, Forever" },
+      { "to": "/channel/flow-tv", "anchor": "Flow TV" },
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      { "to": "/channel/channel-1", "anchor": "Channel 1" },
+      { "to": "/channel/neuro-sama", "anchor": "Neuro-sama" },
+      { "to": "/channel/aitv", "anchor": "AITV" },
+      { "to": "/channel/retake-tv", "anchor": "Retake.tv" },
+      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
+      { "to": "/channel/sloptv", "anchor": "SlopTV" },
+      { "to": "/channel/airi", "anchor": "AIRI" },
+      { "to": "/channel/aituber-kit", "anchor": "AITuber Kit" },
+      { "to": "/channel/wallie-v2", "anchor": "Wallie V2" },
+      {
+        "to": "/creators",
+        "anchor": "how to launch an AI channel",
+        "canonical": true
+      },
+      {
+        "to": "/real-time",
+        "anchor": "real-time AI video explainer",
+        "canonical": true
+      }
+    ],
+    "/real-time": [
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
+      { "to": "/channels", "anchor": "channel directory", "canonical": true },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/interactive",
+        "anchor": "interactive video generators",
+        "canonical": true
+      }
+    ],
+    "/interactive": [
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/aitv", "anchor": "AITV" },
+      { "to": "/channel/retake-tv", "anchor": "Retake.tv" },
+      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
+      { "to": "/channel/sloptv", "anchor": "SlopTV" },
+      { "to": "/channel/airi", "anchor": "AIRI" },
+      { "to": "/channel/aituber-kit", "anchor": "AITuber Kit" },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/creators",
+        "anchor": "how to launch an AI channel",
+        "canonical": true
+      },
+      { "to": "/channels", "anchor": "directory", "canonical": true },
+      { "to": "/real-time", "anchor": "real-time AI video", "canonical": true },
+      {
+        "to": "/tv-show-generator",
+        "anchor": "AI TV show generators",
+        "canonical": true
+      }
+    ],
+    "/creators": [
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/nothing-forever", "anchor": "Nothing, Forever" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      { "to": "/channel/channel-1", "anchor": "Channel 1" },
+      { "to": "/channel/neuro-sama", "anchor": "Neuro-sama" },
+      { "to": "/channel/aitv", "anchor": "AITV" },
+      { "to": "/channel/retake-tv", "anchor": "Retake.tv" },
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
+      { "to": "/channel/sloptv", "anchor": "SlopTV" },
+      { "to": "/channel/airi", "anchor": "AIRI" },
+      { "to": "/channel/aituber-kit", "anchor": "AITuber Kit" },
+      { "to": "/channel/wallie-v2", "anchor": "Wallie V2" },
+      {
+        "to": "/tv-show-generator",
+        "anchor": "AI TV show generators",
+        "canonical": true
+      },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/real-time",
+        "anchor": "Realtime / Low-latency",
+        "canonical": true
+      },
+      {
+        "to": "/channels",
+        "anchor": "live channel directory",
+        "canonical": true
+      }
+    ],
+    "/channel/infinite-slop": [
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      { "to": "/channel/nothing-forever", "anchor": "Nothing, Forever" },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/channels",
+        "anchor": "every live AI channel",
+        "canonical": true
+      }
+    ],
+    "/channel/fal-live": [
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
+      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/channels",
+        "anchor": "every live AI channel",
+        "canonical": true
+      },
+      {
+        "to": "/tv-show-generator",
+        "anchor": "AI TV show generators",
+        "canonical": true
+      }
+    ],
+    "/channel/renoise-live": [
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      { "to": "/channel/fal-live", "anchor": "fal.live" },
+      { "to": "/channel/nothing-forever", "anchor": "Nothing, Forever" },
+      {
+        "to": "/tv-show-generator",
+        "anchor": "AI TV show generators",
+        "canonical": true
+      },
+      {
+        "to": "/director",
+        "anchor": "AI video director guide",
+        "canonical": true
+      },
+      {
+        "to": "/channels",
+        "anchor": "every live AI channel",
+        "canonical": true
+      }
+    ],
+    "/channel/flow-tv": [
+      { "to": "/channel/nothing-forever", "anchor": "Nothing, Forever" },
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      {
+        "to": "/channels",
+        "anchor": "every live AI channel",
+        "canonical": true
+      },
+      {
+        "to": "/interactive",
+        "anchor": "interactive video generators",
+        "canonical": true
+      }
+    ],
+    "/channel/nothing-forever": [
+      { "to": "/channel/flow-tv", "anchor": "Flow TV" },
+      { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
+      {
+        "to": "/channels",
+        "anchor": "every live AI channel",
+        "canonical": true
+      },
+      {
+        "to": "/tv-show-generator",
+        "anchor": "AI TV show generators",
+        "canonical": true
+      }
+    ]
+  },
+  "orphans": [],
+  "notes": [
+    "Channel pages for batch 2 (neuro-sama, channel-1, aitv, retake-tv, infinite-tv, sloptv, wallie-v2, airi, aituber-kit) will extend this map — every new page must link up to /channels, sideways to ≥2 siblings, and to one intent page."
+  ]
+}

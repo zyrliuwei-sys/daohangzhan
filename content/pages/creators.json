@@ -1,0 +1,30 @@
+{
+  "route": "/creators",
+  "meta": {
+    "title": "How to Launch an AI Channel That Streams 24/7",
+    "description": "How to launch an AI channel: pick a format, choose a hosted platform or open-source stack, write the resident prompt, wire the audience in, stay on air."
+  },
+  "h1": "How to launch an AI channel",
+  "keywords": {
+    "primary": "how to launch an AI channel",
+    "secondary": ["how to start an AI livestream", "run an AI streamer"]
+  },
+  "faqs": [
+    {
+      "q": "Do I need to code to start an AI livestream?",
+      "a": "No. Self-serve studios like Retake.tv and AITV are designed for no-code launches — sign up, design the persona, schedule the stream. Coding only expands your options: open-source stacks like Infinite TV, SlopTV, AIRI, and AITuber Kit are free to run and fully yours."
+    },
+    {
+      "q": "Can an AI channel stream to Twitch and YouTube?",
+      "a": "Yes. AITV multi-streams to Twitch, Kick, TikTok, YouTube, and X simultaneously. Open-source stacks stream to any standard RTMP target — SlopTV targets YouTube Live and Twitch; Infinite TV pushes RTMP with Twitch chat as its input."
+    },
+    {
+      "q": "Which model should power the channel?",
+      "a": "Proven stacks: MiniMax H3 on fal renders Infinite Slop and fal.live's channels; Infinite TV renders with LTX Video. Match the model to your budget and latency needs, and verify current terms on the official sites."
+    },
+    {
+      "q": "How do I keep it running 24/7?",
+      "a": "Use the platform's scheduling (Retake.tv builds it in), let the channel's standing premise keep content generating autonomously, and multi-platform delivery (AITV) or a self-hosted RTMP loop (SlopTV, Infinite TV) keeps the stream up even when you're asleep."
+    }
+  ]
+}

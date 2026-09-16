@@ -1,0 +1,26 @@
+{
+  "route": "/channels",
+  "meta": {
+    "title": "AI-Generated TV: Every Live AI TV Channel",
+    "description": "Every live AI TV channel in one place — chat-directed reality shows, 24/7 AI-generated TV, AI news networks, AI VTubers, and platforms for launching your own."
+  },
+  "h1": "AI-generated TV: every live channel you can watch right now",
+  "keywords": {
+    "primary": "ai generated tv",
+    "secondary": ["ai tv channel"]
+  },
+  "faqs": [
+    {
+      "q": "What is AI-generated TV?",
+      "a": "Television where a video model generates the picture as it airs — no camera, no crew, no render queue. Shows run from a standing premise and, on chat-directed channels, the audience votes on every next scene."
+    },
+    {
+      "q": "Are these channels really live around the clock?",
+      "a": "The ones tagged 24/7 are: Infinite Slop's reality show, Nothing, Forever's sitcom (streaming since early 2023), Flow TV's Veo-powered channels, and the news networks all generate continuously."
+    },
+    {
+      "q": "Can I start my own AI TV channel?",
+      "a": "Yes — hosted platforms like AITV and Retake.tv launch AI streamers in minutes, and open-source stacks like Infinite TV, SlopTV, AIRI, and AITuber Kit run the whole station yourself. The walkthrough is in the launch guide."
+    }
+  ]
+}

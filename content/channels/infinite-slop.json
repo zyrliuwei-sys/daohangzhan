@@ -1,0 +1,28 @@
+{
+  "route": "/channel/infinite-slop",
+  "channel": "infinite-slop",
+  "meta": {
+    "title": "Infinite Slop: The AI Livestream Run by Its Chat",
+    "description": "Infinite Slop is an endless AI livestream from Pieter Levels and fal.ai — chat votes on what happens next, likes earn karma, and the show never stops."
+  },
+  "h1": "Infinite Slop: the endless show your chat is writing right now",
+  "keywords": {
+    "primary": "infinite slop ai livestream",
+    "secondary": ["infinite slop stream", "watch infinite slop"]
+  },
+  "related": ["fal-live", "renoise-live", "nothing-forever"],
+  "faqs": [
+    {
+      "q": "Is Infinite Slop really endless?",
+      "a": "Yes — it streams around the clock, generating its reality-show beats continuously. There are no episodes released on a schedule; the story just keeps producing for as long as the channel runs."
+    },
+    {
+      "q": "How do I change what happens on the Infinite Slop stream?",
+      "a": "Open the channel, watch the current beat, and vote on what the characters do next — or pitch your own direction in chat. The top decision is rendered into the show live."
+    },
+    {
+      "q": "What is karma on Infinite Slop?",
+      "a": "Karma is the reward for participating: liking and contributing earns it, and contributors compete for a cash prize pool ($8,500 at last check). Details and current rules live on the official site."
+    }
+  ]
+}

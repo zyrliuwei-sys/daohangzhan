@@ -1,11 +1,21 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
+import { listPublishedProductSubmissions } from '@/modules/product-submissions/service';
+import { getProducts } from '@/lib/mock-ai-products';
+import { getChannelsData } from '@/lib/seo-content';
 import { baseLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { getLocalPosts, mergePosts } from '@/content/posts';
 
 const STATIC_PATHS = [
   '',
+  '/channels',
+  '/director',
+  '/tv-show-generator',
+  '/real-time',
+  '/interactive',
+  '/creators',
+  '/products',
   '/pricing',
   '/blog',
   '/privacy-policy',
@@ -54,6 +64,38 @@ export const Route = createFileRoute('/sitemap.xml')({
           changeFrequency: path === '/blog' ? 'daily' : 'weekly',
           priority: path === '' ? 1 : 0.8,
         }));
+
+        for (const product of getProducts(baseLocale)) {
+          entries.push({
+            path: `/products/${product.slug}`,
+            lastModified: `${product.sourceUpdatedAt}T00:00:00.000Z`,
+            changeFrequency: 'weekly',
+            priority: 0.75,
+          });
+        }
+
+        try {
+          const submittedProducts = await listPublishedProductSubmissions();
+          for (const product of submittedProducts) {
+            entries.push({
+              path: `/products/${product.slug}`,
+              lastModified: new Date(product.createdAt).toISOString(),
+              changeFrequency: 'weekly',
+              priority: 0.7,
+            });
+          }
+        } catch {
+          // Database unreachable — curated products remain in the sitemap.
+        }
+
+        for (const channel of getChannelsData().channels) {
+          entries.push({
+            path: `/channel/${channel.slug}`,
+            lastModified: `${channel.lastVerifiedAt}T00:00:00.000Z`,
+            changeFrequency: 'weekly',
+            priority: 0.7,
+          });
+        }
 
         // Blog posts: db posts merged with local MDX posts.
         try {

@@ -561,3 +561,25 @@ export type NewTicketMessage = typeof ticketMessage.$inferInsert;
 
 // ─── Custom tables ───────────────────────────────────────────────────────────
 // Add your own tables below this line.
+
+export const productSubmission = table(
+  'product_submission',
+  {
+    id: varchar191('id').primaryKey(),
+    slug: varchar191('slug').notNull().unique(),
+    name: varchar('name', { length: 255 }).notNull(),
+    website: text('website').notNull(),
+    category: varchar('category', { length: 50 }).notNull(),
+    description: longtext('description').notNull(),
+    email: varchar191('email').notNull(),
+    status: varchar('status', { length: 30 }).notNull().default('published'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().onUpdateNow().notNull(),
+  },
+  (t) => [
+    index('idx_product_submission_status_created').on(t.status, t.createdAt),
+  ]
+);
+
+export type ProductSubmission = typeof productSubmission.$inferSelect;
+export type NewProductSubmission = typeof productSubmission.$inferInsert;

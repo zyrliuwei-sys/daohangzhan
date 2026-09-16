@@ -1,11 +1,12 @@
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import mdx from '@mdx-js/rollup';
 import tailwindcss from '@tailwindcss/vite';
 import viteReact from '@vitejs/plugin-react';
 import { nitro } from 'nitro/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 
 import { loadEnvFiles } from './src/lib/env';
 
@@ -24,8 +25,9 @@ loadEnvFiles();
 const isCloudflareBuild = (process.env.NITRO_PRESET || '').includes(
   'cloudflare'
 );
-const driverStub = new URL('./src/core/db/driver-stub.ts', import.meta.url)
-  .pathname;
+const driverStub = fileURLToPath(
+  new URL('./src/core/db/driver-stub.ts', import.meta.url)
+);
 
 // Prefer wrangler.jsonc over the build-time env, which can be polluted by
 // .env.local (e.g. DATABASE_PROVIDER=sqlite for local dev).
@@ -43,8 +45,22 @@ function workersDbProvider(): string {
   return process.env.DATABASE_PROVIDER || 'd1';
 }
 
-const workersDb = isCloudflareBuild ? workersDbProvider() : '';
-const keepPostgres = workersDb === 'postgresql' || workersDb === 'postgres';
+const configuredDbProvider = isCloudflareBuild
+  ? workersDbProvider()
+  : process.env.DATABASE_PROVIDER || 'sqlite';
+const keepPostgres =
+  configuredDbProvider === 'postgresql' || configuredDbProvider === 'postgres';
+const keepMysql = configuredDbProvider === 'mysql';
+
+const clientDbDriverStub: Plugin = {
+  name: 'client-db-driver-stub',
+  enforce: 'pre',
+  resolveId(source, _importer, options) {
+    if (options.ssr) return null;
+    if (source === 'mysql2' || source === 'postgres') return driverStub;
+    return null;
+  },
+};
 
 export default defineConfig({
   server: {
@@ -56,16 +72,32 @@ export default defineConfig({
   },
   resolve: {
     tsconfigPaths: true,
-    alias: isCloudflareBuild
-      ? {
-          mysql2: driverStub,
-          ...(keepPostgres ? {} : { postgres: driverStub }),
-        }
-      : {},
+    // create-db imports every dialect module so the server can choose a
+    // provider at runtime. Stub the unused Node-only driver in client/dev
+    // bundles too; otherwise mysql2 evaluates in the browser and crashes
+    // hydration with "Buffer is not defined" even for PostgreSQL projects.
+    alias: {
+      ...(keepMysql ? { postgres: driverStub } : { mysql2: driverStub }),
+      ...(keepPostgres ? {} : { postgres: driverStub }),
+    },
+  },
+  optimizeDeps: {
+    // Let the client resolver replace these Node-only drivers with the stub
+    // instead of pre-bundling them before the resolver can run.
+    exclude: ['mysql2', 'postgres'],
   },
   plugins: [
+    clientDbDriverStub,
     // MDX must run before the react plugin so JSX in compiled MDX gets transformed.
-    { enforce: 'pre', ...mdx({ providerImportSource: '@mdx-js/react' }) },
+    // `content/**/*.md` is excluded so SEO copy stays plain markdown,
+    // imported as ?raw strings by src/lib/seo-content.ts.
+    {
+      enforce: 'pre',
+      ...mdx({
+        providerImportSource: '@mdx-js/react',
+        exclude: /^.*\/content\/.*\.md$/,
+      }),
+    },
     tailwindcss(),
     paraglideVitePlugin({
       project: './project.inlang',

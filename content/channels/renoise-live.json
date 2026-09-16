@@ -1,0 +1,28 @@
+{
+  "route": "/channel/renoise-live",
+  "channel": "renoise-live",
+  "meta": {
+    "title": "Renoise Live: AI Survival Show Steered by Chat",
+    "description": "Renoise Live is an AI survival reality show: four castaways on a storm-bound island, with live chat deciding what they face next. Streams continuously."
+  },
+  "h1": "Renoise Live: the island where chat is the weather",
+  "keywords": {
+    "primary": "renoise live ai livestream",
+    "secondary": ["renoise live stream", "watch renoise live"]
+  },
+  "related": ["infinite-slop", "fal-live", "nothing-forever"],
+  "faqs": [
+    {
+      "q": "What is Renoise Live?",
+      "a": "A survival reality series airing as a continuous AI livestream: four contestants are stranded on a storm-bound island, and every scene reacts to what the live audience decides."
+    },
+    {
+      "q": "Can viewers actually decide what happens?",
+      "a": "Yes — chat picks what the islanders encounter next, and the chosen scene is generated live. The show renders your decision and keeps the story flowing from there."
+    },
+    {
+      "q": "Does Renoise Live follow a script?",
+      "a": "No pre-written episodes. The series generates scene by scene; the standing premise (castaways, island, storm) stays fixed while the audience's choices drive what actually happens."
+    }
+  ]
+}

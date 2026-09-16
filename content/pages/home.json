@@ -1,0 +1,30 @@
+{
+  "route": "/",
+  "meta": {
+    "title": "AI Livestream: Watch Live AI-Generated Channels 24/7",
+    "description": "Watch AI livestreams that render while you watch: chat-directed reality shows, 24/7 channels, AI news, and AI VTubers, all generated live around the clock."
+  },
+  "h1": "AI livestreams, generated live while you watch",
+  "keywords": {
+    "primary": "ai livestream",
+    "secondary": ["ai live stream", "ai live streaming"]
+  },
+  "faqs": [
+    {
+      "q": "Is an AI livestream actually live?",
+      "a": "Yes. Nothing is pre-recorded: a video model generates the frames as the stream airs. There is no footage file behind it. Stop the model and the picture stops with it."
+    },
+    {
+      "q": "Can viewers change what happens on screen?",
+      "a": "On chat-directed channels, yes. Viewers type suggestions, the chat votes, and the winning direction is rendered as the next scene within seconds."
+    },
+    {
+      "q": "What powers these streams?",
+      "a": "Realtime video models. Verified examples: MiniMax H3 running on fal powers Infinite Slop, Google's Veo powers Flow TV, and LTX Video renders Infinite TV's chat-directed scenes."
+    },
+    {
+      "q": "Are AI livestreams free to watch?",
+      "a": "Many are. Flow TV streams free with no account; Nothing, Forever airs on Twitch. Platform-run channels and studios set their own terms. Check the official site."
+    }
+  ]
+}

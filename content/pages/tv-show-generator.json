@@ -1,0 +1,35 @@
+{
+  "route": "/tv-show-generator",
+  "meta": {
+    "title": "AI TV Show Generator: Watch & Make AI-Generated Shows",
+    "description": "An AI TV show generator turns one premise into continuous episodes — sitcoms, series, and soaps generated live, steered by chat. What to watch, how to start."
+  },
+  "h1": "AI TV show generators: one premise, an endless run",
+  "keywords": {
+    "primary": "ai tv show generator",
+    "secondary": [
+      "ai series generator",
+      "ai sitcom generator",
+      "ai episode generator",
+      "ai soap opera generator"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Can AI generate a full TV show?",
+      "a": "Yes — continuously. Nothing, Forever has streamed an AI-written sitcom on Twitch since early 2023, and channels like fal.live and Infinite Slop generate their shows live, around the clock, with no episodes \"finished\" in advance."
+    },
+    {
+      "q": "What is an AI sitcom generator?",
+      "a": "A channel or stack that runs a sitcom premise — cast, apartment, running gags — as a standing prompt and generates dialogue and scenes live. Nothing, Forever is the original: a low-poly, Seinfeld-style sitcom written by AI as it airs."
+    },
+    {
+      "q": "Do AI-generated shows stop when I stop prompting?",
+      "a": "No. Always-on channels keep generating whether you participate or not — 24/7 is the default. Your prompts and votes steer the story; they don't keep it alive."
+    },
+    {
+      "q": "Can I watch AI-generated shows for free?",
+      "a": "Often, yes. Flow TV streams 24/7 AI-generated channels free with no account. Other channels and platforms set their own terms — check the official site before signing up."
+    }
+  ]
+}

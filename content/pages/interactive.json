@@ -1,0 +1,26 @@
+{
+  "route": "/interactive",
+  "meta": {
+    "title": "Interactive Video Generator: AI Video That Answers Back",
+    "description": "An interactive video generator changes the story as you type, vote, or click. How interactive AI video works, plus the live channels where you can steer it."
+  },
+  "h1": "Interactive video generators: you type, the video answers",
+  "keywords": {
+    "primary": "interactive video generator",
+    "secondary": ["interactive ai video"]
+  },
+  "faqs": [
+    {
+      "q": "How is interactive AI video different from a chatbot with a face?",
+      "a": "A chatbot answers with text or speech. Interactive AI video answers with new *footage*: your input is turned into the next scene of a running video stream, generated live by a video model."
+    },
+    {
+      "q": "Does my vote actually change the video?",
+      "a": "On audience-voting channels, yes — the top-voted suggestion becomes the instruction for the next scene, and you watch it render within seconds. On Infinite Slop and Renoise Live, the show is visibly built from viewer decisions."
+    },
+    {
+      "q": "Can one person steer, or does the crowd decide?",
+      "a": "On live channels the crowd decides — proposals go to a vote and the winner screens. Running your own channel (or a self-hosted stack) gives a single director full control."
+    }
+  ]
+}

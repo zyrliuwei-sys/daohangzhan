@@ -1,0 +1,28 @@
+{
+  "route": "/channel/nothing-forever",
+  "channel": "nothing-forever",
+  "meta": {
+    "title": "Nothing, Forever: AI Sitcom Live Since 2023",
+    "description": "Nothing, Forever is the AI-generated sitcom that has streamed on Twitch since early 2023 — dialogue, jokes, and scenes written live by AI, around the clock."
+  },
+  "h1": "Nothing, Forever: the sitcom that never wraps",
+  "keywords": {
+    "primary": "nothing forever ai livestream",
+    "secondary": ["nothing forever twitch", "watch nothing forever"]
+  },
+  "related": ["flow-tv", "infinite-slop"],
+  "faqs": [
+    {
+      "q": "Is Nothing, Forever still streaming?",
+      "a": "Yes — the channel has kept streaming its AI-generated sitcom continuously since going live in early 2023. It airs around the clock on Twitch at watchmeforever."
+    },
+    {
+      "q": "Who writes Nothing, Forever?",
+      "a": "AI does — dialogue, jokes, scenes, and even the stand-up bits are generated live. The human team (Mismatch Media) built the show; the machine keeps it on air."
+    },
+    {
+      "q": "Why is it low-poly and Seinfeld-style?",
+      "a": "That's the premise the show launched with: a blocky apartment-comedy world in the Seinfeld tradition. The standing format is part of what proved an always-on AI sitcom could hold an audience."
+    }
+  ]
+}

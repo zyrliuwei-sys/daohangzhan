@@ -27,7 +27,11 @@ import '@fontsource-variable/inter';
 import '@fontsource/libre-baskerville/400.css';
 import '@fontsource/libre-baskerville/700.css';
 import '@fontsource/libre-baskerville/400-italic.css';
+import '@fontsource-variable/archivo';
+import '@fontsource-variable/ibm-plex-sans';
+import '@fontsource/ibm-plex-mono/400.css';
 import '@/styles/globals.css';
+import '@/styles/ai-index.css';
 
 // Analytics IDs live in the DB config (1h-cached service). Fetched via a
 // server function so drizzle/db code never reaches the client bundle.
@@ -59,7 +63,7 @@ export const Route = createRootRoute({
   head: () => {
     // head() runs on the SSR server AND again on the client during hydration.
     // On the client, app_url falls back to the localhost dev default when
-    // VITE_APP_URL wasn't inlined into the client bundle at build — which would
+    // VITE_APP_URL wasn't inlined into the client bundle at build - which would
     // emit a second, localhost set of hreflang links. Prefer the live origin
     // on the client so it always matches; the server uses the configured URL.
     const appUrl =
@@ -97,7 +101,7 @@ function RootComponent() {
     <QueryClientProvider client={getQueryClient()}>
       <ThemeProvider
         attribute="class"
-        defaultTheme="system"
+        defaultTheme="light"
         enableSystem
         disableTransitionOnChange
       >

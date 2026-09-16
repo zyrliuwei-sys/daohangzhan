@@ -1,0 +1,28 @@
+{
+  "route": "/channel/flow-tv",
+  "channel": "flow-tv",
+  "meta": {
+    "title": "Flow TV: Free 24/7 AI Channels, Powered by Veo",
+    "description": "Flow TV is Google Labs' free 24/7 stream of AI-generated channels powered by Veo — hop themed channels or shuffle, see the prompt behind every clip, no account."
+  },
+  "h1": "Flow TV: free channel surfing, prompts on screen",
+  "keywords": {
+    "primary": "flow tv ai livestream",
+    "secondary": ["flow tv google", "watch flow tv"]
+  },
+  "related": ["nothing-forever", "infinite-slop"],
+  "faqs": [
+    {
+      "q": "Is Flow TV free?",
+      "a": "Yes — it's a free Google Labs experiment, currently available in supported regions. No account is required to start watching."
+    },
+    {
+      "q": "What powers Flow TV?",
+      "a": "Google's Veo model family generates the channels' video, with audio. Each clip plays with the prompt that produced it shown on screen."
+    },
+    {
+      "q": "Can you steer Flow TV like other live AI channels?",
+      "a": "Not by voting — Flow TV is built for passive channel surfing: hop between themed channels or shuffle everything together, and read the prompts behind each clip as it plays."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "route": "/real-time",
+  "meta": {
+    "title": "Real-Time AI Video: How Live Generation Works",
+    "description": "Real-time AI video means every frame is generated as you watch — no render queue. How realtime video generation and low-latency streaming actually work."
+  },
+  "h1": "Real-time AI video, explained",
+  "keywords": {
+    "primary": "real time ai video",
+    "secondary": [
+      "realtime video generation",
+      "ai video streaming",
+      "realtime ai video generator",
+      "real time ai video generator"
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Is real-time AI video the same as live streaming?",
+      "a": "The delivery feels the same, but the source differs. A normal live stream transmits footage a camera already captured. A real-time AI stream has no camera: the model produces each frame as the stream plays."
+    },
+    {
+      "q": "How fast is \"real-time\" in practice?",
+      "a": "On live channels, an audience-approved direction becomes visible video within seconds. The H3 Max Director experience streams 24fps video with synced 48kHz stereo — fast enough to steer by chat."
+    },
+    {
+      "q": "Which models run in real time?",
+      "a": "Verified examples from live channels: MiniMax H3 on fal (Infinite Slop, fal.live), Google's Veo (Flow TV), and LTX Video (Infinite TV)."
+    },
+    {
+      "q": "Does going real-time cost quality?",
+      "a": "There's a trade-off: realtime channels stream at resolutions like 480p/768p rather than cinematic 4K. The point is responsiveness — video that answers you — not maximum fidelity."
+    }
+  ]
+}
