@@ -1032,7 +1032,7 @@ body {
 .ai-index-header-actions {
   display: none;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-md);
 }
 
 .ai-index-header-submit,
@@ -1046,6 +1046,7 @@ body {
 
 .ai-index-header-submit {
   padding-inline: 1.1rem;
+  font-weight: 700;
 }
 
 .ai-index-header-sign-in {
