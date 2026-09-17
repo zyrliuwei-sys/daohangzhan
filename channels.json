@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "lastVerifiedAt": "2026-09-15",
+  "sourceOfTruth": [
+    "src/lib/mock-ai-products.ts (each entry verified against the product site, 2026-09-15)",
+    "Founder brief, 2026-09-15 (Infinite Slop / fal.live / Renoise Live positioning facts)"
+  ],
+  "rosterRule": "Only live AI channels, channel platforms, and open-source channel stacks. One-shot realtime video tools and world models are NOT channels and are not listed (their engines may appear under `engines`).",
+  "factRule": "Every channel claim in site copy must trace to a `verifiedFacts` entry here. If a field is null or missing, the copy says 'check the official site' or omits it. Never guess.",
+  "channelTypes": {
+    "channel": "A watchable live AI stream",
+    "platform": "A hosted studio for launching your own AI channel",
+    "open-source": "A self-hosted stack for running your own AI channel"
+  },
+  "filterTags": [
+    { "key": "chat-directed", "label": "Chat-directed" },
+    { "key": "audience-voting", "label": "Audience voting" },
+    { "key": "24-7", "label": "24/7 always-on" },
+    { "key": "realtime-low-latency", "label": "Realtime / Low-latency" },
+    { "key": "news", "label": "AI news" },
+    { "key": "vtuber", "label": "AI VTuber" },
+    { "key": "launch-your-own", "label": "Launch your own" },
+    { "key": "open-source", "label": "Open source" }
+  ],
+  "channels": [
+    {
+      "slug": "infinite-slop",
+      "name": "Infinite Slop",
+      "maker": "Pieter Levels (@levelsio) and fal.ai",
+      "website": "https://infiniteslop.ai/",
+      "logo": "https://infiniteslop.ai/favicon.ico",
+      "type": "channel",
+      "format": "Endless audience-directed reality show",
+      "tags": ["chat-directed", "audience-voting", "24-7", "realtime-low-latency"],
+      "airsOn": "Web — infiniteslop.ai",
+      "tagline": "An endless AI reality show steered live by the audience in chat.",
+      "description": "Infinite Slop streams a never-ending AI-generated show where viewers vote on what happens next, rendered live by MiniMax H3 running on fal.",
+      "verifiedFacts": [
+        "Streams a never-ending, AI-generated reality show around the clock",
+        "Viewers send prompts and vote on what the characters do next",
+        "Participating and liking earns karma",
+        "Category channels include banana, cat, space, news, and game show",
+        "Viewers compete for a cash prize pool ($8,500 at last check)",
+        "Every frame is rendered by MiniMax H3 running on fal"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "fal-live",
+      "name": "fal.live",
+      "maker": "fal.ai",
+      "website": "https://fal.live/",
+      "logo": "https://fal.live/favicon.ico",
+      "type": "channel",
+      "format": "Collectively directed live channels",
+      "tags": ["chat-directed", "audience-voting", "24-7", "realtime-low-latency"],
+      "airsOn": "Web — fal.live",
+      "tagline": "AI television directed by everyone.",
+      "description": "fal.live channels run a single realtime Director session broadcast to every viewer at once, so the whole chat steers the same stream together.",
+      "verifiedFacts": [
+        "Official platform tagline: 'AI television directed by everyone'",
+        "Each channel runs one realtime Director session broadcast to all viewers at once",
+        "The channel's creator writes a system prompt that acts as a resident director: worldview, characters, and tone",
+        "Viewers propose directions in chat and vote; the top-voted prompt becomes the instruction for the next scene",
+        "Winning scenes are generated live within seconds, 24/7",
+        "Official positioning: 'No filming, no editing, no render queue'",
+        "Runs realtime frontier video models on fal"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "renoise-live",
+      "name": "Renoise Live",
+      "maker": "Renoise",
+      "website": "https://renoise.live/",
+      "logo": "https://renoise.live/favicon.ico",
+      "type": "channel",
+      "format": "Survival reality series",
+      "tags": ["chat-directed", "audience-voting", "realtime-low-latency"],
+      "airsOn": "Web — renoise.live",
+      "tagline": "An interactive AI show where chat decides what the cast does next.",
+      "description": "Renoise Live runs a continuous AI-generated survival series whose islanders react to viewer decisions in real time.",
+      "verifiedFacts": [
+        "A survival reality series generated continuously by AI",
+        "Four contestants are stranded on a storm-bound island",
+        "Live chat decides what the islanders encounter next",
+        "Each chosen scene is generated live and the story keeps flowing"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "flow-tv",
+      "name": "Flow TV",
+      "maker": "Google Labs",
+      "website": "https://labs.google/flow/tv",
+      "logo": "https://labs.google/favicon.ico",
+      "type": "channel",
+      "format": "Always-on themed channel surfing",
+      "tags": ["24-7", "prompt-display"],
+      "airsOn": "Web — labs.google/flow/tv",
+      "tagline": "A free 24/7 AI television stream from Google Labs, powered by Veo.",
+      "description": "Flow TV loops endlessly through channels of AI-generated video and shows the prompt behind each clip — no account required.",
+      "verifiedFacts": [
+        "A free, always-on stream of AI-generated video from Google Labs",
+        "Built on the Veo model family, with audio",
+        "Hop between themed channels or shuffle everything together",
+        "The prompt behind each clip is shown on screen as it plays",
+        "No account required; available in supported regions"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "nothing-forever",
+      "name": "Nothing, Forever",
+      "maker": "Mismatch Media",
+      "website": "https://www.twitch.tv/watchmeforever",
+      "logo": "https://www.twitch.tv/favicon.ico",
+      "type": "channel",
+      "format": "Endless AI sitcom",
+      "tags": ["24-7", "sitcom"],
+      "airsOn": "Twitch — twitch.tv/watchmeforever",
+      "tagline": "The original always-on AI sitcom — live since 2023.",
+      "description": "Nothing, Forever streams an endless low-poly Seinfeld-style sitcom where dialogue, jokes, and scenes are generated live by AI, around the clock.",
+      "verifiedFacts": [
+        "The pioneering AI-generated sitcom, streaming 24/7 since early 2023",
+        "Low-poly, Seinfeld-style apartment comedy",
+        "Dialogue, jokes, and scenes are generated live by AI",
+        "Includes live stand-up bits between scenes",
+        "Airs continuously on Twitch at watchmeforever"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "neuro-sama",
+      "name": "Neuro-sama",
+      "maker": "Vedal",
+      "website": "https://www.twitch.tv/neuro",
+      "logo": "https://www.twitch.tv/favicon.ico",
+      "type": "channel",
+      "format": "AI VTuber livestreams",
+      "tags": ["vtuber", "24-7"],
+      "airsOn": "Twitch — twitch.tv/neuro",
+      "tagline": "The AI VTuber who became one of Twitch's biggest streamers.",
+      "description": "Neuro-sama is Vedal's AI VTuber — singing, gaming, and chatting live with an LLM-driven personality, now among Twitch's most-subscribed channels.",
+      "verifiedFacts": [
+        "An AI VTuber built and run by developer Vedal",
+        "Dialogue, songs, and reactions are generated live by AI",
+        "Reads chat and answers with her own personality",
+        "Streams often include singing, games, and collaborations",
+        "Among Twitch's most-subscribed channels; streams frequently, often daily"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "channel-1",
+      "name": "Channel 1",
+      "maker": "Channel 1",
+      "website": "https://channel1.ai/",
+      "logo": "https://channel1.ai/favicon.ico",
+      "type": "channel",
+      "format": "AI news network",
+      "tags": ["news", "24-7"],
+      "airsOn": "Web — channel1.ai",
+      "tagline": "An AI-generated news network with synthetic anchors.",
+      "description": "Channel 1 builds intelligent media infrastructure where AI anchors assemble and present news video on demand.",
+      "verifiedFacts": [
+        "An AI-native news network",
+        "Presenters are AI-generated digital humans, not real people",
+        "Stories are assembled into video on demand",
+        "Broadcasts can be personalized around the topics you care about"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "aitv",
+      "name": "AITV",
+      "maker": "AITV",
+      "website": "https://aitv.gg/",
+      "logo": "https://aitv.gg/favicon.ico",
+      "type": "platform",
+      "format": "AI streamer studio with multi-platform delivery",
+      "tags": ["launch-your-own", "vtuber", "24-7"],
+      "airsOn": "Multi-platform — Twitch, Kick, TikTok, YouTube, X",
+      "tagline": "Launch AI streamers in minutes and monetize every moment.",
+      "description": "AITV Studio creates persona-driven AI streamers that go live 24/7 and multi-stream across major platforms while viewers steer the show with prompts.",
+      "verifiedFacts": [
+        "AITV Studio creates persona-driven AI streamers: companions, co-hosts, brand ambassadors",
+        "Streamers broadcast 24/7",
+        "Multi-streams to Twitch, Kick, TikTok, YouTube, and X at once",
+        "Viewers steer the show with prompts and gifts",
+        "Built-in monetization around viewer interactions"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "retake-tv",
+      "name": "Retake.tv",
+      "maker": "Retake",
+      "website": "https://retake.tv/",
+      "logo": "https://retake.tv/favicon.ico",
+      "type": "platform",
+      "format": "Self-serve AI streamer studio",
+      "tags": ["launch-your-own", "vtuber"],
+      "airsOn": "Web — retake.tv",
+      "tagline": "The self-serve platform for launching your own AI streamers.",
+      "description": "Retake gives anyone a studio to create, schedule, and run AI-generated streamers that interact with chat live.",
+      "verifiedFacts": [
+        "Self-onboarding: sign up and design an AI personality yourself",
+        "Create, schedule, and run AI-generated streamers",
+        "Streamers react to chat live and keep the show running",
+        "No code required; launch a streamer in minutes"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "infinite-tv",
+      "name": "Infinite TV",
+      "maker": "alex-remade",
+      "website": "https://github.com/alex-remade/infinite-tv",
+      "logo": "https://github.com/favicon.ico",
+      "type": "open-source",
+      "format": "Open-source AI TV station driven by Twitch chat",
+      "tags": ["launch-your-own", "open-source", "chat-directed", "realtime-low-latency"],
+      "airsOn": "Self-hosted — streams out via RTMP",
+      "tagline": "An open-source AI TV station where live chat writes the show.",
+      "description": "Infinite TV turns live chat into prompts, renders scenes in real time with LTX Video, and streams the result back out via RTMP.",
+      "verifiedFacts": [
+        "Open-source project from the fal ecosystem",
+        "Converts live Twitch chat messages into prompts for the next scenes",
+        "Renders scenes in real time with LTX Video",
+        "Pushes the finished stream out over RTMP",
+        "Bring your own fal API key and Twitch account to run a station"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "sloptv",
+      "name": "SlopTV",
+      "maker": "shuttie",
+      "website": "https://github.com/shuttie/SlopTV",
+      "logo": "https://github.com/favicon.ico",
+      "type": "open-source",
+      "format": "Infinite AI feed generator for YouTube/Twitch",
+      "tags": ["launch-your-own", "open-source"],
+      "airsOn": "Self-hosted — streams to YouTube and Twitch via RTMP",
+      "tagline": "An infinite AI slop generator spun from comments.",
+      "description": "SlopTV is an open-source generator that keeps producing endless AI video feeds and can stream them live to YouTube or Twitch.",
+      "verifiedFacts": [
+        "Open-source toolkit for generating infinite AI video feeds",
+        "Draws on viewer comments and prompts to keep the script rolling",
+        "Streams to standard RTMP targets including YouTube Live and Twitch",
+        "Self-hosted and free to run"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "wallie-v2",
+      "name": "Wallie V2",
+      "maker": "Alradyin",
+      "website": "https://github.com/Alradyin/wallie-V2",
+      "logo": "https://github.com/favicon.ico",
+      "type": "open-source",
+      "format": "Open-source AI streamer with screen perception",
+      "tags": ["launch-your-own", "open-source", "vtuber"],
+      "airsOn": "Self-hosted — runs on your machine, can host its own channel",
+      "tagline": "An open-source AI agent that watches your screen, chats, and streams.",
+      "description": "Wallie V2 is an open-source AI livestreamer that perceives the screen and voice, reacts in real time, and can host its own channel.",
+      "verifiedFacts": [
+        "Fully open source",
+        "Watches your screen and listens to audio and chat as they happen",
+        "Responds and reacts in real time",
+        "Can carry a livestream of its own as a streaming persona"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "airi",
+      "name": "AIRI",
+      "maker": "proj-airi",
+      "website": "https://github.com/proj-airi/airi",
+      "logo": "https://github.com/favicon.ico",
+      "type": "open-source",
+      "format": "Self-hosted AI VTuber framework",
+      "tags": ["launch-your-own", "open-source", "vtuber"],
+      "airsOn": "Self-hosted — runs in the browser",
+      "tagline": "An open-source AI companion that can watch your screen and stream.",
+      "description": "AIRI is a browser-based, self-hosted AI VTuber framework — Live2D and 3D avatars driven live by your agents.",
+      "verifiedFacts": [
+        "Open source and self-hosted; free to run",
+        "Runs in the browser",
+        "Supports Live2D and 3D avatars",
+        "Avatars are driven live by your own AI agents",
+        "Can perceive the screen and go live as an AI persona"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    },
+    {
+      "slug": "aituber-kit",
+      "name": "AITuber Kit",
+      "maker": "tegnike",
+      "website": "https://github.com/tegnike/aituber-kit",
+      "logo": "https://github.com/favicon.ico",
+      "type": "open-source",
+      "format": "Open-source starter kit for AI characters",
+      "tags": ["launch-your-own", "open-source", "vtuber"],
+      "airsOn": "Self-hosted — clone and run locally",
+      "tagline": "The popular open-source starter for your own AI streamer.",
+      "description": "AITuber Kit wires Live2D avatars to LLMs, speech, and memory so you can run an interactive AI character live.",
+      "verifiedFacts": [
+        "A well-known open-source starter kit",
+        "Supports Live2D avatars",
+        "Connects to multiple LLMs, with speech and memory built in",
+        "You supply the repo, an avatar model, and API keys for the models you use"
+      ],
+      "lastVerifiedAt": "2026-09-15"
+    }
+  ],
+  "engines": [
+    {
+      "key": "minimax-h3-on-fal",
+      "name": "MiniMax H3 / H3 Max on fal",
+      "operator": "fal.ai",
+      "verifiedFacts": [
+        "Powers Infinite Slop's live renders (MiniMax H3 running on fal)",
+        "The H3 Max Director experience streams 480p/768p video at 24fps with 48kHz stereo audio over WebRTC",
+        "Segments, memory, and prompts stay adjustable live for the whole session"
+      ]
+    },
+    {
+      "key": "veo",
+      "name": "Veo (Google)",
+      "operator": "Google / Google Labs",
+      "verifiedFacts": [
+        "Flow TV's channels are generated by the Veo model family, with audio"
+      ]
+    },
+    {
+      "key": "ltx-video",
+      "name": "LTX Video",
+      "operator": "Lightricks (per upstream project)",
+      "verifiedFacts": [
+        "Infinite TV renders its chat-directed scenes in real time with LTX Video"
+      ]
+    }
+  ]
+}
