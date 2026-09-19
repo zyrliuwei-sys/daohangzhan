@@ -3,6 +3,10 @@ import { eq } from 'drizzle-orm';
 import { db } from '@/core/db';
 import { envConfigs } from '@/config';
 import { config } from '@/config/db/schema';
+import {
+  getCloudflareEnv,
+  isCloudflareWorkerRuntime,
+} from '@/lib/cloudflare-runtime';
 import { decryptSecret, encryptSecret, isEncryptedSecret } from '@/lib/crypto';
 
 import { getSettings } from './settings';
@@ -24,7 +28,18 @@ export async function getDbConfigs(): Promise<ConfigMap> {
   }
 
   try {
-    if (!envConfigs.database_url && envConfigs.database_provider !== 'd1') {
+    // Hyperdrive supplies the PostgreSQL connection at request time, so a
+    // Cloudflare deployment intentionally has no DATABASE_URL. Do not skip
+    // the config table in that case; otherwise production cannot read auth
+    // settings such as Google OAuth credentials.
+    const hasHyperdrive =
+      isCloudflareWorkerRuntime() && !!getCloudflareEnv()?.HYPERDRIVE;
+    const hasDatabase =
+      !!envConfigs.database_url ||
+      envConfigs.database_provider === 'd1' ||
+      hasHyperdrive;
+
+    if (!hasDatabase) {
       return {};
     }
 
