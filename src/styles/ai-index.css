@@ -4446,11 +4446,18 @@ body {
   position: relative;
   z-index: 1;
   width: min(100% - clamp(2rem, 7vw, 9rem), 1440px);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  justify-items: center;
 }
 
 .vibe-prompt-hero-copy {
   position: relative;
   z-index: 1;
+  min-width: 0;
+  max-width: 100%;
+  margin-inline: auto;
+  justify-self: center;
 }
 
 .vibe-prompt-hero-copy h1 {
@@ -4469,6 +4476,8 @@ body {
 .vibe-prompt-input-shell {
   position: relative;
   z-index: 1;
+  min-width: 0;
+  justify-self: center;
   border: 1px solid var(--color-ink);
   border-radius: var(--radius-md);
   background: var(--color-paper-strong);

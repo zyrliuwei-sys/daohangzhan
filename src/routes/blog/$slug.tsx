@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router';
+import { createFileRoute, notFound, redirect } from '@tanstack/react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { ArrowLeft, Calendar } from 'lucide-react';
 
@@ -15,6 +15,9 @@ import { getBlogPostFn } from '@/content/posts/server';
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {
+    if (params.slug === 'what-is-shipany') {
+      throw redirect({ to: '/blog/what-is-viddir', statusCode: 301 });
+    }
     const locale = getLocale();
     const post = await getBlogPostFn({
       data: { slug: params.slug, locale },
