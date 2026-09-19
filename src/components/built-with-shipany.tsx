@@ -9,9 +9,9 @@ function getHostname(url: string): string {
   }
 }
 
-export function BuiltWithShipAny({ className }: { className?: string }) {
+export function BuiltWithViddir({ className }: { className?: string }) {
   const utm = encodeURIComponent(getHostname(envConfigs.app_url));
-  const href = `https://shipany.ai/?utm_source=${utm}`;
+  const href = `https://www.viddir.com/?utm_source=${utm}`;
 
   return (
     <a
@@ -27,7 +27,7 @@ export function BuiltWithShipAny({ className }: { className?: string }) {
       <span aria-hidden className="text-red-500">
         ❤️
       </span>
-      <span>ShipAny</span>
+      <span>viddir</span>
     </a>
   );
 }

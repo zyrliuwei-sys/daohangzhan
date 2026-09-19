@@ -79,14 +79,25 @@ export function AiProductLogo({
         {getLogoMark(name)}
       </span>
       {imageSrc && !imageFailed && (
-        <img src={imageSrc} alt="" loading="lazy" onError={handleImageError} />
+        <img
+          src={imageSrc}
+          alt=""
+          width={large ? 72 : 40}
+          height={large ? 72 : 40}
+          loading="lazy"
+          decoding="async"
+          onError={handleImageError}
+        />
       )}
       {hero && (
         <img
           src={hero}
           className="ai-product-logo-hero"
           alt=""
+          width={large ? 72 : 40}
+          height={large ? 72 : 40}
           loading="lazy"
+          decoding="async"
           onError={(event) => {
             event.currentTarget.style.display = 'none';
           }}

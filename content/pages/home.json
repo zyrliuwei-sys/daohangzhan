@@ -1,10 +1,10 @@
 {
-  "route": "/",
+  "route": "/ai-livestream",
   "meta": {
-    "title": "AI Livestream: Watch Live AI-Generated Channels 24/7",
-    "description": "Watch AI livestreams that render while you watch: chat-directed reality shows, 24/7 channels, AI news, and AI VTubers, all generated live around the clock."
+    "title": "AI Livestream: Watch AI-Generated Shows Live 24/7",
+    "description": "Watch an AI livestream generate every frame live. Browse chat-directed shows, 24/7 channels, AI news, and AI VTubers, then find a stream to watch and shape."
   },
-  "h1": "AI livestreams, generated live while you watch",
+  "h1": "AI livestream: Watch AI-generated shows as they go live",
   "keywords": {
     "primary": "ai livestream",
     "secondary": ["ai live stream", "ai live streaming"]

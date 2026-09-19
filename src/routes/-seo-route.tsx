@@ -20,6 +20,7 @@ export function seoPageHead(urlPath: string, loaderData?: LoaderData) {
   if (!loaderData) return {};
   const { meta } = loaderData.json;
   const { locale } = loaderData;
+  const socialImage = new URL('/imgs/vidair-logo.png', envConfigs.app_url).href;
   const urlFor = (loc: string) =>
     localizeUrl(`${envConfigs.app_url}${urlPath}`, {
       locale: loc as ReturnType<typeof getLocale>,
@@ -28,6 +29,17 @@ export function seoPageHead(urlPath: string, loaderData?: LoaderData) {
     meta: [
       { title: meta.title },
       { name: 'description', content: meta.description },
+      { property: 'og:title', content: meta.title },
+      { property: 'og:description', content: meta.description },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: urlFor(locale) },
+      { property: 'og:site_name', content: envConfigs.app_name },
+      { property: 'og:image', content: socialImage },
+      { property: 'og:image:alt', content: meta.title },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: meta.title },
+      { name: 'twitter:description', content: meta.description },
+      { name: 'twitter:image', content: socialImage },
     ],
     links: [
       { rel: 'canonical', href: urlFor(locale) },

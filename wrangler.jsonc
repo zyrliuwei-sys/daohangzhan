@@ -1,13 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "daohangzhan",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_compat_populate_process_env",
+  ],
   "observability": {
     "enabled": true,
   },
   "vars": {
     "DATABASE_PROVIDER": "postgresql",
     "VITE_APP_URL": "https://www.viddir.com",
+    "VITE_APP_NAME": "viddir",
   },
   "hyperdrive": [
     {

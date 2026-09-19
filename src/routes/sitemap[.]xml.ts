@@ -8,7 +8,7 @@ import { baseLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { getLocalPosts, mergePosts } from '@/content/posts';
 
 const STATIC_PATHS = [
-  '',
+  '/ai-livestream',
   '/channels',
   '/director',
   '/tv-show-generator',

@@ -40,7 +40,7 @@ const appUrl = resolveAppUrl();
 export const envConfigs: Record<string, string> = {
   // App (public)
   app_url: appUrl,
-  app_name: publicEnv('VITE_APP_NAME') ?? 'ShipAny',
+  app_name: publicEnv('VITE_APP_NAME') ?? 'viddir',
   app_description: publicEnv('VITE_APP_DESCRIPTION') ?? 'Ship your SaaS faster',
   app_logo: publicEnv('VITE_APP_LOGO') ?? '/logo.svg',
 

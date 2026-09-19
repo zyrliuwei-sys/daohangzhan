@@ -12,7 +12,6 @@ import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { AiHomeCta } from '@/blocks/ai-home-cta';
 import { AiHomeFaq, getHomeFaqItems } from '@/blocks/ai-home-faq';
-import { ProductDirectoryPreview } from '@/blocks/product-directory-preview';
 import { AiIndexFooter, AiIndexHeader } from '@/components/ai-index-chrome';
 import { ChannelGrid } from '@/components/channel-grid';
 import { Button } from '@/components/ui/button';
@@ -175,8 +174,6 @@ export function HomeDirectory({
             </div>
           )}
         </section>
-
-        <ProductDirectoryPreview />
 
         <section
           className="ai-index-shell ai-index-section seo-home-article"

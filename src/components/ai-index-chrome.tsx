@@ -36,7 +36,7 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
       <div className="ai-index-header-inner">
         <div className="ai-index-header-main">
           <Link
-            href="/"
+            href="/ai-livestream"
             className="ai-index-brand"
             onClick={() => setOpen(false)}
             aria-label={envConfigs.app_name}
@@ -45,6 +45,8 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
               src="/imgs/vidair-logo.png"
               alt=""
               aria-hidden="true"
+              width={3137}
+              height={900}
               className="ai-index-brand-logo"
               decoding="async"
             />
@@ -153,7 +155,7 @@ export function AiIndexFooter({ content }: { content: AiIndexChromeContent }) {
     <footer className="ai-index-footer">
       <div className="ai-index-shell ai-index-footer-inner">
         <Link
-          href="/"
+          href="/ai-livestream"
           className="ai-index-footer-brand"
           aria-label={envConfigs.app_name}
         >
@@ -161,13 +163,15 @@ export function AiIndexFooter({ content }: { content: AiIndexChromeContent }) {
             src="/imgs/vidair-logo.png"
             alt=""
             aria-hidden="true"
+            width={3137}
+            height={900}
             className="ai-index-brand-logo"
             decoding="async"
           />
         </Link>
         <span className="ai-index-footer-tagline">{content.tagline}</span>
         <div className="ai-index-footer-links">
-          <Link href="/#directory">{content.footerBrowse}</Link>
+          <Link href="/ai-livestream#directory">{content.footerBrowse}</Link>
           <Link href="/submit">{content.footerSubmit}</Link>
         </div>
         <span className="ai-index-footer-note">{content.footerNote}</span>

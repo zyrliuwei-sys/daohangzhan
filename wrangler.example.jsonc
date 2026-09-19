@@ -6,7 +6,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "shipany-tanstack",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_compat_populate_process_env",
+  ],
   "observability": {
     "enabled": true,
   },
