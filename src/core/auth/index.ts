@@ -12,6 +12,7 @@ import * as schema from '@/config/db/schema';
 import { getAllConfigs } from '@/modules/config/service';
 import { grantForNewUser } from '@/modules/credits/service';
 import { grantRoleForNewUser } from '@/modules/rbac/service';
+import { isCloudflareWorkerRuntime } from '@/lib/cloudflare-runtime';
 import {
   getClientIpFromCtx,
   getCookieFromCtx,
@@ -57,16 +58,14 @@ function getDatabaseProvider(provider: string): 'sqlite' | 'pg' | 'mysql' {
 // callback query `verification` with the initiating request's client —
 // better-auth swallows the error as please_restart_the_process. Rebuild per
 // request on Workers; db() already hands out a fresh client there.
-const isCloudflareWorker =
-  (typeof navigator !== 'undefined' &&
-    navigator.userAgent === 'Cloudflare-Workers') ||
-  (typeof globalThis !== 'undefined' && 'Cloudflare' in globalThis);
-
 const TCP_PROVIDERS = ['postgresql', 'postgres', 'mysql'];
 
-const canCacheAuthInstance = !(
-  isCloudflareWorker && TCP_PROVIDERS.includes(envConfigs.database_provider)
-);
+function canCacheAuthInstance() {
+  return !(
+    isCloudflareWorkerRuntime() &&
+    TCP_PROVIDERS.includes(envConfigs.database_provider)
+  );
+}
 
 let authInstance: any;
 let socialConfigsSignature = '';
@@ -399,6 +398,6 @@ export function getAuth(configs?: Record<string, string>) {
     logger: { disabled: true },
   } satisfies BetterAuthOptions);
 
-  if (canCacheAuthInstance) authInstance = instance;
+  if (canCacheAuthInstance()) authInstance = instance;
   return instance;
 }

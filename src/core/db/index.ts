@@ -1,4 +1,5 @@
 import { envConfigs } from '@/config';
+import { isCloudflareWorkerRuntime } from '@/lib/cloudflare-runtime';
 
 import { createDb } from './create-db';
 
@@ -6,17 +7,14 @@ import { createDb } from './create-db';
 // behalf of a different request"), so TCP-backed drivers (postgres/mysql) must
 // get a fresh client per call there — Hyperdrive does the real pooling at the
 // edge. The D1 binding and local Node drivers are safe to cache.
-const isCloudflareWorker =
-  (typeof navigator !== 'undefined' &&
-    navigator.userAgent === 'Cloudflare-Workers') ||
-  (typeof globalThis !== 'undefined' && 'Cloudflare' in globalThis);
-
 const TCP_PROVIDERS = ['postgresql', 'postgres', 'mysql'];
 
 let dbInstance: any = null;
 
 export function db() {
   if (dbInstance) return dbInstance;
+
+  const isCloudflareWorker = isCloudflareWorkerRuntime();
 
   const instance = createDb({
     database_provider: envConfigs.database_provider,

@@ -1,10 +1,12 @@
 import { drizzle } from 'drizzle-orm/mysql2';
 import mysql from 'mysql2';
 
-import type { DbConfig } from './types';
+import {
+  getCloudflareEnv,
+  isCloudflareWorkerRuntime,
+} from '@/lib/cloudflare-runtime';
 
-const isCloudflareWorker =
-  typeof globalThis !== 'undefined' && 'Cloudflare' in globalThis;
+import type { DbConfig } from './types';
 
 // Global database connection instance (singleton pattern)
 let dbInstance: ReturnType<typeof drizzle> | null = null;
@@ -12,11 +14,12 @@ let pool: ReturnType<typeof mysql.createPool> | null = null;
 
 export function createMysqlDb(config: DbConfig) {
   let databaseUrl = config.database_url;
+  const isCloudflareWorker = isCloudflareWorkerRuntime();
 
   let isHyperdrive = false;
 
   if (isCloudflareWorker) {
-    const { env }: { env: any } = { env: {} };
+    const env = getCloudflareEnv() ?? {};
     isHyperdrive = 'HYPERDRIVE' in env;
 
     if (isHyperdrive) {

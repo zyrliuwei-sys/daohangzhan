@@ -1,13 +1,12 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-import type { DbConfig } from './types';
+import {
+  getCloudflareEnv,
+  isCloudflareWorkerRuntime,
+} from '@/lib/cloudflare-runtime';
 
-// workerd sets navigator.userAgent — the documented Workers runtime detection.
-const isCloudflareWorker =
-  (typeof navigator !== 'undefined' &&
-    navigator.userAgent === 'Cloudflare-Workers') ||
-  (typeof globalThis !== 'undefined' && 'Cloudflare' in globalThis);
+import type { DbConfig } from './types';
 
 // Global database connection instance (singleton pattern)
 let dbInstance: ReturnType<typeof drizzle> | null = null;
@@ -15,6 +14,7 @@ let client: ReturnType<typeof postgres> | null = null;
 
 export function createPostgresDb(config: DbConfig) {
   let databaseUrl = config.database_url;
+  const isCloudflareWorker = isCloudflareWorkerRuntime();
 
   const schemaName = (config.db_schema || 'public').trim();
   const connectionSchemaOptions =
@@ -28,8 +28,7 @@ export function createPostgresDb(config: DbConfig) {
     // The binding env is stashed on globalThis by src/server.ts (same pattern
     // as the D1 binding in d1.ts). Configure via wrangler.jsonc:
     //   "hyperdrive": [{ "binding": "HYPERDRIVE", "id": "..." }]
-    const g = globalThis as any;
-    const env = g.__CF_ENV__ ?? g.__env__;
+    const env = getCloudflareEnv();
     const hyperdrive = env?.HYPERDRIVE as
       | { connectionString: string }
       | undefined;

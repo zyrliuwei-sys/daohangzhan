@@ -55,6 +55,14 @@ export function Component({ copy = defaultCopy }: { copy?: VibeToPromptCopy }) {
       ];
     }
 
+    const colonAt = Math.max(copy.title.indexOf(':'), copy.title.indexOf('：'));
+    if (colonAt !== -1) {
+      return [
+        copy.title.slice(0, colonAt + 1).trim(),
+        copy.title.slice(colonAt + 1).trim(),
+      ];
+    }
+
     const commaAt = copy.title.indexOf(',');
     return commaAt === -1
       ? [copy.title]

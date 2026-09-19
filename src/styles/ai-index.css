@@ -3930,7 +3930,7 @@ body {
   max-width: none;
   margin: 0 auto;
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 5vw, 5.7rem);
+  font-size: clamp(2.8rem, 4vw, 4rem);
   font-weight: 780;
   letter-spacing: -0.08em;
   line-height: 0.96;
@@ -3940,7 +3940,7 @@ body {
   display: block;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 1200px) {
   .vibe-prompt-hero-copy h1 span {
     white-space: nowrap;
   }
