@@ -5,6 +5,7 @@ import { useSession } from '@/core/auth/client';
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { cn } from '@/lib/utils';
+import { FooterBadgeList } from '@/components/footer-badge-list';
 import { SiteUserMenu } from '@/components/site-user-menu';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -174,6 +175,7 @@ export function AiIndexFooter({ content }: { content: AiIndexChromeContent }) {
           <Link href="/ai-livestream#directory">{content.footerBrowse}</Link>
           <Link href="/submit">{content.footerSubmit}</Link>
         </div>
+        <FooterBadgeList className="mt-6" />
         <span className="ai-index-footer-note">{content.footerNote}</span>
       </div>
     </footer>

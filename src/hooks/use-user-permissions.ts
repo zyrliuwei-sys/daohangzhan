@@ -4,7 +4,7 @@ import { apiGet } from '@/lib/api-client';
 
 export interface UserPermissions {
   isAdmin: boolean;
-  permissions?: string[];
+  permissions: string[];
 }
 
 // Current user's permission summary — shared by site-user-menu and

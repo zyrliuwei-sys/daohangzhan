@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronRight, type LucideIcon } from 'lucide-react';
 
+import { matchPermission } from '@/core/auth/rbac';
 import { Link, usePathname } from '@/core/i18n/navigation';
 import { localizeHref } from '@/paraglide/runtime.js';
 import {
@@ -25,6 +26,7 @@ export interface NavSubItem {
   href: string;
   label: string;
   newTab?: boolean;
+  permission?: string;
 }
 
 export interface NavItem {
@@ -33,6 +35,7 @@ export interface NavItem {
   icon: LucideIcon;
   group?: string;
   newTab?: boolean;
+  permission?: string;
   /** Sub-items render as a collapsible group under this item. */
   items?: NavSubItem[];
 }
@@ -42,20 +45,36 @@ export function AppSidebar({
   brandHref = '/',
   navItems,
   footerNavItems,
+  permissionCodes,
   footer,
 }: {
   brand: React.ReactNode;
   brandHref?: string;
   navItems: NavItem[];
   footerNavItems?: NavItem[];
+  permissionCodes?: string[];
   footer?: React.ReactNode;
 }) {
   const pathname = usePathname();
 
+  const canView = (permission?: string) =>
+    !permission ||
+    !permissionCodes ||
+    matchPermission(permission, permissionCodes);
+  const visibleNavItems = navItems
+    .map((item) => ({
+      ...item,
+      items: item.items?.filter((sub) => canView(sub.permission)),
+    }))
+    .filter((item) => canView(item.permission));
+  const visibleFooterNavItems = footerNavItems?.filter((item) =>
+    canView(item.permission)
+  );
+
   // Group nav items by their (static) group label.
   const groups: { label?: string; items: NavItem[] }[] = [];
   let currentGroup: string | undefined = '__initial__';
-  for (const item of navItems) {
+  for (const item of visibleNavItems) {
     if (item.group !== currentGroup) {
       groups.push({ label: item.group, items: [item] });
       currentGroup = item.group;
@@ -67,14 +86,14 @@ export function AppSidebar({
   // The first nav item (dashboard root, e.g. /admin) matches exactly; everything
   // else matches by path prefix so sub-routes light up their entry.
   const isActiveHref = (href: string) =>
-    href === navItems[0]?.href
+    href === visibleNavItems[0]?.href
       ? pathname === href
       : pathname === href || pathname.startsWith(href + '/');
 
   // Hrefs of parent items whose sub-items contain the current route.
   const activeParents = () => {
     const set = new Set<string>();
-    for (const item of navItems) {
+    for (const item of visibleNavItems) {
       if (item.items?.some((sub) => isActiveHref(sub.href))) set.add(item.href);
     }
     return set;
@@ -216,9 +235,9 @@ export function AppSidebar({
       </SidebarContent>
 
       <SidebarFooter>
-        {footerNavItems && footerNavItems.length > 0 && (
+        {visibleFooterNavItems && visibleFooterNavItems.length > 0 && (
           <SidebarMenu>
-            {footerNavItems.map((item) => {
+            {visibleFooterNavItems.map((item) => {
               const Icon = item.icon;
               const isActive = item.newTab
                 ? false

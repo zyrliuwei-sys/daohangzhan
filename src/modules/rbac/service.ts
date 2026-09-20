@@ -216,6 +216,31 @@ export async function hasAnyPermission(
   return matchAnyPermission(permissionCodes, codes);
 }
 
+/**
+ * Check the role itself for sensitive system-wide operations. This is stricter
+ * than checking `admin.*`: regular admins can operate the admin panel, while
+ * only the explicitly assigned super_admin role can change global settings
+ * such as public footer badges.
+ */
+export async function isSuperAdmin(userId: string): Promise<boolean> {
+  const now = new Date();
+  const [result] = await db()
+    .select({ id: userRole.id })
+    .from(userRole)
+    .innerJoin(role, eq(userRole.roleId, role.id))
+    .where(
+      and(
+        eq(userRole.userId, userId),
+        eq(role.name, ROLES.SUPER_ADMIN),
+        eq(role.status, 'active'),
+        or(isNull(userRole.expiresAt), gt(userRole.expiresAt, now))
+      )
+    )
+    .limit(1);
+
+  return !!result;
+}
+
 // --- Auto-grant role for new user ---
 
 export async function grantRoleForNewUser(params: {

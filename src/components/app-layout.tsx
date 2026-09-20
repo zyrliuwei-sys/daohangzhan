@@ -139,6 +139,7 @@ export function AppLayout({
         brandHref={brandHref}
         navItems={navItems}
         footerNavItems={footerNavItems}
+        permissionCodes={permissionsQuery.data?.permissions}
         footer={
           <UserMenu
             name={session.user.name || 'User'}
