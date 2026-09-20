@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { AiHomeCta } from '@/blocks/ai-home-cta';
 import { AiHomeFaq, getHomeFaqItems } from '@/blocks/ai-home-faq';
+import { ProductDirectoryPreview } from '@/blocks/product-directory-preview';
 import { AiIndexFooter, AiIndexHeader } from '@/components/ai-index-chrome';
 import { ChannelGrid } from '@/components/channel-grid';
 import { Button } from '@/components/ui/button';
@@ -21,7 +22,7 @@ import { Component as VibeToPromptAiInput } from '@/components/ui/vibe-to-prompt
  * Directory-first homepage: the browsable channel grid (tag filters)
  * comes first, the long-form SEO copy from `content/pages/home.md` follows
  * below. The MD's "What's on tonight" tagged grids are cut. The interactive
- * directory above replaces them.
+ * directory above replaces the tagged channel grids from the article.
  */
 export function HomeDirectory({
   h1,
@@ -39,8 +40,8 @@ export function HomeDirectory({
     () =>
       cutSegmentsBetween(
         segments,
-        /<h2[^>]*>[^<]*What's on tonight/,
-        /<h2[^>]*>[^<]*Watching is directing/
+        /<h2[^>]*>[^<]*(?:What's on tonight|AI livestream channels to watch)/i,
+        /<h2[^>]*>[^<]*(?:Watching is directing|How viewers shape an AI livestream)/i
       ),
     [segments]
   );
@@ -174,6 +175,8 @@ export function HomeDirectory({
             </div>
           )}
         </section>
+
+        <ProductDirectoryPreview />
 
         <section
           className="ai-index-shell ai-index-section seo-home-article"
