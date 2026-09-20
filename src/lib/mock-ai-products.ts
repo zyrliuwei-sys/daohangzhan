@@ -144,6 +144,371 @@ function seo(
 const realtimeProducts: MockAiProduct[] = [
   {
     ...sharedProductFields,
+    slug: 'pikastream-1',
+    name: 'PikaStream1.0',
+    maker: 'Pika',
+    website:
+      'https://experiment.pika.art/blog/introducing-real-time-video-chat',
+    logo: 'https://pika.art/favicon.ico',
+    previewImage: '',
+    lastVerifiedAt: '2026-09-20',
+    tags: [
+      tag('streaming-video', 'Streaming video', '流式视频'),
+      tag('realtime-avatar', 'Real-time avatar', '实时数字人'),
+      tag('voice-interaction', 'Voice interaction', '语音交互'),
+    ],
+    tagline: text(
+      'Talk face-to-face with an AI agent at live video speed.',
+      '以实时视频速度与 AI 智能体面对面交谈。'
+    ),
+    description: text(
+      'Pika’s real-time visual engine generates personalized 480p video at 24 FPS with about 1.5 seconds of end-to-end speech-to-video latency.',
+      'Pika 的实时视觉引擎以 24 FPS 生成个性化 480p 视频，端到端语音转视频延迟约为 1.5 秒。'
+    ),
+    note: text('Best for: face-to-face AI agents', '适合：面对面 AI 智能体'),
+    tone: 'plum',
+    featured: true,
+    seo: seo(
+      text(
+        'PikaStream1.0 is a real-time speech-to-video engine for live AI-agent conversations. It streams personalized video at 24 FPS instead of waiting for a completed clip.',
+        'PikaStream1.0 是面向实时 AI 智能体对话的语音转视频引擎。它以 24 FPS 持续流式生成个性化画面，无需等待完整视频片段。'
+      ),
+      [
+        step(
+          'Open the official Pika research page',
+          '打开 Pika 官方研究页',
+          'Review the live-agent workflow and the official performance details.',
+          '查看实时智能体工作流和官方性能数据。'
+        ),
+        step(
+          'Start a live conversation',
+          '开始实时对话',
+          'Use a Pika AI Self or the published Pika skill in a supported call.',
+          '在支持的通话中使用 Pika AI Self 或官方发布的 Pika Skill。'
+        ),
+        step(
+          'Interact while video streams',
+          '在视频流中交互',
+          'Speak naturally while the engine generates the agent’s next frames chunk by chunk.',
+          '自然说话，观看引擎逐块生成智能体的后续画面。'
+        ),
+      ],
+      [
+        text('24 FPS personalized video', '24 FPS 个性化视频'),
+        text('About 1.5-second end-to-end latency', '约 1.5 秒端到端延迟'),
+        text('Chunk-by-chunk streaming generation', '逐块流式生成'),
+      ],
+      [
+        text('Conversational AI products', '对话式 AI 产品'),
+        text('Live AI assistants', '实时 AI 助手'),
+        text('Identity-consistent video agents', '身份一致的视频智能体'),
+      ],
+      [
+        faq(
+          'Why does PikaStream1.0 count as real-time video?',
+          'PikaStream1.0 为什么属于实时视频？',
+          'Pika reports 24 FPS streaming video and about 1.5 seconds from speech input to video output, with the model generating each sequence chunk by chunk.',
+          'Pika 公布的数据是 24 FPS 流式视频，从语音输入到视频输出约 1.5 秒，模型会逐块生成后续画面。'
+        ),
+      ]
+    ),
+  },
+  {
+    ...sharedProductFields,
+    slug: 'mira',
+    name: 'MIRA',
+    maker: 'General Intuition + Kyutai',
+    website: 'https://mira-wm.com/',
+    logo: 'https://mira-wm.com/favicon.ico',
+    previewImage: '',
+    lastVerifiedAt: '2026-09-20',
+    tags: [
+      tag('playable-world', 'Playable world', '可玩世界'),
+      tag('multiplayer', 'Multiplayer', '多人互动'),
+      tag('low-latency', 'Low latency', '低延迟'),
+    ],
+    tagline: text(
+      'Play a four-player world model generated live at 20 FPS.',
+      '体验以 20 FPS 实时生成的四人世界模型。'
+    ),
+    description: text(
+      'A playable official demo from General Intuition and Kyutai that simulates a four-player Rocket League-like world in real time from player inputs.',
+      '由 General Intuition 与 Kyutai 推出的可玩官方 demo，会根据玩家输入实时生成四人类《火箭联盟》世界。'
+    ),
+    note: text(
+      'Best for: multiplayer world-model research',
+      '适合：多人世界模型研究'
+    ),
+    tone: 'cobalt',
+    featured: true,
+    seo: seo(
+      text(
+        'MIRA is a multiplayer interactive world model with an official live demo. The generated game world runs at 20 FPS and reacts to the keys pressed by every player.',
+        'MIRA 是带官方实时 demo 的多人交互世界模型。生成的游戏世界以 20 FPS 运行，并根据每位玩家的按键即时响应。'
+      ),
+      [
+        step(
+          'Open the live demo',
+          '打开实时 demo',
+          'Visit the official MIRA page and choose one of the available games.',
+          '访问 MIRA 官方页并选择可用游戏。'
+        ),
+        step(
+          'Join the generated match',
+          '加入生成对局',
+          'Enter the shared four-player simulation.',
+          '进入共享的四人实时模拟。'
+        ),
+        step(
+          'Steer with player input',
+          '用玩家输入操控',
+          'Use the game controls and watch the model generate the next frames at 20 FPS.',
+          '使用游戏控件，观看模型以 20 FPS 生成后续画面。'
+        ),
+      ],
+      [
+        text('Official playable demo', '官方可玩 demo'),
+        text('Four-player interaction', '四人互动'),
+        text('Real-time 20 FPS simulation', '实时 20 FPS 模拟'),
+      ],
+      [
+        text('Interactive world-model research', '交互世界模型研究'),
+        text('Multiplayer simulation', '多人模拟'),
+        text('Playable generative video', '可玩生成式视频'),
+      ],
+      [
+        faq(
+          'Is MIRA generating the game while I play?',
+          'MIRA 会在我游玩时生成画面吗？',
+          'Yes. Its official page says the model runs in real time at 20 FPS based on the keys pressed by you and the other players.',
+          '会。官方页明确说明，模型会根据你和其他玩家的按键以 20 FPS 实时运行。'
+        ),
+      ]
+    ),
+  },
+  {
+    ...sharedProductFields,
+    slug: 'gwm-worlds-2',
+    name: 'GWM Worlds 2',
+    maker: 'Runway',
+    website: 'https://runway.com/research/introducing-gwm-worlds-2',
+    logo: 'https://runway.com/favicon.ico',
+    previewImage:
+      'https://d3phaj0sisr2ct.cloudfront.net/site/research/gwm-worlds-2/images/gwm-worlds-2-card.webp',
+    lastVerifiedAt: '2026-09-20',
+    tags: [
+      tag('realtime-world', 'Real-time world', '实时世界'),
+      tag('action-conditioned', 'Action-conditioned', '动作条件控制'),
+      tag('generated-audio', 'Generated audio', '生成音频'),
+    ],
+    tagline: text(
+      'Generate and steer an audiovisual world continuously at 24 FPS.',
+      '以 24 FPS 持续生成并操控视听世界。'
+    ),
+    description: text(
+      'Runway’s research preview generates continuous 720p video at 24 FPS with 48 kHz audio, responding to text actions and camera movement as the world runs.',
+      'Runway 的研究预览会以 24 FPS 持续生成 720p 视频和 48 kHz 音频，并在世界运行时响应文本动作与镜头移动。'
+    ),
+    note: text(
+      'Best for: real-time interactive world research',
+      '适合：实时互动世界研究'
+    ),
+    tone: 'amber',
+    featured: true,
+    seo: seo(
+      text(
+        'GWM Worlds 2 is Runway’s real-time autoregressive video-and-audio world model. It keeps generating without a preset duration while text actions and continuous camera motion change the world.',
+        'GWM Worlds 2 是 Runway 的实时自回归视音频世界模型。它没有预设时长，会持续生成，并根据文本动作和连续镜头运动改变世界。'
+      ),
+      [
+        step(
+          'Define the world',
+          '定义世界',
+          'Set the environment, subjects, visual style, physical rules, ambience, and first frame.',
+          '设置环境、主体、视觉风格、物理规则、氛围和首帧。'
+        ),
+        step(
+          'Steer subjects and camera',
+          '操控主体与镜头',
+          'Send text actions while continuous camera input moves through the world.',
+          '在连续镜头输入探索世界时发送文本动作。'
+        ),
+        step(
+          'Continue without a fixed clip',
+          '跳出固定片段持续生成',
+          'Each new input continues the generated world rather than restarting a fixed video.',
+          '每次新输入都会继续当前生成世界，而不是重新开始固定视频。'
+        ),
+      ],
+      [
+        text('Continuous 720p video at 24 FPS', '24 FPS 连续 720p 视频'),
+        text('Generated 48 kHz audio', '生成 48 kHz 音频'),
+        text('Immediate action and camera control', '即时动作与镜头控制'),
+      ],
+      [
+        text('Interactive entertainment', '互动娱乐'),
+        text('Virtual characters', '虚拟角色'),
+        text('Embodied-agent simulation', '具身智能体模拟'),
+      ],
+      [
+        faq(
+          'What makes GWM Worlds 2 real time?',
+          'GWM Worlds 2 的实时性体现在哪里？',
+          'The official preview says it generates 720p video at 24 FPS while user actions take effect immediately and generation keeps running.',
+          '官方预览明确说明，它以 24 FPS 生成 720p 视频，用户动作会立即生效，同时生成过程不会停止。'
+        ),
+      ]
+    ),
+  },
+  {
+    ...sharedProductFields,
+    slug: 'vidu-s2',
+    name: 'Vidu S2',
+    maker: 'ShengShu Technology',
+    website: 'https://www.vidu.com/vidu-stream',
+    logo: 'https://www.vidu.com/favicon.ico',
+    previewImage: '',
+    lastVerifiedAt: '2026-09-20',
+    tags: [
+      tag('realtime-avatar', 'Real-time avatar', '实时数字人'),
+      tag('live-editing', 'Live editing', '实时编辑'),
+      tag('video-stream', 'Video stream', '视频流'),
+    ],
+    tagline: text(
+      'Converse with avatars and transform incoming video streams live.',
+      '与数字人实时对话，并即时转换输入视频流。'
+    ),
+    description: text(
+      'Vidu S2 combines a real-time interactive avatar model with a real-time editing model for live style, subject, outfit, and background changes.',
+      'Vidu S2 将实时交互数字人模型与实时编辑模型结合，支持即时改变风格、主体、服装和背景。'
+    ),
+    note: text(
+      'Best for: live avatars and stream transformation',
+      '适合：实时数字人与视频流转换'
+    ),
+    tone: 'coral',
+    featured: true,
+    seo: seo(
+      text(
+        'Vidu S2 includes Vidu S2-Avatar for live voice-driven characters and Vidu S2-Editing for transforming camera or video streams while they are running.',
+        'Vidu S2 包含用于实时语音驱动角色的 Vidu S2-Avatar，以及在摄像头或视频流运行时实时转换画面的 Vidu S2-Editing。'
+      ),
+      [
+        step(
+          'Choose Avatar or Editing',
+          '选择 Avatar 或 Editing',
+          'Pick a live conversational avatar or a real-time stream-editing workflow.',
+          '选择实时对话数字人或视频流实时编辑工作流。'
+        ),
+        step(
+          'Provide live input',
+          '提供实时输入',
+          'Use voice, a camera, a video stream, or supported reference images.',
+          '使用语音、摄像头、视频流或支持的参考图像。'
+        ),
+        step(
+          'Watch the output change live',
+          '观看输出实时变化',
+          'Interrupt the conversation or change references while the output stream continues.',
+          '在输出流持续运行时打断对话或更换参考内容。'
+        ),
+      ],
+      [
+        text('Real-time voice-driven avatars', '实时语音驱动数字人'),
+        text('Live style and subject replacement', '实时风格与主体替换'),
+        text('Camera and video-stream input', '摄像头与视频流输入'),
+      ],
+      [
+        text('Interactive livestreams', '互动直播'),
+        text('Virtual try-on', '虚拟试穿'),
+        text('Real-time video transformation', '实时视频转换'),
+      ],
+      [
+        faq(
+          'Can Vidu S2 respond during a live session?',
+          'Vidu S2 能在实时会话中响应吗？',
+          'Yes. The official product page says online avatars support real-time conversation and interruption, while the editing model transforms active input streams in real time.',
+          '可以。官方产品页说明，在线数字人支持实时对话与打断，编辑模型会实时转换正在运行的输入流。'
+        ),
+      ]
+    ),
+  },
+  {
+    ...sharedProductFields,
+    slug: 'runway-characters',
+    name: 'Runway Characters',
+    maker: 'Runway',
+    website: 'https://runway.com/product/characters',
+    logo: 'https://runway.com/favicon.ico',
+    previewImage:
+      'https://runway.com/_next/static/immutable/media/og.0gj8xfgz6riuj.png',
+    lastVerifiedAt: '2026-09-20',
+    tags: [
+      tag('realtime-avatar', 'Real-time avatar', '实时数字人'),
+      tag('conversational-video', 'Conversational video', '对话式视频'),
+      tag('avatar-api', 'Avatar API', '数字人 API'),
+    ],
+    tagline: text(
+      'Turn one image into a live conversational video character.',
+      '用一张图像创建可实时对话的视频角色。'
+    ),
+    description: text(
+      'Runway Characters streams expressive conversational video at 24 FPS, with 37 ms effective model time per frame and about 1.75 seconds of server-side response time.',
+      'Runway Characters 以 24 FPS 流式生成富有表现力的对话视频，每帧有效模型时间为 37 毫秒，服务端响应时间约为 1.75 秒。'
+    ),
+    note: text(
+      'Best for: production conversational avatars',
+      '适合：生产级对话数字人'
+    ),
+    tone: 'moss',
+    featured: true,
+    seo: seo(
+      text(
+        'Runway Characters creates real-time conversational video agents from a single reference image. Characters listen, respond, gesture, and stream video at 24 FPS during a live session.',
+        'Runway Characters 能从一张参考图像创建实时对话视频智能体。角色会在实时会话中倾听、回应、做出手势，并以 24 FPS 流式生成视频。'
+      ),
+      [
+        step(
+          'Upload a character image',
+          '上传角色图像',
+          'Start with one reference image in any supported visual style.',
+          '从任意支持的视觉风格参考图像开始。'
+        ),
+        step(
+          'Choose a voice and knowledge',
+          '选择声音与知识',
+          'Assign a voice, knowledge source, and optional tools to the character.',
+          '为角色设置声音、知识来源和可选工具。'
+        ),
+        step(
+          'Start the live chat',
+          '开始实时对话',
+          'Talk to the character directly or embed it through the SDK, widget, or LiveKit integration.',
+          '直接与角色交谈，或通过 SDK、小部件或 LiveKit 集成到产品中。'
+        ),
+      ],
+      [
+        text('24 FPS live video', '24 FPS 实时视频'),
+        text('Single-image character creation', '单图角色创建'),
+        text('SDK, widget, and meeting integrations', 'SDK、小部件与会议集成'),
+      ],
+      [
+        text('Education and tutoring', '教育与辅导'),
+        text('Customer support', '客户支持'),
+        text('Games and interactive hosts', '游戏与互动主持人'),
+      ],
+      [
+        faq(
+          'How fast is Runway Characters?',
+          'Runway Characters 有多快？',
+          'Runway reports 24 FPS streaming, 37 ms effective model time per frame, and about 1.75 seconds from the end of user speech to the start of the character’s response.',
+          'Runway 公布的性能为 24 FPS 流式视频、每帧 37 毫秒有效模型时间，以及从用户停止说话到角色开始回应约 1.75 秒。'
+        ),
+      ]
+    ),
+  },
+  {
+    ...sharedProductFields,
     slug: 'krea-realtime',
     name: 'Krea Realtime',
     maker: 'Krea',
@@ -4001,7 +4366,10 @@ export function getProducts(locale: CatalogLocale): CatalogProduct[] {
       return {
         ...product,
         previewImage:
-          productPreviewImages[product.slug] ?? productHeroThumbs[product.slug],
+          product.previewImage !== undefined
+            ? product.previewImage
+            : (productPreviewImages[product.slug] ??
+              productHeroThumbs[product.slug]),
         heroThumb: productHeroThumbs[product.slug],
         tagline: product.tagline[locale],
         description: product.description[locale],
