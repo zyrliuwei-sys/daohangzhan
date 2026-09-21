@@ -4443,11 +4443,16 @@ export function toCatalogProduct(
   const category = normalizeProductCategory(submission.category);
   const categoryLabel = productCategoryLabels[category];
   const sourceDomain = getSourceDomain(submission.website);
-  const description = submission.description;
+  const description = submission.description.trim();
   const submittedLabel = locale === 'zh' ? '用户提交' : 'Community submission';
   const officialLabel = locale === 'zh' ? '官方网站' : 'Official website';
   const liveLabel =
     locale === 'zh' ? '实时视频产品' : 'Real-time video product';
+  const categoryName = categoryLabel[locale];
+  const whatIs =
+    locale === 'zh'
+      ? `${submission.name} 是一款面向${categoryName}场景的产品，提供方通过官方网站提供完整体验。${description}`
+      : `${submission.name} is a ${categoryName.toLowerCase()} product with its full experience available on the official website. ${description}`;
   const steps =
     locale === 'zh'
       ? [
@@ -4457,11 +4462,11 @@ export function toCatalogProduct(
           },
           {
             title: '选择使用方式',
-            description: '根据产品页面提供的功能和入口开始体验。',
+            description: `根据 ${submission.name} 提供的功能和入口，选择适合你的${categoryName}工作流。`,
           },
           {
-            title: '验证实时能力',
-            description: '通过实际操作确认生成、编辑或互动视频能力。',
+            title: '完成一次体验',
+            description: `用一个真实任务测试 ${submission.name} 的效果、速度和使用门槛。`,
           },
         ]
       : [
@@ -4471,27 +4476,65 @@ export function toCatalogProduct(
           },
           {
             title: 'Choose a workflow',
-            description:
-              'Start with the feature or entry point that fits your use case.',
+            description: `Choose the ${categoryName.toLowerCase()} workflow that fits your use case.`,
           },
           {
-            title: 'Try the live capability',
-            description:
-              'Use the product to verify its generation, editing, or interactive video loop.',
+            title: 'Run a real test',
+            description: `Use ${submission.name} on a real task to evaluate its output, speed, and access requirements.`,
           },
         ];
   const keyFeatures =
     locale === 'zh'
-      ? ['实时视频体验', '官方网站入口', '社区提交产品']
+      ? [
+          `${categoryName}产品入口`,
+          '官方网站体验链接',
+          '社区提交的产品资料',
+          '适合先试用再评估',
+        ]
       : [
-          'Real-time video experience',
+          `${categoryName} product entry point`,
           'Official website access',
-          'Community-submitted product',
+          'Community-submitted product profile',
+          'Easy to test before adopting',
         ];
   const bestFor =
     locale === 'zh'
-      ? ['产品发现', '实时视频体验', categoryLabel.zh]
-      : ['Product discovery', 'Real-time video experiences', categoryLabel.en];
+      ? ['产品发现', `${categoryName}体验`, '创作者与产品团队']
+      : [
+          'Product discovery',
+          `${categoryName} workflows`,
+          'Creators and product teams',
+        ];
+  const faqItems =
+    locale === 'zh'
+      ? [
+          {
+            question: `${submission.name} 是什么？`,
+            answer: whatIs,
+          },
+          {
+            question: `如何开始使用 ${submission.name}？`,
+            answer: `打开 ${sourceDomain}，按照官网提供的注册、试用或产品入口开始体验。具体功能和可用地区以官网信息为准。`,
+          },
+          {
+            question: `${submission.name} 适合谁？`,
+            answer: `它适合正在寻找${categoryName}工具、产品灵感或工作流的创作者、开发者和产品团队。`,
+          },
+        ]
+      : [
+          {
+            question: `What is ${submission.name}?`,
+            answer: whatIs,
+          },
+          {
+            question: `How do you use ${submission.name}?`,
+            answer: `Visit ${sourceDomain} and follow its sign-up, trial, or product entry points. Features and regional availability are defined by the official site.`,
+          },
+          {
+            question: `Who is ${submission.name} for?`,
+            answer: `It is a useful starting point for creators, developers, and product teams exploring ${categoryName.toLowerCase()} tools and workflows.`,
+          },
+        ];
 
   return {
     slug: submission.slug,
@@ -4508,7 +4551,10 @@ export function toCatalogProduct(
     ],
     image: '',
     tone: 'cobalt',
-    tagline: description,
+    tagline:
+      locale === 'zh'
+        ? `${categoryName}：${description}`
+        : `${categoryName}: ${description}`,
     description,
     note: `${submittedLabel} · ${officialLabel}`,
     categoryName: categoryLabel[locale],
@@ -4517,35 +4563,27 @@ export function toCatalogProduct(
     sourceUpdatedAt: formatSubmissionDate(submission.createdAt),
     heroThumb: '',
     seo: {
-      whatIs: description,
+      whatIs,
       howToUse: steps,
       keyFeatures,
       bestFor,
-      faqs: [
-        {
-          question:
-            locale === 'zh'
-              ? `${submission.name} 是什么？`
-              : `What is ${submission.name}?`,
-          answer: description,
-        },
-      ],
+      faqs: faqItems,
     },
     profile: {
-      valueProposition: description,
+      valueProposition: whatIs,
       problemSolved:
         locale === 'zh'
-          ? '帮助用户更快发现并体验新的实时视频产品。'
-          : 'Helps people discover and try a new real-time video product faster.',
+          ? `帮助用户更快发现并体验新的${categoryName}产品，减少寻找合适工具的时间。`
+          : `Helps people discover and try a ${categoryName.toLowerCase()} product faster, with less time spent comparing tools.`,
       audience:
         locale === 'zh'
-          ? '适合正在寻找实时视频工具、Demo 或工作流的创作者和产品团队。'
-          : 'For creators and product teams looking for real-time video tools, demos, or workflows.',
+          ? `适合正在寻找${categoryName}工具、Demo 或工作流的创作者、开发者和产品团队。`
+          : `For creators, developers, and product teams looking for ${categoryName.toLowerCase()} tools, demos, or workflows.`,
       pricing:
         locale === 'zh'
           ? '访问官方网站查看当前的套餐、试用和使用条件。'
           : 'Visit the official website for current plans, trials, and access terms.',
-      market: [categoryLabel[locale], submittedLabel],
+      market: [categoryName, submittedLabel],
       techStack: [sourceDomain, officialLabel, liveLabel],
     },
   };

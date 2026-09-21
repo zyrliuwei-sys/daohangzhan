@@ -1,12 +1,8 @@
 import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
-import { getPublishedProductSubmission } from '@/modules/product-submissions/service';
-import {
-  getProduct,
-  toCatalogProduct,
-  type CatalogLocale,
-} from '@/lib/mock-ai-products';
+import { type CatalogLocale } from '@/lib/mock-ai-products';
+import { getCatalogProductFn } from '@/lib/product-submissions-server';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { AiProductDetail } from '@/blocks/ai-product-detail';
 
@@ -85,13 +81,9 @@ function getProductSchema(
 export const Route = createFileRoute('/products/$slug')({
   loader: async ({ params }) => {
     const locale: CatalogLocale = getLocale() === 'zh' ? 'zh' : 'en';
-    let product = getProduct(params.slug, locale);
-    if (!product) {
-      const submittedProduct = await getPublishedProductSubmission(params.slug);
-      product = submittedProduct
-        ? toCatalogProduct(submittedProduct, locale)
-        : null;
-    }
+    const product = await getCatalogProductFn({
+      data: { slug: params.slug, locale },
+    });
     if (!product) throw notFound();
     return { locale, product };
   },

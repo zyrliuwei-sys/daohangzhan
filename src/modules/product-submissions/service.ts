@@ -1,15 +1,28 @@
-import { and, desc, eq } from 'drizzle-orm';
+import { and, count, desc, eq, like, or, type SQL } from 'drizzle-orm';
 
 import { db } from '@/core/db';
 import {
+  config,
   productSubmission,
   type NewProductSubmission,
 } from '@/config/db/schema';
 import { getUuid } from '@/lib/hash';
 
+const ARCHIVED_STATIC_SLUGS_CONFIG = 'product_catalog.archived_static_slugs';
+
 export const PRODUCT_SUBMISSION_STATUS = {
   PUBLISHED: 'published',
+  ARCHIVED: 'archived',
 } as const;
+
+export const PRODUCT_SUBMISSION_CATEGORIES = [
+  'realtime',
+  'text-to-video',
+  'image-to-video',
+  'avatar-live',
+  'video-editing',
+  'workflow',
+] as const;
 
 export type CreateProductSubmissionInput = {
   name: string;
@@ -61,6 +74,100 @@ export async function listPublishedProductSubmissions() {
     .from(productSubmission)
     .where(eq(productSubmission.status, PRODUCT_SUBMISSION_STATUS.PUBLISHED))
     .orderBy(desc(productSubmission.createdAt));
+}
+
+export async function listAllProductSubmissions() {
+  return db()
+    .select()
+    .from(productSubmission)
+    .orderBy(desc(productSubmission.createdAt));
+}
+
+export async function listArchivedStaticProductSlugs() {
+  const [row] = await db()
+    .select({ value: config.value })
+    .from(config)
+    .where(eq(config.name, ARCHIVED_STATIC_SLUGS_CONFIG))
+    .limit(1);
+
+  if (!row?.value) return [];
+
+  try {
+    const parsed: unknown = JSON.parse(row.value);
+    return Array.isArray(parsed)
+      ? parsed.filter((slug): slug is string => typeof slug === 'string')
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function archiveStaticProductSlug(slug: string) {
+  const archivedSlugs = new Set(await listArchivedStaticProductSlugs());
+  archivedSlugs.add(slug);
+  const value = JSON.stringify([...archivedSlugs]);
+
+  await db().transaction(async (tx) => {
+    const [existing] = await tx
+      .select({ name: config.name })
+      .from(config)
+      .where(eq(config.name, ARCHIVED_STATIC_SLUGS_CONFIG))
+      .limit(1);
+
+    if (existing) {
+      await tx
+        .update(config)
+        .set({ value })
+        .where(eq(config.name, ARCHIVED_STATIC_SLUGS_CONFIG));
+    } else {
+      await tx
+        .insert(config)
+        .values({ name: ARCHIVED_STATIC_SLUGS_CONFIG, value });
+    }
+  });
+}
+
+export async function listProductSubmissions(params: {
+  search?: string;
+  page?: number;
+  pageSize?: number;
+}) {
+  const { search, page = 1, pageSize = 20 } = params;
+  const offset = (page - 1) * pageSize;
+  const conditions: SQL[] = [];
+
+  if (search) {
+    conditions.push(
+      or(
+        like(productSubmission.name, `%${search}%`),
+        like(productSubmission.slug, `%${search}%`),
+        like(productSubmission.website, `%${search}%`),
+        like(productSubmission.email, `%${search}%`)
+      )!
+    );
+  }
+
+  const where = conditions.length ? and(...conditions) : undefined;
+  const [totalResult] = await db()
+    .select({ count: count() })
+    .from(productSubmission)
+    .where(where);
+  const items = await db()
+    .select()
+    .from(productSubmission)
+    .where(where)
+    .orderBy(desc(productSubmission.createdAt))
+    .limit(pageSize)
+    .offset(offset);
+
+  return { items, total: totalResult.count };
+}
+
+export async function archiveProductSubmission(id: string) {
+  await db()
+    .update(productSubmission)
+    .set({ status: PRODUCT_SUBMISSION_STATUS.ARCHIVED })
+    .where(eq(productSubmission.id, id));
 }
 
 export async function getPublishedProductSubmission(slug: string) {

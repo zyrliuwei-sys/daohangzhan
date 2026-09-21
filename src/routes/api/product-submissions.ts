@@ -1,18 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { z } from 'zod';
 
-import { createProductSubmission } from '@/modules/product-submissions/service';
+import {
+  createProductSubmission,
+  PRODUCT_SUBMISSION_CATEGORIES,
+} from '@/modules/product-submissions/service';
 import { enforceMinIntervalRateLimit } from '@/lib/rate-limit';
 import { respData, respErr } from '@/lib/resp';
-
-const CATEGORY_VALUES = [
-  'realtime',
-  'text-to-video',
-  'image-to-video',
-  'avatar-live',
-  'video-editing',
-  'workflow',
-] as const;
 
 const submissionSchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -21,7 +15,7 @@ const submissionSchema = z.object({
     .trim()
     .url()
     .refine((value) => ['http:', 'https:'].includes(new URL(value).protocol)),
-  category: z.enum(CATEGORY_VALUES),
+  category: z.enum(PRODUCT_SUBMISSION_CATEGORIES),
   description: z.string().trim().min(20).max(2000),
   email: z.string().trim().email().max(320),
 });

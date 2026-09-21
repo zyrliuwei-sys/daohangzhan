@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import type { CatalogLocale, CatalogProduct } from '@/lib/mock-ai-products';
+import type { CatalogProduct } from '@/lib/mock-ai-products';
 import {
   buildFaqJsonLd,
   cutSegmentsBetween,
@@ -28,13 +28,11 @@ import { Component as VibeToPromptAiInput } from '@/components/ui/vibe-to-prompt
 export function HomeDirectory({
   h1,
   segments,
-  locale,
-  submittedProducts,
+  products,
 }: {
   h1: string;
   segments: Segment[];
-  locale: CatalogLocale;
-  submittedProducts: CatalogProduct[];
+  products: CatalogProduct[];
 }) {
   const [activeTag, setActiveTag] = useState('all');
 
@@ -181,10 +179,7 @@ export function HomeDirectory({
           )}
         </section>
 
-        <ProductDirectoryPreview
-          locale={locale}
-          submittedProducts={submittedProducts}
-        />
+        <ProductDirectoryPreview products={products} />
 
         <section
           className="ai-index-shell ai-index-section seo-home-article"

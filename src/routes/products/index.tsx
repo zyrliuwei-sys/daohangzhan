@@ -1,12 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
-import { listPublishedProductSubmissions } from '@/modules/product-submissions/service';
-import {
-  getProducts,
-  toCatalogProduct,
-  type CatalogLocale,
-} from '@/lib/mock-ai-products';
+import { type CatalogLocale } from '@/lib/mock-ai-products';
+import { listCatalogProductsFn } from '@/lib/product-submissions-server';
 import { m } from '@/paraglide/messages.js';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { AiDirectory } from '@/blocks/ai-directory';
@@ -21,13 +17,9 @@ export const Route = createFileRoute('/products/')({
     const locale: CatalogLocale = getLocale() === 'zh' ? 'zh' : 'en';
     const initialQuery =
       new URLSearchParams(location.searchStr).get('query') ?? '';
-    const submittedProducts = await listPublishedProductSubmissions().catch(
-      () => []
-    );
-    const products = [
-      ...getProducts(locale),
-      ...submittedProducts.map((product) => toCatalogProduct(product, locale)),
-    ];
+    const products = await listCatalogProductsFn({
+      data: { locale },
+    });
     return { locale, initialQuery, products };
   },
   head: ({ loaderData }) => {

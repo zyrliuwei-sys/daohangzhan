@@ -4,7 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { z } from 'zod';
 
-import { Link } from '@/core/i18n/navigation';
+import { Link, useRouter } from '@/core/i18n/navigation';
 import { apiPost } from '@/lib/api-client';
 import { type CatalogLocale } from '@/lib/mock-ai-products';
 import { cn } from '@/lib/utils';
@@ -24,6 +24,7 @@ type ProductSubmissionPayload = {
 };
 
 export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
+  const router = useRouter();
   const [createdProduct, setCreatedProduct] = useState<{
     slug: string;
     name: string;
@@ -71,6 +72,7 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
           description: value.description.trim(),
           email: value.email.trim(),
         });
+        await router.refresh();
         setCreatedProduct(product);
       } catch (error) {
         setSubmitError(

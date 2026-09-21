@@ -1,11 +1,7 @@
 import { useMemo } from 'react';
 
 import { Link } from '@/core/i18n/navigation';
-import {
-  getProducts,
-  type CatalogLocale,
-  type CatalogProduct,
-} from '@/lib/mock-ai-products';
+import type { CatalogProduct } from '@/lib/mock-ai-products';
 import { m } from '@/paraglide/messages.js';
 import { ProductGrid } from '@/components/product-grid';
 import { buttonVariants } from '@/components/ui/button';
@@ -13,16 +9,13 @@ import { buttonVariants } from '@/components/ui/button';
 const PREVIEW_LIMIT = 30;
 
 export function ProductDirectoryPreview({
-  locale,
-  submittedProducts,
+  products,
 }: {
-  locale: CatalogLocale;
-  submittedProducts: CatalogProduct[];
+  products: CatalogProduct[];
 }) {
-  const products = useMemo(
-    () =>
-      [...submittedProducts, ...getProducts(locale)].slice(0, PREVIEW_LIMIT),
-    [locale, submittedProducts]
+  const visibleProducts = useMemo(
+    () => products.slice(0, PREVIEW_LIMIT),
+    [products]
   );
 
   return (
@@ -46,10 +39,12 @@ export function ProductDirectoryPreview({
         </Link>
       </div>
       <div className="ai-index-filter-summary" aria-live="polite">
-        <span>{m['catalog.filter.results']({ count: products.length })}</span>
+        <span>
+          {m['catalog.filter.results']({ count: visibleProducts.length })}
+        </span>
       </div>
       <ProductGrid
-        products={products}
+        products={visibleProducts}
         sourceActionLabel={m['catalog.card.open_website']()}
       />
     </section>
