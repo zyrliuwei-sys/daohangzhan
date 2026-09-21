@@ -34,6 +34,7 @@ export function ChannelGrid({
                 name={channel.name}
                 src={channel.logo ?? undefined}
                 website={channel.website}
+                loading="eager"
               />
               <h3>{channel.name}</h3>
             </Link>

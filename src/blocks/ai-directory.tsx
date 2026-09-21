@@ -54,6 +54,7 @@ function ProductCard({
               name={product.name}
               src={product.logo}
               website={product.website}
+              loading="eager"
             />
             <h3>{product.name}</h3>
           </Link>

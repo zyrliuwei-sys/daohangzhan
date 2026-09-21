@@ -1,8 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import type { CatalogProduct } from '@/lib/mock-ai-products';
 import { cn } from '@/lib/utils';
 import { AiProductLogo } from '@/components/ai-product-logo';
+
+export interface ProductPreviewData {
+  name: string;
+  logo?: string | null;
+  website: string;
+  sourceDomain: string;
+  previewImage?: string;
+  heroThumb?: string;
+}
 
 /**
  * Shared product visual used by cards, related products, and product details.
@@ -14,7 +22,7 @@ export function ProductPreviewMedia({
   detail = false,
   showLogo = false,
 }: {
-  product: CatalogProduct;
+  product: ProductPreviewData;
   detail?: boolean;
   showLogo?: boolean;
 }) {
@@ -52,7 +60,7 @@ export function ProductPreviewMedia({
         <div className="ai-index-preview-brand-panel">
           <AiProductLogo
             name={product.name}
-            src={product.logo}
+            src={product.logo ?? undefined}
             website={product.website}
             large
           />
@@ -83,7 +91,7 @@ export function ProductPreviewMedia({
         <span className="ai-index-preview-logo" aria-hidden="true">
           <AiProductLogo
             name={product.name}
-            src={product.logo}
+            src={product.logo ?? undefined}
             website={product.website}
           />
         </span>

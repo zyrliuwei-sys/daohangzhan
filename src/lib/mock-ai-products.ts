@@ -1,3 +1,5 @@
+import { getWebsiteScreenshotUrl } from '@/lib/website-preview';
+
 export type CatalogLocale = 'en' | 'zh';
 
 // This directory intentionally contains only hosted products and demos that
@@ -4554,6 +4556,7 @@ export function toCatalogProduct(
       tag('community-submission', 'Community submission', '用户提交'),
       tag('official-website', 'Official website', '官方网站'),
     ],
+    previewImage: getWebsiteScreenshotUrl(submission.website),
     image: '',
     tone: 'cobalt',
     tagline:

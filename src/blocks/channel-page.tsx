@@ -10,10 +10,11 @@ import {
   type SeoFaq,
 } from '@/lib/seo-content';
 import { cn } from '@/lib/utils';
+import { getWebsiteScreenshotUrl } from '@/lib/website-preview';
 import { m } from '@/paraglide/messages.js';
 import { AiDetailLayout } from '@/components/ai-detail-layout';
-import { AiProductLogo } from '@/components/ai-product-logo';
 import { ChannelGrid } from '@/components/channel-grid';
+import { ProductPreviewMedia } from '@/components/product-preview-media';
 import { SeoContentPage } from '@/components/seo-content-page';
 import { buttonVariants } from '@/components/ui/button';
 
@@ -42,22 +43,33 @@ function getWebsiteHost(website: string) {
   }
 }
 
+const channelPreviewImages: Record<string, string> = {
+  'infinite-slop': '/imgs/product-thumbs/infinite-slop.jpg',
+  'fal-live': '/imgs/product-thumbs/fal-live.jpg',
+  'renoise-live': '/imgs/product-thumbs/renoise-live.jpg',
+  'flow-tv': '/imgs/product-thumbs/flow-tv.jpg',
+  'nothing-forever': '/imgs/product-thumbs/nothing-forever.jpg',
+  'neuro-sama': '/imgs/product-thumbs/neuro-sama.jpg',
+  'channel-1': '/imgs/product-thumbs/channel-1.jpg',
+  aitv: '/imgs/product-thumbs/aitv.jpg',
+  'retake-tv': '/imgs/product-thumbs/retake-tv.jpg',
+};
+
 function ChannelDetailVisual({ channel }: { channel: ChannelRecord }) {
   return (
-    <div className="ai-index-channel-visual">
-      <AiProductLogo
-        name={channel.name}
-        src={channel.logo ?? undefined}
-        website={channel.website}
-      />
-      <div className="ai-index-channel-visual-copy">
-        <span className="ai-index-channel-visual-kicker">LIVE CHANNEL</span>
-        <strong>{channel.name}</strong>
-      </div>
-      <span className="ai-index-channel-visual-domain">
-        {getWebsiteHost(channel.website)}
-      </span>
-    </div>
+    <ProductPreviewMedia
+      product={{
+        name: channel.name,
+        logo: channel.logo,
+        website: channel.website,
+        sourceDomain: getWebsiteHost(channel.website),
+        previewImage:
+          channelPreviewImages[channel.slug] ??
+          getWebsiteScreenshotUrl(channel.website),
+      }}
+      detail
+      showLogo
+    />
   );
 }
 

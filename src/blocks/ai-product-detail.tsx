@@ -76,7 +76,7 @@ export function AiProductDetail({
       backLabel={m['catalog.detail.back']()}
       visual={
         <div className={cn(`ai-index-tone-${product.tone}`)}>
-          <ProductPreviewMedia product={product} detail />
+          <ProductPreviewMedia product={product} detail showLogo />
         </div>
       }
       name={product.name}

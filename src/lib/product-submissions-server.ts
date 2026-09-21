@@ -85,10 +85,22 @@ export const listCatalogProductsFn = createServerFn()
       (product) => !archived.has(product.slug)
     );
 
-    return [
+    const catalogProducts = [
       ...submittedProducts.map((product) =>
         toCatalogProduct(product, data.locale)
       ),
       ...staticProducts,
     ];
+
+    // A submitted product can already exist in the curated static catalog with
+    // a different slug. Prefer the submitted record because it appears first
+    // and carries the latest public description, but only render one card.
+    const seenProducts = new Set<string>();
+    return catalogProducts.filter((product) => {
+      const name = product.name.trim().toLowerCase().replace(/\s+/g, ' ');
+      const key = `${name}::${product.sourceDomain.toLowerCase()}`;
+      if (seenProducts.has(key)) return false;
+      seenProducts.add(key);
+      return true;
+    });
   });

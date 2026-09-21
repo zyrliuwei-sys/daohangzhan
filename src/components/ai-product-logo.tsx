@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -12,11 +12,31 @@ function isGitHubUrl(value?: string) {
   }
 }
 
-function getFaviconFallback(website?: string) {
-  if (!website || isGitHubUrl(website)) return undefined;
+function getWebsiteFavicon(website?: string) {
+  if (!website) return undefined;
+  try {
+    const hostname = new URL(website).hostname.replace(/^www\./, '');
+    return `https://${hostname}/favicon.ico`;
+  } catch {
+    return undefined;
+  }
+}
+
+function getGoogleFavicon(website?: string) {
+  if (!website) return undefined;
   try {
     const hostname = new URL(website).hostname.replace(/^www\./, '');
     return `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`;
+  } catch {
+    return undefined;
+  }
+}
+
+function getDuckDuckGoFavicon(website?: string) {
+  if (!website) return undefined;
+  try {
+    const hostname = new URL(website).hostname.replace(/^www\./, '');
+    return `https://icons.duckduckgo.com/ip3/${hostname}.ico`;
   } catch {
     return undefined;
   }
@@ -40,35 +60,62 @@ export function AiProductLogo({
   website,
   hero,
   large = false,
+  loading = 'lazy',
 }: {
   name: string;
   src?: string;
   website?: string;
   hero?: string;
   large?: boolean;
+  loading?: 'eager' | 'lazy';
 }) {
   const directSrc = src && !isGitHubUrl(src) ? src : undefined;
-  // If a curated logo URL exists, do not replace it with a generic browser
-  // favicon when it fails. The initials are a cleaner and more honest fallback.
-  const fallbackSrc = directSrc ? undefined : getFaviconFallback(website);
-  // A curated product logo is more trustworthy than a favicon inferred from
-  // the page URL. Only use the inferred favicon when no logo was supplied.
-  const [imageSrc, setImageSrc] = useState(directSrc ?? fallbackSrc);
+  const candidates = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          [
+            directSrc,
+            getWebsiteFavicon(website),
+            getGoogleFavicon(website),
+            getDuckDuckGoFavicon(website),
+          ].filter((value): value is string => Boolean(value))
+        )
+      ),
+    [directSrc, website]
+  );
+  const [candidateIndex, setCandidateIndex] = useState(0);
   const [imageFailed, setImageFailed] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    setImageSrc(directSrc ?? fallbackSrc);
+    setCandidateIndex(0);
     setImageFailed(false);
     setImageLoaded(false);
-  }, [directSrc, fallbackSrc]);
+  }, [candidates]);
+
+  const imageSrc = candidates[candidateIndex];
+
+  useEffect(() => {
+    if (!imageSrc || imageFailed || imageLoaded) return;
+
+    const timeout = window.setTimeout(() => {
+      setCandidateIndex((index) => {
+        if (index < candidates.length - 1) return index + 1;
+        setImageFailed(true);
+        return index;
+      });
+    }, 2500);
+
+    return () => window.clearTimeout(timeout);
+  }, [candidateIndex, candidates.length, imageFailed, imageLoaded, imageSrc]);
 
   const handleImageError = () => {
-    if (fallbackSrc && imageSrc === directSrc) {
-      setImageSrc(fallbackSrc);
+    setImageLoaded(false);
+    if (candidateIndex < candidates.length - 1) {
+      setCandidateIndex((index) => index + 1);
       return;
     }
-    setImageLoaded(false);
     setImageFailed(true);
   };
 
@@ -88,11 +135,10 @@ export function AiProductLogo({
           className="ai-product-logo-image"
           width={large ? 72 : 40}
           height={large ? 72 : 40}
-          loading="lazy"
+          loading={loading}
           decoding="async"
           onLoad={() => setImageLoaded(true)}
           onError={handleImageError}
-          style={{ opacity: imageLoaded ? 1 : 0 }}
         />
       )}
       {hero && (

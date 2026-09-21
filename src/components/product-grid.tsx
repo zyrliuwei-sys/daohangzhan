@@ -3,7 +3,17 @@ import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/core/i18n/navigation';
 import type { CatalogProduct } from '@/lib/mock-ai-products';
 import { AiProductLogo } from '@/components/ai-product-logo';
-import { ProductPreviewMedia } from '@/components/product-preview-media';
+
+function compactTagline(value: string) {
+  const normalized = value
+    .replace(/\s+/g, ' ')
+    .replace(/\b([a-z0-9]+)(?:\s*\1){2,}\b/gi, '$1')
+    .trim();
+  const firstSentence = normalized.match(/^.*?[.!?](?:\s|$)/)?.[0].trim();
+  const concise = firstSentence || normalized;
+
+  return concise.length > 116 ? `${concise.slice(0, 113).trimEnd()}…` : concise;
+}
 
 export function ProductGrid({
   products,
@@ -15,51 +25,38 @@ export function ProductGrid({
   if (!products.length) return null;
 
   return (
-    <div className="ai-index-product-grid">
+    <div className="seo-channel-grid ai-index-product-grid">
       {products.map((product) => (
-        <article
-          key={product.slug}
-          className={`ai-index-product ai-index-tone-${product.tone}`}
-        >
-          <div className="ai-index-product-media">
-            <ProductPreviewMedia product={product} showLogo />
+        <article key={product.slug} className="seo-channel-card">
+          <div className="seo-channel-card-head">
+            <Link
+              href={`/products/${product.slug}`}
+              className="seo-channel-card-name"
+            >
+              <AiProductLogo
+                name={product.name}
+                src={product.logo}
+                website={product.website}
+                loading="eager"
+              />
+              <h3>{product.name}</h3>
+            </Link>
+            <a
+              href={product.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="seo-channel-card-visit"
+              aria-label={`${sourceActionLabel} ${product.name}`}
+            >
+              <ArrowUpRight className="size-4" />
+            </a>
           </div>
-          <div className="ai-index-product-info">
-            <div className="ai-index-product-title-row">
-              <Link
-                href={`/products/${product.slug}`}
-                className="ai-index-product-name"
-              >
-                <AiProductLogo
-                  name={product.name}
-                  src={product.logo}
-                  website={product.website}
-                />
-                <h3>{product.name}</h3>
-              </Link>
-              <a
-                href={product.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground inline-flex min-h-9 min-w-9 items-center justify-center"
-                aria-label={`${sourceActionLabel} ${product.name}`}
-              >
-                <ArrowUpRight className="size-4" />
-              </a>
-            </div>
-            <p className="ai-index-product-maker">
-              {product.maker}
-              <span aria-hidden="true"> · </span>
-              {product.sourceDomain}
-            </p>
-            <p className="ai-index-product-tags">
-              {product.tagNames.join('  /  ')}
-            </p>
-            <div className="ai-index-product-foot">
-              <span>{product.categoryName}</span>
-              <Link href={`/products/${product.slug}`}>{product.name}</Link>
-            </div>
-          </div>
+          <p className="seo-channel-card-tagline seo-product-card-tagline">
+            {compactTagline(product.tagline)}
+          </p>
+          <p className="seo-channel-card-tags">
+            {product.tagNames.slice(0, 2).join(' · ')}
+          </p>
         </article>
       ))}
     </div>
