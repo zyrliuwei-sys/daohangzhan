@@ -1,4 +1,4 @@
-import { desc, eq } from 'drizzle-orm';
+import { and, desc, eq } from 'drizzle-orm';
 
 import { db } from '@/core/db';
 import {
@@ -67,9 +67,12 @@ export async function getPublishedProductSubmission(slug: string) {
   const [result] = await db()
     .select()
     .from(productSubmission)
-    .where(eq(productSubmission.slug, slug))
+    .where(
+      and(
+        eq(productSubmission.slug, slug),
+        eq(productSubmission.status, PRODUCT_SUBMISSION_STATUS.PUBLISHED)
+      )
+    )
     .limit(1);
-
-  if (result?.status !== PRODUCT_SUBMISSION_STATUS.PUBLISHED) return null;
   return result;
 }

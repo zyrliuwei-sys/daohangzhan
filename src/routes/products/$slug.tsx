@@ -87,9 +87,7 @@ export const Route = createFileRoute('/products/$slug')({
     const locale: CatalogLocale = getLocale() === 'zh' ? 'zh' : 'en';
     let product = getProduct(params.slug, locale);
     if (!product) {
-      const submittedProduct = await getPublishedProductSubmission(
-        params.slug
-      ).catch(() => null);
+      const submittedProduct = await getPublishedProductSubmission(params.slug);
       product = submittedProduct
         ? toCatalogProduct(submittedProduct, locale)
         : null;

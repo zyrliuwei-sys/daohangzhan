@@ -1,19 +1,28 @@
 import { useMemo } from 'react';
 
 import { Link } from '@/core/i18n/navigation';
-import { getProducts, type CatalogLocale } from '@/lib/mock-ai-products';
+import {
+  getProducts,
+  type CatalogLocale,
+  type CatalogProduct,
+} from '@/lib/mock-ai-products';
 import { m } from '@/paraglide/messages.js';
-import { getLocale } from '@/paraglide/runtime.js';
 import { ProductGrid } from '@/components/product-grid';
 import { buttonVariants } from '@/components/ui/button';
 
 const PREVIEW_LIMIT = 30;
 
-export function ProductDirectoryPreview() {
-  const locale: CatalogLocale = getLocale() === 'zh' ? 'zh' : 'en';
+export function ProductDirectoryPreview({
+  locale,
+  submittedProducts,
+}: {
+  locale: CatalogLocale;
+  submittedProducts: CatalogProduct[];
+}) {
   const products = useMemo(
-    () => getProducts(locale).slice(0, PREVIEW_LIMIT),
-    [locale]
+    () =>
+      [...submittedProducts, ...getProducts(locale)].slice(0, PREVIEW_LIMIT),
+    [locale, submittedProducts]
   );
 
   return (
