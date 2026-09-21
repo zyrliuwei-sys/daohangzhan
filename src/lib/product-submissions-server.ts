@@ -6,6 +6,20 @@ import {
   toCatalogProduct,
   type CatalogLocale,
 } from '@/lib/mock-ai-products';
+import { resolveWebsiteScreenshotUrl } from '@/lib/website-preview';
+
+async function resolveProductPreview<
+  T extends { previewImage?: string; website: string },
+>(product: T): Promise<T> {
+  if (!product.previewImage?.startsWith('https://image.thum.io/')) {
+    return product;
+  }
+
+  return {
+    ...product,
+    previewImage: await resolveWebsiteScreenshotUrl(product.website),
+  };
+}
 
 /**
  * Product submissions are database-backed. Keep the database module behind a
@@ -19,7 +33,9 @@ export const getPublishedProductFn = createServerFn()
       const { getPublishedProductSubmission } =
         await import('@/modules/product-submissions/service');
       const product = await getPublishedProductSubmission(data.slug);
-      return product ? toCatalogProduct(product, data.locale) : null;
+      return product
+        ? resolveProductPreview(toCatalogProduct(product, data.locale))
+        : null;
     } catch (error) {
       console.error('[product-submissions] detail lookup failed', error);
       return null;
@@ -35,7 +51,9 @@ export const getCatalogProductFn = createServerFn()
         await import('@/modules/product-submissions/service');
       const submittedProduct = await getPublishedProductSubmission(data.slug);
       if (submittedProduct) {
-        return toCatalogProduct(submittedProduct, data.locale);
+        return resolveProductPreview(
+          toCatalogProduct(submittedProduct, data.locale)
+        );
       }
       archivedSlugs = await listArchivedStaticProductSlugs();
     } catch (error) {
@@ -46,7 +64,8 @@ export const getCatalogProductFn = createServerFn()
     }
 
     if (archivedSlugs.includes(data.slug)) return null;
-    return getProduct(data.slug, data.locale);
+    const product = getProduct(data.slug, data.locale);
+    return product ? resolveProductPreview(product) : null;
   });
 
 export const listPublishedProductsFn = createServerFn()
@@ -56,7 +75,11 @@ export const listPublishedProductsFn = createServerFn()
       const { listPublishedProductSubmissions } =
         await import('@/modules/product-submissions/service');
       const products = await listPublishedProductSubmissions();
-      return products.map((product) => toCatalogProduct(product, data.locale));
+      return Promise.all(
+        products.map((product) =>
+          resolveProductPreview(toCatalogProduct(product, data.locale))
+        )
+      );
     } catch (error) {
       console.error('[product-submissions] list lookup failed', error);
       return [];
@@ -96,11 +119,13 @@ export const listCatalogProductsFn = createServerFn()
     // a different slug. Prefer the submitted record because it appears first
     // and carries the latest public description, but only render one card.
     const seenProducts = new Set<string>();
-    return catalogProducts.filter((product) => {
+    const uniqueProducts = catalogProducts.filter((product) => {
       const name = product.name.trim().toLowerCase().replace(/\s+/g, ' ');
       const key = `${name}::${product.sourceDomain.toLowerCase()}`;
       if (seenProducts.has(key)) return false;
       seenProducts.add(key);
       return true;
     });
+
+    return Promise.all(uniqueProducts.map(resolveProductPreview));
   });

@@ -4369,14 +4369,16 @@ export function getProducts(locale: CatalogLocale): CatalogProduct[] {
         ''
       );
       const sourceUpdatedAt = product.lastVerifiedAt ?? LAST_VERIFIED_AT;
+      const localPreviewImage =
+        productPreviewImages[product.slug] ?? productHeroThumbs[product.slug];
 
       return {
         ...product,
         previewImage:
-          product.previewImage !== undefined
+          localPreviewImage ??
+          (product.previewImage?.startsWith('/')
             ? product.previewImage
-            : (productPreviewImages[product.slug] ??
-              productHeroThumbs[product.slug]),
+            : getWebsiteScreenshotUrl(product.website)),
         heroThumb: productHeroThumbs[product.slug],
         tagline: product.tagline[locale],
         description: product.description[locale],
