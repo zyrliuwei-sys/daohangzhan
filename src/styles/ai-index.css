@@ -3246,6 +3246,112 @@ body {
   border-radius: 0.875rem;
 }
 
+/* Product homepage previews are shared by the directory cards and detail
+ * pages. Keep the captured site visible, with a small brand lockup on cards
+ * so the product identity survives even when the source page is image-heavy.
+ */
+.ai-index-preview-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--color-paper-strong);
+}
+
+.ai-index-preview-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--dur-long) var(--ease-out);
+}
+
+.ai-index-product:hover .ai-index-preview-image,
+.ai-index-related:hover .ai-index-preview-image {
+  transform: scale(1.025);
+}
+
+.ai-index-preview-logo {
+  position: absolute;
+  z-index: 2;
+  top: 0.65rem;
+  left: 0.65rem;
+  display: block;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.4rem 1.2rem color-mix(in srgb, #000 24%, transparent);
+}
+
+.ai-index-preview-logo .ai-product-logo {
+  border-color: color-mix(in srgb, var(--color-paper) 68%, transparent);
+  background: var(--color-paper);
+}
+
+.ai-index-preview-brand-panel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 10rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  background:
+    radial-gradient(
+      circle at 86% 14%,
+      color-mix(in srgb, var(--product-accent) 36%, transparent),
+      transparent 42%
+    ),
+    linear-gradient(135deg, var(--color-ink) 0%, #2d2d2d 100%);
+  color: var(--color-paper);
+}
+
+.ai-index-preview-brand-panel .ai-product-logo-large {
+  border-color: color-mix(in srgb, var(--color-paper) 30%, transparent);
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+}
+
+.ai-index-preview-brand-copy {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.ai-index-preview-brand-copy span,
+.ai-index-preview-brand-copy small {
+  color: color-mix(in srgb, var(--color-paper) 68%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ai-index-preview-brand-copy strong {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.ai-index-preview-brand-copy small {
+  overflow-wrap: anywhere;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.ai-index-detail-preview-frame {
+  border-radius: 0.65rem;
+}
+
+.ai-index-product-media > .ai-index-preview-media,
+.ai-index-related-media > .ai-index-preview-media {
+  border-radius: inherit;
+}
+
 @media (max-width: 59.99rem) {
   .ai-product-detail-page .ai-index-detail-grid {
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);

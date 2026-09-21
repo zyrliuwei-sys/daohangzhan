@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { AiIndexFooter, AiIndexHeader } from '@/components/ai-index-chrome';
 import { AiProductLogo } from '@/components/ai-product-logo';
+import { ProductPreviewMedia } from '@/components/product-preview-media';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -40,6 +41,9 @@ function ProductCard({
     <article
       className={cn('ai-index-product', `ai-index-tone-${product.tone}`)}
     >
+      <div className="ai-index-product-media">
+        <ProductPreviewMedia product={product} showLogo />
+      </div>
       <div className="ai-index-product-info">
         <div className="ai-index-product-title-row">
           <Link

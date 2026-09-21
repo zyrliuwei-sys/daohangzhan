@@ -72,7 +72,7 @@ export interface CatalogProduct extends Omit<
   tagNames: string[];
   sourceDomain: string;
   sourceUpdatedAt: string;
-  heroThumb: string;
+  heroThumb?: string;
   seo: CatalogSeoContent;
   profile: CatalogProductProfile;
 }
@@ -4312,12 +4312,17 @@ const productPreviewImages: Record<string, string> = {
 };
 
 // Product hero fallback (240×240 capture of the product's own site) shown when
-// a dedicated 16:9 preview is not available. Every catalog slug is covered.
+// a dedicated 16:9 preview is not available. Keep only files that are checked
+// into public so SSR never emits a broken image URL.
+const unavailableLocalThumbs = new Set(['gwm-worlds-2', 'runway-characters']);
+
 const productHeroThumbs: Record<string, string> = Object.fromEntries(
-  realtimeProducts.map((product) => [
-    product.slug,
-    `/imgs/product-thumbs/${product.slug}.jpg`,
-  ])
+  realtimeProducts
+    .filter((product) => !unavailableLocalThumbs.has(product.slug))
+    .map((product) => [
+      product.slug,
+      `/imgs/product-thumbs/${product.slug}.jpg`,
+    ])
 );
 
 export const mockProducts = realtimeProducts;

@@ -48,24 +48,27 @@ export function AiProductLogo({
   large?: boolean;
 }) {
   const directSrc = src && !isGitHubUrl(src) ? src : undefined;
-  const fallbackSrc = getFaviconFallback(website);
-  const [imageSrc, setImageSrc] = useState(fallbackSrc ?? directSrc);
+  // If a curated logo URL exists, do not replace it with a generic browser
+  // favicon when it fails. The initials are a cleaner and more honest fallback.
+  const fallbackSrc = directSrc ? undefined : getFaviconFallback(website);
+  // A curated product logo is more trustworthy than a favicon inferred from
+  // the page URL. Only use the inferred favicon when no logo was supplied.
+  const [imageSrc, setImageSrc] = useState(directSrc ?? fallbackSrc);
   const [imageFailed, setImageFailed] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    setImageSrc(fallbackSrc ?? directSrc);
+    setImageSrc(directSrc ?? fallbackSrc);
     setImageFailed(false);
+    setImageLoaded(false);
   }, [directSrc, fallbackSrc]);
 
   const handleImageError = () => {
-    if (directSrc && imageSrc === fallbackSrc) {
-      setImageSrc(directSrc);
-      return;
-    }
-    if (fallbackSrc && imageSrc !== fallbackSrc) {
+    if (fallbackSrc && imageSrc === directSrc) {
       setImageSrc(fallbackSrc);
       return;
     }
+    setImageLoaded(false);
     setImageFailed(true);
   };
 
@@ -82,11 +85,14 @@ export function AiProductLogo({
         <img
           src={imageSrc}
           alt=""
+          className="ai-product-logo-image"
           width={large ? 72 : 40}
           height={large ? 72 : 40}
           loading="lazy"
           decoding="async"
+          onLoad={() => setImageLoaded(true)}
           onError={handleImageError}
+          style={{ opacity: imageLoaded ? 1 : 0 }}
         />
       )}
       {hero && (

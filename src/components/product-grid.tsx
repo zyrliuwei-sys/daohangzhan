@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/core/i18n/navigation';
 import type { CatalogProduct } from '@/lib/mock-ai-products';
 import { AiProductLogo } from '@/components/ai-product-logo';
+import { ProductPreviewMedia } from '@/components/product-preview-media';
 
 export function ProductGrid({
   products,
@@ -20,6 +21,9 @@ export function ProductGrid({
           key={product.slug}
           className={`ai-index-product ai-index-tone-${product.tone}`}
         >
+          <div className="ai-index-product-media">
+            <ProductPreviewMedia product={product} showLogo />
+          </div>
           <div className="ai-index-product-info">
             <div className="ai-index-product-title-row">
               <Link

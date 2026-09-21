@@ -16,41 +16,8 @@ import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { AiDetailLayout } from '@/components/ai-detail-layout';
 import { AiProductLogo } from '@/components/ai-product-logo';
+import { ProductPreviewMedia } from '@/components/product-preview-media';
 import { buttonVariants } from '@/components/ui/button';
-
-function ProductPreviewMedia({
-  product,
-  detail = false,
-}: {
-  product: CatalogProduct;
-  detail?: boolean;
-}) {
-  if (product.previewImage) {
-    return (
-      <img
-        src={product.previewImage}
-        alt={`${product.name} official homepage preview`}
-        className={detail ? 'ai-index-detail-preview' : undefined}
-        loading={detail ? 'eager' : 'lazy'}
-        fetchPriority={detail ? 'high' : undefined}
-        decoding="async"
-      />
-    );
-  }
-
-  return (
-    <div
-      className={cn(
-        'ai-index-site-media',
-        detail && 'ai-index-site-media-detail'
-      )}
-    >
-      <span className="ai-index-site-media-kicker">REAL-TIME WEB</span>
-      <strong>{product.name}</strong>
-      <span>{product.sourceDomain}</span>
-    </div>
-  );
-}
 
 function ProductDetailCard({ product }: { product: CatalogProduct }) {
   return (
