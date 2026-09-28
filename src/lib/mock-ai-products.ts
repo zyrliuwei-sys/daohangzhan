@@ -146,6 +146,97 @@ function seo(
 const realtimeProducts: MockAiProduct[] = [
   {
     ...sharedProductFields,
+    slug: 'jev',
+    name: 'Jev',
+    maker: 'TypeSafe AI',
+    website: 'https://console.typesafe.ai/',
+    logo: 'https://typesafe.ai/favicon.ico',
+    category: 'workflow',
+    categoryLabel: productCategoryLabels.workflow,
+    lastVerifiedAt: '2026-09-28',
+    tags: [
+      tag('typed-decisions', 'Typed decisions', '类型化决策'),
+      tag('confidence-aware', 'Confidence-aware', '置信度感知'),
+      tag('agent-workflows', 'Agent workflows', 'Agent 工作流'),
+    ],
+    tagline: text(
+      'A decision model for software: typed answers, probabilities, and confidence instead of generated prose.',
+      '面向软件的决策模型：输出类型化答案、概率和置信度，而不是一段生成文本。'
+    ),
+    description: text(
+      'Jev is TypeSafe AI’s first System One model. Send it application state and focused typed questions; it returns structured decisions that code can route, rank, filter, or escalate without parsing free-form text.',
+      'Jev 是 TypeSafe AI 首个 System One 模型。把应用状态和聚焦的类型化问题交给它，它会返回代码可以直接用于路由、排序、筛选或升级人工处理的结构化决策，无需解析自由文本。'
+    ),
+    note: text(
+      'Best for: bounded decisions inside AI workflows',
+      '适合：AI 工作流中的边界明确决策'
+    ),
+    tone: 'cobalt',
+    featured: true,
+    seo: seo(
+      text(
+        'Jev is TypeSafe AI’s first System One decision model. It is built for software that needs fast, repeatable judgments rather than another chat response: classify a request, choose a tool, score a document, or decide whether a case needs review. Its answers are constrained to types you define and include probabilities and confidence so ordinary code stays in control.',
+        'Jev 是 TypeSafe AI 首个 System One 决策模型，面向需要快速、可重复判断的软件，而不是再生成一段聊天回复：它可以分类请求、选择工具、给文档评分，或判断某个案例是否需要人工复核。它的输出被限制在你定义的类型内，并附带概率和置信度，让普通代码继续掌控工作流。'
+      ),
+      [
+        step(
+          'Open the TypeSafe console',
+          '打开 TypeSafe 控制台',
+          'Sign in at console.typesafe.ai and use the playground to shape a focused decision question.',
+          '在 console.typesafe.ai 登录，通过 Playground 设计一个边界清晰的决策问题。'
+        ),
+        step(
+          'Describe state and question types',
+          '描述状态与问题类型',
+          'Provide the state your software already has, then define a Choice, Score, or Noul question with the output shape you need.',
+          '传入软件已有的状态，再定义 Choice、Score 或 Noul 问题，明确需要的输出形状。'
+        ),
+        step(
+          'Gate actions in code',
+          '在代码中控制后续动作',
+          'Use the returned value, probability, and confidence to route, rank, automate, or send uncertain cases to review.',
+          '用返回值、概率和置信度进行路由、排序、自动化，或把不确定案例交给人工复核。'
+        ),
+      ],
+      [
+        text(
+          'Choice, Score, and Noul primitives',
+          'Choice、Score 与 Noul 三种原语'
+        ),
+        text('Typed outputs with probabilities', '带概率分布的类型化输出'),
+        text('Confidence-gated automation', '基于置信度的自动化门控'),
+        text('No free-form text parsing', '无需解析自由文本'),
+      ],
+      [
+        text('Intent and tool routing', '意图识别与工具路由'),
+        text('Content moderation and guardrails', '内容审核与安全护栏'),
+        text('RAG ranking and verification', 'RAG 排序与结果校验'),
+        text('High-volume agent workflows', '高吞吐 Agent 工作流'),
+      ],
+      [
+        faq(
+          'Is Jev a chat model?',
+          'Jev 是聊天模型吗？',
+          'No. Jev is designed to return typed decisions for software. Use a generative model when you need drafting, summarization, long-form explanation, or open-ended conversation.',
+          '不是。Jev 的目标是为软件返回类型化决策；如果需要写作、总结、长篇解释或开放式对话，应使用生成式模型。'
+        ),
+        faq(
+          'What does Jev return?',
+          'Jev 会返回什么？',
+          'Choice selects from a defined set, Score rates against ordered levels, and Noul returns the probability of a yes/no proposition. Choice and Score also include probability distributions and confidence.',
+          'Choice 从预先定义的选项中选择，Score 按有序等级评分，Noul 返回一个是/否命题为真的概率。Choice 和 Score 还会提供概率分布与置信度。'
+        ),
+        faq(
+          'Can Jev still be wrong?',
+          'Jev 也会出错吗？',
+          'Yes. Type-safe means the result cannot violate the output shape you defined; it does not mean every judgment is correct. Use confidence and probabilities to decide when to automate and when to review.',
+          '会。类型安全意味着结果不会违反你定义的输出形状，但不代表每次判断都正确。应结合置信度和概率决定何时自动执行、何时人工复核。'
+        ),
+      ]
+    ),
+  },
+  {
+    ...sharedProductFields,
     slug: 'pikastream-1',
     name: 'PikaStream1.0',
     maker: 'Pika',
@@ -4316,7 +4407,11 @@ const productPreviewImages: Record<string, string> = {
 // Product hero fallback (240×240 capture of the product's own site) shown when
 // a dedicated 16:9 preview is not available. Keep only files that are checked
 // into public so SSR never emits a broken image URL.
-const unavailableLocalThumbs = new Set(['gwm-worlds-2', 'runway-characters']);
+const unavailableLocalThumbs = new Set([
+  'gwm-worlds-2',
+  'runway-characters',
+  'jev',
+]);
 
 const productHeroThumbs: Record<string, string> = Object.fromEntries(
   realtimeProducts
@@ -4328,35 +4423,63 @@ const productHeroThumbs: Record<string, string> = Object.fromEntries(
 );
 
 export const mockProducts = realtimeProducts;
-export const categoryKeys: ProductCategory[] = ['realtime'];
+export const categoryKeys: ProductCategory[] = [
+  'realtime',
+  'text-to-video',
+  'image-to-video',
+  'avatar-live',
+  'video-editing',
+  'workflow',
+];
 
 function getProductProfile(
   product: MockAiProduct,
   locale: CatalogLocale
 ): CatalogProductProfile {
   const isZh = locale === 'zh';
+  const isWorkflow = product.category === 'workflow';
   return {
     valueProposition: product.description[locale],
-    problemSolved: isZh
-      ? '传统视频生成通常要等待成片，难以在画面生成过程中及时干预。实时视频产品把反馈和控制带回生成现场。'
-      : 'Traditional video generation often makes you wait for a finished clip. Real-time video products bring feedback and control back into the generation loop.',
-    audience: isZh
-      ? '适合创意技术人员、开发者，以及需要实时互动视觉体验的产品和内容团队。'
-      : 'For creative technologists, developers, and product teams building live visual experiences.',
-    pricing: isZh
-      ? '通过官方网站使用在线服务，套餐、积分、地区和 API 条件以产品官网为准。'
-      : 'Hosted access is available through the official website. Plans, credits, regions, and API terms vary by product.',
+    problemSolved: isWorkflow
+      ? isZh
+        ? '很多软件需要 AI 做判断，却不得不解析自由文本，再用额外规则兜底。Jev 把答案限制在预先定义的类型内，并返回概率与置信度，让代码可以直接处理不确定性。'
+        : 'Software often needs AI judgment but has to parse free-form text and add brittle fallbacks. Jev constrains answers to defined types and returns probabilities plus confidence so code can handle uncertainty directly.'
+      : isZh
+        ? '传统视频生成通常要等待成片，难以在画面生成过程中及时干预。实时视频产品把反馈和控制带回生成现场。'
+        : 'Traditional video generation often makes you wait for a finished clip. Real-time video products bring feedback and control back into the generation loop.',
+    audience: isWorkflow
+      ? isZh
+        ? '适合构建 Agent、RAG、审核系统和自动化产品的开发者与 AI 产品团队。'
+        : 'For developers and AI product teams building agents, RAG systems, moderation, and automation workflows.'
+      : isZh
+        ? '适合创意技术人员、开发者，以及需要实时互动视觉体验的产品和内容团队。'
+        : 'For creative technologists, developers, and product teams building live visual experiences.',
+    pricing: isWorkflow
+      ? isZh
+        ? '通过 TypeSafe 官方控制台申请和使用，当前套餐、候补资格、模型版本和 API 条件以官网为准。'
+        : 'Access Jev through the TypeSafe console. Current plans, availability, model versions, and API terms are defined by the official site.'
+      : isZh
+        ? '通过官方网站使用在线服务，套餐、积分、地区和 API 条件以产品官网为准。'
+        : 'Hosted access is available through the official website. Plans, credits, regions, and API terms vary by product.',
     market: [
       product.categoryLabel[locale],
       ...product.tags.slice(0, 3).map((item) => item.label[locale]),
     ],
-    techStack: isZh
-      ? ['官方在线产品', '实时视频流', '浏览器 / API 接入']
-      : [
-          'Official hosted product',
-          'Real-time video stream',
-          'Browser / API access',
-        ],
+    techStack: isWorkflow
+      ? isZh
+        ? ['System One 决策模型', '类型化 API 输出', '概率与置信度门控']
+        : [
+            'System One decision model',
+            'Typed API outputs',
+            'Probability and confidence gates',
+          ]
+      : isZh
+        ? ['官方在线产品', '实时视频流', '浏览器 / API 接入']
+        : [
+            'Official hosted product',
+            'Real-time video stream',
+            'Browser / API access',
+          ],
   };
 }
 

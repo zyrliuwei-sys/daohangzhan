@@ -168,7 +168,15 @@ export function HomeDirectory({
           </div>
 
           {filteredChannels.length ? (
-            <ChannelGrid channels={filteredChannels} tagLabels={tagLabels} />
+            <ChannelGrid
+              channels={filteredChannels}
+              tagLabels={tagLabels}
+              featuredProduct={
+                activeTag === 'all'
+                  ? products.find((product) => product.slug === 'jev')
+                  : undefined
+              }
+            />
           ) : (
             <div className="ai-index-empty">
               <p>{m['seo.home.no_results']()}</p>

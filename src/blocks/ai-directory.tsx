@@ -157,12 +157,16 @@ export function AiDirectory({
     });
   }, [activeCategory, activeTag, products, query]);
 
-  const realtimeCategoryKeys = categoryKeys.filter(
-    (category) => category === 'realtime'
+  const availableCategoryKeys = useMemo(
+    () =>
+      categoryKeys.filter((category) =>
+        products.some((product) => product.category === category)
+      ),
+    [products]
   );
   const categoryCounts = useMemo(
     () =>
-      realtimeCategoryKeys.reduce<Record<string, number>>(
+      availableCategoryKeys.reduce<Record<string, number>>(
         (counts, category) => {
           counts[category] = products.filter(
             (product) => product.category === category
@@ -171,7 +175,7 @@ export function AiDirectory({
         },
         {}
       ),
-    [products, realtimeCategoryKeys]
+    [products, availableCategoryKeys]
   );
 
   const clearFilters = () => {
@@ -281,7 +285,7 @@ export function AiDirectory({
               <span>{m['catalog.filter.all']()}</span>
               <span>{products.length}</span>
             </button>
-            {realtimeCategoryKeys.map((category) => (
+            {availableCategoryKeys.map((category) => (
               <button
                 key={category}
                 type="button"
