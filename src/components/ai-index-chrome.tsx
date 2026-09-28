@@ -146,12 +146,20 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
   );
 }
 
-export function AiIndexFooter({ content }: { content: AiIndexChromeContent }) {
+export function AiIndexFooter({
+  content,
+  showBadges = false,
+}: {
+  content: AiIndexChromeContent;
+  showBadges?: boolean;
+}) {
   return (
     <>
-      <div className="ai-index-shell ai-index-footer-badges">
-        <FooterBadgeList />
-      </div>
+      {showBadges && (
+        <div className="ai-index-shell ai-index-footer-badges">
+          <FooterBadgeList />
+        </div>
+      )}
       <footer className="ai-index-footer">
         <div className="ai-index-shell ai-index-footer-inner">
           <Link

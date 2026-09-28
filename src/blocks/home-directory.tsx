@@ -224,7 +224,7 @@ export function HomeDirectory({
         <AiHomeFaq />
         <AiHomeCta />
       </main>
-      <AiIndexFooter content={chromeContent} />
+      <AiIndexFooter content={chromeContent} showBadges />
     </div>
   );
 }

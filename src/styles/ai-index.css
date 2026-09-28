@@ -604,7 +604,7 @@ body {
 }
 
 .ai-index-footer-badges {
-  margin-top: calc(var(--space-3xl) + var(--space-lg) + var(--space-md));
+  margin-top: calc(var(--space-xl) + var(--space-md));
   padding-bottom: var(--space-sm);
 }
 
@@ -5247,6 +5247,11 @@ body {
 
 .ai-home-directory-page .ai-home-cta-secondary:hover {
   color: var(--color-accent);
+}
+
+.ai-home-directory-page .ai-index-footer-badges {
+  position: relative;
+  top: var(--space-xl);
 }
 
 .ai-home-directory-page .ai-index-footer {
