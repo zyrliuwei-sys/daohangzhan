@@ -35,10 +35,10 @@ export function SiteFooter({
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-neutral-950 text-neutral-100">
+    <footer className="site-footer bg-neutral-950 text-neutral-100">
       <div className="mx-auto max-w-7xl px-6 pt-14 pb-6 sm:px-10 sm:pt-16 lg:px-16">
         {tagline && (
-          <p className="mb-12 max-w-2xl font-serif text-3xl leading-[1.15] tracking-tight text-neutral-100 italic sm:text-4xl">
+          <p className="site-footer-tagline mb-12 max-w-2xl font-serif text-3xl leading-[1.15] tracking-tight text-neutral-100 sm:text-4xl">
             {tagline}
           </p>
         )}
@@ -114,8 +114,6 @@ export function SiteFooter({
           />
         </div>
 
-        <FooterBadgeList className="mt-8" />
-
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col gap-3 border-t border-neutral-800 pt-5 sm:flex-row sm:items-center sm:justify-between">
           <span className="text-sm text-neutral-400">
@@ -123,6 +121,8 @@ export function SiteFooter({
               `© ${year} ${envConfigs.app_name}. All rights reserved.`}
           </span>
         </div>
+
+        <FooterBadgeList className="mt-5" />
       </div>
     </footer>
   );

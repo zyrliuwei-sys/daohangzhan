@@ -20,7 +20,7 @@ export function seoPageHead(urlPath: string, loaderData?: LoaderData) {
   if (!loaderData) return {};
   const { meta } = loaderData.json;
   const { locale } = loaderData;
-  const socialImage = new URL('/imgs/vidair-logo.png', envConfigs.app_url).href;
+  const socialImage = new URL('/logo.png', envConfigs.app_url).href;
   const urlFor = (loc: string) =>
     localizeUrl(`${envConfigs.app_url}${urlPath}`, {
       locale: loc as ReturnType<typeof getLocale>,

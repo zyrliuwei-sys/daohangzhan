@@ -42,15 +42,10 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
             onClick={() => setOpen(false)}
             aria-label={envConfigs.app_name}
           >
-            <img
-              src="/imgs/vidair-logo.png"
-              alt=""
-              aria-hidden="true"
-              width={3137}
-              height={900}
-              className="ai-index-brand-logo"
-              decoding="async"
-            />
+            <span className="ai-index-brand-signal" aria-hidden="true">
+              <span />
+              <span />
+            </span>
           </Link>
           <nav className="ai-index-nav" aria-label="Primary">
             <Link href={content.browseHref ?? '#directory'}>
@@ -153,31 +148,30 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
 
 export function AiIndexFooter({ content }: { content: AiIndexChromeContent }) {
   return (
-    <footer className="ai-index-footer">
-      <div className="ai-index-shell ai-index-footer-inner">
-        <Link
-          href="/ai-livestream"
-          className="ai-index-footer-brand"
-          aria-label={envConfigs.app_name}
-        >
-          <img
-            src="/imgs/vidair-logo.png"
-            alt=""
-            aria-hidden="true"
-            width={3137}
-            height={900}
-            className="ai-index-brand-logo"
-            decoding="async"
-          />
-        </Link>
-        <span className="ai-index-footer-tagline">{content.tagline}</span>
-        <div className="ai-index-footer-links">
-          <Link href="/ai-livestream#directory">{content.footerBrowse}</Link>
-          <Link href="/submit">{content.footerSubmit}</Link>
-        </div>
-        <FooterBadgeList className="mt-6" />
-        <span className="ai-index-footer-note">{content.footerNote}</span>
+    <>
+      <div className="ai-index-shell ai-index-footer-badges">
+        <FooterBadgeList />
       </div>
-    </footer>
+      <footer className="ai-index-footer">
+        <div className="ai-index-shell ai-index-footer-inner">
+          <Link
+            href="/ai-livestream"
+            className="ai-index-footer-brand"
+            aria-label={envConfigs.app_name}
+          >
+            <span className="ai-index-brand-signal" aria-hidden="true">
+              <span />
+              <span />
+            </span>
+          </Link>
+          <span className="ai-index-footer-tagline">{content.tagline}</span>
+          <div className="ai-index-footer-links">
+            <Link href="/ai-livestream#directory">{content.footerBrowse}</Link>
+            <Link href="/submit">{content.footerSubmit}</Link>
+          </div>
+          <span className="ai-index-footer-note">{content.footerNote}</span>
+        </div>
+      </footer>
+    </>
   );
 }

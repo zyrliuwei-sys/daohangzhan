@@ -1,4 +1,4 @@
-/* Hallmark · genre: modern-minimal · macrostructure: Catalogue · theme: Quiet · anchor hue: neutral */
+/* Design theme · Broadcast Archive — cinema-dark, editorial, signal-led. */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -8,12 +8,29 @@
 :root {
   --font-sans: var(--font-body);
   --font-serif-display: var(--font-display);
-  --slop-accent: oklch(0.58 0.19 25);
-  --slop-glass: oklch(0.16 0.01 270 / 0.72);
-  --slop-glass-strong: oklch(0.2 0.01 270 / 0.6);
+  --color-paper: oklch(0.145 0.025 240);
+  --color-paper-soft: oklch(0.19 0.028 240);
+  --color-paper-strong: oklch(0.235 0.03 240);
+  --color-ink: oklch(0.93 0.015 92);
+  --color-ink-muted: oklch(0.72 0.02 92);
+  --color-rule: oklch(0.31 0.035 240);
+  --color-accent: oklch(0.72 0.16 48);
+  --color-accent-strong: oklch(0.81 0.15 48);
+  --color-accent-soft: oklch(0.25 0.06 48);
+  --color-accent-ink: oklch(0.16 0.025 240);
+  --color-focus: oklch(0.71 0.12 215);
+  --color-error: oklch(0.72 0.14 25);
+  --color-success: oklch(0.72 0.1 145);
+  --color-hero-surface: oklch(0.105 0.025 240);
+  --color-hero-copy: oklch(0.96 0.01 92);
+  --color-hero-muted: oklch(0.75 0.018 92);
+  --color-hero-rule: oklch(0.27 0.035 240);
+  --slop-accent: var(--color-accent);
+  --slop-glass: oklch(0.12 0.02 240 / 0.72);
+  --slop-glass-strong: oklch(0.18 0.025 240 / 0.64);
   --slop-line: oklch(1 0 0 / 0.1);
-  --slop-text: oklch(0.96 0.002 270);
-  --slop-muted: oklch(1 0 0 / 0.55);
+  --slop-text: var(--color-ink);
+  --slop-muted: var(--color-ink-muted);
 }
 
 @theme inline {
@@ -72,33 +89,33 @@
     --card-foreground: var(--color-ink);
     --popover: var(--color-paper-strong);
     --popover-foreground: var(--color-ink);
-    --primary: var(--color-ink);
-    --primary-foreground: var(--color-paper-strong);
+    --primary: var(--color-accent);
+    --primary-foreground: var(--color-accent-ink);
     --secondary: var(--color-paper-soft);
     --secondary-foreground: var(--color-ink);
     --muted: var(--color-paper-soft);
     --muted-foreground: var(--color-ink-muted);
     --accent: var(--color-accent-soft);
     --accent-foreground: var(--color-ink);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --destructive: var(--color-error);
+    --destructive-foreground: var(--color-ink);
     --border: var(--color-rule);
     --input: var(--color-rule);
     --ring: var(--color-focus);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.714);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
-    --radius: 1rem;
+    --chart-1: var(--color-accent);
+    --chart-2: var(--color-success);
+    --chart-3: var(--color-focus);
+    --chart-4: oklch(0.68 0.1 145);
+    --chart-5: oklch(0.7 0.12 215);
+    --radius: 0.4rem;
     --sidebar: var(--color-paper-strong);
     --sidebar-foreground: var(--color-ink);
-    --sidebar-primary: var(--color-ink);
-    --sidebar-primary-foreground: var(--color-paper-strong);
+    --sidebar-primary: var(--color-accent);
+    --sidebar-primary-foreground: var(--color-accent-ink);
     --sidebar-accent: var(--color-paper-soft);
     --sidebar-accent-foreground: var(--color-ink);
     --sidebar-border: var(--color-rule);
-    --sidebar-ring: var(--color-accent);
+    --sidebar-ring: var(--color-focus);
   }
 
   .dark {
@@ -108,32 +125,32 @@
     --card-foreground: var(--color-ink);
     --popover: var(--color-paper-strong);
     --popover-foreground: var(--color-ink);
-    --primary: var(--color-ink);
-    --primary-foreground: var(--color-paper-strong);
+    --primary: var(--color-accent);
+    --primary-foreground: var(--color-accent-ink);
     --secondary: var(--color-paper-soft);
     --secondary-foreground: var(--color-ink);
     --muted: var(--color-paper-soft);
     --muted-foreground: var(--color-ink-muted);
     --accent: var(--color-accent-soft);
     --accent-foreground: var(--color-ink);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --destructive: var(--color-error);
+    --destructive-foreground: var(--color-ink);
     --border: var(--color-rule);
     --input: var(--color-rule);
     --ring: var(--color-focus);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
+    --chart-1: var(--color-accent);
+    --chart-2: var(--color-success);
+    --chart-3: var(--color-focus);
+    --chart-4: oklch(0.68 0.1 145);
+    --chart-5: oklch(0.7 0.12 215);
     --sidebar: var(--color-paper-strong);
     --sidebar-foreground: var(--color-ink);
-    --sidebar-primary: var(--color-ink);
-    --sidebar-primary-foreground: var(--color-paper-strong);
+    --sidebar-primary: var(--color-accent);
+    --sidebar-primary-foreground: var(--color-accent-ink);
     --sidebar-accent: var(--color-paper-soft);
     --sidebar-accent-foreground: var(--color-ink);
     --sidebar-border: var(--color-rule);
-    --sidebar-ring: var(--color-accent);
+    --sidebar-ring: var(--color-focus);
   }
 }
 
@@ -143,6 +160,91 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--color-rule);
+    background: color-mix(in oklch, var(--color-paper) 92%, transparent);
+  }
+
+  .site-brand {
+    gap: 0.65rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .site-brand-mark {
+    position: relative;
+    display: inline-grid;
+    width: 1.45rem;
+    height: 1.45rem;
+    place-items: center;
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent);
+  }
+
+  .site-brand-mark::before {
+    position: absolute;
+    inset: 0.28rem;
+    border: 1px solid var(--color-accent-ink);
+    content: '';
+  }
+
+  .site-brand-mark span {
+    position: absolute;
+    top: 0.28rem;
+    bottom: 0.28rem;
+    width: 1px;
+    background: var(--color-accent-ink);
+  }
+
+  .site-brand-mark span:first-child {
+    left: 0.62rem;
+  }
+
+  .site-brand-mark span:last-child {
+    right: 0.62rem;
+  }
+
+  .site-brand-name {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--color-accent);
+    background: var(--color-hero-surface);
+    color: var(--color-hero-copy);
+  }
+
+  .site-footer-tagline {
+    max-width: 34rem;
+    color: var(--color-hero-copy) !important;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+
+  .site-footer a {
+    transition: color var(--dur-short) var(--ease-out);
+  }
+
+  .site-footer a:hover,
+  .site-footer a:focus-visible {
+    color: var(--color-accent) !important;
   }
 
   @keyframes drift-a {
@@ -213,5 +315,115 @@
 @keyframes slop-holo-shift {
   to {
     background-position: 300% 50%;
+  }
+}
+
+/* Compact third-party proof strip. The second group makes the loop seamless. */
+@keyframes footer-badge-marquee {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.footer-badge-marquee {
+  position: relative;
+  top: 0.75rem;
+  width: 100%;
+  overflow: hidden;
+  border-block: 1px solid color-mix(in oklch, currentColor 16%, transparent);
+  isolation: isolate;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.footer-badge-marquee-viewport {
+  overflow: hidden;
+  padding-block: 0.45rem;
+}
+
+.footer-badge-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: footer-badge-marquee 36s linear infinite;
+  will-change: transform;
+}
+
+.footer-badge-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding-inline-end: 0.65rem;
+}
+
+.footer-badge-marquee-item {
+  display: inline-flex;
+  height: 2.8rem;
+  min-width: 5.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid color-mix(in oklch, currentColor 14%, transparent);
+  border-radius: 0.75rem;
+  background: color-mix(in oklch, currentColor 5%, transparent);
+  opacity: 0.88;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.footer-badge-marquee-item:hover,
+.footer-badge-marquee-item:focus-visible {
+  background: color-mix(in oklch, currentColor 10%, transparent);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.footer-badge-marquee-image {
+  display: block;
+  width: auto;
+  max-width: 12rem;
+  height: 2.15rem;
+  object-fit: contain;
+}
+
+.footer-badge-marquee:has(.footer-badge-marquee-item:focus-visible)
+  .footer-badge-marquee-track,
+.footer-badge-marquee:hover .footer-badge-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .footer-badge-marquee-group {
+    gap: 0.5rem;
+    padding-inline-end: 0.5rem;
+  }
+
+  .footer-badge-marquee-item {
+    height: 2.5rem;
+    min-width: 4.75rem;
+    padding-inline: 0.5rem;
+    border-radius: 0.65rem;
+  }
+
+  .footer-badge-marquee-image {
+    max-width: 9.5rem;
+    height: 1.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-badge-marquee-track {
+    animation: none;
   }
 }

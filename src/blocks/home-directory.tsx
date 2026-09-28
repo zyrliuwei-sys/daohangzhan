@@ -84,10 +84,10 @@ export function HomeDirectory({
   };
 
   return (
-    <div className="ai-index-page">
+    <div className="ai-index-page ai-home-directory-page">
       <AiIndexHeader content={chromeContent} />
       <main>
-        <div className="ai-product-catalog-page">
+        <div className="ai-home-hero-frame">
           <VibeToPromptAiInput
             copy={{
               eyebrow: m['seo.home.hero_prompt_eyebrow'](),
@@ -196,21 +196,23 @@ export function HomeDirectory({
               {m['seo.home.article_description']()}
             </p>
           </div>
-          {articleSegments.map((segment, index) =>
-            segment.kind === 'html' ? (
-              <div
-                key={index}
-                className="seo-article-body"
-                dangerouslySetInnerHTML={{ __html: segment.html }}
-              />
-            ) : (
-              <ChannelGrid
-                key={index}
-                channels={filterChannels(segment, channels)}
-                tagLabels={tagLabels}
-              />
-            )
-          )}
+          <div className="seo-home-article-content">
+            {articleSegments.map((segment, index) =>
+              segment.kind === 'html' ? (
+                <div
+                  key={index}
+                  className="seo-article-body"
+                  dangerouslySetInnerHTML={{ __html: segment.html }}
+                />
+              ) : (
+                <ChannelGrid
+                  key={index}
+                  channels={filterChannels(segment, channels)}
+                  tagLabels={tagLabels}
+                />
+              )
+            )}
+          </div>
           {faqJsonLd && (
             <script
               type="application/ld+json"

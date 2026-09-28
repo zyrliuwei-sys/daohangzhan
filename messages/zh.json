@@ -2,6 +2,7 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "common.metadata.title": "AI索引",
   "common.metadata.description": "发现值得使用的 AI 产品",
+  "common.footer_badges.label": "收录于",
   "common.sign.sign_in_title": "登录",
   "common.auth_callback.redirecting": "正在跳转…",
   "common.auth_callback.error": "登录未能完成，请重试。",

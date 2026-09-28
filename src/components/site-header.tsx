@@ -29,12 +29,17 @@ export function SiteHeader({ navLinks }: { navLinks?: NavLink[] }) {
   const user = session?.user;
 
   return (
-    <header className="bg-background/80 sticky top-0 z-50 w-full backdrop-blur-sm">
+    <header className="site-header bg-background/80 sticky top-0 z-50 w-full backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Brand */}
-        <Link href="/" className="flex items-center">
-          <span className="font-serif text-lg italic">
-            {envConfigs.app_name}
+        <Link
+          href="/"
+          className="site-brand flex items-center"
+          aria-label={envConfigs.app_name}
+        >
+          <span className="site-brand-mark" aria-hidden="true">
+            <span />
+            <span />
           </span>
         </Link>
 

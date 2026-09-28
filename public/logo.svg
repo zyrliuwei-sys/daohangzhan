@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title>viddir</title>
+  <rect x="8" y="8" width="104" height="104" rx="26" fill="#F2A33D"/>
+  <rect x="31" y="31" width="58" height="58" fill="none" stroke="#0A1B26" stroke-width="3"/>
+  <path d="M50 31v58M70 31v58" fill="none" stroke="#0A1B26" stroke-width="3"/>
+</svg>
