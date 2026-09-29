@@ -1,13 +1,16 @@
 import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
-import { type CatalogLocale } from '@/lib/mock-ai-products';
+import {
+  type CatalogLocale,
+  type CatalogProduct,
+} from '@/lib/mock-ai-products';
 import { getCatalogProductFn } from '@/lib/product-submissions-server';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { AiProductDetail } from '@/blocks/ai-product-detail';
 
 function getProductSchema(
-  product: ReturnType<typeof getProduct>,
+  product: CatalogProduct | null,
   canonical: string,
   locale: CatalogLocale
 ) {

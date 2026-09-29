@@ -525,6 +525,7 @@ Keep `.env.example` minimal; don't add provider keys to it.
 7. **Always verify `pnpm build` passes** after making changes
 8. **Return `respData`/`respErr`** from API routes
 9. **Run the `security-scan` skill before every `git commit`** — it checks for leaked secrets, injection/XSS/logic vulnerabilities in the diff, and `.gitignore`/`.dockerignore` gaps. HIGH findings block the commit.
+10. **Public catalog entries must be usable products or substantive topic guides** — do not publish standalone cards or detail pages for code-only repositories such as SDKs, custom nodes, or model loaders. Mention those dependencies inside a relevant guide when useful; choose an actual app or visual workflow for related-product slots.
 
 ## Cloud Sandbox Notes (ShipAny Code / e2b)
 

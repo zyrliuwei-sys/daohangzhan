@@ -43,6 +43,16 @@ function ProductDetailCard({ product }: { product: CatalogProduct }) {
   );
 }
 
+function getProductSourceLabel(product: CatalogProduct) {
+  if (product.sourceDomain === 'github.com') {
+    return m['catalog.detail.visit_github']();
+  }
+  if (product.sourceDomain === 'huggingface.co') {
+    return m['catalog.detail.visit_huggingface']();
+  }
+  return m['catalog.detail.visit_website']();
+}
+
 export function AiProductDetail({
   locale,
   product,
@@ -52,7 +62,11 @@ export function AiProductDetail({
 }) {
   const relatedProducts = getProducts(locale)
     .filter(
-      (item) => item.slug !== product.slug && item.category === product.category
+      (item) =>
+        item.slug !== product.slug &&
+        (item.category === product.category ||
+          product.relatedSlugs.includes(item.slug) ||
+          item.relatedSlugs.includes(product.slug))
     )
     .slice(0, 3);
   const chromeContent = {
@@ -103,7 +117,7 @@ export function AiProductDetail({
           rel="noopener noreferrer"
           className={cn(buttonVariants({ size: 'lg' }), 'ai-index-submit-cta')}
         >
-          {m['catalog.detail.visit_website']()}
+          {getProductSourceLabel(product)}
           <ArrowUpRight className="size-4" />
         </a>
       }
@@ -164,6 +178,28 @@ export function AiProductDetail({
           </div>
         </div>
       </section>
+
+      {product.specs.length > 0 && (
+        <section
+          className="ai-index-detail-specs"
+          aria-labelledby={`specs-${product.slug}`}
+        >
+          <div>
+            <p className="ai-index-eyebrow">{m['catalog.detail.specs']()}</p>
+            <h2 id={`specs-${product.slug}`}>
+              {m['catalog.detail.specs_title']({ name: product.name })}
+            </h2>
+          </div>
+          <dl className="ai-index-detail-spec-grid">
+            {product.specs.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <div className="ai-index-detail-sections">
         <section

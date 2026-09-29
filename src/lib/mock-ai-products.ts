@@ -2,16 +2,16 @@ import { getWebsiteScreenshotUrl } from '@/lib/website-preview';
 
 export type CatalogLocale = 'en' | 'zh';
 
-// This directory intentionally contains only hosted products and demos that
-// generate or stream video in real time, plus open-source apps that run live
-// AI channels. It does not list model repositories.
+// This directory contains hosted products, creative templates, playable demos,
+// and a small number of open-source models/workflows useful to builders.
 export type ProductCategory =
   | 'realtime'
   | 'text-to-video'
   | 'image-to-video'
   | 'avatar-live'
   | 'video-editing'
-  | 'workflow';
+  | 'workflow'
+  | 'models';
 export type ProductTone = 'coral' | 'cobalt' | 'moss' | 'plum' | 'amber';
 export type ProductSourceType = 'website';
 
@@ -42,6 +42,20 @@ export interface CatalogProductProfile {
   techStack: string[];
 }
 
+export interface LocalizedProductProfile {
+  valueProposition: LocalizedText;
+  problemSolved: LocalizedText;
+  audience: LocalizedText;
+  pricing: LocalizedText;
+  market: LocalizedText[];
+  techStack: LocalizedText[];
+}
+
+export interface LocalizedProductSpec {
+  label: LocalizedText;
+  value: LocalizedText;
+}
+
 export interface MockAiProduct {
   slug: string;
   name: string;
@@ -60,12 +74,15 @@ export interface MockAiProduct {
   previewImage?: string;
   tone: ProductTone;
   featured?: boolean;
+  relatedSlugs?: string[];
+  profile?: LocalizedProductProfile;
+  specs?: LocalizedProductSpec[];
   seo: ProductSeoContent;
 }
 
 export interface CatalogProduct extends Omit<
   MockAiProduct,
-  'tagline' | 'description' | 'note' | 'seo'
+  'tagline' | 'description' | 'note' | 'seo' | 'profile' | 'specs'
 > {
   tagline: string;
   description: string;
@@ -77,6 +94,8 @@ export interface CatalogProduct extends Omit<
   heroThumb?: string;
   seo: CatalogSeoContent;
   profile: CatalogProductProfile;
+  relatedSlugs: string[];
+  specs: Array<{ label: string; value: string }>;
 }
 
 const LAST_VERIFIED_AT = '2026-09-16';
@@ -92,6 +111,7 @@ export const productCategoryLabels: Record<ProductCategory, LocalizedText> = {
   'avatar-live': { en: 'Avatar and live', zh: '数字人与直播' },
   'video-editing': { en: 'Edit and remix', zh: '视频编辑与混剪' },
   workflow: { en: 'Workflow tools', zh: '工作流工具' },
+  models: { en: 'Image creation', zh: '图像创作' },
 };
 const sharedProductFields = {
   sourceType: 'website' as const,
@@ -131,6 +151,15 @@ function faq(
     question: text(questionEn, questionZh),
     answer: text(answerEn, answerZh),
   };
+}
+
+function spec(
+  labelEn: string,
+  labelZh: string,
+  valueEn: string,
+  valueZh: string
+): LocalizedProductSpec {
+  return { label: text(labelEn, labelZh), value: text(valueEn, valueZh) };
 }
 
 function seo(
@@ -4380,6 +4409,592 @@ const realtimeProducts: MockAiProduct[] = [
   },
 ];
 
+const localModelProducts: MockAiProduct[] = [
+  {
+    slug: 'migos-ai-song',
+    name: 'Migos AI Song',
+    maker: 'Kapwing',
+    website: 'https://www.kapwing.com/explore/hotel-lobby-ai-trend',
+    logo: 'https://www.kapwing.com/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-09-29',
+    category: 'video-editing',
+    categoryLabel: productCategoryLabels['video-editing'],
+    relatedSlugs: ['dreamina-migos-ai-video'],
+    tags: [
+      tag('hotel-lobby', 'Hotel Lobby trend', 'Hotel Lobby 热门玩法'),
+      tag('ai-video', 'AI video', 'AI 视频'),
+      tag('song-template', 'Song template', '歌曲模板'),
+      tag('duo-performance', 'Duo performance', '双人表演'),
+    ],
+    tagline: text(
+      'The Hotel Lobby AI trend, with the familiar song clip and a ready-to-edit video timeline.',
+      '围绕《Hotel Lobby》歌曲片段的 AI 双人表演热梗，以及现成的视频编辑模板。'
+    ),
+    description: text(
+      '“Migos AI Song” usually refers to short AI videos built around Quavo and Takeoff’s Hotel Lobby performance: two people, an orange backdrop, one suspended microphone, and the song timed to a new generated duo. Kapwing offers a template with the source clip and audio on an editable timeline; you supply the replacement visuals and check rights before publishing.',
+      '“Migos AI Song”通常指围绕 Quavo 与 Takeoff《Hotel Lobby》表演制作的 AI 短视频：两位表演者、橙色背景、一支悬挂麦克风，再把歌曲片段与新生成的双人画面对齐。Kapwing 提供带原片和音轨的可编辑模板；替换画面需自行制作，发布前还要确认素材使用权。'
+    ),
+    note: text(
+      'Best for: finding the trend audio and assembling a timed duo video',
+      '适合：寻找热梗音频并剪出对齐节奏的双人表演短片'
+    ),
+    image: '',
+    tone: 'coral',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'A direct entry to the Hotel Lobby trend: the reference clip and audio are already arranged in Kapwing, so you can focus on creating and replacing the duo performance.',
+        '直接进入 Hotel Lobby 热梗：Kapwing 已把参考片段和音频排在时间线上，你可以专注制作并替换双人表演画面。'
+      ),
+      problemSolved: text(
+        'Searching for “Migos AI Song” often mixes up the song, the meme, and the video-making tools. This template gives the edit a concrete starting point and clarifies where generated visuals fit.',
+        '搜索“Migos AI Song”时，歌曲、热门视频玩法和生成工具常混在一起。这个模板给出明确的剪辑起点，也说明 AI 画面应该替换到哪里。'
+      ),
+      audience: text(
+        'Short-form video creators making an authorized two-person performance or remix.',
+        '制作双人表演短视频或混剪、并已取得所用素材授权的创作者。'
+      ),
+      pricing: text(
+        'The template opens in Kapwing. Editing, AI generation, export limits, and any paid features depend on Kapwing’s current plan; access to a template does not grant music or likeness rights.',
+        '模板在 Kapwing 中打开。编辑、AI 生成、导出限制和付费功能以 Kapwing 当前套餐为准；能使用模板不代表已获得音乐或肖像授权。'
+      ),
+      market: [
+        text('AI video trends', 'AI 视频热梗'),
+        text('Music-led editing', '音乐节奏剪辑'),
+        text('Short-form video', '短视频'),
+      ],
+      techStack: [
+        text('Kapwing video template', 'Kapwing 视频模板'),
+        text('Editable audio/video timeline', '可编辑音视频时间线'),
+        text('Separately generated duo clip', '单独生成的双人表演片段'),
+      ],
+    },
+    specs: [
+      spec(
+        'Source',
+        '来源',
+        'Quavo & Takeoff — Hotel Lobby performance',
+        'Quavo 与 Takeoff 的《Hotel Lobby》表演'
+      ),
+      spec(
+        'Visual cue',
+        '画面特征',
+        'Orange booth · two performers · one hanging mic',
+        '橙色录音棚 · 两位表演者 · 一支悬挂麦克风'
+      ),
+      spec(
+        'Template',
+        '模板',
+        'Kapwing video and audio timeline',
+        'Kapwing 音视频时间线'
+      ),
+      spec(
+        'You provide',
+        '需要自备',
+        'Two authorized subjects and a generated replacement clip',
+        '两位授权出镜主体与生成后的替换片段'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Migos AI Song is a search phrase for the viral Hotel Lobby AI video format, not the name of a standalone song generator. Creators replace the two performers in the orange-booth scene with their own subjects, then edit the generated clip against the recognizable song segment. Kapwing hosts a timeline template with the reference video and audio. For original generated footage, a related option is Dreamina’s two-photo video workflow.',
+        'Migos AI Song 是对 Hotel Lobby AI 视频玩法的常见搜索词，并非某个独立的 AI 作曲工具。创作者把橙色录音棚画面中的两位表演者换成自己的主体，再将生成片段与熟悉的歌曲片段剪辑对齐。Kapwing 提供带参考视频和音频的时间线模板；想生成原创替换画面，可以搭配 Dreamina 的双照片视频工作流。'
+      ),
+      [
+        step(
+          'Prepare two subjects',
+          '准备两位主体',
+          'Use clear photos of people or characters you have permission to use. Keep left and right identities distinct.',
+          '使用已获得授权的清晰人物或角色照片，并明确左右两位主体。'
+        ),
+        step(
+          'Generate the replacement clip',
+          '生成替换画面',
+          'Create a short orange-booth duo performance with a fixed camera and alternating gestures. Dreamina is one option for this step.',
+          '生成一段橙色录音棚内的双人表演，尽量固定镜头并让两位主体交替动作；Dreamina 可用于这一步。'
+        ),
+        step(
+          'Edit against the template',
+          '按模板剪辑',
+          'Open the Kapwing template, replace the visual clip, adjust timing to the audio, and review faces and lip sync before export.',
+          '打开 Kapwing 模板，替换画面片段，对齐音频节奏，并在导出前检查面部一致性与口型。'
+        ),
+      ],
+      [
+        text(
+          'Original Hotel Lobby reference video and audio in the template',
+          '模板内有 Hotel Lobby 参考视频与音频'
+        ),
+        text(
+          'Editable timeline for replacing the visual clip',
+          '可替换画面的编辑时间线'
+        ),
+        text(
+          'Recognizable orange-booth duo format',
+          '辨识度高的橙色录音棚双人形式'
+        ),
+        text(
+          'Works with a separately generated AI clip',
+          '可搭配单独生成的 AI 视频片段'
+        ),
+      ],
+      [
+        text('Explaining the Migos AI Song trend', '了解 Migos AI Song 热梗'),
+        text(
+          'Timing a two-person performance to audio',
+          '把双人表演与音频对齐'
+        ),
+        text(
+          'Short-form remixes with cleared materials',
+          '使用已获授权素材制作短视频混剪'
+        ),
+      ],
+      [
+        faq(
+          'Is “Migos AI Song” a new Migos release?',
+          '“Migos AI Song”是 Migos 的新歌吗？',
+          'The term commonly points to AI-made Hotel Lobby trend videos. A generated video should not be presented as an authentic new performance by the artists.',
+          '这个词通常指使用《Hotel Lobby》片段制作的 AI 热梗视频；生成视频不应被描述成艺人真实发布的新表演。'
+        ),
+        faq(
+          'Does the Kapwing template generate the two performers?',
+          'Kapwing 模板会自动生成两位表演者吗？',
+          'The template supplies an editable reference video and audio timeline. Create the replacement duo footage separately, then place it in the timeline.',
+          '模板提供可编辑的参考视频和音频时间线；双人替换画面需要先单独生成，再放入时间线。'
+        ),
+        faq(
+          'Can I publish the original song or celebrity likenesses?',
+          '可以直接发布原曲或名人的形象吗？',
+          'Check the rights to every photo, face, voice, video clip, and music recording before publication. Template access alone does not supply those permissions.',
+          '发布前应确认每张照片、肖像、声音、视频片段和录音的使用权。仅能访问模板并不代表拥有这些授权。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'dreamina-migos-ai-video',
+    name: 'Dreamina Migos AI Video',
+    maker: 'Dreamina by CapCut',
+    website: 'https://dreamina.capcut.com/ai-video/migos-ai-video-generator',
+    logo: 'https://dreamina.capcut.com/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-09-29',
+    category: 'image-to-video',
+    categoryLabel: productCategoryLabels['image-to-video'],
+    relatedSlugs: ['migos-ai-song'],
+    tags: [
+      tag('two-photos', 'Two-photo workflow', '双照片工作流'),
+      tag('seedance', 'Seedance 2.5', 'Seedance 2.5'),
+      tag('duo-video', 'Duo video', '双人视频'),
+      tag('ai-video', 'AI video', 'AI 视频'),
+    ],
+    tagline: text(
+      'Generate an original orange-booth duo scene from two authorized photos.',
+      '用两张已获授权的照片生成原创橙色录音棚双人表演画面。'
+    ),
+    description: text(
+      'Dreamina’s Migos AI video guide turns two reference photos and a scene prompt into an orange-booth performance clip with Seedance 2.5. It focuses on generating the visuals; pair the result with audio in an editor only when you have the necessary rights.',
+      'Dreamina 的 Migos AI 视频指南使用两张参考照片和场景提示词，通过 Seedance 2.5 生成橙色录音棚双人表演片段。它侧重生成画面；若要在剪辑软件中配乐，应先确认有相应授权。'
+    ),
+    note: text(
+      'Best for: creating the duo footage used in a Hotel Lobby-style edit',
+      '适合：制作 Hotel Lobby 风格短片所需的双人表演画面'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Generate the two-person booth scene from your own references and direct the movement through a prompt.',
+        '使用自己的参考照片生成双人录音棚画面，并通过提示词控制动作。'
+      ),
+      problemSolved: text(
+        'The audio template needs a matching visual clip. Dreamina provides a dedicated two-photo generation workflow for that clip.',
+        '音频模板需要与之匹配的画面片段。Dreamina 提供专门的双照片视频生成流程。'
+      ),
+      audience: text(
+        'Creators who want an original duo video using consenting subjects or their own characters.',
+        '希望使用同意出镜的人物或自有角色制作原创双人视频的创作者。'
+      ),
+      pricing: text(
+        'Dreamina uses account-based access and credits; available models, limits, and prices can change by plan and region.',
+        'Dreamina 采用账号和积分机制；可用模型、额度与价格可能随套餐和地区变化。'
+      ),
+      market: [
+        text('Image to video', '图生视频'),
+        text('AI video trends', 'AI 视频热梗'),
+        text('Short-form creation', '短视频创作'),
+      ],
+      techStack: [
+        text('Dreamina Seedance 2.5', 'Dreamina Seedance 2.5'),
+        text('Two reference photos', '两张参考照片'),
+        text('Scene and motion prompt', '场景与动作提示词'),
+      ],
+    },
+    specs: [
+      spec(
+        'Input',
+        '输入',
+        'Two authorized reference photos + prompt',
+        '两张已获授权的参考照片 + 提示词'
+      ),
+      spec(
+        'Model shown',
+        '页面推荐模型',
+        'Dreamina Seedance 2.5',
+        'Dreamina Seedance 2.5'
+      ),
+      spec(
+        'Scene',
+        '场景',
+        'Orange booth · fixed camera · alternating performers',
+        '橙色录音棚 · 固定镜头 · 交替表演'
+      ),
+      spec(
+        'Output',
+        '输出',
+        'Generated video clip for later editing',
+        '用于后续剪辑的生成视频片段'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Dreamina Migos AI Video is Dreamina’s guided workflow for an original duo clip inspired by the orange-booth Hotel Lobby trend. Upload two authorized reference photos, describe the scene and alternating performance, generate with Seedance 2.5, and review the result. It creates visuals; the related Kapwing template is a separate editing route for aligning a clip with the trend audio.',
+        'Dreamina Migos AI Video 是 Dreamina 针对 Hotel Lobby 橙色录音棚玩法提供的双人视频制作指南。上传两张已获授权的参考照片，描述场景和交替表演动作，用 Seedance 2.5 生成并检查结果。这里制作的是画面；相关的 Kapwing 模板可用于后续把片段与热梗音频对齐。'
+      ),
+      [
+        step(
+          'Choose two reference photos',
+          '选择两张参考照片',
+          'Use one clear authorized image per subject and decide who stays on each side of the microphone.',
+          '每位主体各选一张清晰且获授权的照片，并确定其在麦克风左右的位置。'
+        ),
+        step(
+          'Describe the performance',
+          '描述表演',
+          'Prompt for an orange booth, a single hanging microphone, a fixed camera, and alternating gestures.',
+          '在提示词中写明橙色录音棚、一支悬挂麦克风、固定镜头和交替动作。'
+        ),
+        step(
+          'Generate and inspect',
+          '生成并检查',
+          'Run a short test in Dreamina and inspect identity, hand movement, camera drift, and timing before using the clip in an edit.',
+          '先在 Dreamina 中生成短片，检查人物一致性、手部动作、镜头漂移和节奏，再用于剪辑。'
+        ),
+      ],
+      [
+        text('Two-subject reference workflow', '双主体参考图工作流'),
+        text('Prompt-led scene and gesture control', '用提示词控制场景与动作'),
+        text('Seedance 2.5 video generation', 'Seedance 2.5 视频生成'),
+        text('Original visuals for a music-led edit', '为音乐短片制作原创画面'),
+      ],
+      [
+        text('Two-person AI performance', 'AI 双人表演'),
+        text('Short-form trend videos', '热门短视频'),
+        text('Original character or pet duos', '原创角色或宠物搭档'),
+      ],
+      [
+        faq(
+          'Does Dreamina supply the Hotel Lobby song?',
+          'Dreamina 会提供《Hotel Lobby》歌曲吗？',
+          'This workflow focuses on generating a video scene. Add music later only if you have permission to use the recording.',
+          '这个工作流侧重生成视频画面。只有在取得录音使用许可后，才应在后期加入歌曲。'
+        ),
+        faq(
+          'Why do the two faces sometimes blend?',
+          '为什么两张脸有时会混在一起？',
+          'Use separate, clear reference photos and assign fixed left and right positions in the prompt. Regenerate if the identities drift.',
+          '使用两张独立且清晰的参考照片，在提示词中固定左右位置；若人物身份漂移，就重新生成。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'reapi-qwen-image-2-1',
+    name: 'Qwen Image 2.1 on reAPI',
+    maker: 'reAPI',
+    website: 'https://reapi.ai/models/qwen-image-2-1',
+    logo: 'https://reapi.ai/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-09-29',
+    category: 'models',
+    categoryLabel: productCategoryLabels.models,
+    relatedSlugs: ['comfyui'],
+    tags: [
+      tag('web-playground', 'Web playground', '网页创作台'),
+      tag('qwen-image', 'Qwen Image 2.1', 'Qwen Image 2.1'),
+      tag('text-to-image', 'Text to image', '文生图'),
+      tag('image-editing', 'Image editing', '图像编辑'),
+    ],
+    tagline: text(
+      'Generate and edit Qwen Image 2.1 pictures in a browser playground.',
+      '在网页创作台中使用 Qwen Image 2.1 生成和编辑图片。'
+    ),
+    description: text(
+      'reAPI provides a hosted Qwen Image 2.1 playground with prompt-based generation, reference-image editing, optional masks, transparent backgrounds, and 1K or 2K output. The web form can be tried without installing model files. reAPI is a third-party service, separate from Qwen’s local GGUF downloads.',
+      'reAPI 提供在线 Qwen Image 2.1 创作台，可输入提示词生成图片、上传参考图进行编辑，也提供局部蒙版、透明背景以及 1K／2K 输出选项。网页表单无需先安装模型文件。reAPI 是第三方在线服务，与 Qwen 的本地 GGUF 下载文件不同。'
+    ),
+    note: text(
+      'Best for: trying Qwen Image 2.1 in a browser',
+      '适合：直接在浏览器中体验 Qwen Image 2.1'
+    ),
+    image: '',
+    tone: 'amber',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Use Qwen Image 2.1 through a visible browser form: type a prompt, choose image settings, and preview the result without assembling a local model stack.',
+        '通过可操作的网页表单使用 Qwen Image 2.1：输入提示词、调整图片设置、预览结果，无需自行搭建本地模型环境。'
+      ),
+      problemSolved: text(
+        'A model repository only offers files and setup notes. This hosted playground lets visitors actually test generation and editing from the page.',
+        '模型仓库主要提供文件和安装说明；这个在线创作台让访客能直接从页面测试生图和图像编辑。'
+      ),
+      audience: text(
+        'Designers, creators, and product teams testing Qwen Image 2.1 outputs before choosing a longer-term workflow.',
+        '希望先体验 Qwen Image 2.1 效果，再决定长期使用方式的设计师、创作者和产品团队。'
+      ),
+      pricing: text(
+        'reAPI lists credit-based, per-image pricing. Check the live page for current rates, account requirements, and usage terms.',
+        'reAPI 页面展示按图片与积分计费；当前价格、账号要求和使用条款请以实时页面为准。'
+      ),
+      market: [
+        text('Web image creation', '网页图像创作'),
+        text('Qwen Image 2.1', 'Qwen Image 2.1'),
+        text('Text to image', '文生图'),
+        text('Image editing', '图像编辑'),
+      ],
+      techStack: [
+        text('Hosted Qwen Image 2.1', '在线 Qwen Image 2.1'),
+        text('Browser playground', '浏览器创作台'),
+        text('Prompt and reference-image controls', '提示词与参考图控制'),
+      ],
+    },
+    specs: [
+      spec('Access', '使用方式', 'Browser playground', '浏览器创作台'),
+      spec(
+        'Creation modes',
+        '创作模式',
+        'Text to image · image to image',
+        '文生图 · 图生图'
+      ),
+      spec(
+        'Reference inputs',
+        '参考输入',
+        'Images and optional mask',
+        '参考图片与可选蒙版'
+      ),
+      spec(
+        'Output options',
+        '输出选项',
+        '1K / 2K · opaque / transparent',
+        '1K／2K · 不透明／透明背景'
+      ),
+      spec(
+        'Service',
+        '服务提供方',
+        'Third-party hosted by reAPI',
+        '由第三方 reAPI 托管'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Qwen Image 2.1 on reAPI is a browser-based image generation and editing playground. It exposes Qwen Image 2.1 through a hosted form for prompts, reference images, optional masks, transparent outputs, and 1K or 2K resolution. It is a third-party web service, not the local GGUF model package. The related ComfyUI product offers another visual workflow for Qwen Image 2.1.',
+        'reAPI 上的 Qwen Image 2.1 是浏览器中的图像生成和编辑创作台。网页表单提供提示词、参考图、可选蒙版、透明输出以及 1K／2K 分辨率设置。它是第三方在线服务，不是本地 GGUF 模型文件包。相关的 ComfyUI 产品则提供另一种可视化 Qwen Image 2.1 工作流。'
+      ),
+      [
+        step(
+          'Open the playground',
+          '打开网页创作台',
+          'Visit the reAPI model page and select text-to-image or image-to-image in the Playground form.',
+          '访问 reAPI 模型页面，在创作台表单中选择文生图或图生图。'
+        ),
+        step(
+          'Set your inputs',
+          '设置创作输入',
+          'Write a prompt, add reference images or a mask if editing, and choose resolution and background options.',
+          '填写提示词；如需编辑，添加参考图或蒙版，再选择分辨率和背景选项。'
+        ),
+        step(
+          'Generate and inspect',
+          '生成并检查',
+          'Review the estimated credit cost, generate the image, and inspect the result before using it in your project.',
+          '确认预计积分消耗，生成图片，并在投入项目使用前检查结果。'
+        ),
+      ],
+      [
+        text('Browser-based text-to-image generation', '浏览器文生图'),
+        text('Reference-image editing', '参考图编辑'),
+        text('Optional mask for local changes', '可选蒙版局部修改'),
+        text('Transparent PNG or WebP output', '透明 PNG 或 WebP 输出'),
+        text('1K and 2K choices', '1K 与 2K 选项'),
+      ],
+      [
+        text('Trying Qwen Image 2.1 quickly', '快速体验 Qwen Image 2.1'),
+        text('Product cutouts and stickers', '商品抠图与贴纸'),
+        text('Image editing with references', '基于参考图的编辑'),
+        text('Creators comparing web image tools', '比较在线生图工具的创作者'),
+      ],
+      [
+        faq(
+          'Is this the local GGUF download?',
+          '这里提供本地 GGUF 下载吗？',
+          'No. This is a hosted browser playground for Qwen Image 2.1. Local GGUF files are a separate setup path.',
+          '不是。这里是托管的 Qwen Image 2.1 网页创作台；本地 GGUF 文件是另一种使用方式。'
+        ),
+        faq(
+          'Is reAPI the official Qwen website?',
+          'reAPI 是 Qwen 官方网站吗？',
+          'No. reAPI is a third-party service hosting access to the model. Check its own pricing and terms before generating.',
+          '不是。reAPI 是提供模型在线使用入口的第三方服务，生成前请查看其价格和使用条款。'
+        ),
+        faq(
+          'Can I edit an existing image?',
+          '可以编辑已有图片吗？',
+          'Yes. Choose image-to-image, add reference images, and optionally provide a mask to target a region.',
+          '可以。选择图生图，添加参考图；也可以用可选蒙版指定需要修改的区域。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'comfyui',
+    name: 'ComfyUI',
+    maker: 'Comfy Org',
+    website: 'https://comfy.org/',
+    logo: 'https://comfy.org/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-09-29',
+    category: 'workflow',
+    categoryLabel: productCategoryLabels.workflow,
+    relatedSlugs: ['reapi-qwen-image-2-1'],
+    tags: [
+      tag('visual-workflows', 'Visual workflows', '可视化工作流'),
+      tag('image-generation', 'Image generation', '图像生成'),
+      tag('desktop-cloud', 'Desktop and cloud', '桌面与云端'),
+      tag('qwen-image', 'Qwen-Image 2.1', 'Qwen-Image 2.1'),
+    ],
+    tagline: text(
+      'A visual workspace for creating images with models such as Qwen-Image 2.1.',
+      '可用 Qwen-Image 2.1 等模型创作图像的可视化工作台。'
+    ),
+    description: text(
+      'ComfyUI is a visual image-generation app with Desktop and Cloud options. Start from a Qwen-Image 2.1 template, write a prompt or add reference images, and run the workflow in its canvas. Its reusable templates and App Mode help turn complex workflows into practical creative tools.',
+      'ComfyUI 是提供桌面版与云端版的可视化图像创作应用。你可以从 Qwen-Image 2.1 模板开始，输入提示词或参考图，再在画布上运行工作流。可复用模板和 App Mode 能把复杂流程变成更易使用的创作工具。'
+    ),
+    note: text(
+      'Best for: visual image creation with reusable Qwen workflows',
+      '适合：使用 Qwen 工作流进行可视化图像创作'
+    ),
+    image: '',
+    tone: 'cobalt',
+    profile: {
+      valueProposition: text(
+        'Create and edit images through a visible workflow canvas, with a simpler App Mode and ready-made templates to help you start.',
+        '在可视化工作流画布中生成和编辑图像，也可以用简化的 App Mode 与现成模板快速开始。'
+      ),
+      problemSolved: text(
+        'Image models often need several preparation and generation steps. ComfyUI makes those steps visible and reusable in a single canvas.',
+        '图像模型通常涉及多步准备与生成流程。ComfyUI 把这些步骤放在同一块画布上，便于查看、调整和复用。'
+      ),
+      audience: text(
+        'Visual creators who want to try Qwen-Image 2.1, customize image workflows, or move between desktop and cloud.',
+        '希望体验 Qwen-Image 2.1、调整生图流程，或在桌面与云端间选择使用方式的创作者。'
+      ),
+      pricing: text(
+        'ComfyUI offers a local Desktop app and a hosted Cloud service. Check the official site for current access, credits, and plan terms.',
+        'ComfyUI 提供本地桌面应用和托管云服务；当前使用条件、积分与套餐以官网为准。'
+      ),
+      market: [
+        text('Image creation', '图像创作'),
+        text('Visual workflows', '可视化工作流'),
+        text('Desktop and cloud', '桌面与云端'),
+      ],
+      techStack: [
+        text('Node canvas and App Mode', '节点画布与 App Mode'),
+        text('Qwen-Image 2.1 template', 'Qwen-Image 2.1 模板'),
+        text('Comfy Desktop or Comfy Cloud', 'Comfy Desktop 或 Comfy Cloud'),
+      ],
+    },
+    specs: [
+      spec(
+        'Interface',
+        '使用界面',
+        'Visual canvas and App Mode',
+        '可视化画布与 App Mode'
+      ),
+      spec('Access', '使用方式', 'Desktop app or Cloud', '桌面应用或云端服务'),
+      spec(
+        'Qwen workflow',
+        'Qwen 工作流',
+        'Official Qwen-Image 2.1 template',
+        '官方 Qwen-Image 2.1 模板'
+      ),
+      spec(
+        'Starting point',
+        '入门方式',
+        'Ready-made visual templates',
+        '现成的可视化模板'
+      ),
+    ],
+    seo: seo(
+      text(
+        'ComfyUI is a visual application for building and running image-generation workflows. Its official Qwen-Image 2.1 template lets you generate or edit images through a canvas with prompts and reference images. You can use Comfy Desktop locally or try Comfy Cloud in a browser, starting from a ready-made template rather than a blank workflow.',
+        'ComfyUI 是构建和运行图像生成工作流的可视化应用。官方 Qwen-Image 2.1 模板让你通过画布、提示词和参考图生成或编辑图像。你可以在本地使用 Comfy Desktop，或在浏览器中体验 Comfy Cloud，并从现成模板开始创作。'
+      ),
+      [
+        step(
+          'Open Desktop or Cloud',
+          '打开桌面版或云端版',
+          'Choose the local Desktop app if you have a suitable GPU, or start in Comfy Cloud through the browser.',
+          '如果有合适的 GPU，可以选择本地桌面应用；也可以直接在浏览器中打开 Comfy Cloud。'
+        ),
+        step(
+          'Load a Qwen template',
+          '加载 Qwen 模板',
+          'Open the Templates panel and select the Qwen-Image 2.1 workflow. Local Desktop use also needs the matching model weights.',
+          '在模板面板中选择 Qwen-Image 2.1 工作流。使用本地桌面版时，还需要准备对应的模型权重。'
+        ),
+        step(
+          'Create and refine',
+          '生成并调整',
+          'Enter a prompt, attach optional reference images, run the workflow, then adjust the result from the canvas or App Mode.',
+          '输入提示词，按需添加参考图，运行工作流，再从画布或 App Mode 中调整结果。'
+        ),
+      ],
+      [
+        text('Visual workflow canvas', '可视化工作流画布'),
+        text('Simplified App Mode', '简化的 App Mode'),
+        text('Official Qwen-Image 2.1 template', '官方 Qwen-Image 2.1 模板'),
+        text('Desktop and browser-based Cloud options', '桌面版与浏览器云端版'),
+      ],
+      [
+        text('Qwen image creation and editing', 'Qwen 图像生成与编辑'),
+        text('Reusable visual workflows', '可复用的可视化工作流'),
+        text(
+          'Creators comparing local and cloud use',
+          '比较本地与云端使用方式的创作者'
+        ),
+      ],
+      [
+        faq(
+          'Can I try Qwen-Image 2.1 without installing ComfyUI?',
+          '不安装 ComfyUI 也能体验 Qwen-Image 2.1 吗？',
+          'Yes. The official ComfyUI guide links to a Comfy Cloud workflow. Availability and credit use depend on the current Cloud plan.',
+          '可以。ComfyUI 官方指南提供 Comfy Cloud 工作流入口；是否可用及积分消耗以当前云端套餐为准。'
+        ),
+        faq(
+          'How is ComfyUI different from the reAPI playground?',
+          'ComfyUI 和 reAPI 网页创作台有什么不同？',
+          'The reAPI page offers a single hosted form for Qwen Image 2.1. ComfyUI provides an editable visual workflow with Desktop and Cloud options.',
+          'reAPI 提供单页式的 Qwen Image 2.1 在线表单；ComfyUI 则提供可编辑的可视化工作流，并有桌面版和云端版。'
+        ),
+      ]
+    ),
+  },
+];
+
 const HIDDEN_PRODUCT_SLUGS = new Set([
   'mirage',
   'marble',
@@ -4422,7 +5037,7 @@ const productHeroThumbs: Record<string, string> = Object.fromEntries(
     ])
 );
 
-export const mockProducts = realtimeProducts;
+export const mockProducts = [...localModelProducts, ...realtimeProducts];
 export const categoryKeys: ProductCategory[] = [
   'realtime',
   'text-to-video',
@@ -4430,12 +5045,24 @@ export const categoryKeys: ProductCategory[] = [
   'avatar-live',
   'video-editing',
   'workflow',
+  'models',
 ];
 
 function getProductProfile(
   product: MockAiProduct,
   locale: CatalogLocale
 ): CatalogProductProfile {
+  if (product.profile) {
+    return {
+      valueProposition: product.profile.valueProposition[locale],
+      problemSolved: product.profile.problemSolved[locale],
+      audience: product.profile.audience[locale],
+      pricing: product.profile.pricing[locale],
+      market: product.profile.market.map((item) => item[locale]),
+      techStack: product.profile.techStack.map((item) => item[locale]),
+    };
+  }
+
   const isZh = locale === 'zh';
   const isWorkflow = product.category === 'workflow';
   return {
@@ -4510,7 +5137,12 @@ export function getProducts(locale: CatalogLocale): CatalogProduct[] {
         tagNames: product.tags.map((productTag) => productTag.label[locale]),
         sourceDomain,
         sourceUpdatedAt,
+        relatedSlugs: product.relatedSlugs ?? [],
         profile: getProductProfile(product, locale),
+        specs: (product.specs ?? []).map((item) => ({
+          label: item.label[locale],
+          value: item.value[locale],
+        })),
         seo: {
           whatIs: product.seo.whatIs[locale],
           howToUse: product.seo.howToUse.map((productStep) => ({
@@ -4695,6 +5327,8 @@ export function toCatalogProduct(
     sourceDomain,
     sourceUpdatedAt: formatSubmissionDate(submission.createdAt),
     heroThumb: '',
+    relatedSlugs: [],
+    specs: [],
     seo: {
       whatIs,
       howToUse: steps,

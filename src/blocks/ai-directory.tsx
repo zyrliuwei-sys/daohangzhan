@@ -24,6 +24,16 @@ function getCategoryLabel(category: ProductCategory, locale: CatalogLocale) {
   );
 }
 
+function getSourceActionLabel(product: CatalogProduct) {
+  if (product.sourceDomain === 'github.com') {
+    return m['catalog.card.open_github']();
+  }
+  if (product.sourceDomain === 'huggingface.co') {
+    return m['catalog.card.open_huggingface']();
+  }
+  return m['catalog.card.open_website']();
+}
+
 function ProductCard({
   product,
   saved,
@@ -35,7 +45,7 @@ function ProductCard({
   onSave: () => void;
   saveLabel: string;
 }) {
-  const sourceActionLabel = m['catalog.card.open_website']();
+  const sourceActionLabel = getSourceActionLabel(product);
 
   return (
     <article

@@ -19,6 +19,14 @@ import { ChannelGrid } from '@/components/channel-grid';
 import { Button } from '@/components/ui/button';
 import { Component as VibeToPromptAiInput } from '@/components/ui/vibe-to-prompt-ai-input';
 
+const FEATURED_PRODUCT_SLUGS = [
+  'jev',
+  'reapi-qwen-image-2-1',
+  'comfyui',
+  'migos-ai-song',
+  'dreamina-migos-ai-video',
+] as const;
+
 /**
  * Directory-first homepage: the browsable channel grid (tag filters)
  * comes first, the long-form SEO copy from `content/pages/home.md` follows
@@ -171,9 +179,14 @@ export function HomeDirectory({
             <ChannelGrid
               channels={filteredChannels}
               tagLabels={tagLabels}
-              featuredProduct={
+              featuredProducts={
                 activeTag === 'all'
-                  ? products.find((product) => product.slug === 'jev')
+                  ? FEATURED_PRODUCT_SLUGS.flatMap((slug) => {
+                      const product = products.find(
+                        (item) => item.slug === slug
+                      );
+                      return product ? [product] : [];
+                    })
                   : undefined
               }
             />

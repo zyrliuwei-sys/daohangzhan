@@ -16,13 +16,13 @@ function displayCopy(value: string) {
 export function ChannelGrid({
   channels,
   tagLabels,
-  featuredProduct,
+  featuredProducts = [],
 }: {
   channels: ChannelRecord[];
   tagLabels: Record<string, string>;
-  featuredProduct?: CatalogProduct;
+  featuredProducts?: CatalogProduct[];
 }) {
-  if (!channels.length && !featuredProduct) return null;
+  if (!channels.length && !featuredProducts.length) return null;
 
   return (
     <div className="seo-channel-grid">
@@ -61,39 +61,39 @@ export function ChannelGrid({
           </p>
         </article>
       ))}
-      {featuredProduct && (
-        <article key={featuredProduct.slug} className="seo-channel-card">
+      {featuredProducts.map((product) => (
+        <article key={product.slug} className="seo-channel-card">
           <div className="seo-channel-card-head">
             <Link
-              href={`/products/${featuredProduct.slug}`}
+              href={`/products/${product.slug}`}
               className="seo-channel-card-name"
             >
               <AiProductLogo
-                name={featuredProduct.name}
-                src={featuredProduct.logo}
-                website={featuredProduct.website}
+                name={product.name}
+                src={product.logo}
+                website={product.website}
                 loading="eager"
               />
-              <h3>{featuredProduct.name}</h3>
+              <h3>{product.name}</h3>
             </Link>
             <a
-              href={featuredProduct.website}
+              href={product.website}
               target="_blank"
               rel="noopener noreferrer"
               className="seo-channel-card-visit"
-              aria-label={`Open the ${featuredProduct.name} official site`}
+              aria-label={`Open the ${product.name} official site`}
             >
               <ArrowUpRight className="size-4" />
             </a>
           </div>
           <p className="seo-channel-card-tagline">
-            {displayCopy(featuredProduct.tagline)}
+            {displayCopy(product.tagline)}
           </p>
           <p className="seo-channel-card-tags">
-            {featuredProduct.tagNames.join(' · ')}
+            {product.tagNames.join(' · ')}
           </p>
         </article>
-      )}
+      ))}
     </div>
   );
 }

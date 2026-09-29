@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
 import type { CatalogProduct } from '@/lib/mock-ai-products';
+import { m } from '@/paraglide/messages.js';
 import { AiProductLogo } from '@/components/ai-product-logo';
 
 function compactTagline(value: string) {
@@ -13,6 +14,16 @@ function compactTagline(value: string) {
   const concise = firstSentence || normalized;
 
   return concise.length > 116 ? `${concise.slice(0, 113).trimEnd()}…` : concise;
+}
+
+function getSourceActionLabel(product: CatalogProduct, fallback: string) {
+  if (product.sourceDomain === 'github.com') {
+    return m['catalog.card.open_github']();
+  }
+  if (product.sourceDomain === 'huggingface.co') {
+    return m['catalog.card.open_huggingface']();
+  }
+  return fallback;
 }
 
 export function ProductGrid({
@@ -46,7 +57,7 @@ export function ProductGrid({
               target="_blank"
               rel="noopener noreferrer"
               className="seo-channel-card-visit"
-              aria-label={`${sourceActionLabel} ${product.name}`}
+              aria-label={`${getSourceActionLabel(product, sourceActionLabel)} ${product.name}`}
             >
               <ArrowUpRight className="size-4" />
             </a>
