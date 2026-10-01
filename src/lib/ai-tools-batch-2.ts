@@ -1638,6 +1638,111 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
     ],
   }),
   tool({
+    slug: 'vikas-edit',
+    name: 'Vikas Edit',
+    maker: 'Vikas Edit',
+    website: 'https://vikasedit.co.in',
+    category: 'models',
+    tone: 'coral',
+    related: ['raphael-ai', 'openart', 'imgupscaler'],
+    tags: [
+      ['ai-prompts', 'AI photo prompts', 'AI 修图提示词'],
+      ['mobile-editing', 'Mobile editing', '手机修图'],
+      ['free', 'Free, no signup', '免费免注册'],
+    ],
+    tagline: [
+      'Free copy-paste AI photo editing prompts for Gemini and ChatGPT.',
+      '免费的 AI 修图提示词库，复制到 Gemini 或 ChatGPT 即可使用。',
+    ],
+    description: [
+      'Vikas Edit is a free prompt library for the "Vikas editor" mobile editing style. Copy a prompt, attach your photo in Google Gemini or ChatGPT, and get a styled edit. It also offers video-to-prompt and image-to-prompt tools.',
+      'Vikas Edit 是围绕 “Vikas editor” 手机修图风格的免费提示词库。复制提示词，在 Google Gemini 或 ChatGPT 里附上照片，就能得到对应风格的修图结果，另有视频转提示词、图片转提示词工具。',
+    ],
+    note: [
+      'Best for: trendy Reels-style photo edits on a phone',
+      '适合：在手机上做流行的 Reels 风格修图',
+    ],
+    value: [
+      'Ready-made prompts that turn a phone photo into a trending edit, with no editing skills needed.',
+      '现成的提示词，不会修图也能把手机照片变成流行风格。',
+    ],
+    problem: [
+      'Writing a good AI editing prompt that keeps the face intact takes many tries.',
+      '要写出既能出效果又不改脸的 AI 修图提示词，往往要试很多次。',
+    ],
+    audience: [
+      'Mobile creators, Instagram and Reels users, and people new to AI photo editing.',
+      '手机创作者、Instagram 和 Reels 用户，以及刚接触 AI 修图的人。',
+    ],
+    pricing: [
+      'Free; no signup, app download, or credits required.',
+      '免费，无需注册、下载 App 或消耗积分。',
+    ],
+    market: [
+      ['AI photo editing', 'AI 修图'],
+      ['Prompt libraries', '提示词库'],
+    ],
+    tech: [
+      ['Prompts for Gemini and ChatGPT', '适配 Gemini 和 ChatGPT 的提示词'],
+      ['Web app', '网页应用'],
+    ],
+    whatIs: [
+      'Vikas Edit (often searched as "Vikas editor") is a free hub of AI photo editing prompts made for phones. Collections cover retro portraits, couple shots, gaming avatars, festival cards, and video prompts in English and Hindi. Each prompt is copied into Gemini or ChatGPT together with your own photo.',
+      'Vikas Edit（常被搜索为 “Vikas editor”）是一个面向手机用户的免费 AI 修图提示词库，涵盖复古人像、情侣照、游戏头像、节日贺卡和视频提示词，提供英语和印地语版本。使用时把提示词和自己的照片一起发给 Gemini 或 ChatGPT 即可。',
+    ],
+    steps: [
+      [
+        'Pick a prompt',
+        '挑选提示词',
+        'Browse the collections and copy a prompt you like.',
+        '浏览合集，复制喜欢的提示词。',
+      ],
+      [
+        'Attach your photo',
+        '附上照片',
+        'Open Gemini or ChatGPT, upload your photo, and paste the prompt.',
+        '打开 Gemini 或 ChatGPT，上传照片并粘贴提示词。',
+      ],
+      [
+        'Save and share',
+        '保存分享',
+        'Download the edited image and post it to Reels or Stories.',
+        '下载修好的图片，发到 Reels 或快拍。',
+      ],
+    ],
+    features: [
+      ['Copy-paste photo prompts', '一键复制的修图提示词'],
+      ['English and Hindi prompts', '英语和印地语提示词'],
+      ['Video-to-prompt generator', '视频转提示词'],
+      ['Image-to-prompt analyzer', '图片转提示词'],
+    ],
+    bestFor: [
+      ['Trending Reels photo edits', '流行的 Reels 修图'],
+      ['Festival and couple photos', '节日照和情侣照'],
+      ['Beginners using Gemini or ChatGPT', '用 Gemini 或 ChatGPT 的新手'],
+    ],
+    faqs: [
+      [
+        'Is Vikas Edit free?',
+        'Vikas Edit 免费吗？',
+        'Yes. Prompts can be copied without signing up or paying.',
+        '免费，无需注册或付费即可复制提示词。',
+      ],
+      [
+        'Is Vikas Edit an editing app?',
+        'Vikas Edit 是修图 App 吗？',
+        'No. It provides prompts; the actual edit is done in Gemini or ChatGPT.',
+        '不是。它提供提示词，真正的修图在 Gemini 或 ChatGPT 里完成。',
+      ],
+      [
+        'Is it the same as "Editing by Vikas"?',
+        '它和 “Editing by Vikas” 是同一个吗？',
+        'No. Several independent sites use the Vikas name; this listing covers vikasedit.co.in.',
+        '不是。有多个独立网站使用 Vikas 这个名字，本页收录的是 vikasedit.co.in。',
+      ],
+    ],
+  }),
+  tool({
     slug: 'dreamwave',
     name: 'Dreamwave',
     maker: 'Dreamwave',
