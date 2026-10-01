@@ -5,6 +5,7 @@ import {
   type CatalogProduct,
   type ProductCategory,
 } from '@/lib/mock-ai-products';
+import { searchProducts } from '@/lib/product-search';
 import { buildFaqJsonLd } from '@/lib/seo-content';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
@@ -62,6 +63,7 @@ export function HomeDirectory({
   products: CatalogProduct[];
 }) {
   const [activeTag, setActiveTag] = useState<ProductCategory | 'all'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const orderedProducts = useMemo(() => orderProducts(products), [products]);
   const filterTags = useMemo(
@@ -73,19 +75,38 @@ export function HomeDirectory({
     [products]
   );
 
-  const filteredProducts = useMemo(
+  const searchableProducts = useMemo(
     () =>
+      orderedProducts.map((product) => ({
+        ...product,
+        href: `/products/${product.slug}`,
+      })),
+    [orderedProducts]
+  );
+
+  const filteredProducts = useMemo(() => {
+    const inCategory =
       activeTag === 'all'
         ? orderedProducts
-        : orderedProducts.filter((product) => product.category === activeTag),
-    [activeTag, orderedProducts]
-  );
+        : orderedProducts.filter((product) => product.category === activeTag);
+    return searchQuery ? searchProducts(inCategory, searchQuery) : inCategory;
+  }, [activeTag, orderedProducts, searchQuery]);
 
   const clearFilters = () => {
     setActiveTag('all');
+    setSearchQuery('');
   };
 
-  const hasFilters = activeTag !== 'all';
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (!query) return;
+    setActiveTag('all');
+    document
+      .getElementById('directory')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const hasFilters = activeTag !== 'all' || searchQuery !== '';
   const faqJsonLd = buildFaqJsonLd(
     getHomeFaqItems().map(({ question, answer }) => ({
       q: question,
@@ -119,16 +140,11 @@ export function HomeDirectory({
               description: m['seo.home.hero_description'](),
               inputLabel: m['seo.home.hero_input_label'](),
               placeholder: m['seo.home.hero_input_placeholder'](),
-              generating: m['seo.home.hero_input_generating'](),
-              reset: m['seo.home.hero_input_reset'](),
-              keywordLabel: m['seo.home.hero_input_keyword_label'](),
-              baseTags: [
-                m['seo.home.hero_input_tag_format'](),
-                m['seo.home.hero_input_tag_context'](),
-                m['seo.home.hero_input_tag_signal'](),
-                m['seo.home.hero_input_tag_rhythm'](),
-              ],
+              noResults: m['seo.home.search_no_results'](),
+              viewAll: (count) => m['seo.home.search_view_all']({ count }),
             }}
+            products={searchableProducts}
+            onSearch={handleSearch}
           />
         </div>
 
@@ -179,6 +195,8 @@ export function HomeDirectory({
           <div className="ai-index-filter-summary" aria-live="polite">
             <span>
               {m['seo.home.results']({ count: filteredProducts.length })}
+              {searchQuery &&
+                ` · ${m['seo.home.search_query']({ query: searchQuery })}`}
             </span>
             {hasFilters && (
               <button
