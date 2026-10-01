@@ -44,6 +44,5 @@ Each channel's creator writes a system prompt that acts as its resident director
 
 - [Infinite Slop](/channel/infinite-slop) — endless reality show, karma for directors
 - [Renoise Live](/channel/renoise-live) — storm-island survival, decided by chat
-- [Infinite TV](/channel/infinite-tv) — the open-source version: Twitch chat as the writer
 
 Browse [every live AI channel](/channels), or see how the show-generator formats stack up in [AI TV show generators](/tv-show-generator).

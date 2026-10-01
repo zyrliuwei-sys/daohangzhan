@@ -26,6 +26,39 @@ export function ChannelGrid({
 
   return (
     <div className="seo-channel-grid">
+      {featuredProducts.map((product) => (
+        <article key={product.slug} className="seo-channel-card">
+          <div className="seo-channel-card-head">
+            <Link
+              href={`/products/${product.slug}`}
+              className="seo-channel-card-name"
+            >
+              <AiProductLogo
+                name={product.name}
+                src={product.logo}
+                website={product.website}
+                loading="eager"
+              />
+              <h3>{product.name}</h3>
+            </Link>
+            <a
+              href={product.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="seo-channel-card-visit"
+              aria-label={`Open the ${product.name} official site`}
+            >
+              <ArrowUpRight className="size-4" />
+            </a>
+          </div>
+          <p className="seo-channel-card-tagline">
+            {displayCopy(product.tagline)}
+          </p>
+          <p className="seo-channel-card-tags">
+            {product.tagNames.join(' · ')}
+          </p>
+        </article>
+      ))}
       {channels.map((channel) => (
         <article key={channel.slug} className="seo-channel-card">
           <div className="seo-channel-card-head">
@@ -58,39 +91,6 @@ export function ChannelGrid({
             {channel.tags
               .map((tag) => tagLabels[tag] ?? tag.replace(/-/g, ' '))
               .join(' · ')}
-          </p>
-        </article>
-      ))}
-      {featuredProducts.map((product) => (
-        <article key={product.slug} className="seo-channel-card">
-          <div className="seo-channel-card-head">
-            <Link
-              href={`/products/${product.slug}`}
-              className="seo-channel-card-name"
-            >
-              <AiProductLogo
-                name={product.name}
-                src={product.logo}
-                website={product.website}
-                loading="eager"
-              />
-              <h3>{product.name}</h3>
-            </Link>
-            <a
-              href={product.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="seo-channel-card-visit"
-              aria-label={`Open the ${product.name} official site`}
-            >
-              <ArrowUpRight className="size-4" />
-            </a>
-          </div>
-          <p className="seo-channel-card-tagline">
-            {displayCopy(product.tagline)}
-          </p>
-          <p className="seo-channel-card-tags">
-            {product.tagNames.join(' · ')}
           </p>
         </article>
       ))}

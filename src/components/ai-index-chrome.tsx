@@ -7,7 +7,6 @@ import { envConfigs } from '@/config';
 import { cn } from '@/lib/utils';
 import { FooterBadgeList } from '@/components/footer-badge-list';
 import { SiteUserMenu } from '@/components/site-user-menu';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Button, buttonVariants } from '@/components/ui/button';
 
 export interface AiIndexChromeContent {
@@ -37,7 +36,7 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
       <div className="ai-index-header-inner">
         <div className="ai-index-header-main">
           <Link
-            href="/ai-livestream"
+            href="/"
             className="ai-index-brand"
             onClick={() => setOpen(false)}
             aria-label={envConfigs.app_name}
@@ -57,7 +56,6 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
             <Link href={content.submitHref ?? '/submit'}>{content.submit}</Link>
           </nav>
           <div className="ai-index-header-actions">
-            <ThemeToggle />
             {user ? (
               <SiteUserMenu
                 name={user.name || 'User'}
@@ -119,7 +117,6 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
               </Link>
             </nav>
             <div className="ai-index-mobile-tools">
-              <ThemeToggle />
               {user ? (
                 <SiteUserMenu
                   name={user.name || 'User'}
@@ -163,7 +160,7 @@ export function AiIndexFooter({
       <footer className="ai-index-footer">
         <div className="ai-index-shell ai-index-footer-inner">
           <Link
-            href="/ai-livestream"
+            href="/"
             className="ai-index-footer-brand"
             aria-label={envConfigs.app_name}
           >
@@ -174,7 +171,7 @@ export function AiIndexFooter({
           </Link>
           <span className="ai-index-footer-tagline">{content.tagline}</span>
           <div className="ai-index-footer-links">
-            <Link href="/ai-livestream#directory">{content.footerBrowse}</Link>
+            <Link href="/#directory">{content.footerBrowse}</Link>
             <Link href="/submit">{content.footerSubmit}</Link>
           </div>
           <span className="ai-index-footer-note">{content.footerNote}</span>

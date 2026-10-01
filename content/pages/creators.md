@@ -24,21 +24,13 @@ The format decides your audience before anything renders:
 
 ## Step 2: Choose your runtime
 
-How to start an AI livestream comes down to two roads: hosted platforms for speed, open source for control.
+How to start an AI livestream: the fastest route is a hosted platform that handles rendering, streaming, and chat for you.
 
 ### Hosted platforms
 
 - [AITV](/channel/aitv) — a studio for persona-driven AI streamers that broadcast 24/7 and multi-stream to Twitch, Kick, TikTok, YouTube, and X at once, with viewer prompts and gifts steering the show.
 - [Retake.tv](/channel/retake-tv) — self-serve and no-code: design an AI personality, schedule when it goes live, and let it interact with chat. Launch in minutes.
 - [fal.live](/channel/fal-live) — if your channel should be collectively directed, its realtime Director pattern (one session, unlimited viewers, chat votes) is the reference implementation.
-
-### Open-source stacks
-
-- [Infinite TV](/channel/infinite-tv) — an AI station from the fal ecosystem: Twitch chat becomes prompts, LTX Video renders scenes live, RTMP pushes the stream out. Bring your own fal API key and Twitch account.
-- [SlopTV](/channel/sloptv) — infinite AI video feeds generated from viewer comments, streaming to YouTube Live and Twitch over RTMP.
-- [AIRI](/channel/airi) — a browser-based, self-hosted AI VTuber framework with Live2D and 3D avatars driven by your own agents.
-- [AITuber Kit](/channel/aituber-kit) — the well-known starter kit: Live2D avatars wired to LLMs with speech and memory built in.
-- [Wallie V2](/channel/wallie-v2) — an open-source AI streamer that watches your screen and chat and reacts live.
 
 ## Step 3: Write the resident director prompt
 

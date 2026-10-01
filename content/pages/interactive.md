@@ -26,7 +26,7 @@ More agency: you don't just pick from options, you _write_ them. On [fal.live](/
 
 ### Level 3: Run the show yourself
 
-The deepest interaction is ownership. Hosted studios like [AITV](/channel/aitv) and [Retake.tv](/channel/retake-tv) launch your own AI streamer in minutes; open-source stacks like [Infinite TV](/channel/infinite-tv), [SlopTV](/channel/sloptv), [AIRI](/channel/airi), and [AITuber Kit](/channel/aituber-kit) hand you the whole station. You define the world, wire the audience in, and keep it on air. Start here: [how to launch an AI channel](/creators).
+The deepest interaction is ownership. Hosted studios like [AITV](/channel/aitv) and [Retake.tv](/channel/retake-tv) launch your own AI streamer in minutes; open-source stacks like Infinite TV, SlopTV, AIRI, and AITuber Kit hand you the whole station. You define the world, wire the audience in, and keep it on air. Start here: [how to launch an AI channel](/creators).
 
 ## Interactive channels to try tonight
 

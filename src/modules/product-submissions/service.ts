@@ -22,6 +22,12 @@ export const PRODUCT_SUBMISSION_CATEGORIES = [
   'avatar-live',
   'video-editing',
   'workflow',
+  'assistant',
+  'research',
+  'models',
+  'coding',
+  'audio',
+  'writing',
 ] as const;
 
 export type CreateProductSubmissionInput = {

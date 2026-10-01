@@ -15,12 +15,10 @@
   },
   "pages": {
     "/": {
-      "role": "Homepage, category head term",
-      "primary": "ai livestream",
-      "secondary": ["ai live stream", "ai live streaming"],
-      "volume": 260,
-      "kd": 33.7,
-      "note": "The three spellings are the same audience — one page, never split."
+      "role": "Homepage, AI tools directory head term",
+      "primary": "ai tools directory",
+      "secondary": ["ai directory", "ai tools list", "best ai tools"],
+      "note": "Switched from 'ai livestream' on 2026-10-01; /ai-livestream now 301s to /. Volume/KD not yet checked."
     },
     "/director": {
       "role": "PRIORITY 1",

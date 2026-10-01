@@ -58,6 +58,12 @@ const CATEGORY_VALUES = [
   'avatar-live',
   'video-editing',
   'workflow',
+  'assistant',
+  'research',
+  'models',
+  'coding',
+  'audio',
+  'writing',
 ] as const;
 
 const productSchema = z.object({
@@ -86,6 +92,12 @@ function categoryLabel(category: string) {
     'avatar-live': m['catalog.category.avatar_live'](),
     'video-editing': m['catalog.category.video_editing'](),
     workflow: m['catalog.category.workflow'](),
+    assistant: m['catalog.category.assistant'](),
+    research: m['catalog.category.research'](),
+    models: m['catalog.category.models'](),
+    coding: m['catalog.category.coding'](),
+    audio: m['catalog.category.audio'](),
+    writing: m['catalog.category.writing'](),
   };
   return labels[category] || category;
 }

@@ -1,3 +1,4 @@
+import { generalAiProducts } from '@/lib/general-ai-products';
 import { getWebsiteScreenshotUrl } from '@/lib/website-preview';
 
 export type CatalogLocale = 'en' | 'zh';
@@ -11,7 +12,12 @@ export type ProductCategory =
   | 'avatar-live'
   | 'video-editing'
   | 'workflow'
-  | 'models';
+  | 'models'
+  | 'assistant'
+  | 'research'
+  | 'coding'
+  | 'audio'
+  | 'writing';
 export type ProductTone = 'coral' | 'cobalt' | 'moss' | 'plum' | 'amber';
 export type ProductSourceType = 'website';
 
@@ -112,6 +118,11 @@ export const productCategoryLabels: Record<ProductCategory, LocalizedText> = {
   'video-editing': { en: 'Edit and remix', zh: '视频编辑与混剪' },
   workflow: { en: 'Workflow tools', zh: '工作流工具' },
   models: { en: 'Image creation', zh: '图像创作' },
+  assistant: { en: 'AI assistants & agents', zh: 'AI 助手与 Agent' },
+  research: { en: 'Research', zh: '研究与学习' },
+  coding: { en: 'Coding & app builders', zh: '编程与应用生成' },
+  audio: { en: 'Voice & music', zh: '语音与音乐' },
+  writing: { en: 'Writing & detection', zh: '写作与检测' },
 };
 const sharedProductFields = {
   sourceType: 'website' as const,
@@ -189,8 +200,8 @@ const realtimeProducts: MockAiProduct[] = [
       tag('agent-workflows', 'Agent workflows', 'Agent 工作流'),
     ],
     tagline: text(
-      'A decision model for software: typed answers, probabilities, and confidence instead of generated prose.',
-      '面向软件的决策模型：输出类型化答案、概率和置信度，而不是一段生成文本。'
+      'Typed answers with probabilities and confidence, not generated prose.',
+      '输出类型化答案、概率和置信度，而非生成文本。'
     ),
     description: text(
       'Jev is TypeSafe AI’s first System One model. Send it application state and focused typed questions; it returns structured decisions that code can route, rank, filter, or escalate without parsing free-form text.',
@@ -1179,7 +1190,7 @@ const realtimeProducts: MockAiProduct[] = [
       tag('avatar-api', 'Avatar API', '数字人 API'),
     ],
     tagline: text(
-      'Give an AI agent a face, a voice, and a live video stream.',
+      'Give an AI agent a face, voice, and live video.',
       '让 AI 智能体拥有面孔、声音和实时视频流。'
     ),
     description: text(
@@ -1520,8 +1531,8 @@ const realtimeProducts: MockAiProduct[] = [
       tag('interactive-video', 'Interactive video', '互动视频'),
     ],
     tagline: text(
-      'AI television directed by everyone — one live session for the whole audience.',
-      '由所有人共同导演的 AI 电视——全场观众共享一个实时会话。'
+      'AI television directed live by its whole audience.',
+      '由全体观众实时共同导演的 AI 电视。'
     ),
     description: text(
       'fal.live channels run a single realtime Director session that is broadcast to every viewer at once, so the whole chat steers the same stream together.',
@@ -1774,210 +1785,6 @@ const realtimeProducts: MockAiProduct[] = [
           '节目还在播吗？',
           'Yes — the channel has kept streaming its AI-generated sitcom continuously.',
           '在播——频道一直在持续播出 AI 生成的情景喜剧。'
-        ),
-      ]
-    ),
-  },
-  {
-    ...sharedProductFields,
-    slug: 'infinite-tv',
-    name: 'Infinite TV',
-    maker: 'alex-remade',
-    website: 'https://github.com/alex-remade/infinite-tv',
-    logo: 'https://github.com/favicon.ico',
-    tags: [
-      tag('chat-directed', 'Chat-directed', '聊天主导'),
-      tag('open-source', 'Open source', '开源'),
-      tag('streaming-video', 'Streaming video', '流式视频'),
-    ],
-    tagline: text(
-      'An open-source AI TV station where live chat writes the show.',
-      '开源 AI 电视台，直播间聊天就是编剧。'
-    ),
-    description: text(
-      'Infinite TV turns live chat into prompts, renders scenes in real time with LTX Video, and streams the result back out via RTMP.',
-      'Infinite TV 把直播聊天转化为提示词，用 LTX Video 实时渲染场景，再通过 RTMP 推流播出。'
-    ),
-    note: text(
-      'Best for: running your own AI station',
-      '适合：运营自己的 AI 电视台'
-    ),
-    tone: 'cobalt',
-    seo: seo(
-      text(
-        'Infinite TV is an open-source project from the fal ecosystem that converts Twitch chat into live AI television.',
-        'Infinite TV 是 fal 生态的开源项目，能把 Twitch 聊天实时转化为 AI 电视节目。'
-      ),
-      [
-        step(
-          'Clone the repo',
-          '克隆仓库',
-          'Set up Infinite TV with your fal and Twitch credentials.',
-          '配置 fal 和 Twitch 凭证，部署 Infinite TV。'
-        ),
-        step(
-          'Let chat direct',
-          '让聊天室编剧',
-          'Viewer messages become prompts for the next scenes.',
-          '观众消息变成后续场景的提示词。'
-        ),
-        step(
-          'Stream it live',
-          '开播',
-          'Rendered scenes loop seamlessly and push out over RTMP.',
-          '渲染出的场景无缝衔接，通过 RTMP 推流。'
-        ),
-      ],
-      [
-        text('LTX Video realtime rendering', 'LTX Video 实时渲染'),
-        text('Chat-to-prompt pipeline', '聊天转提示词管线'),
-        text('RTMP streaming built in', '内置 RTMP 推流'),
-      ],
-      [
-        text('Streamers and makers', '主播和开发者'),
-        text('AI TV tinkerers', 'AI 电视折腾党'),
-        text('Community channels', '社区频道'),
-      ],
-      [
-        faq(
-          'Do I need my own keys?',
-          '需要自己的 API 密钥吗？',
-          'Yes — bring your fal API key and a Twitch account, then run the station yourself.',
-          '需要——准备好 fal API 密钥和 Twitch 账号，然后自行运行电视台。'
-        ),
-      ]
-    ),
-  },
-  {
-    ...sharedProductFields,
-    slug: 'sloptv',
-    name: 'SlopTV',
-    maker: 'shuttie',
-    website: 'https://github.com/shuttie/SlopTV',
-    logo: 'https://github.com/favicon.ico',
-    tags: [
-      tag('chat-directed', 'Chat-directed', '聊天主导'),
-      tag('open-source', 'Open source', '开源'),
-      tag('infinite-video', 'Infinite-length video', '无限时长视频'),
-    ],
-    tagline: text(
-      'An infinite AI slop generator spun from YouTube comments.',
-      '由 YouTube 评论驱动的无限 AI 内容生成器。'
-    ),
-    description: text(
-      'SlopTV is an open-source generator that keeps producing endless AI video feeds and can stream them live to YouTube or Twitch.',
-      'SlopTV 是一个开源生成器，可持续产出无尽的 AI 视频流，并能直接推流到 YouTube 或 Twitch。'
-    ),
-    note: text('Best for: endless YouTube channels', '适合：永动 YouTube 频道'),
-    tone: 'moss',
-    seo: seo(
-      text(
-        'SlopTV is an open-source toolkit for generating and livestreaming infinite AI video channels.',
-        'SlopTV 是一个开源工具包，用于生成并直播无尽的 AI 视频频道。'
-      ),
-      [
-        step(
-          'Install SlopTV',
-          '安装 SlopTV',
-          'Set it up with your model keys and channel credentials.',
-          '配置模型密钥和频道凭证进行部署。'
-        ),
-        step(
-          'Feed it ideas',
-          '投喂创意',
-          'It draws on comments and prompts to keep the script rolling.',
-          '它基于评论和提示词持续产出剧本。'
-        ),
-        step(
-          'Go live forever',
-          '永久开播',
-          'Stream the endless feed straight to YouTube or Twitch.',
-          '把无尽内容直接推流到 YouTube 或 Twitch。'
-        ),
-      ],
-      [
-        text('Infinite feed generation', '无限内容生成'),
-        text('YouTube and Twitch output', '输出到 YouTube 和 Twitch'),
-        text('Self-hosted and free', '自托管且免费'),
-      ],
-      [
-        text('Channel owners', '频道主'),
-        text('AI content hackers', 'AI 内容极客'),
-        text('24/7 stream experiments', '24/7 直播实验'),
-      ],
-      [
-        faq(
-          'Where does SlopTV stream?',
-          'SlopTV 推流到哪里？',
-          'It supports standard RTMP targets like YouTube Live and Twitch.',
-          '支持 YouTube Live 和 Twitch 等标准 RTMP 目标。'
-        ),
-      ]
-    ),
-  },
-  {
-    ...sharedProductFields,
-    slug: 'wallie-v2',
-    name: 'Wallie V2',
-    maker: 'Alradyin',
-    website: 'https://github.com/Alradyin/wallie-V2',
-    logo: 'https://github.com/favicon.ico',
-    tags: [
-      tag('open-source', 'Open source', '开源'),
-      tag('realtime-agent', 'Real-time agent', '实时智能体'),
-      tag('live-streaming', 'Live streaming', '实时流式生成'),
-    ],
-    tagline: text(
-      'An open-source AI agent that watches your screen, chats, and streams.',
-      '能看懂你的屏幕、陪你聊天还能开播的开源 AI 智能体。'
-    ),
-    description: text(
-      'Wallie V2 is an open-source AI livestreamer that perceives the screen and voice, reacts in real time, and can host its own channel.',
-      'Wallie V2 是一个开源 AI 主播，能感知屏幕与声音、实时做出反应，还能经营自己的直播间。'
-    ),
-    note: text('Best for: a self-hosted AI streamer', '适合：自托管 AI 主播'),
-    tone: 'plum',
-    seo: seo(
-      text(
-        'Wallie V2 is an open-source AI that watches and hears your screen and chat, then reacts live as a streaming persona.',
-        'Wallie V2 是一个开源 AI,能看懂并听见你的屏幕和聊天，以主播人设实时互动。'
-      ),
-      [
-        step(
-          'Run Wallie',
-          '运行 Wallie',
-          'Launch the agent on your machine with your model keys.',
-          '在自己的机器上配置模型密钥并启动智能体。'
-        ),
-        step(
-          'Let it perceive',
-          '给它感知',
-          'Wallie reads the screen, audio, and chat as they happen.',
-          'Wallie 实时读取屏幕、音频和聊天内容。'
-        ),
-        step(
-          'Watch it react',
-          '看它反应',
-          'It responds in real time and can carry its own stream.',
-          '它实时回应，还能独立撑起一场直播。'
-        ),
-      ],
-      [
-        text('Screen and voice perception', '屏幕与语音感知'),
-        text('Realtime reactions', '实时反应'),
-        text('Fully open source', '完全开源'),
-      ],
-      [
-        text('AI VTuber builders', 'AI 虚拟主播开发者'),
-        text('Agent hobbyists', '智能体爱好者'),
-        text('Interactive streams', '互动直播'),
-      ],
-      [
-        faq(
-          'What can Wallie actually see?',
-          'Wallie 能看到什么？',
-          'It watches your screen and listens to audio, then answers and acts live.',
-          '它能看你的屏幕、听音频，然后实时回应和行动。'
         ),
       ]
     ),
@@ -4135,76 +3942,6 @@ const realtimeProducts: MockAiProduct[] = [
   },
   {
     ...sharedProductFields,
-    slug: 'aituber-kit',
-    name: 'AITuber Kit',
-    maker: 'tegnike',
-    website: 'https://github.com/tegnike/aituber-kit',
-    logo: 'https://github.com/favicon.ico',
-    tags: [
-      tag('ai-vtuber', 'AI VTuber', 'AI 虚拟主播'),
-      tag('open-source', 'Open source', '开源'),
-      tag('voice-interaction', 'Voice interaction', '语音互动'),
-    ],
-    tagline: text(
-      'The popular open-source starter for your own AI streamer.',
-      '广受欢迎的开源 AI 主播启动套件。'
-    ),
-    description: text(
-      'AITuber Kit wires Live2D avatars to LLMs, speech, and memory so you can run an interactive AI character live.',
-      'AITuber Kit 将 Live2D 形象与大模型、语音和记忆相连，让你运行可互动的实时 AI 角色。'
-    ),
-    note: text(
-      'Best for: starting an AI character',
-      '适合：起步做一个 AI 角色'
-    ),
-    tone: 'plum',
-    seo: seo(
-      text(
-        'AITuber Kit is a well-known open-source starter kit for building interactive AI VTuber characters.',
-        'AITuber Kit 是知名的开源启动套件，用于构建可互动的 AI 虚拟主播角色。'
-      ),
-      [
-        step(
-          'Clone the kit',
-          '克隆套件',
-          'Install the open-source starter locally.',
-          '在本地安装这个开源套件。'
-        ),
-        step(
-          'Pick an avatar',
-          '选择形象',
-          'Load a Live2D model and connect your LLM.',
-          '加载 Live2D 模型并接入你的大模型。'
-        ),
-        step(
-          'Interact live',
-          '实时互动',
-          'Talk with the character and take it on stream.',
-          '与角色对话，并带它上直播。'
-        ),
-      ],
-      [
-        text('Live2D avatar support', '支持 Live2D 形象'),
-        text('Multi-LLM connections', '可接入多家大模型'),
-        text('Speech and memory built in', '内置语音与记忆'),
-      ],
-      [
-        text('Indie creators', '独立创作者'),
-        text('Developers learning agents', '学习智能体的开发者'),
-        text('VTuber experimenters', '虚拟主播玩家'),
-      ],
-      [
-        faq(
-          'What do I need to run it?',
-          '运行它需要什么？',
-          'The repo, a Live2D model, and API keys for the models you want to use.',
-          '仓库本体、一个 Live2D 模型，以及所选模型的 API 密钥。'
-        ),
-      ]
-    ),
-  },
-  {
-    ...sharedProductFields,
     slug: 'scienjoy',
     name: 'Scienjoy',
     maker: 'Scienjoy',
@@ -4350,8 +4087,8 @@ const realtimeProducts: MockAiProduct[] = [
       tag('realtime-avatar', 'Real-time avatar', '实时数字人'),
     ],
     tagline: text(
-      'The best AI voices, now with a face — from audio to talking video fast.',
-      '顶级 AI 语音长出面孔——从音频极速生成会说话的视频。'
+      'Turn top AI voices into talking video, fast.',
+      '把顶级 AI 语音快速变成会说话的视频。'
     ),
     description: text(
       'ElevenLabs Avatars turns a voice and script into studio-grade talking-head video in seconds, with real-time LiveAvatar integrations for live streams.',
@@ -4428,8 +4165,8 @@ const localModelProducts: MockAiProduct[] = [
       tag('duo-performance', 'Duo performance', '双人表演'),
     ],
     tagline: text(
-      'The Hotel Lobby AI trend, with the familiar song clip and a ready-to-edit video timeline.',
-      '围绕《Hotel Lobby》歌曲片段的 AI 双人表演热梗，以及现成的视频编辑模板。'
+      'The Hotel Lobby AI trend, with a ready-to-edit video template.',
+      'Hotel Lobby AI 热梗，附现成的视频剪辑模板。'
     ),
     description: text(
       '“Migos AI Song” usually refers to short AI videos built around Quavo and Takeoff’s Hotel Lobby performance: two people, an orange backdrop, one suspended microphone, and the song timed to a new generated duo. Kapwing offers a template with the source clip and audio on an editable timeline; you supply the replacement visuals and check rights before publishing.',
@@ -5037,7 +4774,14 @@ const productHeroThumbs: Record<string, string> = Object.fromEntries(
     ])
 );
 
-export const mockProducts = [...localModelProducts, ...realtimeProducts];
+export const mockProducts: MockAiProduct[] = [
+  ...generalAiProducts.map((product) => ({
+    ...product,
+    categoryLabel: productCategoryLabels[product.category],
+  })),
+  ...localModelProducts,
+  ...realtimeProducts,
+];
 export const categoryKeys: ProductCategory[] = [
   'realtime',
   'text-to-video',
@@ -5046,6 +4790,11 @@ export const categoryKeys: ProductCategory[] = [
   'video-editing',
   'workflow',
   'models',
+  'assistant',
+  'research',
+  'coding',
+  'audio',
+  'writing',
 ];
 
 function getProductProfile(
@@ -5200,6 +4949,79 @@ function formatSubmissionDate(value: SubmittedProductRecord['createdAt']) {
 }
 
 /** Convert a public form submission into the same shape as curated products. */
+// Card copy for community submissions. Submissions only store a long
+// description, so known entries get a hand-written line and new ones fall back
+// to the first sentence, trimmed to keep every card about the same length.
+const SUBMISSION_TAGLINES: Record<string, LocalizedText> = {
+  'h3price-72b35a8e': text(
+    'MiniMax H3 Max video with synced audio, priced per second.',
+    'MiniMax H3 Max 视频生成，带同步音频，按秒计费。'
+  ),
+  'h3price-8ffb70b8': text(
+    'MiniMax H3 Max video with synced audio, priced per second.',
+    'MiniMax H3 Max 视频生成，带同步音频，按秒计费。'
+  ),
+  'matrix-game-3-0-6cc486ec': text(
+    'Interactive 720p world model at up to 40 FPS.',
+    '最高 40 FPS 的 720p 可交互世界模型。'
+  ),
+  'longlive-56e3f731': text(
+    'Long real-time video that follows your changing prompts.',
+    '随提示词变化实时生成的长视频。'
+  ),
+  'streamdit-fdfc579d': text(
+    'Streaming text-to-video at 16 FPS on a single GPU.',
+    '单卡 16 FPS 的流式文生视频。'
+  ),
+  'reactor-cac58df2': text(
+    'Developer platform for real-time video with sub-50 ms streaming.',
+    '面向开发者的实时视频平台，流式延迟低于 50 毫秒。'
+  ),
+  'streamdiffusionv2-89570fbc': text(
+    'Low-latency diffusion video for live online streaming.',
+    '面向在线直播的低延迟扩散视频生成。'
+  ),
+  'rtfm-00868092': text(
+    'World Labs preview that renders worlds as you explore.',
+    'World Labs 预览版，边探索边实时生成世界。'
+  ),
+  'realvideo-beb1d305': text(
+    'Z.ai real-time video streams for audiovisual conversations.',
+    'Z.ai 为音视频对话实时生成视频流。'
+  ),
+  'waypoint-1-5-dbdb2220': text(
+    'Playable AI worlds at 720p and 60 FPS on consumer GPUs.',
+    '消费级显卡上 720p、60 FPS 的可玩 AI 世界。'
+  ),
+  'lingbot-world-caba0166': text(
+    'Action-controlled world model with a live demo gallery.',
+    '可用动作控制的世界模型，附实时演示。'
+  ),
+};
+
+const TAGLINE_MAX_WORDS = 12;
+const TAGLINE_MAX_CHARS_ZH = 28;
+
+function shortTagline(description: string, locale: CatalogLocale): string {
+  const firstSentence =
+    description
+      .replace(/\\/g, '')
+      .split(/(?<=[.!?])\s+|(?<=[。！？])/)[0]
+      ?.trim() ?? '';
+  if (locale === 'zh' && /[\u4e00-\u9fff]/.test(firstSentence)) {
+    return firstSentence.length > TAGLINE_MAX_CHARS_ZH
+      ? `${firstSentence.slice(0, TAGLINE_MAX_CHARS_ZH)}…`
+      : firstSentence;
+  }
+  const words = firstSentence.split(/\s+/);
+  return words.length > TAGLINE_MAX_WORDS
+    ? `${words
+        .slice(0, TAGLINE_MAX_WORDS)
+        .join(' ')
+        .replace(/[,;:]$/, '')}…`
+    : firstSentence;
+}
+
 export function toCatalogProduct(
   submission: SubmittedProductRecord,
   locale: CatalogLocale
@@ -5317,9 +5139,8 @@ export function toCatalogProduct(
     image: '',
     tone: 'cobalt',
     tagline:
-      locale === 'zh'
-        ? `${categoryName}：${description}`
-        : `${categoryName}: ${description}`,
+      SUBMISSION_TAGLINES[submission.slug]?.[locale] ??
+      shortTagline(description, locale),
     description,
     note: `${submittedLabel} · ${officialLabel}`,
     categoryName: categoryLabel[locale],

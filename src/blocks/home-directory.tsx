@@ -1,25 +1,36 @@
 import { useMemo, useState } from 'react';
 
-import type { CatalogProduct } from '@/lib/mock-ai-products';
 import {
-  buildFaqJsonLd,
-  cutSegmentsBetween,
-  filterChannels,
-  getChannelsData,
-  tagLabelMap,
-  type Segment,
-} from '@/lib/seo-content';
+  categoryKeys,
+  type CatalogProduct,
+  type ProductCategory,
+} from '@/lib/mock-ai-products';
+import { buildFaqJsonLd } from '@/lib/seo-content';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { AiHomeCta } from '@/blocks/ai-home-cta';
 import { AiHomeFaq, getHomeFaqItems } from '@/blocks/ai-home-faq';
-import { ProductDirectoryPreview } from '@/blocks/product-directory-preview';
 import { AiIndexFooter, AiIndexHeader } from '@/components/ai-index-chrome';
 import { ChannelGrid } from '@/components/channel-grid';
 import { Button } from '@/components/ui/button';
 import { Component as VibeToPromptAiInput } from '@/components/ui/vibe-to-prompt-ai-input';
 
 const FEATURED_PRODUCT_SLUGS = [
+  'higgsfield',
+  'kling-ai',
+  'manus',
+  'perplexity',
+  'gemini-notebook',
+  'suno',
+  'emergent',
+  'recraft',
+  'luma-ai',
+  'consensus',
+  'leonardo-ai',
+  'vectorizer-ai',
+  'vozo-ai',
+  'cartesia',
+  'winston-ai',
   'jev',
   'reapi-qwen-image-2-1',
   'comfyui',
@@ -27,43 +38,48 @@ const FEATURED_PRODUCT_SLUGS = [
   'dreamina-migos-ai-video',
 ] as const;
 
+/** Featured tools first, then the rest of the catalog in its own order. */
+function orderProducts(products: CatalogProduct[]) {
+  const rank = new Map<string, number>(
+    FEATURED_PRODUCT_SLUGS.map((slug, index) => [slug, index])
+  );
+  return [...products].sort(
+    (a, b) =>
+      (rank.get(a.slug) ?? Number.MAX_SAFE_INTEGER) -
+      (rank.get(b.slug) ?? Number.MAX_SAFE_INTEGER)
+  );
+}
+
 /**
- * Directory-first homepage: the browsable channel grid (tag filters)
- * comes first, the long-form SEO copy from `content/pages/home.md` follows
- * below. The MD's "What's on tonight" tagged grids are cut. The interactive
- * directory above replaces the tagged channel grids from the article.
+ * Directory-first homepage: the AI tools grid (category filters),
+ * product preview, FAQ and CTA.
  */
 export function HomeDirectory({
   h1,
-  segments,
   products,
 }: {
   h1: string;
-  segments: Segment[];
   products: CatalogProduct[];
 }) {
-  const [activeTag, setActiveTag] = useState('all');
+  const [activeTag, setActiveTag] = useState<ProductCategory | 'all'>('all');
 
-  const { channels, filterTags } = getChannelsData();
-  const tagLabels = tagLabelMap();
-
-  const articleSegments = useMemo(
+  const orderedProducts = useMemo(() => orderProducts(products), [products]);
+  const filterTags = useMemo(
     () =>
-      cutSegmentsBetween(
-        segments,
-        /<h2[^>]*>[^<]*(?:What's on tonight|AI livestream channels to watch)/i,
-        /<h2[^>]*>[^<]*(?:Watching is directing|How viewers shape an AI livestream)/i
-      ),
-    [segments]
+      categoryKeys.flatMap((key) => {
+        const product = products.find((item) => item.category === key);
+        return product ? [{ key, label: product.categoryName }] : [];
+      }),
+    [products]
   );
 
-  const filteredChannels = useMemo(() => {
-    return channels.filter((channel) => {
-      const matchesTag =
-        activeTag === 'all' || channel.tags.includes(activeTag);
-      return matchesTag;
-    });
-  }, [activeTag, channels]);
+  const filteredProducts = useMemo(
+    () =>
+      activeTag === 'all'
+        ? orderedProducts
+        : orderedProducts.filter((product) => product.category === activeTag),
+    [activeTag, orderedProducts]
+  );
 
   const clearFilters = () => {
     setActiveTag('all');
@@ -77,18 +93,18 @@ export function HomeDirectory({
     }))
   );
   const chromeContent = {
-    browse: m['seo.nav.watch'](),
-    categories: m['seo.nav.formats'](),
+    browse: m['catalog.nav.browse'](),
+    categories: m['catalog.nav.categories'](),
     submit: m['catalog.nav.submit'](),
     signIn: m['common.nav.sign_in'](),
     menu: m['catalog.nav.menu'](),
     close: m['catalog.nav.close'](),
-    tagline: m['seo.footer.tagline'](),
+    tagline: m['catalog.footer.tagline'](),
     footerSubmit: m['catalog.footer.submit'](),
     footerBrowse: m['catalog.footer.browse'](),
     footerNote: m['catalog.footer.note'](),
     browseHref: '#directory',
-    categoriesHref: '/tv-show-generator',
+    categoriesHref: '/products',
   };
 
   return (
@@ -162,7 +178,7 @@ export function HomeDirectory({
 
           <div className="ai-index-filter-summary" aria-live="polite">
             <span>
-              {m['seo.home.results']({ count: filteredChannels.length })}
+              {m['seo.home.results']({ count: filteredProducts.length })}
             </span>
             {hasFilters && (
               <button
@@ -175,20 +191,11 @@ export function HomeDirectory({
             )}
           </div>
 
-          {filteredChannels.length ? (
+          {filteredProducts.length ? (
             <ChannelGrid
-              channels={filteredChannels}
-              tagLabels={tagLabels}
-              featuredProducts={
-                activeTag === 'all'
-                  ? FEATURED_PRODUCT_SLUGS.flatMap((slug) => {
-                      const product = products.find(
-                        (item) => item.slug === slug
-                      );
-                      return product ? [product] : [];
-                    })
-                  : undefined
-              }
+              channels={[]}
+              tagLabels={{}}
+              featuredProducts={filteredProducts}
             />
           ) : (
             <div className="ai-index-empty">
@@ -200,47 +207,12 @@ export function HomeDirectory({
           )}
         </section>
 
-        <ProductDirectoryPreview products={products} />
-
-        <section
-          className="ai-index-shell ai-index-section seo-home-article"
-          aria-labelledby="home-article-title"
-        >
-          <div className="ai-index-section-head">
-            <p className="ai-index-eyebrow">
-              {m['seo.home.article_eyebrow']()}
-            </p>
-            <h2 id="home-article-title" className="ai-index-section-title">
-              {m['seo.home.article_title']()}
-            </h2>
-            <p className="ai-index-section-description">
-              {m['seo.home.article_description']()}
-            </p>
-          </div>
-          <div className="seo-home-article-content">
-            {articleSegments.map((segment, index) =>
-              segment.kind === 'html' ? (
-                <div
-                  key={index}
-                  className="seo-article-body"
-                  dangerouslySetInnerHTML={{ __html: segment.html }}
-                />
-              ) : (
-                <ChannelGrid
-                  key={index}
-                  channels={filterChannels(segment, channels)}
-                  tagLabels={tagLabels}
-                />
-              )
-            )}
-          </div>
-          {faqJsonLd && (
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: faqJsonLd }}
-            />
-          )}
-        </section>
+        {faqJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: faqJsonLd }}
+          />
+        )}
 
         <AiHomeFaq />
         <AiHomeCta />

@@ -44,7 +44,6 @@ Reading about latency is worse than feeling it. These channels put seconds betwe
 - [fal.live](/channel/fal-live) — type a direction, watch the vote, see the next scene render live
 - [Infinite Slop](/channel/infinite-slop) — endless reality show, steered by chat, karma for participating
 - [Renoise Live](/channel/renoise-live) — survival drama where chat is the weather
-- [Infinite TV](/channel/infinite-tv) — open source: Twitch chat → LTX Video → RTMP
 
 The full roster, filterable by the **Realtime / Low-latency** tag, is in the [channel directory](/channels).
 

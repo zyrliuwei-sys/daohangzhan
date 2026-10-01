@@ -43,7 +43,7 @@ Channels aren't only for watching. These platforms and open-source stacks put yo
 
 <!-- grid: tag=launch-your-own -->
 
-Hosted: [AITV](/channel/aitv) multi-streams AI personas to Twitch, Kick, TikTok, YouTube, and X; [Retake.tv](/channel/retake-tv) is the no-code, self-serve studio. Open source: [Infinite TV](/channel/infinite-tv) (Twitch chat → LTX Video → RTMP), [SlopTV](/channel/sloptv) (infinite feeds to YouTube), [AIRI](/channel/airi) and [AITuber Kit](/channel/aituber-kit) (self-hosted VTuber frameworks), [Wallie V2](/channel/wallie-v2) (a screen-watching AI streamer). The full playbook: [how to launch an AI channel](/creators).
+Hosted: [AITV](/channel/aitv) multi-streams AI personas to Twitch, Kick, TikTok, YouTube, and X; [Retake.tv](/channel/retake-tv) is the no-code, self-serve studio. Open source: Infinite TV (Twitch chat → LTX Video → RTMP), SlopTV (infinite feeds to YouTube), AIRI and AITuber Kit (self-hosted VTuber frameworks), Wallie V2 (a screen-watching AI streamer). The full playbook: [how to launch an AI channel](/creators).
 
 ## Filter by what you're in the mood for
 

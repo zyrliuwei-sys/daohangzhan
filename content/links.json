@@ -110,11 +110,6 @@
       { "to": "/channel/neuro-sama", "anchor": "Neuro-sama" },
       { "to": "/channel/aitv", "anchor": "AITV" },
       { "to": "/channel/retake-tv", "anchor": "Retake.tv" },
-      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
-      { "to": "/channel/sloptv", "anchor": "SlopTV" },
-      { "to": "/channel/airi", "anchor": "AIRI" },
-      { "to": "/channel/aituber-kit", "anchor": "AITuber Kit" },
-      { "to": "/channel/wallie-v2", "anchor": "Wallie V2" },
       {
         "to": "/creators",
         "anchor": "how to launch an AI channel",
@@ -130,7 +125,6 @@
       { "to": "/channel/fal-live", "anchor": "fal.live" },
       { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
       { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
-      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
       { "to": "/channels", "anchor": "channel directory", "canonical": true },
       {
         "to": "/director",
@@ -149,10 +143,6 @@
       { "to": "/channel/fal-live", "anchor": "fal.live" },
       { "to": "/channel/aitv", "anchor": "AITV" },
       { "to": "/channel/retake-tv", "anchor": "Retake.tv" },
-      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
-      { "to": "/channel/sloptv", "anchor": "SlopTV" },
-      { "to": "/channel/airi", "anchor": "AIRI" },
-      { "to": "/channel/aituber-kit", "anchor": "AITuber Kit" },
       {
         "to": "/director",
         "anchor": "AI video director guide",
@@ -180,11 +170,6 @@
       { "to": "/channel/aitv", "anchor": "AITV" },
       { "to": "/channel/retake-tv", "anchor": "Retake.tv" },
       { "to": "/channel/fal-live", "anchor": "fal.live" },
-      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
-      { "to": "/channel/sloptv", "anchor": "SlopTV" },
-      { "to": "/channel/airi", "anchor": "AIRI" },
-      { "to": "/channel/aituber-kit", "anchor": "AITuber Kit" },
-      { "to": "/channel/wallie-v2", "anchor": "Wallie V2" },
       {
         "to": "/tv-show-generator",
         "anchor": "AI TV show generators",
@@ -224,7 +209,6 @@
     "/channel/fal-live": [
       { "to": "/channel/infinite-slop", "anchor": "Infinite Slop" },
       { "to": "/channel/renoise-live", "anchor": "Renoise Live" },
-      { "to": "/channel/infinite-tv", "anchor": "Infinite TV" },
       {
         "to": "/director",
         "anchor": "AI video director guide",

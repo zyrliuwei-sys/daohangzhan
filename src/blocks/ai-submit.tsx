@@ -189,6 +189,24 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
                     <option value="workflow">
                       {m['catalog.category.workflow']()}
                     </option>
+                    <option value="assistant">
+                      {m['catalog.category.assistant']()}
+                    </option>
+                    <option value="research">
+                      {m['catalog.category.research']()}
+                    </option>
+                    <option value="models">
+                      {m['catalog.category.models']()}
+                    </option>
+                    <option value="coding">
+                      {m['catalog.category.coding']()}
+                    </option>
+                    <option value="audio">
+                      {m['catalog.category.audio']()}
+                    </option>
+                    <option value="writing">
+                      {m['catalog.category.writing']()}
+                    </option>
                   </select>
                   {field.state.meta.isTouched &&
                   field.state.meta.errors?.[0] ? (

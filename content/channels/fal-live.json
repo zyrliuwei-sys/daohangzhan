@@ -10,7 +10,7 @@
     "primary": "fal.live ai livestream",
     "secondary": ["fal live stream", "watch fal live channels"]
   },
-  "related": ["infinite-slop", "renoise-live", "infinite-tv"],
+  "related": ["infinite-slop", "renoise-live"],
   "faqs": [
     {
       "q": "What is fal.live?",
