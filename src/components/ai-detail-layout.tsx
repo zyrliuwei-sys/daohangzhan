@@ -21,6 +21,7 @@ export function AiDetailLayout({
   backLabel,
   visual,
   name,
+  heading,
   logo,
   website,
   eyebrow,
@@ -36,6 +37,8 @@ export function AiDetailLayout({
   backLabel: string;
   visual: ReactNode;
   name: string;
+  /** H1 text when it should differ from the product name. */
+  heading?: string;
   logo?: string;
   website?: string;
   eyebrow: string;
@@ -62,7 +65,7 @@ export function AiDetailLayout({
               <AiProductLogo name={name} src={logo} website={website} large />
               <div>
                 <p className="ai-index-eyebrow">{eyebrow}</p>
-                <h1>{name}</h1>
+                <h1>{heading ?? name}</h1>
               </div>
             </div>
             <p className="ai-index-detail-lede">{tagline}</p>

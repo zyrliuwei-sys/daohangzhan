@@ -8,6 +8,7 @@ import {
 
 import { Link } from '@/core/i18n/navigation';
 import {
+  getProductHeading,
   getProducts,
   type CatalogLocale,
   type CatalogProduct,
@@ -94,6 +95,7 @@ export function AiProductDetail({
         </div>
       }
       name={product.name}
+      heading={getProductHeading(product)}
       logo={product.logo}
       website={product.website}
       eyebrow={product.categoryName}

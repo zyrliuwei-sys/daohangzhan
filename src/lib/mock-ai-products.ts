@@ -66,6 +66,14 @@ export interface LocalizedProductSpec {
 export interface MockAiProduct {
   slug: string;
   name: string;
+  /** Other names people search for (misspellings, brand variants). */
+  aliases?: string[];
+  /**
+   * Primary search keyword when it differs from the brand name. Shown next
+   * to the name in the detail page <title> and H1 (e.g. "Vikas Edit - Vikas
+   * Editor").
+   */
+  seoKeyword?: string;
   maker: string;
   website: string;
   logo?: string;
@@ -4858,6 +4866,20 @@ function getProductProfile(
             'Browser / API access',
           ],
   };
+}
+
+/**
+ * Detail-page H1/title text: "Name - Keyword" when the product has a primary
+ * keyword that its name doesn't already contain, otherwise just the name.
+ */
+export function getProductHeading(
+  product: Pick<MockAiProduct, 'name' | 'seoKeyword'>
+) {
+  const keyword = product.seoKeyword?.trim();
+  if (!keyword || product.name.toLowerCase().includes(keyword.toLowerCase())) {
+    return product.name;
+  }
+  return `${product.name} - ${keyword}`;
 }
 
 export function getProducts(locale: CatalogLocale): CatalogProduct[] {

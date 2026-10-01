@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
 import {
+  getProductHeading,
   type CatalogLocale,
   type CatalogProduct,
 } from '@/lib/mock-ai-products';
@@ -31,7 +32,13 @@ function getProductSchema(
       '@type': 'Organization',
       name: product.maker,
     },
-    keywords: product.tagNames,
+    keywords: [
+      ...new Set([
+        ...(product.seoKeyword ? [product.seoKeyword] : []),
+        ...(product.aliases ?? []),
+        ...product.tagNames,
+      ]),
+    ],
     inLanguage: locale,
     mainEntityOfPage: canonical,
   };
@@ -99,10 +106,11 @@ export const Route = createFileRoute('/products/$slug')({
         locale,
       }
     ).href;
+    const heading = getProductHeading(product);
     const title =
       locale === 'zh'
-        ? `${product.name}：功能、使用方法与产品介绍 | ${envConfigs.app_name}`
-        : `${product.name}: features, how to use, and overview | ${envConfigs.app_name}`;
+        ? `${heading}：官网入口、是什么、怎么用 | ${envConfigs.app_name}`
+        : `${heading}: Official Website, What It Is & How to Use | ${envConfigs.app_name}`;
     const description = product.seo.whatIs;
     const previewImage = product.previewImage
       ? new URL(product.previewImage, envConfigs.app_url).href

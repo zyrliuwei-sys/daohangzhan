@@ -8,6 +8,8 @@ type Pair = [en: string, zh: string];
 interface CompactTool {
   slug: string;
   name: string;
+  aliases?: string[];
+  seoKeyword?: string;
   maker: string;
   website: string;
   category: ProductCategory;
@@ -36,6 +38,8 @@ function tool(c: CompactTool): GeneralAiProduct {
   return {
     slug: c.slug,
     name: c.name,
+    aliases: c.aliases,
+    seoKeyword: c.seoKeyword,
     maker: c.maker,
     website: c.website,
     sourceType: 'website',
@@ -1640,6 +1644,8 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
   tool({
     slug: 'vikas-edit',
     name: 'Vikas Edit',
+    aliases: ['Vikas Editor', 'Vikas Editing', 'Vikas Edit AI'],
+    seoKeyword: 'Vikas Editor',
     maker: 'Vikas Edit',
     website: 'https://vikasedit.co.in',
     category: 'models',

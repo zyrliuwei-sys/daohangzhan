@@ -217,7 +217,11 @@ export function HomeDirectory({
             />
           ) : (
             <div className="ai-index-empty">
-              <p>{m['seo.home.no_results']()}</p>
+              <p>
+                {searchQuery
+                  ? m['seo.home.search_no_results']()
+                  : m['seo.home.no_results']()}
+              </p>
               <Button type="button" variant="outline" onClick={clearFilters}>
                 {m['catalog.filter.clear']()}
               </Button>
