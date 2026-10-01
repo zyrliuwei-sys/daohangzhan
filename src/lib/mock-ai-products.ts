@@ -1,3 +1,4 @@
+import { aiToolsBatch2 } from '@/lib/ai-tools-batch-2';
 import { generalAiProducts } from '@/lib/general-ai-products';
 import { getWebsiteScreenshotUrl } from '@/lib/website-preview';
 
@@ -3741,8 +3742,8 @@ const realtimeProducts: MockAiProduct[] = [
     slug: 'daydream',
     name: 'Daydream',
     maker: 'Livepeer community',
-    website: 'https://livepeer.org/ecosystem/daydream',
-    logo: 'https://livepeer.org/favicon.ico',
+    website: 'https://daydream.live/',
+    logo: 'https://daydream.live/apple-touch-icon.png',
     tags: [
       tag('open-source', 'Open source', '开源'),
       tag('streaming-video', 'Streaming video', '流式视频'),
@@ -4775,7 +4776,7 @@ const productHeroThumbs: Record<string, string> = Object.fromEntries(
 );
 
 export const mockProducts: MockAiProduct[] = [
-  ...generalAiProducts.map((product) => ({
+  ...[...generalAiProducts, ...aiToolsBatch2].map((product) => ({
     ...product,
     categoryLabel: productCategoryLabels[product.category],
   })),

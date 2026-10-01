@@ -39,7 +39,12 @@ export function ChannelGrid({
                 website={product.website}
                 loading="eager"
               />
-              <h3>{product.name}</h3>
+              <span className="seo-channel-card-title">
+                <h3>{product.name}</h3>
+                <span className="seo-channel-card-category">
+                  {product.categoryName}
+                </span>
+              </span>
             </Link>
             <a
               href={product.website}
@@ -48,15 +53,17 @@ export function ChannelGrid({
               className="seo-channel-card-visit"
               aria-label={`Open the ${product.name} official site`}
             >
-              <ArrowUpRight className="size-4" />
+              <ArrowUpRight className="size-4" aria-hidden="true" />
             </a>
           </div>
           <p className="seo-channel-card-tagline">
             {displayCopy(product.tagline)}
           </p>
-          <p className="seo-channel-card-tags">
-            {product.tagNames.join(' · ')}
-          </p>
+          <ul className="seo-channel-card-chips">
+            {product.tagNames.slice(0, 3).map((tagName) => (
+              <li key={tagName}>{tagName}</li>
+            ))}
+          </ul>
         </article>
       ))}
       {channels.map((channel) => (
