@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useForm } from '@tanstack/react-form';
 import { useMutation } from '@tanstack/react-query';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Check } from 'lucide-react';
 import { z } from 'zod';
 
-import { Link, useRouter } from '@/core/i18n/navigation';
+import { Link } from '@/core/i18n/navigation';
 import { apiPost } from '@/lib/api-client';
 import { type CatalogLocale } from '@/lib/mock-ai-products';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { AiIndexFooter, AiIndexHeader } from '@/components/ai-index-chrome';
-import { TextField } from '@/components/form-field';
+import { fieldError, TextField } from '@/components/form-field';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Field, FieldLabel } from '@/components/ui/field';
 import { Textarea } from '@/components/ui/textarea';
@@ -21,21 +21,17 @@ type ProductSubmissionPayload = {
   category: string;
   description: string;
   email: string;
+  aiConfirmed: boolean;
+  company: string;
+  locale: CatalogLocale;
 };
 
-export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
-  const router = useRouter();
-  const [createdProduct, setCreatedProduct] = useState<{
-    slug: string;
-    name: string;
-  } | null>(null);
+export function AiSubmit({ locale }: { locale: CatalogLocale }) {
+  const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const productSubmissionMutation = useMutation({
     mutationFn: (payload: ProductSubmissionPayload) =>
-      apiPost<{ slug: string; name: string }>(
-        '/api/product-submissions',
-        payload
-      ),
+      apiPost<{ status: 'pending' }>('/api/product-submissions', payload),
   });
   const submitSchema = z.object({
     name: z.string().min(2, m['catalog.submit.validation.name']()),
@@ -51,6 +47,10 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
       .string()
       .min(20, m['catalog.submit.validation.description']()),
     email: z.string().email(m['catalog.submit.validation.email']()),
+    aiConfirmed: z
+      .boolean()
+      .refine(Boolean, m['catalog.submit.validation.ai_confirm']()),
+    company: z.string(),
   });
 
   const form = useForm({
@@ -60,20 +60,24 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
       category: '',
       description: '',
       email: '',
+      aiConfirmed: false,
+      company: '',
     },
     validators: { onSubmit: submitSchema },
     onSubmit: async ({ value }) => {
       setSubmitError('');
       try {
-        const product = await productSubmissionMutation.mutateAsync({
+        await productSubmissionMutation.mutateAsync({
           name: value.name.trim(),
           website: value.url.trim(),
           category: value.category,
           description: value.description.trim(),
           email: value.email.trim(),
+          aiConfirmed: value.aiConfirmed,
+          company: value.company,
+          locale,
         });
-        await router.refresh();
-        setCreatedProduct(product);
+        setSubmitted(true);
       } catch (error) {
         setSubmitError(
           error instanceof Error ? error.message : m['catalog.submit.error']()
@@ -109,17 +113,30 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
           <p>{m['catalog.submit.description']()}</p>
         </div>
 
-        {createdProduct ? (
+        <ul className="ai-index-submit-rules">
+          <li>
+            <Check className="size-4" aria-hidden="true" />
+            {m['catalog.submit.rule_free']()}
+          </li>
+          <li>
+            <Check className="size-4" aria-hidden="true" />
+            {m['catalog.submit.rule_ai_only']()}
+          </li>
+          <li>
+            <Check className="size-4" aria-hidden="true" />
+            {m['catalog.submit.rule_review']()}
+          </li>
+        </ul>
+
+        {submitted ? (
           <div className="ai-index-submit-success" role="status">
             <h2>{m['catalog.submit.success_title']()}</h2>
             <p>{m['catalog.submit.success_description']()}</p>
             <Link
-              href={`/products/${createdProduct.slug}`}
+              href="/"
               className={cn(buttonVariants({ variant: 'link' }), 'mt-4 px-0')}
             >
-              {m['catalog.submit.success_view']({
-                name: createdProduct.name,
-              })}
+              {m['catalog.submit.success_back']()}
               <ArrowUpRight className="size-4" />
             </Link>
           </div>
@@ -208,11 +225,8 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
                       {m['catalog.category.writing']()}
                     </option>
                   </select>
-                  {field.state.meta.isTouched &&
-                  field.state.meta.errors?.[0] ? (
-                    <p className="ai-index-field-error">
-                      {String(field.state.meta.errors[0])}
-                    </p>
+                  {fieldError(field) ? (
+                    <p className="ai-index-field-error">{fieldError(field)}</p>
                   ) : null}
                 </Field>
               )}
@@ -233,11 +247,8 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
                     placeholder={m['catalog.submit.description_placeholder']()}
                     required
                   />
-                  {field.state.meta.isTouched &&
-                  field.state.meta.errors?.[0] ? (
-                    <p className="ai-index-field-error">
-                      {String(field.state.meta.errors[0])}
-                    </p>
+                  {fieldError(field) ? (
+                    <p className="ai-index-field-error">{fieldError(field)}</p>
                   ) : null}
                 </Field>
               )}
@@ -252,6 +263,46 @@ export function AiSubmit({ locale: _locale }: { locale: CatalogLocale }) {
                   placeholder={m['catalog.submit.email_placeholder']()}
                   required
                 />
+              )}
+            </form.Field>
+
+            <form.Field name="aiConfirmed">
+              {(field) => (
+                <div className="ai-index-form-field">
+                  <label className="ai-index-submit-confirm">
+                    <input
+                      type="checkbox"
+                      name="aiConfirmed"
+                      checked={field.state.value}
+                      onChange={(event) =>
+                        field.handleChange(event.target.checked)
+                      }
+                      onBlur={field.handleBlur}
+                    />
+                    <span>{m['catalog.submit.ai_confirm']()}</span>
+                  </label>
+                  {fieldError(field) ? (
+                    <p className="ai-index-field-error">{fieldError(field)}</p>
+                  ) : null}
+                </div>
+              )}
+            </form.Field>
+
+            {/* Honeypot: off-screen and skipped by keyboard/screen readers. */}
+            <form.Field name="company">
+              {(field) => (
+                <div className="ai-index-submit-trap" aria-hidden="true">
+                  <label htmlFor="company">Company</label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={field.state.value}
+                    onChange={(event) => field.handleChange(event.target.value)}
+                  />
+                </div>
               )}
             </form.Field>
 

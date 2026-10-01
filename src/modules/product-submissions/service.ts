@@ -1,4 +1,4 @@
-import { and, count, desc, eq, like, or, type SQL } from 'drizzle-orm';
+import { and, count, desc, eq, inArray, like, or, type SQL } from 'drizzle-orm';
 
 import { db } from '@/core/db';
 import {
@@ -7,13 +7,20 @@ import {
   type NewProductSubmission,
 } from '@/config/db/schema';
 import { getUuid } from '@/lib/hash';
+import { getProducts } from '@/lib/mock-ai-products';
 
 const ARCHIVED_STATIC_SLUGS_CONFIG = 'product_catalog.archived_static_slugs';
 
 export const PRODUCT_SUBMISSION_STATUS = {
+  /** Submitted from the public form; hidden until an admin approves it. */
+  PENDING: 'pending',
   PUBLISHED: 'published',
+  REJECTED: 'rejected',
   ARCHIVED: 'archived',
 } as const;
+
+export type ProductSubmissionStatus =
+  (typeof PRODUCT_SUBMISSION_STATUS)[keyof typeof PRODUCT_SUBMISSION_STATUS];
 
 export const PRODUCT_SUBMISSION_CATEGORIES = [
   'realtime',
@@ -47,12 +54,62 @@ function slugPart(value: string): string {
     .slice(0, 48);
 }
 
+/** Host + path without www/trailing slash, so URL variants compare equal. */
+export function normalizeWebsite(website: string) {
+  try {
+    const url = new URL(website);
+    const host = url.hostname.toLowerCase().replace(/^www\./, '');
+    const path = url.pathname.replace(/\/+$/, '').toLowerCase();
+    return `${host}${path}`;
+  } catch {
+    return website.trim().toLowerCase();
+  }
+}
+
 /**
- * Create and immediately publish a product submitted from the public form.
+ * Whether this website is already listed (curated catalog or an approved
+ * submission) or waiting for review. Rejected/archived ones may resubmit.
+ */
+export async function findExistingProductWebsite(
+  website: string
+): Promise<'published' | 'pending' | null> {
+  const target = normalizeWebsite(website);
+  const archivedStatic = new Set(await listArchivedStaticProductSlugs());
+  const inCatalog = getProducts('en').some(
+    (product) =>
+      !archivedStatic.has(product.slug) &&
+      normalizeWebsite(product.website) === target
+  );
+  if (inCatalog) return 'published';
+
+  const rows = await db()
+    .select({
+      website: productSubmission.website,
+      status: productSubmission.status,
+    })
+    .from(productSubmission)
+    .where(
+      inArray(productSubmission.status, [
+        PRODUCT_SUBMISSION_STATUS.PUBLISHED,
+        PRODUCT_SUBMISSION_STATUS.PENDING,
+      ])
+    );
+  const matches = (rows as Array<{ website: string; status: string }>).filter(
+    (row) => normalizeWebsite(row.website) === target
+  );
+  if (matches.some((row) => row.status === PRODUCT_SUBMISSION_STATUS.PUBLISHED))
+    return 'published';
+  return matches.length ? 'pending' : null;
+}
+
+/**
+ * Create a product submission. Public submissions default to `pending` and
+ * stay hidden until approved; admins create already-published entries.
  * The UUID suffix keeps repeated submissions with the same name unique.
  */
 export async function createProductSubmission(
-  input: CreateProductSubmissionInput
+  input: CreateProductSubmissionInput,
+  status: ProductSubmissionStatus = PRODUCT_SUBMISSION_STATUS.PENDING
 ) {
   const id = getUuid();
   const slug = `${slugPart(input.name) || 'product'}-${id.slice(0, 8)}`;
@@ -64,7 +121,7 @@ export async function createProductSubmission(
     category: input.category,
     description: input.description,
     email: input.email,
-    status: PRODUCT_SUBMISSION_STATUS.PUBLISHED,
+    status,
   };
 
   const [created] = await db()
@@ -173,6 +230,16 @@ export async function archiveProductSubmission(id: string) {
   await db()
     .update(productSubmission)
     .set({ status: PRODUCT_SUBMISSION_STATUS.ARCHIVED })
+    .where(eq(productSubmission.id, id));
+}
+
+export async function setProductSubmissionStatus(
+  id: string,
+  status: ProductSubmissionStatus
+) {
+  await db()
+    .update(productSubmission)
+    .set({ status })
     .where(eq(productSubmission.id, id));
 }
 

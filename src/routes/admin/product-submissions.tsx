@@ -7,13 +7,14 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
-import { ExternalLink, Plus, Trash2 } from 'lucide-react';
+import { Check, ExternalLink, Plus, Trash2, X } from 'lucide-react';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
 import {
   apiDelete,
   apiGet,
+  apiPatch,
   apiPost,
   pageQuery,
   type PageResult,
@@ -102,6 +103,16 @@ function categoryLabel(category: string) {
   return labels[category] || category;
 }
 
+function statusLabel(status: string) {
+  const labels: Record<string, string> = {
+    pending: m['admin.product_submissions.status_pending'](),
+    published: m['admin.product_submissions.status_published'](),
+    rejected: m['admin.product_submissions.status_rejected'](),
+    archived: m['admin.product_submissions.status_archived'](),
+  };
+  return labels[status] || status;
+}
+
 function ProductSubmissionsPage() {
   const queryClient = useQueryClient();
   const [page, setPage] = useState(1);
@@ -168,6 +179,22 @@ function ProductSubmissionsPage() {
     onError: (error: Error) => toast.error(error.message),
   });
 
+  const reviewMutation = useMutation({
+    mutationFn: (vars: { id: string; action: 'approve' | 'reject' }) =>
+      apiPatch('/api/admin/product-submissions', vars),
+    onSuccess: (_data, vars) => {
+      toast.success(
+        vars.action === 'approve'
+          ? m['admin.product_submissions.approved']()
+          : m['admin.product_submissions.rejected']()
+      );
+      queryClient.invalidateQueries({
+        queryKey: ['admin-product-submissions'],
+      });
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
   const columns: Column<ProductSubmission>[] = [
     {
       header: m['admin.product_submissions.name_col'](),
@@ -207,9 +234,15 @@ function ProductSubmissionsPage() {
       header: m['admin.product_submissions.status_col'](),
       cell: (product) => (
         <Badge
-          variant={product.status === 'published' ? 'default' : 'secondary'}
+          variant={
+            product.status === 'published'
+              ? 'default'
+              : product.status === 'pending'
+                ? 'outline'
+                : 'secondary'
+          }
         >
-          {product.status}
+          {statusLabel(product.status)}
         </Badge>
       ),
     },
@@ -222,19 +255,67 @@ function ProductSubmissionsPage() {
       ),
     },
     {
-      header: m['admin.product_submissions.actions_col'](),
-      className: 'w-[80px]',
+      header: m['admin.product_submissions.description_col'](),
       cell: (product) => (
-        <Button
-          variant="ghost"
-          size="icon"
-          className="size-7"
-          onClick={() => setDeletingProduct(product)}
-          aria-label={m['admin.product_submissions.delete']()}
+        <p
+          className="text-muted-foreground line-clamp-3 max-w-[280px] text-xs"
+          title={product.description}
         >
-          <Trash2 className="size-3" />
-        </Button>
+          {product.description}
+        </p>
       ),
+    },
+    {
+      header: m['admin.product_submissions.actions_col'](),
+      className: 'w-[200px]',
+      cell: (product) => {
+        const isSubmission = !product.id.startsWith('static:');
+        const reviewing =
+          reviewMutation.isPending &&
+          reviewMutation.variables?.id === product.id;
+        return (
+          <div className="flex items-center gap-1">
+            {isSubmission && product.status !== 'published' && (
+              <Button
+                size="sm"
+                className="h-7"
+                disabled={reviewing}
+                onClick={() =>
+                  reviewMutation.mutate({ id: product.id, action: 'approve' })
+                }
+              >
+                <Check className="size-3" />
+                {m['admin.product_submissions.approve']()}
+              </Button>
+            )}
+            {isSubmission && product.status === 'pending' && (
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-7"
+                disabled={reviewing}
+                onClick={() =>
+                  reviewMutation.mutate({ id: product.id, action: 'reject' })
+                }
+              >
+                <X className="size-3" />
+                {m['admin.product_submissions.reject']()}
+              </Button>
+            )}
+            {product.status === 'published' && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-7"
+                onClick={() => setDeletingProduct(product)}
+                aria-label={m['admin.product_submissions.delete']()}
+              >
+                <Trash2 className="size-3" />
+              </Button>
+            )}
+          </div>
+        );
+      },
     },
   ];
 

@@ -3,7 +3,8 @@ import type { AnyFieldApi } from '@tanstack/react-form';
 import { Field, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 
-function fieldError(field: AnyFieldApi): string | null {
+/** First validation message for a touched field (zod issues or strings). */
+export function fieldError(field: AnyFieldApi): string | null {
   if (!field.state.meta.isTouched) return null;
   const errs = field.state.meta.errors;
   if (!errs?.length) return null;

@@ -817,6 +817,12 @@ body {
 .ai-index-form-intro h1 {
   max-width: 10ch;
   font-size: clamp(3rem, 6vw, 6rem);
+  word-break: keep-all;
+}
+
+/* 10ch is ~5 CJK glyphs; give Chinese titles room for two balanced lines. */
+html[lang='zh'] .ai-index-form-intro h1 {
+  max-width: 8.5em;
 }
 
 .ai-index-form-intro p {
@@ -884,6 +890,57 @@ body {
 .ai-index-field-error {
   color: var(--color-accent-strong);
   font-size: var(--text-sm);
+}
+
+.ai-index-submit-rules {
+  display: grid;
+  gap: var(--space-sm);
+  margin: var(--space-xl) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-index-submit-rules li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.ai-index-submit-rules svg {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  color: var(--color-accent-strong);
+}
+
+.ai-index-form-field label.ai-index-submit-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.ai-index-submit-form .ai-index-submit-confirm input {
+  width: 1.1rem;
+  min-height: 0;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  padding: 0;
+  accent-color: var(--color-accent);
+}
+
+/* Honeypot field: kept out of view without display:none so bots still fill it. */
+.ai-index-submit-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .ai-index-submit-success {

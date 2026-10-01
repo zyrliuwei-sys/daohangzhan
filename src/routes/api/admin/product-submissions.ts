@@ -9,6 +9,8 @@ import {
   listAllProductSubmissions,
   listArchivedStaticProductSlugs,
   PRODUCT_SUBMISSION_CATEGORIES,
+  PRODUCT_SUBMISSION_STATUS,
+  setProductSubmissionStatus,
 } from '@/modules/product-submissions/service';
 import { hasPermission } from '@/modules/rbac/service';
 import { getProducts } from '@/lib/mock-ai-products';
@@ -89,8 +91,11 @@ async function GET({ request }: { request: Request }) {
           product.email,
         ].some((value) => value.toLowerCase().includes(normalizedSearch));
       })
+      // Pending submissions first so the review queue is always on top.
       .sort(
         (a, b) =>
+          Number(b.status === PRODUCT_SUBMISSION_STATUS.PENDING) -
+            Number(a.status === PRODUCT_SUBMISSION_STATUS.PENDING) ||
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
     const total = filtered.length;
@@ -109,8 +114,37 @@ async function POST({ request }: { request: Request }) {
     );
     if (!parsed.success) return respErr('Please check the submitted fields.');
 
-    const result = await createProductSubmission(parsed.data);
+    const result = await createProductSubmission(
+      parsed.data,
+      PRODUCT_SUBMISSION_STATUS.PUBLISHED
+    );
     return respData(result);
+  } catch (error: any) {
+    return respErr(error.message || 'Internal error');
+  }
+}
+
+const reviewSchema = z.object({
+  id: z.string().min(1),
+  action: z.enum(['approve', 'reject']),
+});
+
+async function PATCH({ request }: { request: Request }) {
+  try {
+    await checkAdmin(request);
+    const parsed = reviewSchema.safeParse(
+      await request.json().catch(() => null)
+    );
+    if (!parsed.success || parsed.data.id.startsWith('static:')) {
+      return respErr('Invalid review request');
+    }
+    await setProductSubmissionStatus(
+      parsed.data.id,
+      parsed.data.action === 'approve'
+        ? PRODUCT_SUBMISSION_STATUS.PUBLISHED
+        : PRODUCT_SUBMISSION_STATUS.REJECTED
+    );
+    return respOk();
   } catch (error: any) {
     return respErr(error.message || 'Internal error');
   }
@@ -134,6 +168,6 @@ async function DELETE({ request }: { request: Request }) {
 
 export const Route = createFileRoute('/api/admin/product-submissions')({
   server: {
-    handlers: { GET, POST, DELETE },
+    handlers: { GET, POST, PATCH, DELETE },
   },
 });
