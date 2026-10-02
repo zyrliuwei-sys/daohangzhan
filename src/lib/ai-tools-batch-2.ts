@@ -866,13 +866,15 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
   tool({
     slug: 'turbo-ai',
     name: 'Turbo AI',
+    aliases: ['Study AI', 'AI Study Tool', 'Study AI App', '学习 AI'],
+    seoKeyword: 'Study AI',
     maker: 'Turbo AI',
     website: 'https://www.turbo.ai',
     category: 'research',
     tone: 'amber',
-    related: ['gemini-notebook'],
+    related: ['gauth', 'gemini-notebook'],
     tags: [
-      ['study', 'Study', '学习'],
+      ['study', 'Study AI', '学习 AI'],
       ['notes', 'AI notes', 'AI 笔记'],
       ['flashcards', 'Flashcards', '抽认卡'],
     ],
@@ -907,8 +909,8 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ['Quiz generation', '测验生成'],
     ],
     whatIs: [
-      'Turbo AI is an AI note taker and study assistant. Add a lecture, document, or video and it produces structured notes, flashcards, and practice quizzes.',
-      'Turbo AI 是一款 AI 笔记和学习助手。添加课程录音、文档或视频，它就会生成结构化笔记、抽认卡和练习测验。',
+      'Turbo AI is a study AI: an AI note taker and study assistant used by more than 10 million learners. Add a lecture, PDF, or video and it produces structured notes, flashcards, practice quizzes, and podcasts, on web and mobile.',
+      'Turbo AI 是一款学习 AI（study AI），也就是 AI 笔记和学习助手，有 1000 多万学习者在用。添加课程录音、PDF 或视频，它就会生成结构化笔记、抽认卡、练习测验和播客，网页和手机都能用。',
     ],
     steps: [
       [
@@ -953,6 +955,126 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
         '有多少人在用？',
         'The site says 10 million students use Turbo AI.',
         '官网称有 1000 万学生在用。',
+      ],
+      [
+        'Is Turbo AI a good study AI?',
+        'Turbo AI 适合当学习 AI 用吗？',
+        'Yes, if you study from your own material. It turns lectures, PDFs, and videos into notes, flashcards, and quizzes. For solving individual math problems, a dedicated maths solver such as Gauth is a better fit.',
+        '适合，尤其是用自己的资料学习时。它能把课程、PDF 和视频变成笔记、抽认卡和测验。如果是解单道数学题，Gauth 这类专门的数学解题工具更合适。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'gauth',
+    name: 'Gauth',
+    aliases: [
+      'Maths Solver',
+      'Math Solver',
+      'AI Math Solver',
+      'Gauthmath',
+      'Gauth AI',
+      '数学解题',
+    ],
+    seoKeyword: 'Maths Solver',
+    maker: 'ByteDance',
+    website: 'https://www.gauth.com',
+    category: 'research',
+    tone: 'moss',
+    related: ['turbo-ai', 'deepseek'],
+    tags: [
+      ['math-solver', 'Maths solver', '数学解题'],
+      ['homework-help', 'Homework help', '作业辅导'],
+      ['photo-solve', 'Snap to solve', '拍照解题'],
+    ],
+    tagline: [
+      'AI maths solver that explains problems step by step from a photo.',
+      '拍照就能分步讲解题目的 AI 数学解题工具。',
+    ],
+    description: [
+      'Gauth, formerly Gauthmath, is an AI homework helper from ByteDance. Snap or type a maths problem and it returns a step-by-step solution, with support for science and writing questions too, on web, iOS, and Android.',
+      'Gauth（原名 Gauthmath）是字节跳动推出的 AI 作业辅导工具。拍照或输入一道数学题，它会给出分步解答，也支持理科和写作类问题，网页、iOS 和安卓都能用。',
+    ],
+    note: [
+      'Best for: checking maths homework step by step',
+      '适合：分步核对数学作业',
+    ],
+    value: [
+      'Shows how to reach the answer, not just the answer.',
+      '不只给答案，还讲清楚每一步怎么来的。',
+    ],
+    problem: [
+      'Getting stuck on a maths problem with no one to explain it.',
+      '做数学题卡住时，身边没人能讲解。',
+    ],
+    audience: [
+      'Middle school, high school, and college students.',
+      '初中生、高中生和大学生。',
+    ],
+    pricing: [
+      'Free with a daily question limit. Gauth Plus starts at $11.99/month, with cheaper quarterly and annual plans. Check the official site for current pricing.',
+      '免费版每天有题目数量限制。Gauth Plus 每月 11.99 美元起，按季或按年付更便宜。当前价格以官网为准。',
+    ],
+    market: [
+      ['Education', '教育'],
+      ['Homework help', '作业辅导'],
+    ],
+    tech: [
+      ['Photo recognition of problems', '拍照识题'],
+      ['Web, iOS, and Android', '网页、iOS 和安卓'],
+    ],
+    whatIs: [
+      'Gauth is an AI maths solver and homework helper. Take a photo of a problem or type it in, and it identifies the question and walks through the solution step by step, covering algebra, geometry, calculus, statistics, and word problems.',
+      'Gauth 是一款 AI 数学解题和作业辅导工具。拍下题目或手动输入，它会识别题目并一步步讲解解法，覆盖代数、几何、微积分、统计和应用题。',
+    ],
+    steps: [
+      [
+        'Add the problem',
+        '添加题目',
+        'Snap a photo of the question or type it in.',
+        '拍下题目或手动输入。',
+      ],
+      [
+        'Get the solution',
+        '获取解答',
+        'Gauth shows the answer with each step explained.',
+        'Gauth 给出答案，并讲解每一步。',
+      ],
+      [
+        'Ask follow-ups',
+        '继续追问',
+        'Ask the AI tutor about any step you do not understand.',
+        '对看不懂的步骤，可以继续问 AI 辅导老师。',
+      ],
+    ],
+    features: [
+      ['Snap-to-solve maths problems', '拍照解数学题'],
+      ['Step-by-step explanations', '分步讲解'],
+      ['AI tutor for follow-up questions', 'AI 辅导老师可追问'],
+      ['Science and writing help', '理科和写作辅导'],
+    ],
+    bestFor: [
+      ['Checking maths homework', '核对数学作业'],
+      ['Learning how to solve a problem type', '学会某类题的解法'],
+      ['Exam practice', '考试练习'],
+    ],
+    faqs: [
+      [
+        'Is Gauth a free maths solver?',
+        'Gauth 是免费的数学解题工具吗？',
+        'It has a free plan with a daily limit on questions. Gauth Plus removes most limits and adds more AI tutor help.',
+        '有免费版，但每天的题目数量有限。Gauth Plus 基本不限次数，AI 辅导也更多。',
+      ],
+      [
+        'What maths can Gauth solve?',
+        'Gauth 能解哪些数学题？',
+        'Algebra, geometry, trigonometry, calculus, statistics, and word problems, from printed or handwritten questions.',
+        '代数、几何、三角、微积分、统计和应用题，印刷体和手写题目都能识别。',
+      ],
+      [
+        'Who makes Gauth?',
+        'Gauth 是谁做的？',
+        'Gauth is made by ByteDance, the company behind TikTok. It was previously called Gauthmath.',
+        'Gauth 由 TikTok 的母公司字节跳动推出，以前叫 Gauthmath。',
       ],
     ],
   }),
