@@ -1108,5 +1108,9 @@
   "catalog.category.models": "Image creation",
   "catalog.category.coding": "Coding & app builders",
   "catalog.category.audio": "Voice & music",
-  "catalog.category.writing": "Writing & detection"
+  "catalog.category.writing": "Writing & detection",
+  "catalog.breadcrumb.label": "Breadcrumb",
+  "catalog.breadcrumb.home": "Home",
+  "catalog.breadcrumb.products": "AI tools",
+  "seo.breadcrumb.channels": "AI TV channels"
 }

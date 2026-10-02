@@ -1108,5 +1108,9 @@
   "catalog.category.models": "图像创作",
   "catalog.category.coding": "编程与应用生成",
   "catalog.category.audio": "语音与音乐",
-  "catalog.category.writing": "写作与检测"
+  "catalog.category.writing": "写作与检测",
+  "catalog.breadcrumb.label": "面包屑导航",
+  "catalog.breadcrumb.home": "首页",
+  "catalog.breadcrumb.products": "AI 工具目录",
+  "seo.breadcrumb.channels": "AI 直播频道"
 }

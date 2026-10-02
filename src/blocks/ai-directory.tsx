@@ -216,6 +216,8 @@ export function AiDirectory({
     footerSubmit: m['catalog.footer.submit'](),
     footerBrowse: m['catalog.footer.browse'](),
     footerNote: m['catalog.footer.note'](),
+    browseHref: '#directory',
+    categoriesHref: '#categories',
   };
 
   return (

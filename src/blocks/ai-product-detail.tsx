@@ -69,7 +69,7 @@ export function AiProductDetail({
           product.relatedSlugs.includes(item.slug) ||
           item.relatedSlugs.includes(product.slug))
     )
-    .slice(0, 3);
+    .slice(0, 6);
   const chromeContent = {
     browse: m['catalog.nav.browse'](),
     categories: m['catalog.nav.categories'](),
@@ -81,6 +81,8 @@ export function AiProductDetail({
     footerSubmit: m['catalog.footer.submit'](),
     footerBrowse: m['catalog.footer.browse'](),
     footerNote: m['catalog.footer.note'](),
+    browseHref: '/#directory',
+    categoriesHref: '/products#categories',
   };
 
   return (
@@ -89,6 +91,12 @@ export function AiProductDetail({
       chromeContent={chromeContent}
       backHref="/#directory"
       backLabel={m['catalog.detail.back']()}
+      breadcrumbLabel={m['catalog.breadcrumb.label']()}
+      breadcrumbs={[
+        { label: m['catalog.breadcrumb.home'](), href: '/' },
+        { label: m['catalog.breadcrumb.products'](), href: '/products' },
+        { label: product.name },
+      ]}
       visual={
         <div className={cn(`ai-index-tone-${product.tone}`)}>
           <ProductPreviewMedia product={product} detail showLogo />

@@ -1255,6 +1255,8 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
   tool({
     slug: 'openart',
     name: 'OpenArt',
+    aliases: ['Image to Image', 'Image to Image AI', 'img2img', '图生图'],
+    seoKeyword: 'Image to Image',
     maker: 'OpenArt',
     website: 'https://openart.ai',
     category: 'models',
@@ -1262,6 +1264,7 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
     related: ['leonardo-ai', 'raphael-ai'],
     tags: [
       ['ai-art', 'AI art', 'AI 艺术'],
+      ['image-to-image', 'Image to image', '图生图'],
       ['multi-model', '100+ models', '100+ 模型'],
       ['ai-video', 'AI video', 'AI 视频'],
     ],
@@ -1302,8 +1305,8 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ['Image, video, audio', '图像、视频、音频'],
     ],
     whatIs: [
-      'OpenArt AI is an online AI art generator. Choose from more than 100 models to create images, turn them into videos, or generate music, all in the browser.',
-      'OpenArt AI 是一款在线 AI 艺术生成器。可以从 100 多个模型中选择来生成图像、把图像做成视频或生成音乐，全部在浏览器中完成。',
+      'OpenArt AI is an online AI art generator with image to image built in: upload a photo or sketch, describe the change, and pick from more than 100 models to restyle it. It also creates images from text, turns them into videos, and generates music, all in the browser.',
+      'OpenArt AI 是一款在线 AI 艺术生成器，内置图生图（image to image）：上传照片或草图、描述想要的改动，再从 100 多个模型中选一个来重绘。它也能文生图、把图像做成视频或生成音乐，全部在浏览器中完成。',
     ],
     steps: [
       [
@@ -1327,6 +1330,7 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
     ],
     features: [
       ['100+ AI models', '100 多个 AI 模型'],
+      ['Image to image from a reference photo', '上传参考图做图生图'],
       ['Image, video, and music', '图像、视频和音乐'],
       ['Editing and upscaling', '编辑与放大'],
       ['Free to start', '可免费开始'],
@@ -1348,6 +1352,12 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
         '有哪些模型？',
         'More than 100, including models from Google, OpenAI, and Seedance.',
         '100 多个，包括 Google、OpenAI、Seedance 等的模型。',
+      ],
+      [
+        'How do I do image to image on OpenArt?',
+        '怎么用 OpenArt 做图生图？',
+        'Open an image tool, upload your photo as the reference, describe the style or change you want, and generate. You can then edit or upscale the result.',
+        '打开图像工具，上传照片作为参考图，描述想要的风格或改动后生成。生成后还可以继续编辑或放大。',
       ],
     ],
   }),
@@ -2814,6 +2824,213 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
         '准确率如何？',
         'Grammarly reports 99% accuracy on RAID’s independent benchmark; treat results as guidance.',
         'Grammarly 称在 RAID 独立基准上达到 99%，结果仅作参考。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'openai-dots',
+    name: 'OpenAI Dots',
+    aliases: ['Dots Codex', 'Dots', 'ChatGPT Dots', 'OpenAI Dot'],
+    seoKeyword: 'Dots Codex',
+    maker: 'OpenAI',
+    website: 'https://chatgpt.com',
+    category: 'assistant',
+    tone: 'cobalt',
+    related: ['manus', 'chatgpt-atlas', 'replit'],
+    tags: [
+      ['ai-agent', 'Always-on agent', '常驻智能体'],
+      ['codex', 'Hands off to Codex', '可调用 Codex'],
+      ['cloud-computer', 'Own cloud computer', '自带云电脑'],
+    ],
+    tagline: [
+      'Always-on ChatGPT agents with their own cloud computer that hand coding work to Codex.',
+      '自带云电脑的常驻 ChatGPT 智能体，写代码时会交给 Codex。',
+    ],
+    description: [
+      'OpenAI Dots are persistent agents that live in ChatGPT and keep working in the background on goals you assign. Each dot has its own cloud computer, can watch connected apps such as Gmail, Slack, and GitHub, and creates Codex tasks when code needs to be written. OpenAI launched Dots on September 29, 2026.',
+      'OpenAI Dots 是运行在 ChatGPT 里的常驻智能体，会在后台持续推进你交给它的目标。每个 dot 都有自己的云电脑，可以盯着 Gmail、Slack、GitHub 等已连接的应用，需要写代码时会创建 Codex 任务。OpenAI 于 2026 年 9 月 29 日发布 Dots。',
+    ],
+    note: [
+      'Best for: ongoing work you want handled in the background',
+      '适合：希望在后台持续处理的长期事务',
+    ],
+    value: [
+      'Assign a responsibility once and the dot keeps checking, acting, and reporting back.',
+      '交代一次职责，dot 就会持续检查、处理并向你汇报。',
+    ],
+    problem: [
+      'Regular chats and Codex tasks stop when the conversation ends.',
+      '普通对话和 Codex 任务在会话结束后就停下了。',
+    ],
+    audience: [
+      'ChatGPT Pro and Business Premium users, developers, and teams.',
+      'ChatGPT Pro 与 Business Premium 用户、开发者和团队。',
+    ],
+    pricing: [
+      'Included with ChatGPT Pro and Business Premium; the first dot has no extra charge. Codex tasks a dot starts count toward your plan usage.',
+      '包含在 ChatGPT Pro 和 Business Premium 中，第一个 dot 不额外收费。dot 发起的 Codex 任务会计入你的套餐用量。',
+    ],
+    market: [
+      ['AI agents', 'AI 智能体'],
+      ['Productivity', '效率工具'],
+    ],
+    tech: [
+      ['Runs in ChatGPT', '运行在 ChatGPT 中'],
+      ['Cloud computer per dot', '每个 dot 一台云电脑'],
+    ],
+    whatIs: [
+      'OpenAI Dots are always-on ChatGPT agents. People searching “dots codex” usually want to know how the two fit together: a dot does not replace Codex. It coordinates the work, and when code needs to be written it creates a Codex task, checks the result, and reports back.',
+      'OpenAI Dots 是常驻在 ChatGPT 里的智能体。搜索“dots codex”的人通常想弄清两者的关系：dot 并不取代 Codex，它负责统筹，需要写代码时会创建 Codex 任务，检查结果后再向你汇报。',
+    ],
+    steps: [
+      [
+        'Create a dot',
+        '创建 dot',
+        'Start a dot in ChatGPT on an eligible Pro or Business Premium plan.',
+        '在符合条件的 ChatGPT Pro 或 Business Premium 套餐中创建 dot。',
+      ],
+      [
+        'Connect apps',
+        '连接应用',
+        'Link Gmail, Slack, GitHub, Google Drive, or other apps it should watch.',
+        '连接 Gmail、Slack、GitHub、Google Drive 等需要它关注的应用。',
+      ],
+      [
+        'Assign a responsibility',
+        '交代职责',
+        'Give it an ongoing goal, such as “keep me updated on support tickets”. It hands coding work to Codex.',
+        '给它一个长期目标，例如“随时告诉我工单进展”。涉及写代码的部分会交给 Codex。',
+      ],
+    ],
+    features: [
+      ['Runs in the background', '后台持续运行'],
+      ['Creates Codex tasks for code', '写代码时创建 Codex 任务'],
+      ['Persistent cloud browser and files', '持久的云端浏览器和文件'],
+      ['Scheduled and event-based tasks', '定时与事件触发任务'],
+    ],
+    bestFor: [
+      ['Monitoring inboxes and tickets', '盯邮箱和工单'],
+      ['Recurring reports', '定期汇报'],
+      ['Delegating coding tasks to Codex', '把编码任务交给 Codex'],
+    ],
+    faqs: [
+      [
+        'What is the difference between Dots and Codex?',
+        'Dots 和 Codex 有什么区别？',
+        'Codex writes code. A dot is a coordinator that keeps working on your goals and starts Codex tasks when code is needed.',
+        'Codex 负责写代码；dot 是统筹者，持续推进你的目标，需要写代码时再发起 Codex 任务。',
+      ],
+      [
+        'Do Dots use my Codex limits?',
+        'Dots 会占用 Codex 额度吗？',
+        'Running a dot does not count toward usage limits for now, but any Codex or ChatGPT Work task it hands off draws from your plan.',
+        '目前 dot 本身运行不计入用量，但它交给 Codex 或 ChatGPT Work 的任务会消耗你的套餐额度。',
+      ],
+      [
+        'Who can use Dots?',
+        '谁能用 Dots？',
+        'ChatGPT Pro users outside the EEA, Switzerland, and the UK, plus Business Premium users in all supported regions.',
+        '欧洲经济区、瑞士和英国以外的 ChatGPT Pro 用户，以及所有支持地区的 Business Premium 用户。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'viblo-ai',
+    name: 'Viblo AI',
+    aliases: ['Viblo', 'viblo.ai', 'Viblo AI Video Editor'],
+    maker: 'Viblo AI LLC',
+    website: 'https://viblo.ai',
+    category: 'video-editing',
+    tone: 'plum',
+    related: ['vozo-ai', 'higgsfield', 'kling-ai'],
+    tags: [
+      ['short-form-video', 'Short-form video', '短视频'],
+      ['auto-clipping', 'Auto clipping', '自动剪辑'],
+      ['ai-voiceover', 'AI voiceover', 'AI 配音'],
+    ],
+    tagline: [
+      'AI video editor that turns ideas and long videos into Shorts, TikToks, and Reels.',
+      '把创意和长视频做成 Shorts、TikTok 和 Reels 的 AI 视频剪辑工具。',
+    ],
+    description: [
+      'Viblo AI is an AI video editor for short-form content. It auto-clips highlights, writes scripts, adds AI voiceovers and captions, and exports for YouTube Shorts, TikTok, and Instagram Reels, with a timeline editor for manual tweaks.',
+      'Viblo AI 是一款面向短视频的 AI 剪辑工具。它能自动剪出高光片段、生成脚本、添加 AI 配音和字幕，并导出为 YouTube Shorts、TikTok 和 Instagram Reels 格式，还提供时间线编辑器供手动微调。',
+    ],
+    note: [
+      'Best for: faceless short-form channels',
+      '适合：不露脸的短视频账号',
+    ],
+    value: [
+      'Goes from idea or source video to a captioned, voiced short in minutes.',
+      '几分钟内从创意或原视频做出带字幕和配音的短视频。',
+    ],
+    problem: [
+      'Cutting, voicing, and captioning shorts by hand takes hours per video.',
+      '手动剪辑、配音、加字幕，每条短视频都要花上几个小时。',
+    ],
+    audience: [
+      'Content creators, YouTubers, and small business teams.',
+      '内容创作者、YouTuber 和小型企业团队。',
+    ],
+    pricing: [
+      'No free plan. Paid plans start at $25/month for 30 videos; annual billing is discounted. Check the official site for current pricing.',
+      '没有免费套餐，付费版每月 25 美元起（30 条视频），按年付有折扣。当前价格以官网为准。',
+    ],
+    market: [
+      ['Short-form video', '短视频'],
+      ['Creator tools', '创作者工具'],
+    ],
+    tech: [
+      ['Web app', '网页应用'],
+      ['35+ AI voices', '35+ 种 AI 配音'],
+    ],
+    whatIs: [
+      'Viblo AI is a web-based AI video editor for short-form content. Drop in a script, idea, or video link and it handles the script, voiceover, visuals, captions, and vertical formatting, so you can publish to Shorts, TikTok, and Reels quickly.',
+      'Viblo AI 是一款网页版 AI 短视频剪辑工具。输入脚本、创意或视频链接，它会处理脚本、配音、画面、字幕和竖屏排版，方便快速发布到 Shorts、TikTok 和 Reels。',
+    ],
+    steps: [
+      [
+        'Add your source',
+        '添加素材',
+        'Paste a video link, upload footage, or start from a script or idea.',
+        '粘贴视频链接、上传素材，或从脚本、创意开始。',
+      ],
+      [
+        'Let AI build the short',
+        'AI 生成短视频',
+        'Viblo clips highlights and adds voiceover, captions, and layout.',
+        'Viblo 自动剪出高光，加上配音、字幕和版式。',
+      ],
+      [
+        'Edit and export',
+        '编辑并导出',
+        'Adjust on the timeline, then export for Shorts, TikTok, or Reels.',
+        '在时间线上调整后，导出为 Shorts、TikTok 或 Reels 格式。',
+      ],
+    ],
+    features: [
+      ['Auto clipping of highlights', '自动剪辑高光'],
+      ['AI voiceovers with 35+ voices', '35+ 种 AI 配音'],
+      ['Automatic captions', '自动字幕'],
+      ['Split-screen layouts', '分屏版式'],
+    ],
+    bestFor: [
+      ['Faceless YouTube Shorts', '不露脸的 YouTube Shorts'],
+      ['Repurposing long videos', '长视频二次剪辑'],
+      ['Posting shorts in volume', '批量发布短视频'],
+    ],
+    faqs: [
+      [
+        'Is Viblo AI free?',
+        'Viblo AI 免费吗？',
+        'No. It has paid plans only, starting at $25/month.',
+        '不免费，只有付费套餐，每月 25 美元起。',
+      ],
+      [
+        'Which platforms does it export for?',
+        '支持导出到哪些平台？',
+        'YouTube Shorts, TikTok, and Instagram Reels.',
+        'YouTube Shorts、TikTok 和 Instagram Reels。',
       ],
     ],
   }),

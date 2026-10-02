@@ -7,6 +7,7 @@ import {
   type CatalogProduct,
 } from '@/lib/mock-ai-products';
 import { getCatalogProductFn } from '@/lib/product-submissions-server';
+import { m } from '@/paraglide/messages.js';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { AiProductDetail } from '@/blocks/ai-product-detail';
 
@@ -54,13 +55,13 @@ function getProductSchema(
           {
             '@type': 'ListItem',
             position: 1,
-            name: locale === 'zh' ? '首页' : 'Home',
+            name: m['catalog.breadcrumb.home']({}, { locale }),
             item: localizeUrl(`${envConfigs.app_url}/`, { locale }).href,
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: locale === 'zh' ? '产品目录' : 'Products',
+            name: m['catalog.breadcrumb.products']({}, { locale }),
             item: localizeUrl(`${envConfigs.app_url}/products`, { locale })
               .href,
           },

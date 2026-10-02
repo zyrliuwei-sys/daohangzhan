@@ -20,7 +20,7 @@ export interface AiIndexChromeContent {
   footerSubmit: string;
   footerBrowse: string;
   footerNote: string;
-  /** Optional href overrides — defaults point at the on-page directory anchors. */
+  /** Optional href overrides — defaults are absolute so they work from any page. */
   browseHref?: string;
   categoriesHref?: string;
   submitHref?: string;
@@ -39,18 +39,18 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
             href="/"
             className="ai-index-brand"
             onClick={() => setOpen(false)}
-            aria-label={envConfigs.app_name}
           >
             <span className="ai-index-brand-signal" aria-hidden="true">
               <span />
               <span />
             </span>
+            <span className="sr-only">{envConfigs.app_name}</span>
           </Link>
           <nav className="ai-index-nav" aria-label="Primary">
-            <Link href={content.browseHref ?? '#directory'}>
+            <Link href={content.browseHref ?? '/#directory'}>
               {content.browse}
             </Link>
-            <Link href={content.categoriesHref ?? '#categories'}>
+            <Link href={content.categoriesHref ?? '/products#categories'}>
               {content.categories}
             </Link>
             <Link href={content.submitHref ?? '/submit'}>{content.submit}</Link>
@@ -98,13 +98,13 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
           <div className="ai-index-mobile-panel">
             <nav aria-label="Mobile">
               <Link
-                href={content.browseHref ?? '#directory'}
+                href={content.browseHref ?? '/#directory'}
                 onClick={() => setOpen(false)}
               >
                 {content.browse}
               </Link>
               <Link
-                href={content.categoriesHref ?? '#categories'}
+                href={content.categoriesHref ?? '/products#categories'}
                 onClick={() => setOpen(false)}
               >
                 {content.categories}
@@ -159,15 +159,12 @@ export function AiIndexFooter({
       )}
       <footer className="ai-index-footer">
         <div className="ai-index-shell ai-index-footer-inner">
-          <Link
-            href="/"
-            className="ai-index-footer-brand"
-            aria-label={envConfigs.app_name}
-          >
+          <Link href="/" className="ai-index-footer-brand">
             <span className="ai-index-brand-signal" aria-hidden="true">
               <span />
               <span />
             </span>
+            <span className="sr-only">{envConfigs.app_name}</span>
           </Link>
           <span className="ai-index-footer-tagline">{content.tagline}</span>
           <div className="ai-index-footer-links">

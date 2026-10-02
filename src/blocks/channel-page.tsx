@@ -153,6 +153,12 @@ export function ChannelPage({
       chromeContent={chrome}
       backHref="/channels"
       backLabel={m['seo.channel.all']()}
+      breadcrumbLabel={m['catalog.breadcrumb.label']()}
+      breadcrumbs={[
+        { label: m['catalog.breadcrumb.home'](), href: '/' },
+        { label: m['seo.breadcrumb.channels'](), href: '/channels' },
+        { label: channel.name },
+      ]}
       visual={<ChannelDetailVisual channel={channel} />}
       name={channel.name}
       logo={channel.logo ?? undefined}

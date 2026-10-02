@@ -19,15 +19,23 @@ type LinkProps = Omit<ComponentProps<'a'>, 'href'> & {
   href: string;
   locale?: string; // kept for API compat; locale switching goes via setLocale()
   prefetch?: boolean | string;
+  /** Forwarded to the router Link; `exact` stops parent paths matching as active. */
+  activeOptions?: { exact?: boolean; includeHash?: boolean };
   children?: ReactNode;
 };
 
-export function Link({ href, locale, prefetch, ...rest }: LinkProps) {
+export function Link({
+  href,
+  locale,
+  prefetch,
+  activeOptions,
+  ...rest
+}: LinkProps) {
   if (/^(https?:|mailto:|tel:|#)/.test(href)) {
     return <a href={href} {...rest} />;
   }
   const Comp = RouterLink as any;
-  return <Comp to={href} {...rest} />;
+  return <Comp to={href} activeOptions={activeOptions} {...rest} />;
 }
 
 export function usePathname(): string {

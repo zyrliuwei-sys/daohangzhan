@@ -5227,11 +5227,15 @@ html[lang='zh'] .ai-index-form-intro h1 {
   text-transform: uppercase;
 }
 
+/* Product cards: a square-edged catalog sheet. Cards tile edge to edge and
+   share hairline rules (grid draws top/left, each card right/bottom), so the
+   directory reads like a printed index. */
 .ai-home-directory-page .seo-home-directory .seo-channel-grid,
 .ai-home-directory-page .seo-home-article .seo-channel-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  border-top: 0;
+  gap: 0;
+  border-top: 1px solid var(--color-rule);
+  border-left: 1px solid var(--color-rule);
 }
 
 .ai-home-directory-page .seo-home-directory .seo-channel-card,
@@ -5240,15 +5244,16 @@ html[lang='zh'] .ai-index-form-intro h1 {
   display: flex;
   min-height: 0;
   flex-direction: column;
-  gap: 0.85rem;
-  border: 1px solid var(--color-rule);
-  border-radius: 1rem;
-  background: var(--color-paper-soft);
-  box-shadow: 0 1px 2px color-mix(in oklch, var(--color-ink) 6%, transparent);
-  padding: 1.25rem 1.25rem 1.1rem;
+  gap: 0.9rem;
+  border: 0;
+  border-right: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  border-radius: 0;
+  background: var(--color-paper);
+  box-shadow: none;
+  padding: 1.35rem 1.35rem 1.2rem;
   transition:
-    transform var(--dur-short) var(--ease-out),
-    border-color var(--dur-short) var(--ease-out),
+    background-color var(--dur-short) var(--ease-out),
     box-shadow var(--dur-short) var(--ease-out);
 }
 
@@ -5256,11 +5261,9 @@ html[lang='zh'] .ai-index-form-intro h1 {
 .ai-home-directory-page .seo-home-article .seo-channel-card:hover,
 .ai-home-directory-page .seo-home-directory .seo-channel-card:focus-within,
 .ai-home-directory-page .seo-home-article .seo-channel-card:focus-within {
-  border-color: var(--color-accent);
+  z-index: 1;
   background: var(--color-paper-soft);
-  box-shadow: 0 12px 28px -14px
-    color-mix(in oklch, var(--color-ink) 32%, transparent);
-  transform: translateY(-3px);
+  box-shadow: inset 3px 0 0 var(--color-accent);
 }
 
 .ai-home-directory-page .seo-channel-card-head {
@@ -5271,7 +5274,7 @@ html[lang='zh'] .ai-index-form-intro h1 {
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.85rem;
   color: var(--color-ink);
 }
 
@@ -5279,7 +5282,6 @@ html[lang='zh'] .ai-index-form-intro h1 {
 .ai-home-directory-page .seo-channel-card-name::after {
   position: absolute;
   inset: 0;
-  border-radius: inherit;
   content: '';
 }
 
@@ -5287,13 +5289,14 @@ html[lang='zh'] .ai-index-form-intro h1 {
   width: 3rem;
   height: 3rem;
   flex: none;
-  border-radius: 0.8rem;
+  border-color: var(--color-rule);
+  border-radius: 0;
 }
 
 .ai-home-directory-page .seo-channel-card-title {
   display: grid;
   min-width: 0;
-  gap: 0.3rem;
+  gap: 0.4rem;
   justify-items: start;
 }
 
@@ -5309,18 +5312,27 @@ html[lang='zh'] .ai-index-form-intro h1 {
   white-space: nowrap;
 }
 
+/* Category: mono label led by a small accent square, no pill. */
 .ai-home-directory-page .seo-channel-card-category {
-  border-radius: 999px;
-  background: var(--color-accent-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   color: var(--color-accent-strong);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   line-height: 1;
-  padding: 0.3rem 0.55rem;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.ai-home-directory-page .seo-channel-card-category::before {
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: none;
+  background: var(--color-accent);
+  content: '';
 }
 
 .ai-home-directory-page .seo-channel-card-visit {
@@ -5332,7 +5344,7 @@ html[lang='zh'] .ai-index-form-intro h1 {
   flex: none;
   place-items: center;
   border: 1px solid var(--color-rule);
-  border-radius: 999px;
+  border-radius: 0;
   color: var(--color-ink-muted);
   transition:
     background-color var(--dur-short) var(--ease-out),
@@ -5342,9 +5354,9 @@ html[lang='zh'] .ai-index-form-intro h1 {
 
 .ai-home-directory-page .seo-channel-card:hover .seo-channel-card-visit,
 .ai-home-directory-page .seo-channel-card-visit:focus-visible {
-  border-color: var(--color-accent);
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
 
 .ai-home-directory-page .seo-channel-card-tagline {
@@ -5359,25 +5371,32 @@ html[lang='zh'] .ai-index-form-intro h1 {
   line-clamp: 2;
 }
 
+/* Tags: a dotted rule above, then plain mono labels split by slashes. */
 .ai-home-directory-page .seo-channel-card-chips {
   display: flex;
   overflow: hidden;
   flex-wrap: nowrap;
   mask-image: linear-gradient(to right, #000 85%, transparent);
-  gap: 0.35rem;
+  gap: 0;
   margin: auto 0 0;
-  padding: 0;
+  border-top: 1px dashed var(--color-rule);
+  padding: 0.8rem 0 0;
   list-style: none;
 }
 
 .ai-home-directory-page .seo-channel-card-chips li {
-  border: 1px solid var(--color-rule);
-  border-radius: 999px;
   color: var(--color-ink-muted);
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
   line-height: 1;
-  padding: 0.3rem 0.55rem;
   white-space: nowrap;
+}
+
+.ai-home-directory-page .seo-channel-card-chips li + li::before {
+  margin-inline: 0.5rem;
+  color: var(--color-rule);
+  content: '/';
 }
 
 @media (max-width: 1024px) {
@@ -5388,11 +5407,9 @@ html[lang='zh'] .ai-index-form-intro h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ai-home-directory-page .seo-home-directory .seo-channel-card:hover,
-  .ai-home-directory-page .seo-home-article .seo-channel-card:hover,
-  .ai-home-directory-page .seo-home-directory .seo-channel-card:focus-within,
-  .ai-home-directory-page .seo-home-article .seo-channel-card:focus-within {
-    transform: none;
+  .ai-home-directory-page .seo-channel-card,
+  .ai-home-directory-page .seo-channel-card-visit {
+    transition: none;
   }
 }
 
@@ -5436,7 +5453,7 @@ html[lang='zh'] .ai-index-form-intro h1 {
 }
 
 .ai-home-directory-page .ai-index-product-preview .seo-channel-grid {
-  border-top-color: var(--home-dark-rule);
+  border-color: var(--home-dark-rule);
 }
 
 .ai-home-directory-page .ai-index-product-preview .seo-channel-card {
@@ -5749,4 +5766,50 @@ html[lang='zh'] .ai-index-form-intro h1 {
   width: 2.5rem;
   border-top: 1px solid var(--color-accent);
   content: '';
+}
+
+.ai-index-breadcrumb {
+  margin-bottom: 1.25rem;
+  color: var(--color-ink-muted);
+  font-size: 0.8125rem;
+}
+
+.ai-index-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-index-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.ai-index-breadcrumb li + li::before {
+  content: '/';
+  opacity: 0.5;
+}
+
+.ai-index-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ai-index-breadcrumb a:hover,
+.ai-index-breadcrumb a:focus-visible {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+.ai-index-breadcrumb [aria-current='page'] {
+  overflow: hidden;
+  color: var(--color-ink);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
