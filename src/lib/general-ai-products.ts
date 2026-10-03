@@ -493,7 +493,7 @@ export const generalAiProducts: GeneralAiProduct[] = [
     website: 'https://manus.im',
     category: 'assistant',
     tone: 'amber',
-    relatedSlugs: ['perplexity'],
+    relatedSlugs: ['perplexity', 'cue-by-manus'],
     tags: [
       tag('ai-agent', 'AI agent', 'AI Agent'),
       tag('slides', 'Slides', '幻灯片'),
