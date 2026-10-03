@@ -4457,6 +4457,149 @@ const localModelProducts: MockAiProduct[] = [
     ),
   },
   {
+    slug: 'cue-by-manus',
+    name: 'Cue by Manus',
+    maker: 'Manus',
+    website: 'https://cue.im',
+    logo: 'https://cue.im/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-03',
+    category: 'assistant',
+    categoryLabel: productCategoryLabels.assistant,
+    relatedSlugs: ['manus'],
+    tags: [
+      tag('personal-agent', 'Personal agent', '个人智能体'),
+      tag('agent-email-phone', 'Own email & phone', '专属邮箱与电话'),
+      tag('agent-wallet', 'Agent wallet', '智能体钱包'),
+      tag('multi-agent', 'Multi-agent', '多智能体协作'),
+    ],
+    tagline: text(
+      'Personal AI agents with their own email, phone number, wallet, and computer.',
+      '拥有专属邮箱、电话号码、钱包和电脑的个人 AI 智能体。'
+    ),
+    description: text(
+      'Cue is a standalone app from Manus, launched with Manus 2.0 in September 2026. Each agent you create gets its own email address, phone number, wallet with a spending limit you set, and a computer to work on, so it can send messages, take calls, pay within budget, and finish tasks on its own. It runs on web, desktop, and mobile and is in invite-only early access.',
+      'Cue 是 Manus 推出的独立应用，于 2026 年 9 月随 Manus 2.0 一同发布。你创建的每个智能体都有自己的邮箱地址、电话号码、可设定消费上限的钱包和一台工作电脑，因此能独立收发消息、接听电话、在预算内付款并完成任务。支持网页、桌面和移动端，目前处于邀请制抢先体验阶段。'
+    ),
+    note: text(
+      'Best for: delegating everyday errands to agents that can act on their own',
+      '适合：把日常事务交给能独立行动的智能体'
+    ),
+    image: '',
+    tone: 'amber',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Agents get a real identity to act with: they can email, call, and pay instead of only drafting text for you to send.',
+        '智能体拥有可以行动的真实身份：能直接发邮件、打电话和付款，而不只是起草文字让你转发。'
+      ),
+      problemSolved: text(
+        'Chat assistants stop at suggestions. Cue gives each agent its own channels and a budgeted wallet, so tasks like answering calls or placing an order can be completed end to end.',
+        '聊天助手通常止步于建议。Cue 为每个智能体配备独立通道和有预算的钱包，接电话、下单这类任务可以从头到尾完成。'
+      ),
+      audience: text(
+        'People who want to hand off recurring personal or work errands to AI agents.',
+        '希望把重复的个人或工作事务交给 AI 智能体处理的人。'
+      ),
+      pricing: text(
+        'Free during early access with an invite code. Pricing after early access has not been announced; check cue.im for current terms.',
+        '抢先体验期间凭邀请码免费使用；正式定价尚未公布，请以 cue.im 当前信息为准。'
+      ),
+      market: [
+        text('Personal AI agents', '个人 AI 智能体'),
+        text('Task automation', '任务自动化'),
+        text('Multi-agent collaboration', '多智能体协作'),
+      ],
+      techStack: [
+        text('Manus 2.0 infrastructure', 'Manus 2.0 基础设施'),
+        text(
+          'Per-agent email, phone, and wallet',
+          '每个智能体独立邮箱、电话与钱包'
+        ),
+        text('Web, desktop, and mobile apps', '网页、桌面与移动端应用'),
+      ],
+    },
+    specs: [
+      spec('Maker', '开发方', 'Manus', 'Manus'),
+      spec(
+        'Launched',
+        '发布时间',
+        'September 2026, with Manus 2.0',
+        '2026 年 9 月，随 Manus 2.0 发布'
+      ),
+      spec(
+        'Each agent gets',
+        '每个智能体拥有',
+        'Email · phone number · wallet · computer',
+        '邮箱 · 电话号码 · 钱包 · 电脑'
+      ),
+      spec('Access', '获取方式', 'Invite-only early access', '邀请制抢先体验'),
+    ],
+    seo: seo(
+      text(
+        'Cue by Manus is a personal AI agent app built on the same infrastructure as Manus. Unlike a chat assistant, every Cue agent has its own email address, phone number, wallet, and computer. Agents can answer calls and summarize them, send messages, pay within a budget you set, and work together in a group chat on a shared goal. Cue is available on web, desktop, and mobile during an invite-only early access.',
+        'Cue by Manus 是基于 Manus 同一套基础设施打造的个人 AI 智能体应用。与聊天助手不同，每个 Cue 智能体都有自己的邮箱地址、电话号码、钱包和电脑。智能体可以接听电话并生成摘要、发送消息、在你设定的预算内付款，还能在群聊中协作完成同一目标。抢先体验期间支持网页、桌面和移动端，需邀请码。'
+      ),
+      [
+        step(
+          'Get early access',
+          '获取体验资格',
+          'Sign up at cue.im with an invite code. New users receive extra codes to share.',
+          '在 cue.im 使用邀请码注册；获得资格后会收到可分享的邀请码。'
+        ),
+        step(
+          'Create an agent',
+          '创建智能体',
+          'Describe what the agent should handle. It is assigned its own email, phone number, and wallet.',
+          '描述智能体要负责的事务，系统会为它分配专属邮箱、电话号码和钱包。'
+        ),
+        step(
+          'Set limits and connect services',
+          '设置额度并连接服务',
+          'Set a spending limit, connect email, calendar, Slack, or Notion as triggers, and review the summaries it sends back.',
+          '设定消费上限，连接邮箱、日历、Slack 或 Notion 作为触发来源，并查看它回传的任务摘要。'
+        ),
+      ],
+      [
+        text(
+          'Dedicated email and phone number per agent',
+          '每个智能体专属邮箱和电话号码'
+        ),
+        text('Wallet with user-set spending limits', '可自定义消费上限的钱包'),
+        text('Answers calls and summarizes them', '代接电话并生成摘要'),
+        text('Agent group chats with task delegation', '智能体群聊与任务分派'),
+      ],
+      [
+        text('Delegating personal errands', '委托处理个人事务'),
+        text('Screening and handling calls', '筛选和处理来电'),
+        text(
+          'Coordinating several agents on one goal',
+          '让多个智能体协作完成同一目标'
+        ),
+      ],
+      [
+        faq(
+          'Is Cue the same as Manus?',
+          'Cue 和 Manus 是同一个产品吗？',
+          'No. Cue is a separate app from the Manus team, built on the same infrastructure. Manus focuses on producing deliverables; Cue gives personal agents their own identity to act with.',
+          '不是。Cue 是 Manus 团队推出的独立应用，与 Manus 共用基础设施。Manus 侧重交付成品，Cue 则为个人智能体提供可以行动的独立身份。'
+        ),
+        faq(
+          'Can a Cue agent spend my money?',
+          'Cue 智能体会动用我的钱吗？',
+          'Only through its wallet and within the spending limit you set. Review limits before connecting payment methods.',
+          '只能通过它的钱包、在你设定的消费上限内付款。连接支付方式前请先确认额度设置。'
+        ),
+        faq(
+          'Is Cue free?',
+          'Cue 免费吗？',
+          'It is free during invite-only early access. Later pricing has not been announced.',
+          '邀请制抢先体验期间免费，之后的定价尚未公布。'
+        ),
+      ]
+    ),
+  },
+  {
     slug: 'reapi-qwen-image-2-1',
     name: 'Qwen Image 2.1 on reAPI',
     maker: 'reAPI',
