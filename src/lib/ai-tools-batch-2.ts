@@ -678,7 +678,7 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
     website: 'https://lmstudio.ai',
     category: 'assistant',
     tone: 'moss',
-    related: ['deepseek', 'qwen-chat'],
+    related: ['deepseek', 'qwen-chat', 'strata-llm'],
     tags: [
       ['local-ai', 'Local AI', '本地 AI'],
       ['open-models', 'Open models', '开源模型'],
@@ -767,6 +767,137 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
         '数据会离开我的电脑吗？',
         'With local models, inference runs on your machine.',
         '使用本地模型时，推理完全在你的电脑上进行。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'strata-llm',
+    name: 'Strata',
+    aliases: [
+      'Strata LLM',
+      'Strata AI',
+      'Strata local LLM',
+      'Strata 本地大模型',
+    ],
+    seoKeyword: 'Local LLM',
+    maker: 'Niko1221 (open source)',
+    website: 'https://github.com/Niko1221/Strata',
+    category: 'assistant',
+    tone: 'cobalt',
+    related: ['lm-studio', 'qwen-chat'],
+    tags: [
+      ['local-ai', 'Local LLM', '本地大模型'],
+      ['open-source', 'Open source', '开源'],
+      ['gaming-pc', 'Runs on a gaming PC', '游戏电脑可跑'],
+    ],
+    tagline: [
+      'Run a 125B-parameter LLM on your own gaming PC, free and offline.',
+      '在自己的游戏电脑上免费离线运行 1250 亿参数大模型。',
+    ],
+    description: [
+      'Strata (often searched as “Strata LLM”) is a free, open-source app that runs Qwen3.8-Flash-Next, a 125-billion-parameter model, on a normal gaming PC with a 12 GB NVIDIA or AMD card. It spreads the model across GPU, RAM, and SSD, then gives you a browser chat and an OpenAI-compatible local API.',
+      'Strata（常被搜索为“Strata LLM”）是一款免费开源应用，能在配有 12 GB NVIDIA 或 AMD 显卡的普通游戏电脑上运行 1250 亿参数的 Qwen3.8-Flash-Next。它把模型分摊到显卡、内存和固态硬盘上，并提供浏览器聊天界面和兼容 OpenAI 的本地 API。',
+    ],
+    note: [
+      'Best for: running a large model at home with nothing leaving your PC',
+      '适合：在家用电脑上运行大模型，数据不出本机',
+    ],
+    value: [
+      'Server-class model quality on consumer hardware, with no per-token cost.',
+      '在消费级硬件上获得接近服务器级的大模型能力，不按 token 付费。',
+    ],
+    problem: [
+      'Models this large normally need a data-center GPU or a paid cloud API.',
+      '这种规模的模型通常需要数据中心级显卡或付费云端 API。',
+    ],
+    audience: [
+      'Gamers and developers with a 12 GB+ graphics card and 32 GB+ RAM who want a private local LLM.',
+      '拥有 12 GB 以上显卡和 32 GB 以上内存、想要私有本地大模型的玩家和开发者。',
+    ],
+    pricing: [
+      'Free and open source (MIT). You only need your own hardware and about 80 GB of disk space.',
+      '免费开源（MIT 协议）。只需自备硬件和约 80 GB 磁盘空间。',
+    ],
+    market: [
+      ['Local AI', '本地 AI'],
+      ['Open-source LLM tools', '开源大模型工具'],
+    ],
+    tech: [
+      [
+        'Qwen3.8-Flash-Next (125B MoE)',
+        'Qwen3.8-Flash-Next（1250 亿参数 MoE）',
+      ],
+      ['GPU + RAM + SSD offloading', '显卡 + 内存 + SSD 分层加载'],
+      [
+        'OpenAI- and Anthropic-compatible API',
+        '兼容 OpenAI 与 Anthropic 的 API',
+      ],
+    ],
+    whatIs: [
+      'Strata is the project people usually mean by “Strata LLM”: a local LLM engine and app that runs the 125-billion-parameter Qwen3.8-Flash-Next on a Windows or Linux gaming PC. The most-used experts stay on the graphics card, the rest sit in RAM, and a lookup table lives on the SSD. On an RTX 5070 it writes around 50 to 95 tokens per second depending on the model size. It chats, writes code, reads pictures, and connects to coding agents, all offline.',
+      'Strata 就是大家搜索“Strata LLM”时通常指的项目：一个本地大模型引擎和应用，可在 Windows 或 Linux 游戏电脑上运行 1250 亿参数的 Qwen3.8-Flash-Next。最常用的专家留在显卡上，其余放在内存里，查找表存放在固态硬盘。在 RTX 5070 上，根据模型大小每秒可生成约 50 到 95 个 token。它能聊天、写代码、看图，还能接入编程 Agent，全程离线。',
+    ],
+    steps: [
+      [
+        'Download and run the installer',
+        '下载并运行安装程序',
+        'Get Strata from GitHub, then double-click START-HERE.bat on Windows or run ./setup.sh on Linux.',
+        '从 GitHub 下载 Strata，Windows 双击 START-HERE.bat，Linux 运行 ./setup.sh。',
+      ],
+      [
+        'Pick a model size',
+        '选择模型大小',
+        'The installer checks your card and RAM and recommends a size, then downloads about 70 GB once.',
+        '安装程序会检测显卡和内存并推荐合适的大小，然后一次性下载约 70 GB。',
+      ],
+      [
+        'Chat or connect your apps',
+        '聊天或接入应用',
+        'Open http://127.0.0.1:8080 to chat, or point any OpenAI-compatible app at http://127.0.0.1:8080/v1.',
+        '打开 http://127.0.0.1:8080 聊天，或把兼容 OpenAI 的应用指向 http://127.0.0.1:8080/v1。',
+      ],
+    ],
+    features: [
+      ['125B model on a 12 GB graphics card', '12 GB 显卡运行 1250 亿参数模型'],
+      ['Browser chat with a live hardware monitor', '浏览器聊天和实时硬件监控'],
+      [
+        'OpenAI- and Anthropic-compatible local API',
+        '兼容 OpenAI 与 Anthropic 的本地 API',
+      ],
+      [
+        'NVIDIA and AMD, Windows and Linux',
+        '支持 NVIDIA 与 AMD、Windows 与 Linux',
+      ],
+    ],
+    bestFor: [
+      ['Private chat and document work', '私密聊天和文档处理'],
+      ['A free backend for coding agents', '给编程 Agent 当免费后端'],
+      ['Testing a frontier-size open model at home', '在家体验前沿级开源模型'],
+    ],
+    faqs: [
+      [
+        'What is Strata LLM?',
+        'Strata LLM 是什么？',
+        'It usually refers to Strata, an open-source app on GitHub that runs the 125B Qwen3.8-Flash-Next model on a consumer gaming PC. The name is also used by unrelated research projects, such as a context-caching paper.',
+        '通常指 Strata，一个 GitHub 上的开源应用，能在消费级游戏电脑上运行 1250 亿参数的 Qwen3.8-Flash-Next。这个名字也被一些无关的研究项目使用，比如一篇上下文缓存论文。',
+      ],
+      [
+        'What hardware do I need?',
+        '需要什么硬件？',
+        'An NVIDIA RTX 20–50 series or a recent AMD Radeon card with 12 GB of VRAM or more, at least 32 GB of RAM (64 GB runs every size), and about 80 GB of free SSD space.',
+        '需要 12 GB 以上显存的 NVIDIA RTX 20–50 系列或较新的 AMD Radeon 显卡，至少 32 GB 内存（64 GB 可运行所有尺寸），以及约 80 GB 固态硬盘空间。',
+      ],
+      [
+        'Is Strata free?',
+        'Strata 免费吗？',
+        'Yes. It is MIT-licensed open source and runs entirely on your PC, so there are no per-token fees.',
+        '免费。它采用 MIT 开源协议，完全在你的电脑上运行，没有按 token 收费。',
+      ],
+      [
+        'How is Strata different from LM Studio?',
+        'Strata 和 LM Studio 有什么不同？',
+        'LM Studio runs many open models that fit your machine. Strata is built around one very large model and squeezes it onto a gaming PC by splitting it across GPU, RAM, and SSD.',
+        'LM Studio 可运行多种适合你电脑的开源模型；Strata 专注于一个超大模型，通过把它拆分到显卡、内存和固态硬盘上，让游戏电脑也能跑起来。',
       ],
     ],
   }),
