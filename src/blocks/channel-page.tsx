@@ -23,6 +23,7 @@ function chromeContent() {
     browse: m['seo.nav.watch'](),
     categories: m['seo.nav.formats'](),
     submit: m['catalog.nav.submit'](),
+    blog: m['catalog.nav.blog'](),
     signIn: m['common.nav.sign_in'](),
     menu: m['catalog.nav.menu'](),
     close: m['catalog.nav.close'](),

@@ -5,18 +5,21 @@ import { ArrowLeft, Calendar } from 'lucide-react';
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { m } from '@/paraglide/messages.js';
-import { getLocale, localizeUrl } from '@/paraglide/runtime.js';
-import { Footer } from '@/blocks/footer';
-import { Header } from '@/blocks/header';
+import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
+import { BlogShell } from '@/blocks/blog-shell';
 import { MarkdownContent } from '@/components/markdown-content';
 import { mdxComponents } from '@/components/mdx-components';
-import { formatPostDate, loadLocalPost } from '@/content/posts';
+import {
+  formatPostDate,
+  loadLocalPost,
+  RETIRED_POST_SLUGS,
+} from '@/content/posts';
 import { getBlogPostFn } from '@/content/posts/server';
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {
-    if (params.slug === 'what-is-shipany') {
-      throw redirect({ to: '/blog/what-is-viddir', statusCode: 301 });
+    if (RETIRED_POST_SLUGS.includes(params.slug)) {
+      throw redirect({ to: '/blog', statusCode: 301 });
     }
     const locale = getLocale();
     const post = await getBlogPostFn({
@@ -28,15 +31,57 @@ export const Route = createFileRoute('/blog/$slug')({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const { locale, post } = loaderData;
-    const canonical = localizeUrl(`${envConfigs.app_url}/blog/${post.slug}`, {
-      locale: locale as any,
-    }).href;
+    const urlFor = (loc: string) =>
+      localizeUrl(`${envConfigs.app_url}/blog/${post.slug}`, {
+        locale: loc as any,
+      }).href;
+    const canonical = urlFor(locale);
+    const title = `${post.title} | ${envConfigs.app_name}`;
+    const image = post.image
+      ? new URL(post.image, envConfigs.app_url).href
+      : undefined;
     return {
       meta: [
-        { title: `${post.title} | ${envConfigs.app_name}` },
+        { title },
         { name: 'description', content: post.description },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: post.description },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: canonical },
+        ...(image ? [{ property: 'og:image', content: image }] : []),
+        { name: 'twitter:card', content: 'summary_large_image' },
+        {
+          'script:ld+json': {
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.description,
+            ...(image ? { image } : {}),
+            datePublished: post.createdAt,
+            inLanguage: locale,
+            mainEntityOfPage: canonical,
+            author: {
+              '@type': 'Organization',
+              name: post.authorName || envConfigs.app_name,
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: envConfigs.app_name,
+            },
+          },
+        },
       ],
-      links: [{ rel: 'canonical', href: canonical }],
+      links: [
+        { rel: 'canonical', href: canonical },
+        // Local MDX posts exist in every locale; db posts are single-locale.
+        ...(post.source === 'local'
+          ? locales.map((loc) => ({
+              rel: 'alternate',
+              hrefLang: loc,
+              href: urlFor(loc),
+            }))
+          : []),
+      ],
     };
   },
   component: BlogPostPage,
@@ -51,9 +96,8 @@ function BlogPostPage() {
     post.source === 'local' ? loadLocalPost(post.slug, locale)?.default : null;
 
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1 px-6 py-12 md:px-8 md:py-16">
+    <BlogShell>
+      <div className="px-6 py-12 md:px-8 md:py-16">
         <article className="mx-auto max-w-3xl">
           <Link
             href="/blog"
@@ -110,8 +154,7 @@ function BlogPostPage() {
             <MarkdownContent content={post.content || ''} />
           )}
         </article>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </BlogShell>
   );
 }

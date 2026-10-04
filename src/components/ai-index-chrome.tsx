@@ -13,6 +13,7 @@ export interface AiIndexChromeContent {
   browse: string;
   categories: string;
   submit: string;
+  blog: string;
   signIn: string;
   menu: string;
   close: string;
@@ -53,6 +54,7 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
             <Link href={content.categoriesHref ?? '/products#categories'}>
               {content.categories}
             </Link>
+            <Link href="/blog">{content.blog}</Link>
             <Link href={content.submitHref ?? '/submit'}>{content.submit}</Link>
           </nav>
           <div className="ai-index-header-actions">
@@ -108,6 +110,9 @@ export function AiIndexHeader({ content }: { content: AiIndexChromeContent }) {
                 onClick={() => setOpen(false)}
               >
                 {content.categories}
+              </Link>
+              <Link href="/blog" onClick={() => setOpen(false)}>
+                {content.blog}
               </Link>
               <Link
                 href={content.submitHref ?? '/submit'}
@@ -170,6 +175,7 @@ export function AiIndexFooter({
           <div className="ai-index-footer-links">
             <Link href="/#directory">{content.footerBrowse}</Link>
             <Link href="/submit">{content.footerSubmit}</Link>
+            <Link href="/blog">{content.blog}</Link>
           </div>
           <span className="ai-index-footer-note">{content.footerNote}</span>
         </div>

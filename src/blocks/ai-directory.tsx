@@ -209,6 +209,7 @@ export function AiDirectory({
     browse: m['catalog.nav.browse'](),
     categories: m['catalog.nav.categories'](),
     submit: m['catalog.nav.submit'](),
+    blog: m['catalog.nav.blog'](),
     signIn: m['common.nav.sign_in'](),
     menu: m['catalog.nav.menu'](),
     close: m['catalog.nav.close'](),
