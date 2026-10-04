@@ -2476,6 +2476,7 @@ const realtimeProducts: MockAiProduct[] = [
     ...sharedProductFields,
     slug: 'h3-max-director',
     name: 'H3 Max Director',
+    aliases: ['MiniMax H3', 'MiniMax H3 Max', 'H3 Max', 'H3 Max on fal'],
     maker: 'fal + MiniMax',
     website: 'https://fal.ai/h3-max-director',
     logo: 'https://fal.ai/favicon.ico',
@@ -4328,7 +4329,7 @@ const localModelProducts: MockAiProduct[] = [
     lastVerifiedAt: '2026-09-29',
     category: 'image-to-video',
     categoryLabel: productCategoryLabels['image-to-video'],
-    relatedSlugs: ['migos-ai-song'],
+    relatedSlugs: ['migos-ai-song', 'seedance-2-5'],
     tags: [
       tag('two-photos', 'Two-photo workflow', '双照片工作流'),
       tag('seedance', 'Seedance 2.5', 'Seedance 2.5'),
@@ -4609,7 +4610,7 @@ const localModelProducts: MockAiProduct[] = [
     lastVerifiedAt: '2026-10-04',
     category: 'text-to-video',
     categoryLabel: productCategoryLabels['text-to-video'],
-    relatedSlugs: ['higgsfield', 'kling-ai'],
+    relatedSlugs: ['higgsfield', 'kling-ai', 'seedance-2-5'],
     tags: [
       tag('multi-model-studio', 'Multi-model studio', '多模型创作台'),
       tag('text-to-video', 'Text to video', '文生视频'),
@@ -4752,6 +4753,159 @@ const localModelProducts: MockAiProduct[] = [
           'Ausar 生成的内容可以商用吗？',
           'Ausar says outputs can be used in ads, social posts, and client work. Check its terms and the rights of any people or brands shown.',
           'Ausar 表示生成内容可用于广告、社媒和客户项目。使用前请查看其条款，并确认画面中人物或品牌的使用权。'
+        ),
+      ]
+    ),
+  },
+  {
+    slug: 'seedance-2-5',
+    name: 'Seedance 2.5',
+    aliases: [
+      'Seedance 2.5 AI',
+      'Dreamina Seedance 2.5',
+      'ByteDance Seedance 2.5',
+      'Seedance',
+      '即梦 Seedance 2.5',
+    ],
+    maker: 'ByteDance Seed',
+    website: 'https://dreamina.capcut.com/seedance/seedance-2-5',
+    logo: 'https://dreamina.capcut.com/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-04',
+    category: 'text-to-video',
+    categoryLabel: productCategoryLabels['text-to-video'],
+    relatedSlugs: ['dreamina-migos-ai-video', 'kling-ai', 'higgsfield'],
+    tags: [
+      tag('text-to-video', 'Text to video', '文生视频'),
+      tag('seedance', 'Seedance 2.5', 'Seedance 2.5'),
+      tag('native-audio', 'Native audio', '原生音频'),
+      tag('multi-reference', 'Multi-reference', '多参考输入'),
+    ],
+    tagline: text(
+      'ByteDance’s video model for 30-second 4K clips with audio, guided by up to 50 references.',
+      '字节跳动视频模型，一次生成 30 秒 4K 带音频视频，最多可用 50 个参考素材引导。'
+    ),
+    description: text(
+      'Seedance 2.5 is ByteDance Seed’s video generation model, released on July 31, 2026. It generates up to 30 seconds of continuous video in one run, with a beta long-video mode that extends to 3 minutes, and produces sound together with the picture. You can guide it with up to 50 references (30 images, 10 videos, and 10 audio clips), edit a specific part of a result, or use green-screen and 3D white-model inputs for tighter control. It is available on Dreamina and CapCut worldwide and on Jimeng and Doubao in China.',
+      'Seedance 2.5 是字节跳动 Seed 团队的视频生成模型，于 2026 年 7 月 31 日发布。它单次可连续生成最长 30 秒的视频，测试中的长视频模式可延长到 3 分钟，并且画面和声音同步生成。你可以用最多 50 个参考素材（30 张图片、10 段视频、10 段音频）引导生成，对结果做局部修改，或用绿幕和 3D 白模输入做更精确的控制。海外可在 Dreamina 和 CapCut 使用，国内可在即梦和豆包使用。'
+    ),
+    note: text(
+      'Best for: longer single-take AI clips that need consistent characters and matching sound',
+      '适合：需要角色一致、声画同步的较长单镜头 AI 视频'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Get a 30-second clip with audio in one generation instead of stitching several short shots together.',
+        '一次生成 30 秒带声音的片段，不必再把多段短镜头拼接起来。'
+      ),
+      problemSolved: text(
+        'Earlier video models capped clips at a few seconds, so longer scenes needed stitching and drifted between shots. Seedance 2.5 keeps one continuous take for longer and lets you fix parts of it without regenerating the whole clip.',
+        '早期视频模型单段只有几秒，较长的场景需要拼接，镜头之间容易跑偏。Seedance 2.5 可以保持更长的连续镜头，还能局部修改而不必整段重做。'
+      ),
+      audience: text(
+        'Filmmakers, marketing and ecommerce teams, social media creators, and agencies.',
+        '影视创作者、营销和电商团队、社媒创作者以及创意代理公司。'
+      ),
+      pricing: text(
+        'Dreamina gives free daily credits to try it. Paid Dreamina plans use credits, with launch pricing from about $0.097 per second of Seedance 2.5 video. Prices vary by region and plan.',
+        'Dreamina 每天赠送免费积分可试用。付费方案按积分计费，上线优惠价约每秒视频 0.097 美元起。价格因地区和方案而异。'
+      ),
+      market: [
+        text('AI video generation', 'AI 视频生成'),
+        text('Short-form ads and social content', '短视频广告与社媒内容'),
+        text('Previs and filmmaking', '影视预演与制作'),
+      ],
+      techStack: [
+        text('ByteDance Seed video model', '字节跳动 Seed 视频模型'),
+        text('Joint audio and video generation', '音视频联合生成'),
+        text(
+          'Dreamina · CapCut · Jimeng · Doubao',
+          'Dreamina · CapCut · 即梦 · 豆包'
+        ),
+      ],
+    },
+    specs: [
+      spec('Maker', '开发方', 'ByteDance Seed', '字节跳动 Seed'),
+      spec('Released', '发布时间', 'July 31, 2026', '2026 年 7 月 31 日'),
+      spec(
+        'Clip length',
+        '视频时长',
+        'Up to 30 s per run; 3 min in long-video mode (beta)',
+        '单次最长 30 秒；长视频模式（测试）最长 3 分钟'
+      ),
+      spec(
+        'References',
+        '参考素材',
+        'Up to 50: 30 images, 10 videos, 10 audio',
+        '最多 50 个：30 张图、10 段视频、10 段音频'
+      ),
+      spec(
+        'Where to use',
+        '使用平台',
+        'Dreamina, CapCut, Jimeng, Doubao',
+        'Dreamina、CapCut、即梦、豆包'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Seedance 2.5 is the July 2026 update to ByteDance’s Seedance video models. Compared with Seedance 2.0, it raises the single-run length to 30 seconds, adds a 3-minute long-video mode in beta, and accepts up to 50 multimodal references, including images, video clips, and audio. Sound is generated together with the picture. An Intelligent Edit mode lets you change part of a clip, and green-screen and 3D white-model inputs (including Blender and Maya assets) help with precise motion and compositing. Dreamina and CapCut offer it worldwide; Jimeng and Doubao carry it in China. Use reference photos only of people who have agreed to it.',
+        'Seedance 2.5 是字节跳动 Seedance 视频模型在 2026 年 7 月的更新。相比 Seedance 2.0，它把单次生成时长提高到 30 秒，新增测试中的 3 分钟长视频模式，并支持最多 50 个多模态参考素材，包括图片、视频片段和音频。声音与画面一起生成。智能编辑模式可以修改片段中的局部内容，绿幕和 3D 白模输入（支持 Blender、Maya 资产）便于精确控制动作和合成。海外通过 Dreamina 和 CapCut 提供，国内在即梦和豆包上线。参考照片中的人物请确保已获得本人同意。'
+      ),
+      [
+        step(
+          'Open Seedance 2.5',
+          '打开 Seedance 2.5',
+          'Sign in to Dreamina (or Jimeng in China) and choose Seedance 2.5 as the video model.',
+          '登录 Dreamina（国内用即梦），在视频生成中选择 Seedance 2.5 模型。'
+        ),
+        step(
+          'Add a prompt and references',
+          '输入提示词和参考素材',
+          'Describe the scene, then add reference images, video, or audio for characters, motion, and style.',
+          '描述画面，再添加参考图片、视频或音频来确定角色、动作和风格。'
+        ),
+        step(
+          'Generate and edit',
+          '生成并修改',
+          'Generate up to 30 seconds, then use edit mode to fix parts or extend the clip.',
+          '生成最长 30 秒的视频，再用编辑模式修改局部或延长片段。'
+        ),
+      ],
+      [
+        text('30-second single-run clips', '单次生成 30 秒视频'),
+        text('Up to 50 multimodal references', '最多 50 个多模态参考'),
+        text('Audio generated with the video', '声音与画面同步生成'),
+        text(
+          'Intelligent Edit, green screen, and 3D white-model control',
+          '智能编辑、绿幕与 3D 白模控制'
+        ),
+      ],
+      [
+        text('Product ads and ecommerce videos', '产品广告与电商视频'),
+        text('Short film scenes and previs', '短片场景与预演'),
+        text('Social clips with consistent characters', '角色一致的社媒短视频'),
+      ],
+      [
+        faq(
+          'What is new in Seedance 2.5?',
+          'Seedance 2.5 有什么新变化？',
+          'Longer clips (30 seconds per run, 3 minutes in beta long-video mode), up to 50 references instead of 12, partial editing, and green-screen and 3D white-model control.',
+          '视频更长（单次 30 秒，测试中的长视频模式可达 3 分钟），参考素材从 12 个增加到 50 个，支持局部编辑以及绿幕和 3D 白模控制。'
+        ),
+        faq(
+          'Where can I use Seedance 2.5?',
+          '在哪里可以使用 Seedance 2.5？',
+          'On Dreamina and CapCut worldwide, and on Jimeng and Doubao in China. Third-party studios such as Ausar also offer it.',
+          '海外可在 Dreamina 和 CapCut 使用，国内可在即梦和豆包使用，Ausar 等第三方平台也已接入。'
+        ),
+        faq(
+          'Is Seedance 2.5 free?',
+          'Seedance 2.5 免费吗？',
+          'Dreamina gives free daily credits to try it. Regular use needs a credit plan; launch pricing starts at about $0.097 per second of video.',
+          'Dreamina 每天赠送免费积分可以试用。经常使用需要积分方案，上线优惠价约每秒 0.097 美元起。'
         ),
       ]
     ),
