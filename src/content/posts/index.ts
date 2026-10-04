@@ -11,10 +11,14 @@ import { baseLocale } from '@/paraglide/runtime.js';
  * fetched through the server functions in ./server.ts and merged with the
  * local posts via the pure helpers below.
  */
-export const BLOG_POST_SLUGS = [
+export const BLOG_POST_SLUGS = ['strata-qwen'] as const;
+
+/** Retired template posts — 301 to the blog index so old links still land. */
+export const RETIRED_POST_SLUGS = [
+  'what-is-shipany',
   'what-is-viddir',
   'blocks-vs-components',
-] as const;
+];
 
 export type BlogPostMeta = {
   title: string;

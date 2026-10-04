@@ -2,6 +2,7 @@ import type { AnchorHTMLAttributes, HTMLAttributes } from 'react';
 import type { MDXComponents } from 'mdx/types';
 
 import { cn } from '@/lib/utils';
+import { localizeHref } from '@/paraglide/runtime.js';
 
 export const mdxComponents: MDXComponents = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
@@ -37,8 +38,13 @@ export const mdxComponents: MDXComponents = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  a: ({
+    className,
+    href,
+    ...props
+  }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
+      href={href?.startsWith('/') ? localizeHref(href) : href}
       className={cn(
         'text-primary font-medium underline-offset-4 hover:underline',
         className
@@ -86,6 +92,15 @@ export const mdxComponents: MDXComponents = {
     <code
       className={cn(
         'bg-muted text-foreground rounded px-[0.4rem] py-[0.2rem] font-mono text-sm',
+        className
+      )}
+      {...props}
+    />
+  ),
+  pre: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
+    <pre
+      className={cn(
+        'bg-muted border-border my-4 overflow-x-auto rounded-xl border p-4 text-sm leading-6 [&>code]:bg-transparent [&>code]:p-0',
         className
       )}
       {...props}

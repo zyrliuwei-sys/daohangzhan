@@ -3,8 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { envConfigs } from '@/config';
 import { m } from '@/paraglide/messages.js';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
-import { Footer } from '@/blocks/footer';
-import { Header } from '@/blocks/header';
+import { BlogShell } from '@/blocks/blog-shell';
 import { BlogCard } from '@/components/blog-card';
 import { formatPostDate } from '@/content/posts';
 import { getBlogPostsFn } from '@/content/posts/server';
@@ -46,9 +45,8 @@ function BlogPage() {
   const { locale, posts } = Route.useLoaderData();
 
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1 px-4 py-16 sm:py-24">
+    <BlogShell>
+      <div className="px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="mb-16 text-center">
             <h1 className="font-serif text-4xl font-normal tracking-tight sm:text-5xl">
@@ -79,8 +77,7 @@ function BlogPage() {
             </div>
           )}
         </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </BlogShell>
   );
 }
