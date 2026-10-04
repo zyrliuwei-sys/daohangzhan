@@ -2793,6 +2793,134 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'elevenlabs-v4',
+    name: 'Eleven v4',
+    aliases: [
+      'ElevenLabs v4',
+      'ElevenLabs Eleven v4',
+      'Eleven v4 Turbo',
+      'ElevenLabs v4 Turbo',
+      'ElevenLabs',
+      'ElevenLabs TTS',
+      'ElevenLabs 语音模型',
+    ],
+    seoKeyword: 'ElevenLabs v4',
+    maker: 'ElevenLabs',
+    website: 'https://elevenlabs.io/v4',
+    category: 'audio',
+    tone: 'moss',
+    related: ['elevenlabs-avatars', 'cartesia'],
+    tags: [
+      ['text-to-speech', 'Text to speech', '文本转语音'],
+      ['voice-api', 'Voice API', '语音 API'],
+      ['realtime-voice', 'Real-time voice agents', '实时语音智能体'],
+    ],
+    tagline: [
+      'ElevenLabs’ most expressive voice model, plus a Turbo version for live agents.',
+      'ElevenLabs 表现力最强的语音模型，另有面向实时智能体的 Turbo 版本。',
+    ],
+    description: [
+      'Eleven v4 (searched as “ElevenLabs v4”) is the text-to-speech model ElevenLabs released on September 28, 2026. It reads a script the way a voice actor would, in 90+ languages, with audio tags like [laughs] and [whispers]. Eleven v4 Turbo brings the same voices to live AI agents at about 150 ms to first speech.',
+      'Eleven v4（常被搜索为“ElevenLabs v4”）是 ElevenLabs 于 2026 年 9 月 28 日发布的文本转语音模型。它像配音演员一样理解脚本，支持 90 多种语言，可用 [laughs]、[whispers] 等音频标签控制表达。Eleven v4 Turbo 把同样的声音带给实时 AI 智能体，首句语音延迟约 150 毫秒。',
+    ],
+    note: [
+      'Best for: expressive voiceovers and low-latency voice agents',
+      '适合：富有表现力的配音和低延迟语音智能体',
+    ],
+    value: [
+      'Natural, acted-sounding speech from one model, with a real-time variant for conversations.',
+      '一个模型就能生成自然、有表演感的语音，并有面向对话的实时版本。',
+    ],
+    problem: [
+      'Most TTS voices sound flat on long scripts or are too slow for live conversations.',
+      '大多数 TTS 声音在长脚本里显得平淡，或者速度太慢，无法用于实时对话。',
+    ],
+    audience: [
+      'Creators, audiobook and ad producers, and developers building voice agents.',
+      '创作者、有声书与广告制作者，以及开发语音智能体的开发者。',
+    ],
+    pricing: [
+      'Free plan with 10,000 credits a month; paid plans start at $6/month. v4 and v4 Turbo share the same credit pricing.',
+      '免费版每月 10,000 积分；付费套餐每月 6 美元起。v4 与 v4 Turbo 积分价格相同。',
+    ],
+    market: [
+      ['Text to speech', '文本转语音'],
+      ['Voice AI agents', '语音 AI 智能体'],
+    ],
+    tech: [
+      [
+        'Models eleven_v4 and eleven_v4_turbo',
+        '模型 eleven_v4 与 eleven_v4_turbo',
+      ],
+      ['Bidirectional streaming (Turbo)', '双向流式传输（Turbo）'],
+      ['Python and TypeScript SDKs', 'Python 与 TypeScript SDK'],
+    ],
+    whatIs: [
+      'Eleven v4 is the fourth generation of ElevenLabs’ speech model, the one people mean by “ElevenLabs v4”. It comes in two versions. Eleven v4 is tuned for produced audio such as voiceovers, audiobooks, and ads, with context stitching that keeps pacing and tone steady across long scripts of up to 10,000 characters. Eleven v4 Turbo is tuned for live calls and AI agents, streaming speech in about 150 ms. Both work with all 17,500+ library voices and, unlike v3, with Professional Voice Clones.',
+      'Eleven v4 是 ElevenLabs 第四代语音模型，也就是大家搜索的“ElevenLabs v4”。它有两个版本：Eleven v4 面向配音、有声书、广告等制作类音频，通过上下文衔接让长达 10,000 字符的长脚本保持节奏和语气一致；Eleven v4 Turbo 面向实时通话和 AI 智能体，约 150 毫秒即可开始输出语音。两者都支持全部 17,500 多个音色库声音，并且与 v3 不同，支持专业声音克隆。',
+    ],
+    steps: [
+      [
+        'Pick a voice',
+        '选择声音',
+        'Choose from 17,500+ library voices, design a new one, or clone your own.',
+        '从 17,500 多个音色中挑选，或设计新声音、克隆自己的声音。',
+      ],
+      [
+        'Write and tag the script',
+        '编写并标注脚本',
+        'Add audio tags like [laughs], [whispers], or [door slams] where you want them.',
+        '在需要的位置加入 [laughs]、[whispers]、[door slams] 等音频标签。',
+      ],
+      [
+        'Generate or stream',
+        '生成或流式输出',
+        'Render audio in the web app, or call eleven_v4 / eleven_v4_turbo through the API.',
+        '在网页应用中生成音频，或通过 API 调用 eleven_v4 / eleven_v4_turbo。',
+      ],
+    ],
+    features: [
+      ['90+ languages with native accents', '90 多种语言，口音地道'],
+      ['Audio tags for emotion and sound effects', '用音频标签控制情绪和音效'],
+      [
+        'About 150 ms to first speech with v4 Turbo',
+        'v4 Turbo 首句语音约 150 毫秒',
+      ],
+      ['Professional Voice Clones supported', '支持专业声音克隆'],
+    ],
+    bestFor: [
+      ['Voiceovers, ads, and audiobooks', '配音、广告和有声书'],
+      ['Real-time voice agents and phone bots', '实时语音智能体与电话机器人'],
+      ['Multilingual content', '多语言内容'],
+    ],
+    faqs: [
+      [
+        'What is ElevenLabs v4?',
+        'ElevenLabs v4 是什么？',
+        'It is Eleven v4, ElevenLabs’ text-to-speech model released on September 28, 2026, together with Eleven v4 Turbo for real-time use.',
+        '指 Eleven v4，ElevenLabs 于 2026 年 9 月 28 日发布的文本转语音模型，同时发布了面向实时场景的 Eleven v4 Turbo。',
+      ],
+      [
+        'What is the difference between Eleven v4 and v4 Turbo?',
+        'Eleven v4 和 v4 Turbo 有什么区别？',
+        'Eleven v4 aims for the best quality in produced audio. v4 Turbo keeps the same expressive range but streams in about 150 ms, so it suits live calls and AI agents.',
+        'Eleven v4 追求制作类音频的最佳质量；v4 Turbo 保留同样的表现力，但约 150 毫秒即可流式输出，适合实时通话和 AI 智能体。',
+      ],
+      [
+        'How is v4 different from Eleven v3?',
+        'v4 和 Eleven v3 有什么不同？',
+        'v4 is more consistent on long scripts, sequences audio tags better, adds a real-time Turbo version, and brings back Professional Voice Clones, which v3 did not support.',
+        'v4 在长脚本上更稳定，音频标签衔接更好，新增实时 Turbo 版本，并重新支持 v3 不支持的专业声音克隆。',
+      ],
+      [
+        'Is Eleven v4 free?',
+        'Eleven v4 免费吗？',
+        'You can try it on the free plan with 10,000 credits a month. Paid plans start at $6/month.',
+        '可以用免费版试用，每月 10,000 积分；付费套餐每月 6 美元起。',
+      ],
+    ],
+  }),
   // ─── Writing & detection ────────────────────────────────────────────────
   tool({
     slug: 'undetectable-ai',
