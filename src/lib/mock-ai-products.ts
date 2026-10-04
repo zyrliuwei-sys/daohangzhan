@@ -4600,6 +4600,163 @@ const localModelProducts: MockAiProduct[] = [
     ),
   },
   {
+    slug: 'ausar-ai',
+    name: 'Ausar AI',
+    maker: 'Ausar',
+    website: 'https://ausar.ai',
+    logo: 'https://ausar.ai/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-04',
+    category: 'text-to-video',
+    categoryLabel: productCategoryLabels['text-to-video'],
+    relatedSlugs: ['higgsfield', 'kling-ai'],
+    tags: [
+      tag('multi-model-studio', 'Multi-model studio', '多模型创作台'),
+      tag('text-to-video', 'Text to video', '文生视频'),
+      tag('motion-control', 'Motion control', '动作控制'),
+      tag('ai-audio', 'AI audio', 'AI 音频'),
+    ],
+    tagline: text(
+      'One studio for AI video, image, and audio with Kling, Veo, Sora, and Seedance.',
+      '一个工作台集成 Kling、Veo、Sora、Seedance 等模型，生成 AI 视频、图片和音频。'
+    ),
+    description: text(
+      'Ausar is a web-based AI content studio that puts several leading generation models behind one account. You can turn text or images into video with Kling 3.0, Veo 3.1, Sora 2, or Seedance, create images with Nano Banana Pro or GPT Image, transfer movement with Motion Control, and generate speech or split vocals in the audio tools. Templates help build multi-shot social clips, and a credit-based subscription covers every model.',
+      'Ausar 是一个网页版 AI 内容创作台，用一个账号接入多款主流生成模型。你可以用 Kling 3.0、Veo 3.1、Sora 2 或 Seedance 把文字或图片变成视频，用 Nano Banana Pro、GPT Image 生成图片，用 Motion Control 迁移动作，还能在音频工具里合成语音或分离人声。模板可快速搭建多镜头短视频，所有模型共用一套积分订阅。'
+    ),
+    note: text(
+      'Best for: creators who want to compare top video models without separate subscriptions',
+      '适合：想在一个地方对比多款视频模型、又不想分别订阅的创作者'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Switch between Kling, Veo, Sora, Seedance, and image models in one workspace and pay from a single credit balance.',
+        '在同一工作区切换 Kling、Veo、Sora、Seedance 和图像模型，统一用一份积分付费。'
+      ),
+      problemSolved: text(
+        'Each video model lives on its own site with its own plan. Ausar gathers them, plus image editing and audio tools, so a whole short video can be made in one place.',
+        '各家视频模型分散在不同网站、各有订阅。Ausar 把它们连同图像编辑和音频工具集中在一起，一条短视频可以在一个地方做完。'
+      ),
+      audience: text(
+        'Social media creators, marketers, and small studios producing short AI videos and visuals.',
+        '制作 AI 短视频和视觉素材的社媒创作者、营销人员和小型工作室。'
+      ),
+      pricing: text(
+        'Free sign-up with no card required. Paid plans are monthly credit subscriptions, and subscribers get 10–25% off credit top-ups. Check ausar.ai/pricing for current plans.',
+        '免费注册，无需绑卡。付费方案为按月发放积分的订阅，订阅用户购买加量积分可享 10–25% 折扣。具体方案以 ausar.ai/pricing 为准。'
+      ),
+      market: [
+        text('AI video generation', 'AI 视频生成'),
+        text('AI image generation', 'AI 图像生成'),
+        text('Short-form social content', '社媒短视频内容'),
+      ],
+      techStack: [
+        text(
+          'Kling 3.0 · Veo 3.1 · Sora 2 · Seedance 2.5',
+          'Kling 3.0 · Veo 3.1 · Sora 2 · Seedance 2.5'
+        ),
+        text(
+          'Nano Banana Pro · GPT Image 2.5 · Seedream',
+          'Nano Banana Pro · GPT Image 2.5 · Seedream'
+        ),
+        text('Web app with shared credit balance', '网页应用，积分通用'),
+      ],
+    },
+    specs: [
+      spec('Maker', '开发方', 'Ausar', 'Ausar'),
+      spec(
+        'Video models',
+        '视频模型',
+        'Kling 3.0, Veo 3.1, Sora 2, Seedance 2.5',
+        'Kling 3.0、Veo 3.1、Sora 2、Seedance 2.5'
+      ),
+      spec(
+        'Other tools',
+        '其他工具',
+        'Image generation · Motion Control · audio · templates',
+        '图像生成 · 动作控制 · 音频 · 模板'
+      ),
+      spec(
+        'Access',
+        '获取方式',
+        'Web; free sign-up, credit subscriptions',
+        '网页版；免费注册，积分订阅'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Ausar AI (ausar.ai) is an all-in-one AI creation studio for video, images, and audio. Instead of running a single in-house model, it gives you access to Kling 3.0, Veo 3.1, Sora 2, Seedance, Nano Banana Pro, GPT Image, and more from one dashboard. Beyond text-to-video and image-to-video, it offers Motion Control for transferring movement onto a character, AI influencer creation, image upscaling and background removal, speech generation, and vocal splitting. Its terms prohibit deepfakes or deceptive content meant to mislead or harm others.',
+        'Ausar AI（ausar.ai）是一站式 AI 视频、图片和音频创作平台。它不只依赖单一自研模型，而是在一个控制台里接入 Kling 3.0、Veo 3.1、Sora 2、Seedance、Nano Banana Pro、GPT Image 等模型。除了文生视频和图生视频，还提供把动作迁移到角色上的 Motion Control、AI 网红形象创建、图像放大与抠图、语音生成和人声分离。其服务条款禁止制作用于误导或伤害他人的深度伪造或欺骗性内容。'
+      ),
+      [
+        step(
+          'Sign up free',
+          '免费注册',
+          'Create an account at ausar.ai; no card is needed to start.',
+          '在 ausar.ai 注册账号，开始使用无需绑卡。'
+        ),
+        step(
+          'Pick a tool and model',
+          '选择工具和模型',
+          'Open Video, Image, Motion Control, or Audio and choose a model such as Kling 3.0, Veo 3.1, or Nano Banana Pro.',
+          '打开视频、图片、动作控制或音频工具，选择 Kling 3.0、Veo 3.1、Nano Banana Pro 等模型。'
+        ),
+        step(
+          'Generate and refine',
+          '生成并调整',
+          'Write a prompt or upload a reference image, generate, then upscale, extend, or combine clips with templates.',
+          '输入提示词或上传参考图生成内容，再放大、扩图，或用模板拼接成多镜头视频。'
+        ),
+      ],
+      [
+        text(
+          'Kling, Veo, Sora, and Seedance in one place',
+          'Kling、Veo、Sora、Seedance 集于一处'
+        ),
+        text(
+          'Motion Control for character movement',
+          '用 Motion Control 迁移角色动作'
+        ),
+        text(
+          'Image tools: generate, enhance, expand, remove background',
+          '图像工具：生成、增强、扩图、抠图'
+        ),
+        text('Speech generation and vocal splitting', '语音生成与人声分离'),
+      ],
+      [
+        text('Short social videos and ads', '社媒短视频与广告'),
+        text(
+          'Comparing video models on one prompt',
+          '用同一提示词对比视频模型'
+        ),
+        text('Product and portrait animations', '产品与人像动画'),
+      ],
+      [
+        faq(
+          'Does Ausar make its own video model?',
+          'Ausar 有自己的视频模型吗？',
+          'Ausar mainly provides access to third-party models such as Kling, Veo, Sora, and Seedance, together with its own templates and editing tools.',
+          'Ausar 主要接入 Kling、Veo、Sora、Seedance 等第三方模型，并配合自家的模板和编辑工具。'
+        ),
+        faq(
+          'Is Ausar AI free?',
+          'Ausar AI 免费吗？',
+          'Sign-up is free with no card required. Generating beyond what a free account allows uses credits from a paid plan or top-up.',
+          '注册免费且无需绑卡；超出免费额度的生成需要使用付费方案或加购的积分。'
+        ),
+        faq(
+          'Can I use Ausar outputs commercially?',
+          'Ausar 生成的内容可以商用吗？',
+          'Ausar says outputs can be used in ads, social posts, and client work. Check its terms and the rights of any people or brands shown.',
+          'Ausar 表示生成内容可用于广告、社媒和客户项目。使用前请查看其条款，并确认画面中人物或品牌的使用权。'
+        ),
+      ]
+    ),
+  },
+  {
     slug: 'reapi-qwen-image-2-1',
     name: 'Qwen Image 2.1 on reAPI',
     maker: 'reAPI',
