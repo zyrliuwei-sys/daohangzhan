@@ -4613,6 +4613,174 @@ const localModelProducts: MockAiProduct[] = [
     ),
   },
   {
+    slug: 'game-merging-ai',
+    name: 'Game Merging AI',
+    aliases: [
+      'AI Game Merging',
+      'Merging Games with AI',
+      'AI Game Mashup',
+      'Game Mashup Mods',
+      'Minecraft in Elden Ring',
+      'Universal Modder',
+    ],
+    seoKeyword: 'Game Merging AI',
+    maker: 'Anthropic Claude Code',
+    website: 'https://claude.com/product/claude-code',
+    logo: 'https://claude.ai/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-05',
+    category: 'coding',
+    categoryLabel: productCategoryLabels.coding,
+    relatedSlugs: ['replit', 'oasis', 'mira'],
+    tags: [
+      tag('game-mashup', 'Game mashups', '游戏融合'),
+      tag('ai-modding', 'AI modding', 'AI 改游戏'),
+      tag('vibe-coding', 'Vibe coding', '氛围编程'),
+      tag('coding-agent', 'Coding agent', '编程智能体'),
+    ],
+    tagline: text(
+      'The viral trend of using AI coding agents to put one game inside another.',
+      '用 AI 编程智能体把一款游戏“塞进”另一款游戏的爆火玩法。'
+    ),
+    description: text(
+      'Game merging AI is the late-September 2026 trend of modders using AI coding agents, mainly Claude Code, to graft one game into another: Minecraft inside Elden Ring, Skate 3 moves in Modern Warfare 2, Mario Kart in Call of Duty Zombies. The agent reads the game files, helps reverse-engineer how the engine works, writes the mod code, and fixes errors as you test. Many clips on X are tech demos rather than finished, playable mods.',
+      'Game merging AI（AI 游戏融合）是 2026 年 9 月底走红的玩法：模组作者借助 AI 编程智能体（主要是 Claude Code）把一款游戏嫁接进另一款，例如把 Minecraft 放进 Elden Ring、在《使命召唤：现代战争 2》里加入 Skate 3 的滑板动作、在 COD 僵尸模式里跑马里奥赛车。智能体会读取游戏文件、协助逆向分析引擎机制、编写模组代码，并在你测试时修复报错。X 上流传的很多片段只是技术演示，并非完整可玩的模组。'
+    ),
+    note: text(
+      'Best for: personal mod experiments on PC games you own',
+      '适合：在自己拥有的 PC 游戏上做个人模组实验'
+    ),
+    image: '',
+    tone: 'cobalt',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'A coding agent does the slow parts of modding (reading unfamiliar code, writing glue code, debugging crashes), so one person can try a mashup idea in hours instead of months.',
+        '编程智能体承担了做模组最耗时的部分（读懂陌生代码、写衔接代码、排查崩溃），一个人几小时内就能尝试一个融合创意，而不是花上几个月。'
+      ),
+      problemSolved: text(
+        'Searches for “game merging AI” bring up viral clips with no explanation. This page explains what the trend is, which tool is behind it, how the workflow goes, and its limits.',
+        '搜索“game merging AI”时大多只能看到爆款片段却没有解释。本页说明这个热梗是什么、背后用的是什么工具、工作流程如何，以及它的局限。'
+      ),
+      audience: text(
+        'PC gamers and hobby modders who are comfortable with a terminal and want to experiment with games they own.',
+        '会用命令行、想在自己拥有的游戏上做实验的 PC 玩家和业余模组作者。'
+      ),
+      pricing: text(
+        'Claude Code is included with paid Claude plans (Pro, Max, Team, Enterprise) or billed by API usage; large mod projects consume a lot of usage.',
+        'Claude Code 包含在 Claude 付费套餐（Pro、Max、Team、Enterprise）中，也可按 API 用量计费；大型模组项目会消耗较多额度。'
+      ),
+      market: [
+        text('Game modding', '游戏模组'),
+        text('AI coding agents', 'AI 编程智能体'),
+        text('Gaming trends', '游戏热梗'),
+      ],
+      techStack: [
+        text('Claude Code agent', 'Claude Code 智能体'),
+        text(
+          'Game modding frameworks and decompilers',
+          '游戏模组框架与反编译工具'
+        ),
+        text('Your own PC game installs', '你本机已安装的 PC 游戏'),
+      ],
+    },
+    specs: [
+      spec(
+        'Main tool',
+        '主要工具',
+        'Claude Code (terminal, IDE, or desktop app)',
+        'Claude Code（终端、IDE 或桌面应用）'
+      ),
+      spec(
+        'Viral examples',
+        '爆款案例',
+        'Minecraft in Elden Ring · Skate 3 in MW2 · Mario Kart in COD Zombies',
+        'Elden Ring 里的 Minecraft · MW2 里的 Skate 3 · COD 僵尸模式里的马里奥赛车'
+      ),
+      spec(
+        'Platform',
+        '平台',
+        'PC games with mod support work best',
+        '支持模组的 PC 游戏效果最好'
+      ),
+      spec(
+        'Skill level',
+        '上手门槛',
+        'Basic terminal use; modding experience helps',
+        '会基本的命令行操作；有模组经验更好'
+      ),
+    ],
+    seo: seo(
+      text(
+        'Game merging AI, also searched as AI game merging or merging games with AI, describes mods that put one video game inside another, built with help from an AI coding agent. The trend took off on X in late September 2026 with clips such as Minecraft running inside Elden Ring. Most creators use Claude Code: they point it at a game folder, ask it to work out how the engine loads content, and have it write and debug the mod. Forbes and Kotaku note that results vary, many clips are demos, and the practice raises copyright questions, so keep it to personal experiments on games you own.',
+        'Game merging AI（也被搜索为 AI game merging、merging games with AI）指借助 AI 编程智能体，把一款电子游戏放进另一款游戏里的模组。这个热梗于 2026 年 9 月底在 X 上走红，代表片段是在 Elden Ring 里运行 Minecraft。多数创作者使用 Claude Code：让它读取游戏目录、分析引擎如何加载内容，再由它编写并调试模组。Forbes 和 Kotaku 都提到效果参差不齐，很多片段只是演示，而且涉及版权问题，因此建议只在自己拥有的游戏上做个人实验。'
+      ),
+      [
+        step(
+          'Pick two games you own',
+          '选两款自己拥有的游戏',
+          'Choose a host game with an active modding scene (mod loaders, documented file formats) and decide what to bring in from the second game: a mechanic, a world, or a mode.',
+          '选一款模组生态活跃（有模组加载器、文件格式有文档）的宿主游戏，并确定要从第二款游戏引入什么：一种玩法、一个世界或一个模式。'
+        ),
+        step(
+          'Set up Claude Code in a mod workspace',
+          '在模组工作区里配置 Claude Code',
+          'Install Claude Code, open a separate folder with the mod loader and your notes, and back up your saves. Ask the agent to explain how the host game loads assets and scripts before writing anything.',
+          '安装 Claude Code，新建一个放置模组加载器和笔记的独立文件夹，并备份存档。在动手写代码前，先让智能体讲清宿主游戏如何加载资源和脚本。'
+        ),
+        step(
+          'Build, test, and iterate',
+          '构建、测试、迭代',
+          'Have the agent write the mod in small steps, launch the game after each one, and paste crash logs back to it. Keep the mod for personal use and don’t share another game’s code or assets.',
+          '让智能体分小步编写模组，每一步后启动游戏测试，把崩溃日志贴回给它修复。模组仅供个人使用，不要分发其他游戏的代码或素材。'
+        ),
+      ],
+      [
+        text(
+          'Reads and explains unfamiliar game code',
+          '读懂并讲解陌生的游戏代码'
+        ),
+        text(
+          'Writes and debugs mod code from plain-language requests',
+          '根据自然语言需求编写并调试模组代码'
+        ),
+        text(
+          'Runs in the terminal, IDE, or desktop app',
+          '可在终端、IDE 或桌面应用中运行'
+        ),
+        text(
+          'Works with existing mod loaders and tools',
+          '可配合现有的模组加载器和工具'
+        ),
+      ],
+      [
+        text('Game mashup experiments', '游戏融合实验'),
+        text('Porting a mechanic between games', '在游戏之间移植玩法'),
+        text('Learning how game engines work', '学习游戏引擎的工作原理'),
+      ],
+      [
+        faq(
+          'What is game merging AI?',
+          'game merging AI 是什么？',
+          'It is a trend, not a single app: modders use AI coding agents such as Claude Code to combine two games, for example Minecraft inside Elden Ring. It spread on X in late September 2026.',
+          '它是一种玩法，而不是某个单独的应用：模组作者用 Claude Code 等 AI 编程智能体把两款游戏融合在一起，例如把 Minecraft 放进 Elden Ring。2026 年 9 月底在 X 上走红。'
+        ),
+        faq(
+          'Are the viral merged games actually playable?',
+          '那些爆火的融合游戏真的能玩吗？',
+          'Some are, but many clips are short tech demos. AI-written mod code can be buggy, and a full merge usually needs a lot of testing and manual fixes.',
+          '有些可以，但很多片段只是简短的技术演示。AI 写的模组代码可能有 bug，完整的融合通常需要大量测试和手动修复。'
+        ),
+        faq(
+          'Is merging games legal?',
+          '融合游戏合法吗？',
+          'It is a legal grey area. Modding a game you own for personal use is common, but distributing another studio’s code or assets, or breaking a game’s terms or anti-cheat, can infringe copyright or get you banned. Never use mods in online multiplayer.',
+          '这属于法律灰色地带。为个人使用修改自己拥有的游戏很常见，但分发其他厂商的代码或素材、违反游戏条款或绕过反作弊，可能侵犯版权或导致封号。不要在在线多人模式中使用模组。'
+        ),
+      ]
+    ),
+  },
+  {
     slug: 'cue-by-manus',
     name: 'Cue by Manus',
     maker: 'Manus',
