@@ -3415,4 +3415,129 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'venice-ai',
+    name: 'Venice AI',
+    aliases: [
+      'Venice',
+      'Venice.ai',
+      'Uncensored AI chat',
+      'Private uncensored AI',
+      '无审查 AI',
+    ],
+    seoKeyword: 'Uncensored AI',
+    maker: 'Venice.ai',
+    website: 'https://venice.ai',
+    category: 'assistant',
+    tone: 'plum',
+    related: ['lm-studio', 'strata-llm', 'deepseek'],
+    tags: [
+      ['uncensored-ai', 'Uncensored AI', '无审查 AI'],
+      ['private-chat', 'Private chat', '私密对话'],
+      ['open-models', 'Open models', '开源模型'],
+    ],
+    tagline: [
+      'Private, uncensored AI chat that does not log your prompts.',
+      '不记录提示词的私密、无审查 AI 对话。',
+    ],
+    description: [
+      'Venice is a private AI platform often found when people search for “uncensored AI”. It runs open-weight models with fewer refusals than mainstream chatbots, keeps chats in your browser instead of on its servers, and also offers image, video, audio, and code tools plus an OpenAI-compatible API.',
+      'Venice 是一个私密 AI 平台，搜索“uncensored AI（无审查 AI）”时常会找到它。它运行开源模型，拒答比主流聊天机器人少，对话记录保存在你的浏览器而不是它的服务器上，同时提供图片、视频、音频和编程工具，以及兼容 OpenAI 的 API。',
+    ],
+    note: [
+      'Best for: frank answers and private chats without data logging',
+      '适合：想要直白回答、又不希望对话被记录的用户',
+    ],
+    value: [
+      'Ask anything and get direct answers, with prompts kept off company servers.',
+      '可以直接提问并得到直白的回答，提示词不留存在公司服务器上。',
+    ],
+    problem: [
+      'Mainstream chatbots refuse many legitimate questions and store conversations for review or training.',
+      '主流聊天机器人会拒绝不少正当问题，还会保存对话用于审核或训练。',
+    ],
+    audience: [
+      'Writers, researchers, developers, and privacy-minded users.',
+      '写作者、研究人员、开发者和注重隐私的用户。',
+    ],
+    pricing: [
+      'Free tier available. Pro is $18/month; higher Pro+ and Max plans include monthly credits. Check venice.ai for current pricing.',
+      '提供免费额度。Pro 每月 18 美元；更高的 Pro+ 和 Max 方案包含每月积分。具体以 venice.ai 为准。',
+    ],
+    market: [
+      ['Private AI chat', '私密 AI 对话'],
+      ['Uncensored AI', '无审查 AI'],
+      ['AI API', 'AI API'],
+    ],
+    tech: [
+      ['Open-weight and frontier models', '开源模型与前沿模型'],
+      [
+        'Anonymized, zero-retention, TEE, and end-to-end encrypted modes',
+        '匿名、零留存、TEE 可信执行和端到端加密模式',
+      ],
+      ['OpenAI-compatible API', '兼容 OpenAI 的 API'],
+    ],
+    whatIs: [
+      '“Uncensored AI” usually means a chatbot that answers sensitive or controversial questions directly instead of refusing. Venice is one of the best-known options: it serves open-weight models with lighter filtering, offers privacy modes from anonymized proxying to zero-retention, hardware-secured (TEE), and end-to-end encrypted inference, and stores chat history locally in your browser. Fewer filters does not mean no rules: illegal content is still off limits, and answers should be checked like any AI output.',
+      '“Uncensored AI（无审查 AI）”通常指会直接回答敏感或有争议问题、而不是拒答的聊天机器人。Venice 是其中最知名的选择之一：它提供过滤更少的开源模型，隐私模式从匿名代理、零留存，到硬件隔离（TEE）和端到端加密推理，并把聊天记录保存在你的本地浏览器中。过滤更少不等于没有规则：违法内容依然禁止，回答也应像其他 AI 输出一样自行核实。',
+    ],
+    steps: [
+      [
+        'Open Venice',
+        '打开 Venice',
+        'Go to venice.ai and start chatting; an account unlocks more usage.',
+        '访问 venice.ai 即可开始对话，注册账号可获得更多用量。',
+      ],
+      [
+        'Pick a model and privacy mode',
+        '选择模型和隐私模式',
+        'Choose an uncensored open model or another model, and the privacy level you need.',
+        '选择无审查开源模型或其他模型，以及所需的隐私级别。',
+      ],
+      [
+        'Chat, create, or call the API',
+        '对话、创作或调用 API',
+        'Ask questions, generate images or code, or connect apps through the API.',
+        '提问、生成图片或代码，或通过 API 接入你的应用。',
+      ],
+    ],
+    features: [
+      ['Uncensored open-weight chat models', '无审查开源对话模型'],
+      ['Chats stored locally in your browser', '对话记录保存在本地浏览器'],
+      ['Zero-retention, TEE, and E2EE modes', '零留存、TEE 和端到端加密模式'],
+      ['Image, video, audio, and code tools', '图片、视频、音频和编程工具'],
+      ['OpenAI-compatible API', '兼容 OpenAI 的 API'],
+    ],
+    bestFor: [
+      ['Questions mainstream chatbots refuse', '主流聊天机器人拒答的问题'],
+      ['Fiction and creative writing', '小说与创意写作'],
+      ['Private research and brainstorming', '私密研究与头脑风暴'],
+    ],
+    faqs: [
+      [
+        'What is uncensored AI?',
+        '什么是无审查 AI？',
+        'An AI model or chatbot with fewer refusal filters, so it answers controversial or sensitive topics directly. Venice is a hosted option; running open models locally with LM Studio is another.',
+        '指拒答过滤更少、会直接回答争议或敏感话题的 AI 模型或聊天机器人。Venice 是托管型选择；用 LM Studio 在本地运行开源模型是另一种方式。',
+      ],
+      [
+        'Is Venice AI free?',
+        'Venice AI 免费吗？',
+        'Yes, there is a free tier. Pro is $18/month for more usage and models.',
+        '有免费额度。Pro 每月 18 美元，可获得更多用量和模型。',
+      ],
+      [
+        'Does Venice store my chats?',
+        'Venice 会保存我的对话吗？',
+        'Venice says chat history stays in your browser and that its private models keep zero data on its servers.',
+        'Venice 表示聊天记录保存在你的浏览器中，其私密模型不会在服务器上留存数据。',
+      ],
+      [
+        'Is uncensored AI legal to use?',
+        '使用无审查 AI 合法吗？',
+        'Using a less-filtered chatbot is generally legal, but you are still responsible for what you create, and illegal content stays prohibited under Venice’s terms.',
+        '使用过滤较少的聊天机器人通常是合法的，但你仍需对生成内容负责，Venice 的条款同样禁止违法内容。',
+      ],
+    ],
+  }),
 ];
