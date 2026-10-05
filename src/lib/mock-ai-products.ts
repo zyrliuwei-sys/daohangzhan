@@ -4458,6 +4458,161 @@ const localModelProducts: MockAiProduct[] = [
     ),
   },
   {
+    slug: 'zombie-ai-trend',
+    name: 'Zombie AI Trend',
+    aliases: [
+      'Zombie Trend',
+      'AI Zombie Trend',
+      'Zombie AI Video',
+      'Zombie Couple Trend',
+      'Zombie Love Story Trend',
+    ],
+    seoKeyword: 'Zombie Trend',
+    maker: 'Dreamina by CapCut',
+    website: 'https://dreamina.capcut.com/',
+    logo: 'https://dreamina.capcut.com/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-05',
+    category: 'image-to-video',
+    categoryLabel: productCategoryLabels['image-to-video'],
+    relatedSlugs: ['seedance-2-5', 'dreamina-migos-ai-video'],
+    tags: [
+      tag('zombie-trend', 'Zombie trend', '僵尸热梗'),
+      tag('ai-video', 'AI video', 'AI 视频'),
+      tag('two-photos', 'Two-photo workflow', '双照片工作流'),
+      tag('cinematic-story', 'Cinematic story', '电影感短剧'),
+    ],
+    tagline: text(
+      'The viral couple zombie video: one turns, the other can’t pull the trigger.',
+      '爆火的情侣僵尸视频：一人变成僵尸，另一人始终下不了手。'
+    ),
+    description: text(
+      'The Zombie Trend is an October 2026 short-video format made from two photos. In a dark apocalypse scene one person turns into a zombie, the other raises a prop gun but cannot shoot, a warm flashback of the two plays, and the gun is lowered. Most creators generate the 12–15 second vertical clip in Dreamina with Seedance, or join two generated scenes in CapCut. It also works with a pet as the one who turns.',
+      'Zombie Trend（僵尸热梗）是 2026 年 10 月走红的双照片短视频玩法：末日暗调场景里，一人变成僵尸，另一人举起道具枪却开不了枪，画面闪回两人温馨的回忆，最后放下枪。多数创作者在 Dreamina 中用 Seedance 生成 12–15 秒竖屏短片，或分别生成两段画面后在剪映/CapCut 中拼接；也可以把宠物设为变成僵尸的一方。'
+    ),
+    note: text(
+      'Best for: making the emotional couple or pet zombie clip from your own photos',
+      '适合：用自己的照片制作情侣或宠物版僵尸情感短片'
+    ),
+    image: '',
+    tone: 'plum',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'One generation covers the whole story: the turn, the hesitation, the memory, and the lowered gun, with both faces kept from your reference photos.',
+        '一次生成就能讲完整个故事：变身、犹豫、回忆、放下枪，并尽量保留两张参考照片中的面孔。'
+      ),
+      problemSolved: text(
+        'Searches for “zombie trend” mix filters, templates, and prompts. This page explains the four-beat format and the shortest route to a clip that matches it.',
+        '搜索“zombie trend”时，滤镜、模板和提示词常混在一起。本页说明这个玩法的四段结构，以及做出同款短片的最短路径。'
+      ),
+      audience: text(
+        'Couples, friends, and pet owners making a short cinematic horror-romance clip with photos they have permission to use.',
+        '使用已获同意的照片，制作电影感恐怖爱情短片的情侣、朋友和宠物主人。'
+      ),
+      pricing: text(
+        'Dreamina uses account-based access and credits; available models, free daily credits, limits, and prices depend on plan and region.',
+        'Dreamina 采用账号和积分机制；可用模型、每日免费积分、额度与价格随套餐和地区变化。'
+      ),
+      market: [
+        text('AI video trends', 'AI 视频热梗'),
+        text('Image to video', '图生视频'),
+        text('Short-form video', '短视频'),
+      ],
+      techStack: [
+        text('Dreamina Seedance video models', 'Dreamina Seedance 视频模型'),
+        text('Two reference photos', '两张参考照片'),
+        text('Story prompt with four beats', '四段式剧情提示词'),
+      ],
+    },
+    specs: [
+      spec(
+        'Story beats',
+        '剧情结构',
+        'The turn · the gun · the memory · the gun lowered',
+        '变身 · 举枪 · 回忆 · 放下枪'
+      ),
+      spec(
+        'Input',
+        '输入',
+        'Two clear front-facing photos (person or pet) + prompt',
+        '两张清晰正脸照片（人或宠物）+ 提示词'
+      ),
+      spec(
+        'Format',
+        '格式',
+        '9:16 vertical · about 12–15 s',
+        '9:16 竖屏 · 约 12–15 秒'
+      ),
+      spec(
+        'Look',
+        '画面特征',
+        'Dark apocalypse grade · grey skin · clouded eyes',
+        '末日暗调 · 灰白皮肤 · 浑浊双眼'
+      ),
+    ],
+    seo: seo(
+      text(
+        'The Zombie Trend, also searched as the zombie AI trend or zombie couple trend, is a viral short video built from two photos. One person becomes a zombie, the partner aims a prop gun but cannot fire, a happy memory of the two flashes on screen, and the gun comes down. Dreamina by CapCut is the tool most tutorials use: upload both photos, describe the four beats, and generate a vertical clip with Seedance. Pet versions, where a cat or dog turns, are popular too.',
+        'Zombie Trend（也被搜索为 zombie AI trend、僵尸情侣热梗）是用两张照片制作的爆款短视频：一人变成僵尸，伴侣举起道具枪却无法开枪，屏幕闪回两人的幸福回忆，最后放下枪。多数教程使用 Dreamina（CapCut 旗下）：上传两张照片，描述四段剧情，用 Seedance 生成竖屏短片。把猫狗设为变成僵尸一方的宠物版也很流行。'
+      ),
+      [
+        step(
+          'Pick two photos',
+          '选择两张照片',
+          'Use clear, front-facing photos of people or pets who agreed to appear. Decide who holds the gun and who turns.',
+          '使用同意出镜的人或宠物的清晰正脸照片，确定谁举枪、谁变成僵尸。'
+        ),
+        step(
+          'Write the four beats',
+          '写好四段剧情',
+          'Prompt the turn (grey skin, clouded eyes, torn clothes), the raised gun, a warm memory of both as themselves, and the gun lowered. Ask to keep each face and hairstyle as photographed.',
+          '提示词依次写变身（灰白皮肤、浑浊双眼、破旧衣服）、举枪、两人原貌的温馨回忆、放下枪，并要求保持照片中的面孔和发型。'
+        ),
+        step(
+          'Generate, check, and add music',
+          '生成、检查并配乐',
+          'Generate a 9:16 clip in Dreamina, check that both identities stay consistent, then add licensed music in CapCut before posting.',
+          '在 Dreamina 中生成 9:16 短片，检查两人面孔是否一致，再在剪映/CapCut 中加入有授权的音乐后发布。'
+        ),
+      ],
+      [
+        text('Two-subject reference workflow', '双主体参考图工作流'),
+        text('Single-generation story clip', '一次生成完整剧情短片'),
+        text('Works for couples, friends, and pets', '情侣、朋友、宠物都适用'),
+        text(
+          'Vertical output for TikTok, Reels, Shorts',
+          '竖屏输出，适合抖音、Reels、Shorts'
+        ),
+      ],
+      [
+        text('Couple zombie love story', '情侣僵尸爱情故事'),
+        text('Pet zombie reunion clip', '宠物变僵尸重逢短片'),
+        text('Halloween horror shorts', '万圣节恐怖短片'),
+      ],
+      [
+        faq(
+          'What is the zombie trend?',
+          'zombie trend 是什么？',
+          'A two-person AI video: one turns into a zombie, the other can’t bring themselves to shoot, a flashback plays, and the gun is lowered. It spread on TikTok in early October 2026.',
+          '一种双人 AI 视频：一人变成僵尸，另一人狠不下心开枪，画面闪回后放下枪。2026 年 10 月初在 TikTok 上走红。'
+        ),
+        faq(
+          'Is it a filter or a template?',
+          '它是滤镜还是模板？',
+          'It is a story format. Older zombie face filters only add makeup; this trend needs an image-to-video generator such as Dreamina, or two generated scenes joined in CapCut.',
+          '它是一种剧情玩法。以前的僵尸滤镜只加妆效；这个热梗需要 Dreamina 这类图生视频工具，或把两段生成画面在剪映/CapCut 中拼接。'
+        ),
+        faq(
+          'Can I use someone else’s photo?',
+          '可以用别人的照片吗？',
+          'Only with their permission. Don’t use photos of strangers or public figures, and label the clip as AI-generated where the platform asks.',
+          '需获得本人同意。不要使用陌生人或公众人物的照片，并按平台要求标注 AI 生成。'
+        ),
+      ]
+    ),
+  },
+  {
     slug: 'cue-by-manus',
     name: 'Cue by Manus',
     maker: 'Manus',
