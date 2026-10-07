@@ -3996,4 +3996,115 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'prompt-seen',
+    name: 'Prompt Seen',
+    aliases: ['Prompt Seen AI', 'PromptSeen', 'Prompt Seen AI Photo Prompts'],
+    seoKeyword: 'Prompt Seen',
+    maker: 'Promptseen Tech',
+    website: 'https://play.google.com/store/apps/details?id=com.promptseen.ai',
+    category: 'workflow',
+    tone: 'amber',
+    related: ['nano-banana-2-1', 'openart', 'raphael-ai'],
+    tags: [
+      ['prompt-library', 'Prompt library', '提示词库'],
+      ['ai-photo-prompts', 'AI photo prompts', 'AI 照片提示词'],
+      ['image-editing', 'Image editing', '图像编辑'],
+    ],
+    tagline: [
+      'A free library of trending AI photo prompts for Gemini, ChatGPT, and Midjourney.',
+      '免费的热门 AI 照片提示词库，可用于 Gemini、ChatGPT 和 Midjourney。',
+    ],
+    description: [
+      'Prompt Seen is a prompt library app with 1,000+ ready-to-use AI photo prompts. Each prompt comes with a preview image, so you can pick a look, copy the prompt in one tap, and paste it into Gemini (Nano Banana), ChatGPT, or Midjourney with your own photo.',
+      'Prompt Seen 是一个 AI 照片提示词库 App，收录 1000 多条可直接使用的提示词。每条提示词都附有效果预览图，选好风格后一键复制，再连同自己的照片粘贴到 Gemini（Nano Banana）、ChatGPT 或 Midjourney 中即可生成。',
+    ],
+    note: [
+      'Best for: recreating viral AI photo trends',
+      '适合：复刻爆款 AI 照片风格',
+    ],
+    value: [
+      'Skip prompt writing: see the result first, then copy the exact prompt that made it.',
+      '不用自己写提示词：先看效果，再复制生成该效果的原始提示词。',
+    ],
+    problem: [
+      'Viral AI photo styles are hard to reproduce without knowing the exact prompt behind them.',
+      '爆款 AI 照片风格很难复刻，因为不知道背后用的具体提示词。',
+    ],
+    audience: [
+      'Social media users, content creators, and anyone editing photos with Gemini or ChatGPT.',
+      '社交媒体用户、内容创作者，以及用 Gemini 或 ChatGPT 修图的普通用户。',
+    ],
+    pricing: [
+      'Free with ads. The prompts are free to copy; image generation happens in the AI tool you paste them into.',
+      '免费使用，含广告。提示词可免费复制，图片生成在你粘贴提示词的 AI 工具中完成。',
+    ],
+    market: [
+      ['AI prompt libraries', 'AI 提示词库'],
+      ['AI photo editing', 'AI 照片编辑'],
+    ],
+    tech: [
+      ['Curated prompt catalog', '精选提示词目录'],
+      [
+        'Works with Gemini, ChatGPT, Midjourney',
+        '适配 Gemini、ChatGPT、Midjourney',
+      ],
+    ],
+    whatIs: [
+      '“Prompt Seen” is both an Android app (Prompt Seen: AI Photo Prompts, 500K+ downloads) and a popular search term for the copy-and-paste prompts behind trending AI photo edits. The app does not generate images itself. It groups prompts into categories such as couple photos, profile pictures, 3D figurines, saree and traditional looks, realistic portraits, anime, vintage, wedding, and festival themes, and adds new trending prompts daily.',
+      '“Prompt Seen”既是一款 Android App（Prompt Seen: AI Photo Prompts，下载量 50 万以上），也是大家搜索热门 AI 修图提示词时常用的关键词。这款 App 本身不生成图片，而是把提示词按情侣照、头像、3D 手办、纱丽与传统服饰、写实人像、动漫、复古、婚礼、节日等分类整理，并每天更新热门提示词。',
+    ],
+    steps: [
+      [
+        'Pick a style',
+        '挑选风格',
+        'Browse categories or search, and preview the result each prompt produces.',
+        '浏览分类或搜索，查看每条提示词的效果预览。',
+      ],
+      [
+        'Copy the prompt',
+        '复制提示词',
+        'Tap once to copy the full prompt, or save it to favorites for later.',
+        '一键复制完整提示词，也可以收藏以后再用。',
+      ],
+      [
+        'Generate in your AI tool',
+        '在 AI 工具中生成',
+        'Open Gemini, ChatGPT, or Midjourney, upload your photo, paste the prompt, and generate.',
+        '打开 Gemini、ChatGPT 或 Midjourney，上传照片、粘贴提示词并生成。',
+      ],
+    ],
+    features: [
+      ['1,000+ AI photo prompts', '1000+ 条 AI 照片提示词'],
+      ['HD preview for every prompt', '每条提示词都有高清预览'],
+      ['One-tap copy', '一键复制'],
+      ['Search and favorites', '搜索与收藏'],
+      ['Daily trending updates, no login', '每日更新热门，无需登录'],
+    ],
+    bestFor: [
+      ['Profile pictures and Instagram posts', '头像和 Instagram 帖子'],
+      ['Couple, wedding, and festival photos', '情侣、婚礼和节日照片'],
+      ['3D figurine and vintage photo trends', '3D 手办和复古照片潮流'],
+    ],
+    faqs: [
+      [
+        'What is Prompt Seen?',
+        'Prompt Seen 是什么？',
+        'A free prompt library app with ready-made AI photo prompts you copy into Gemini, ChatGPT, or Midjourney.',
+        '一个免费的 AI 照片提示词库 App，复制里面的提示词到 Gemini、ChatGPT 或 Midjourney 即可使用。',
+      ],
+      [
+        'Does Prompt Seen generate images?',
+        'Prompt Seen 能直接生成图片吗？',
+        'No. It only provides prompts and previews. You generate the image in an AI tool such as Gemini (Nano Banana).',
+        '不能。它只提供提示词和效果预览，图片需要在 Gemini（Nano Banana）等 AI 工具中生成。',
+      ],
+      [
+        'Is Prompt Seen free?',
+        'Prompt Seen 免费吗？',
+        'Yes. The Android app is free with ads and needs no login.',
+        '免费。Android App 免费使用（含广告），无需登录。',
+      ],
+    ],
+  }),
 ];
