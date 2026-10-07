@@ -3540,4 +3540,460 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'nano-banana-2-1',
+    name: 'Nano Banana 2.1',
+    aliases: ['Nano Banana 2.1', 'Gemini Nano Banana 2.1'],
+    seoKeyword: 'Nano Banana 2.1',
+    maker: 'Google',
+    website: 'https://aistudio.google.com/',
+    category: 'models',
+    tone: 'amber',
+    related: ['google-flow', 'openart', 'raphael-ai'],
+    tags: [
+      ['image-model', 'Image model', '图像模型'],
+      ['image-editing', 'Image editing', '图像编辑'],
+      ['4k-images', '4K images', '4K 图像'],
+    ],
+    tagline: [
+      'Google’s faster, cheaper image model with sharper editing.',
+      'Google 新一代图像模型，编辑更精准、价格更低。',
+    ],
+    description: [
+      'Nano Banana 2.1 is Google’s image generation and editing model, released on October 6, 2026. It improves mask-based editing and subject consistency over Nano Banana 2, outputs up to 4K, and costs about half as much per image through the Gemini API.',
+      'Nano Banana 2.1 是 Google 于 2026 年 10 月 6 日发布的图像生成与编辑模型。相比 Nano Banana 2，它在蒙版编辑和主体一致性上更强，最高支持 4K 输出，通过 Gemini API 调用的单张价格约降低一半。',
+    ],
+    note: [
+      'Best for: consistent characters and precise image edits',
+      '适合：需要角色一致和精准修图的创作',
+    ],
+    value: [
+      'Better edits and character consistency than Nano Banana 2 at roughly half the API price.',
+      '编辑效果和角色一致性优于 Nano Banana 2，API 价格约为一半。',
+    ],
+    problem: [
+      'Multi-step image edits often drift, changing faces, products, or layouts you wanted to keep.',
+      '多轮修图时人物、产品或版式容易跑偏，想保留的部分被改掉。',
+    ],
+    audience: [
+      'Designers, marketers, content creators, and developers building image features.',
+      '设计师、营销人员、内容创作者，以及开发图像功能的开发者。',
+    ],
+    pricing: [
+      'Free to try in the Gemini app. API pricing is about $0.034 per 1K image and $0.076 per 4K image, with a further 50% off in batch mode.',
+      '可在 Gemini App 免费试用。API 价格约为 1K 图每张 0.034 美元、4K 图每张 0.076 美元，批量模式再打五折。',
+    ],
+    market: [
+      ['AI image generation', 'AI 图像生成'],
+      ['AI image editing', 'AI 图像编辑'],
+    ],
+    tech: [
+      ['Gemini image model', 'Gemini 图像模型'],
+      ['Google Search grounding', 'Google 搜索事实依据'],
+    ],
+    whatIs: [
+      'Nano Banana 2.1 is the latest version of Google’s Nano Banana image model. It generates and edits images from text and up to 14 reference images, keeps up to four characters and ten objects consistent, supports aspect ratios as wide as 8:1, and can ground results in Google Search. It is available in the Gemini app, Google AI Studio, Flow, Stitch, and the Gemini API.',
+      'Nano Banana 2.1 是 Google Nano Banana 图像模型的最新版本。它可以根据文字和最多 14 张参考图生成、编辑图片，最多保持 4 个角色和 10 个物体的一致性，支持最宽 8:1 的画幅，还能借助 Google 搜索让结果更贴近事实。可在 Gemini App、Google AI Studio、Flow、Stitch 和 Gemini API 中使用。',
+    ],
+    steps: [
+      [
+        'Open a Google tool',
+        '打开 Google 工具',
+        'Use the Gemini app for quick edits, or Google AI Studio to test prompts and settings.',
+        '想快速修图就用 Gemini App，想调试提示词和参数就用 Google AI Studio。',
+      ],
+      [
+        'Add a prompt and references',
+        '输入提示词和参考图',
+        'Describe the image and upload up to 14 reference images for characters, products, or style.',
+        '描述想要的画面，并上传最多 14 张角色、产品或风格参考图。',
+      ],
+      [
+        'Edit and export',
+        '编辑并导出',
+        'Refine areas with follow-up edits, then export up to 4K or call the model from the API.',
+        '通过追加指令局部修改，再导出最高 4K 图片，或用 API 调用模型。',
+      ],
+    ],
+    features: [
+      ['Mask-based editing', '蒙版局部编辑'],
+      ['Up to 14 reference images', '最多 14 张参考图'],
+      ['Consistent characters and objects', '角色与物体一致性'],
+      ['Up to 4K output and 8:1 aspect ratios', '最高 4K 输出、最宽 8:1 画幅'],
+      ['Google Search grounding', 'Google 搜索事实依据'],
+    ],
+    bestFor: [
+      ['Product shots and ad creatives', '产品图和广告素材'],
+      [
+        'Comics and storyboards with recurring characters',
+        '角色反复出现的漫画和分镜',
+      ],
+      [
+        'Developers adding image generation to apps',
+        '为应用加入图像生成的开发者',
+      ],
+    ],
+    faqs: [
+      [
+        'What is new in Nano Banana 2.1?',
+        'Nano Banana 2.1 有什么新变化？',
+        'Sharper mask-based editing, better subject consistency across edits, adjustable thinking time, and roughly 50% lower API prices than Nano Banana 2.',
+        '蒙版编辑更精准，多轮编辑中的主体一致性更好，可调节思考时长，API 价格比 Nano Banana 2 低约 50%。',
+      ],
+      [
+        'Where can I use Nano Banana 2.1?',
+        '在哪里可以使用 Nano Banana 2.1？',
+        'In the Gemini app, Google Search AI Mode, Google AI Studio, Flow, Stitch, and through the Gemini API.',
+        '在 Gemini App、Google 搜索 AI 模式、Google AI Studio、Flow、Stitch 中都能使用，也可以通过 Gemini API 调用。',
+      ],
+      [
+        'Is Nano Banana 2.1 free?',
+        'Nano Banana 2.1 免费吗？',
+        'You can try it free in the Gemini app with daily limits. API use is paid per image.',
+        '在 Gemini App 中可以免费试用，有每日限额；API 按张计费。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'miora',
+    name: 'Miora',
+    aliases: ['Miora AI', 'Tencent Miora'],
+    seoKeyword: 'Miora AI',
+    maker: 'Tencent',
+    website: 'https://miora.design/',
+    category: 'workflow',
+    tone: 'plum',
+    related: ['openart', 'google-flow', 'higgsfield'],
+    tags: [
+      ['design-agent', 'Design agent', '设计 Agent'],
+      ['ai-canvas', 'AI canvas', 'AI 画布'],
+      ['brand-assets', 'Brand assets', '品牌素材'],
+    ],
+    tagline: [
+      'Tencent’s AI creative agent for images, video, UI, and 3D on one canvas.',
+      '腾讯推出的 AI 创意 Agent，在一张画布上生成图片、视频、UI 和 3D。',
+    ],
+    description: [
+      'Miora is an agentic creative studio from Tencent. You give it one brief, and its agents plan the work, pick models, and produce on-brand images, video, UI/UX screens, and 3D assets on a shared canvas. It remembers your style and brand rules across projects.',
+      'Miora 是腾讯推出的 Agent 式创意工作室。你只需给出一份需求，它的 Agent 就会拆解任务、选择模型，在同一张画布上产出符合品牌调性的图片、视频、UI/UX 界面和 3D 素材，并在不同项目间记住你的风格和品牌规范。',
+    ],
+    note: [
+      'Best for: full campaign or brand kits from one brief',
+      '适合：用一份需求产出整套活动或品牌素材',
+    ],
+    value: [
+      'One canvas and one agent for every visual asset in a project, with memory of your brand.',
+      '一个项目的所有视觉素材都在一张画布、一个 Agent 中完成，并记住你的品牌。',
+    ],
+    problem: [
+      'Creative projects usually jump between separate image, video, UI, and 3D tools and lose context each time.',
+      '创意项目通常要在图片、视频、UI、3D 等多个工具间来回切换，每次都会丢失上下文。',
+    ],
+    audience: [
+      'Designers, brand and marketing teams, product teams, and indie creators.',
+      '设计师、品牌和营销团队、产品团队，以及独立创作者。',
+    ],
+    pricing: PRICING_CHECK,
+    market: [
+      ['AI design agents', 'AI 设计 Agent'],
+      ['Creative production', '创意内容生产'],
+    ],
+    tech: [
+      ['Multi-agent planning', '多 Agent 任务规划'],
+      ['Persistent creative memory', '持久创作记忆'],
+    ],
+    whatIs: [
+      'Miora is Tencent’s first self-developed AI creative agent. It was introduced internationally at Tencent Cloud Day Hong Kong in May 2026 and opened to everyone in July 2026. Its agent breaks a brief into tasks, chooses models, checks intermediate results, and keeps everything on one canvas. A skills marketplace offers reusable workflows for jobs like branding or film production.',
+      'Miora 是腾讯首款自研 AI 创意 Agent，2026 年 5 月在腾讯云香港峰会上面向海外发布，7 月全面开放。它的 Agent 会把需求拆成任务、选择模型、检查中间结果，并把所有产出放在一张画布上。技能市场提供品牌设计、影视制作等可复用的工作流。',
+    ],
+    steps: [
+      [
+        'Start a project',
+        '新建项目',
+        'Sign in at miora.design and describe what you need in one brief.',
+        '登录 miora.design，用一段话描述你的需求。',
+      ],
+      [
+        'Let the agent plan',
+        '让 Agent 规划',
+        'Pick a scenario mode or a skill, and the agent splits the brief into image, video, UI, or 3D tasks.',
+        '选择场景模式或技能，Agent 会把需求拆分为图片、视频、UI 或 3D 任务。',
+      ],
+      [
+        'Review on the canvas',
+        '在画布上审阅',
+        'Refine any asset on the shared canvas and export the finished set.',
+        '在共享画布上调整任意素材，然后导出整套成品。',
+      ],
+    ],
+    features: [
+      [
+        'Images, video, UI/UX, and 3D on one canvas',
+        '图片、视频、UI/UX、3D 同一画布',
+      ],
+      ['Agent that plans and checks its own work', '能规划并自检的 Agent'],
+      ['Memory of style and brand rules', '记住风格与品牌规范'],
+      ['Skills marketplace for reusable workflows', '可复用工作流的技能市场'],
+      ['Choice of models and reasoning depth', '可选模型和推理深度'],
+    ],
+    bestFor: [
+      ['Brand identity and launch kits', '品牌形象和发布物料'],
+      ['Marketing campaigns across formats', '多形式营销活动'],
+      ['App and web UI mockups', 'App 和网页 UI 原型'],
+    ],
+    faqs: [
+      [
+        'Who makes Miora?',
+        'Miora 是谁开发的？',
+        'Miora is developed by Tencent and is its first self-developed AI creative agent.',
+        'Miora 由腾讯开发，是腾讯首款自研 AI 创意 Agent。',
+      ],
+      [
+        'What can Miora create?',
+        'Miora 能做什么？',
+        'Images, videos, UI/UX designs, and 3D assets, all from one brief on a shared canvas.',
+        '可以根据一份需求，在同一画布上生成图片、视频、UI/UX 设计和 3D 素材。',
+      ],
+      [
+        'Is Miora available outside China?',
+        '中国以外可以使用 Miora 吗？',
+        'Yes. The international version at miora.design opened to everyone in July 2026.',
+        '可以。国际版 miora.design 已于 2026 年 7 月全面开放。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'mistral-large-4',
+    name: 'Mistral Large 4 (Le Chonk)',
+    aliases: ['Le Chonk', 'Le Chonk AI', 'Mistral Le Chonk'],
+    seoKeyword: 'Le Chonk AI',
+    maker: 'Mistral AI',
+    website: 'https://mistral.ai/',
+    category: 'models',
+    tone: 'coral',
+    related: ['mistral-vibe', 'deepseek', 'qwen-chat'],
+    tags: [
+      ['llm', 'LLM', '大语言模型'],
+      ['open-weight', 'Open weight', '开放权重'],
+      ['european-ai', 'European AI', '欧洲 AI'],
+    ],
+    tagline: [
+      'Mistral’s 1-trillion-parameter flagship model, nicknamed Le Chonk.',
+      'Mistral 的万亿参数旗舰模型，昵称 Le Chonk。',
+    ],
+    description: [
+      'Mistral Large 4, nicknamed “Le Chonk”, is Mistral AI’s flagship model released on October 6, 2026. It is a 1.05-trillion-parameter mixture-of-experts model with 49B active parameters, a 1M-token context window, and native image input. It is available through the Mistral API now, with open weights promised for self-hosting.',
+      'Mistral Large 4 昵称“Le Chonk”，是 Mistral AI 于 2026 年 10 月 6 日发布的旗舰模型。它采用混合专家架构，总参数 1.05 万亿、每个 token 激活 490 亿，支持 100 万 token 上下文和原生图像输入。现已可通过 Mistral API 使用，官方承诺开放权重供自行部署。',
+    ],
+    note: [
+      'Best for: coding agents, security work, and long documents',
+      '适合：编程 Agent、安全分析和超长文档',
+    ],
+    value: [
+      'A frontier-scale European model with open weights, a 1M context, and low API prices.',
+      '欧洲出品的前沿级模型，开放权重、100 万上下文，API 价格低。',
+    ],
+    problem: [
+      'Teams want a top-tier model they can eventually host themselves instead of relying only on closed US APIs.',
+      '团队希望用上顶级模型，并能最终自行部署，而不只依赖美国的闭源 API。',
+    ],
+    audience: [
+      'Developers, AI engineers, security teams, and enterprises that need data control.',
+      '开发者、AI 工程师、安全团队，以及需要掌控数据的企业。',
+    ],
+    pricing: [
+      'API: $1.36 per 1M input tokens and $4.18 per 1M output tokens; cached input $0.14 per 1M.',
+      'API 价格：输入每百万 token 1.36 美元，输出每百万 token 4.18 美元；缓存输入每百万 token 0.14 美元。',
+    ],
+    market: [
+      ['Frontier LLMs', '前沿大模型'],
+      ['Open-weight models', '开放权重模型'],
+    ],
+    tech: [
+      [
+        'Mixture of experts (1.05T total, 49B active)',
+        '混合专家（总 1.05 万亿、激活 490 亿）',
+      ],
+      [
+        '1M-token context and vision encoder',
+        '100 万 token 上下文与视觉编码器',
+      ],
+    ],
+    whatIs: [
+      '“Le Chonk” is the nickname for Mistral Large 4, Mistral AI’s largest model so far. It reads text and images, handles up to 1 million tokens of context, and scores especially well on cybersecurity benchmarks such as Cybench (93%) and on coding-agent tasks. You can call it through the Mistral API or OpenRouter today; Mistral says weights will follow for self-hosting.',
+      '“Le Chonk”是 Mistral AI 迄今最大模型 Mistral Large 4 的昵称。它能读取文本和图片，支持最长 100 万 token 上下文，在 Cybench（93%）等网络安全基准和编程 Agent 任务上表现突出。目前可通过 Mistral API 或 OpenRouter 调用，Mistral 表示之后会开放权重供自行部署。',
+    ],
+    steps: [
+      [
+        'Get an API key',
+        '获取 API Key',
+        'Create an account on Mistral’s developer platform, or use OpenRouter.',
+        '在 Mistral 开发者平台注册账号，或使用 OpenRouter。',
+      ],
+      [
+        'Call Mistral Large 4',
+        '调用 Mistral Large 4',
+        'Select Mistral Large 4 as the model and send text or images with your prompt.',
+        '选择 Mistral Large 4 作为模型，随提示词发送文本或图片。',
+      ],
+      [
+        'Self-host later',
+        '之后自行部署',
+        'When the open weights are published, run it on your own GPUs for full data control.',
+        '开放权重发布后，可在自有 GPU 上运行，完全掌控数据。',
+      ],
+    ],
+    features: [
+      ['1.05T-parameter mixture of experts', '1.05 万亿参数混合专家'],
+      ['1M-token context window', '100 万 token 上下文'],
+      ['Native image understanding', '原生图像理解'],
+      ['Strong cybersecurity and coding scores', '网络安全与编程表现突出'],
+      ['Open weights promised', '承诺开放权重'],
+    ],
+    bestFor: [
+      ['Coding agents and large codebases', '编程 Agent 与大型代码库'],
+      ['Security research and defense', '安全研究与防御'],
+      ['Long reports, contracts, and research', '长报告、合同和研究资料'],
+    ],
+    faqs: [
+      [
+        'What is Le Chonk AI?',
+        'Le Chonk AI 是什么？',
+        'Le Chonk is the nickname of Mistral Large 4, Mistral AI’s 1.05-trillion-parameter flagship model released in October 2026.',
+        'Le Chonk 是 Mistral Large 4 的昵称，即 Mistral AI 在 2026 年 10 月发布的 1.05 万亿参数旗舰模型。',
+      ],
+      [
+        'Is Mistral Large 4 open source?',
+        'Mistral Large 4 开源吗？',
+        'Mistral has promised open weights for self-hosting by the end of October 2026; the license had not been announced at launch.',
+        'Mistral 承诺在 2026 年 10 月底前开放权重供自行部署，发布时尚未公布许可证。',
+      ],
+      [
+        'How much does Mistral Large 4 cost?',
+        'Mistral Large 4 多少钱？',
+        'API pricing is $1.36 per million input tokens and $4.18 per million output tokens.',
+        'API 价格为每百万输入 token 1.36 美元、每百万输出 token 4.18 美元。',
+      ],
+      [
+        'Can I chat with Le Chonk without the API?',
+        '不用 API 能和 Le Chonk 对话吗？',
+        'Mistral’s own assistant, Mistral Vibe (formerly Le Chat), runs on Mistral models; check its model picker for Large 4.',
+        'Mistral 自家助手 Mistral Vibe（前身 Le Chat）基于 Mistral 模型，可在模型选择中查看是否提供 Large 4。',
+      ],
+    ],
+  }),
+  tool({
+    slug: 'everygen-ai',
+    name: 'Everygen AI',
+    aliases: ['Evergen AI', 'EveryGen', 'Viewmax'],
+    seoKeyword: 'Evergen AI',
+    maker: 'Viewmax LLC',
+    website: 'https://everygen.ai/',
+    category: 'text-to-video',
+    tone: 'cobalt',
+    related: ['higgsfield', 'ausar-ai', 'kling-ai'],
+    tags: [
+      ['ai-video', 'AI video', 'AI 视频'],
+      ['short-form', 'Short-form video', '短视频'],
+      ['ugc-ads', 'UGC ads', 'UGC 广告'],
+    ],
+    tagline: [
+      'An AI studio for short videos, ads, and images using top video models.',
+      '集合主流视频模型的 AI 短视频、广告和图片创作工作室。',
+    ],
+    description: [
+      'Everygen AI (often searched as Evergen AI, formerly Viewmax) is a browser-based studio for short-form video. It puts Seedance 2.5, Kling 3.0, Veo 3.1, MiniMax, and other models behind one account, and adds templates, AI avatars, voiceover, auto-captions, and a scriptwriter for social posts and ads.',
+      'Everygen AI（常被搜索为 Evergen AI，前身是 Viewmax）是一个网页版短视频创作工作室。一个账号即可使用 Seedance 2.5、Kling 3.0、Veo 3.1、MiniMax 等模型，并提供模板、AI 数字人、配音、自动字幕和脚本生成，适合做社媒内容和广告。',
+    ],
+    note: [
+      'Best for: creators making Shorts, Reels, and UGC-style ads',
+      '适合：制作 Shorts、Reels 和 UGC 风格广告的创作者',
+    ],
+    value: [
+      'Many leading video models plus the editing tools for finished shorts, in one place.',
+      '多款主流视频模型和成片所需的编辑工具都在一个地方。',
+    ],
+    problem: [
+      'Making a social video often means paying for several model sites and separate caption, voice, and editing tools.',
+      '做一条社媒视频往往要订阅多个模型网站，再另外用字幕、配音和剪辑工具。',
+    ],
+    audience: [
+      'Short-form creators, marketers, and small brands running video ads.',
+      '短视频创作者、营销人员和投放视频广告的小品牌。',
+    ],
+    pricing: [
+      'Credit-based plans: Starter, Pro, and Creator, from about $9/month billed yearly or $24 monthly. Check the official site for current prices.',
+      '积分制套餐：Starter、Pro、Creator，按年付约每月 9 美元起，按月付 24 美元起，当前价格以官网为准。',
+    ],
+    market: [
+      ['AI video generation', 'AI 视频生成'],
+      ['Short-form content tools', '短视频创作工具'],
+    ],
+    tech: [
+      [
+        'Seedance, Kling, Veo, MiniMax models',
+        'Seedance、Kling、Veo、MiniMax 等模型',
+      ],
+      [
+        'MCP integration for Claude and ChatGPT',
+        '支持 Claude、ChatGPT 的 MCP 集成',
+      ],
+    ],
+    whatIs: [
+      'Everygen AI is an all-in-one AI video studio, renamed from Viewmax in 2026. Instead of a single model, it lets you pick from Seedance 2.5, Kling 3.0 Turbo, Veo 3.1, MiniMax, and image models, then finish the clip with templates, AI avatars, voiceover, captions, and an editor. Exports have no watermark and can be monetized, and an MCP server lets you generate videos from Claude, ChatGPT, or Cursor.',
+      'Everygen AI 是一站式 AI 视频工作室，2026 年由 Viewmax 更名而来。它不依赖单一模型，你可以选用 Seedance 2.5、Kling 3.0 Turbo、Veo 3.1、MiniMax 以及图像模型，再用模板、AI 数字人、配音、字幕和编辑器完成成片。导出无水印、可用于变现，还提供 MCP 服务器，可在 Claude、ChatGPT 或 Cursor 中直接生成视频。',
+    ],
+    steps: [
+      [
+        'Pick a studio or template',
+        '选择工作室或模板',
+        'Open Everygen and choose video, image, Shorts, or Marketing studio.',
+        '打开 Everygen，选择视频、图片、Shorts 或营销工作室。',
+      ],
+      [
+        'Choose a model and prompt',
+        '选择模型并输入提示词',
+        'Select a model such as Seedance, Kling, or Veo and describe the scene or upload an image.',
+        '选择 Seedance、Kling 或 Veo 等模型，描述画面或上传图片。',
+      ],
+      [
+        'Finish and export',
+        '完善并导出',
+        'Add voiceover, captions, or an avatar, then export without a watermark.',
+        '添加配音、字幕或数字人，然后无水印导出。',
+      ],
+    ],
+    features: [
+      ['Multiple top video and image models', '多款主流视频和图像模型'],
+      ['Shorts and marketing templates', 'Shorts 和营销模板'],
+      ['AI avatars and voiceover', 'AI 数字人与配音'],
+      ['Auto-captions and scriptwriter', '自动字幕与脚本生成'],
+      ['Watermark-free, monetizable exports', '无水印、可变现导出'],
+    ],
+    bestFor: [
+      ['YouTube Shorts, TikTok, and Reels', 'YouTube Shorts、TikTok 和 Reels'],
+      ['UGC-style product ads', 'UGC 风格产品广告'],
+      ['Faceless content channels', '不露脸内容频道'],
+    ],
+    faqs: [
+      [
+        'Is Evergen AI the same as Everygen?',
+        'Evergen AI 和 Everygen 是同一个吗？',
+        'Most searches for “Evergen AI” mean Everygen (everygen.ai), the AI video studio formerly called Viewmax. Evergen is also the name of unrelated energy and biotech companies.',
+        '大多数“Evergen AI”搜索指的是 Everygen（everygen.ai），即前身为 Viewmax 的 AI 视频工作室。Evergen 也是一些无关的能源和生物科技公司的名称。',
+      ],
+      [
+        'Which models does Everygen use?',
+        'Everygen 用的是哪些模型？',
+        'It offers Seedance 2.5, Kling 3.0 Turbo, Veo 3.1, MiniMax, and others for video, plus several image models.',
+        '视频方面提供 Seedance 2.5、Kling 3.0 Turbo、Veo 3.1、MiniMax 等，另有多款图像模型。',
+      ],
+      [
+        'Can I monetize Everygen videos?',
+        'Everygen 生成的视频可以变现吗？',
+        'Yes. Everygen says exports are watermark-free and can be monetized without restrictions.',
+        '可以。Everygen 表示导出视频无水印，可不受限制地用于变现。',
+      ],
+    ],
+  }),
 ];
