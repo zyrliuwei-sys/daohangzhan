@@ -4781,6 +4781,182 @@ const localModelProducts: MockAiProduct[] = [
     ),
   },
   {
+    slug: 'claude-startup-program',
+    name: 'Claude Startups Program',
+    aliases: [
+      'Claude Startup Program',
+      'Claude for Startups',
+      'Anthropic Startup Program',
+      'Claude Startups',
+      'Claude Startup Stack',
+      'Anthropic Startup Credits',
+      'Claude API Credits for Startups',
+    ],
+    seoKeyword: 'Claude Startup Program',
+    maker: 'Anthropic',
+    website: 'https://claude.com/programs/startups',
+    logo: 'https://claude.ai/favicon.ico',
+    sourceType: 'website',
+    lastVerifiedAt: '2026-10-08',
+    category: 'coding',
+    categoryLabel: productCategoryLabels.coding,
+    relatedSlugs: ['game-merging-ai', 'lovable', 'replit'],
+    tags: [
+      tag('startup-credits', 'Startup credits', '创业公司额度'),
+      tag('claude-api', 'Claude API', 'Claude API'),
+      tag('claude-team', 'Claude Team', 'Claude Team'),
+      tag('founder-perks', 'Founder perks', '创始人福利'),
+    ],
+    tagline: text(
+      'Anthropic’s program for young startups: $1,000 in Claude API credits, a free year of Claude Team, and partner offers.',
+      'Anthropic 面向初创公司的扶持计划：1,000 美元 Claude API 额度、一年免费 Claude Team，以及合作伙伴优惠。'
+    ),
+    description: text(
+      'The Claude Startups Program, also called Claude for Startups, is Anthropic’s offer for companies founded in the last five years or funded in the last two. Anthropic expanded it in early October 2026. Approved startups get $1,000 in Claude API credits, one free year of Claude Team for up to five Premium seats, up to $45K in partner offers through the Claude Startup Stack, and biweekly office hours with Anthropic’s Applied AI team. Founders backed by a VC in Anthropic’s partner network can get up to $100K in extra API credits through their investor.',
+      'Claude Startups Program（也称 Claude for Startups）是 Anthropic 面向成立不满 5 年、或近 2 年内获得融资的公司推出的扶持计划，并于 2026 年 10 月初扩大。获批的初创公司可获得 1,000 美元 Claude API 额度、一年免费的 Claude Team（最多 5 个 Premium 席位）、通过 Claude Startup Stack 领取最高 4.5 万美元的合作伙伴优惠，以及每两周一次与 Anthropic Applied AI 团队的答疑。由 Anthropic 合作 VC 投资的创始人，还可通过投资方额外申请最高 10 万美元的 API 额度。'
+    ),
+    note: text(
+      'Best for: startups building products on the Claude API',
+      '适合：基于 Claude API 开发产品的初创团队'
+    ),
+    image: '',
+    tone: 'amber',
+    featured: true,
+    profile: {
+      valueProposition: text(
+        'Free API credits and a year of Claude Team lower the cost of building on Claude while a startup finds product-market fit, and the Applied AI office hours give direct technical help.',
+        '免费 API 额度和一年 Claude Team 降低了初创公司在寻找产品市场契合期间基于 Claude 开发的成本，Applied AI 答疑还能提供直接的技术支持。'
+      ),
+      problemSolved: text(
+        'Model costs add up fast for early teams. The program covers the first API bills and team seats, and bundles discounts on tools startups already use.',
+        '对早期团队来说，模型调用费用增长很快。该计划覆盖最初的 API 账单和团队席位，并打包了初创公司常用工具的折扣。'
+      ),
+      audience: text(
+        'Bootstrapped, pre-seed, and venture-backed startups founded in the last five years or funded in the last two.',
+        '成立不满 5 年或近 2 年内获得融资的自筹资金、种子前及风投支持的初创公司。'
+      ),
+      pricing: text(
+        'Free to apply. Benefits include $1,000 in API credits (expire after six months) and a free year of Claude Team for orgs new to Team; Anthropic values its own part at up to $7,000.',
+        '免费申请。福利包括 1,000 美元 API 额度（6 个月后过期）和面向新 Team 用户的一年免费 Claude Team；Anthropic 估算其自身提供的部分价值最高 7,000 美元。'
+      ),
+      market: [
+        text('Startup programs', '创业扶持计划'),
+        text('LLM API credits', '大模型 API 额度'),
+        text('Developer tools', '开发者工具'),
+      ],
+      techStack: [
+        text(
+          'Claude API via Claude Console',
+          '通过 Claude Console 使用 Claude API'
+        ),
+        text('Claude Team (Premium seats)', 'Claude Team（Premium 席位）'),
+        text('Claude Code', 'Claude Code'),
+      ],
+    },
+    specs: [
+      spec(
+        'API credits',
+        'API 额度',
+        '$1,000 (up to $100K more via partner VCs)',
+        '1,000 美元（合作 VC 渠道最高再加 10 万美元）'
+      ),
+      spec(
+        'Claude Team',
+        'Claude Team',
+        '1 year free, up to 5 Premium seats',
+        '免费 1 年，最多 5 个 Premium 席位'
+      ),
+      spec(
+        'Eligibility',
+        '申请条件',
+        'Founded in last 5 years or funded in last 2 years',
+        '成立不满 5 年或近 2 年内获得融资'
+      ),
+      spec(
+        'Review time',
+        '审核时间',
+        'Minutes, or 2–3 business days if manually reviewed',
+        '几分钟；人工审核约 2–3 个工作日'
+      ),
+    ],
+    seo: seo(
+      text(
+        'The Claude startup program is Anthropic’s Claude Startups Program, expanded on October 6, 2026. Any startup founded in the last five years or funded in the last two can apply with a Claude Console account, a company email that matches its website domain, and a short description of what it is building. Approved members get $1,000 in Claude API credits, a free year of Claude Team for up to five Premium seats, up to $45K in partner offers (the Claude Startup Stack), and office hours with Anthropic’s Applied AI team. The credits work only on Anthropic’s own API, not on AWS Bedrock or Google Vertex AI, and partner offers come from the partners, so not every offer can be combined.',
+        'Claude startup program 指 Anthropic 的 Claude Startups Program，于 2026 年 10 月 6 日扩大。成立不满 5 年或近 2 年内获得融资的初创公司，只需一个 Claude Console 账号、一个与官网域名一致的公司邮箱和一段产品简介即可申请。获批成员可获得 1,000 美元 Claude API 额度、一年免费 Claude Team（最多 5 个 Premium 席位）、最高 4.5 万美元的合作伙伴优惠（Claude Startup Stack），以及与 Anthropic Applied AI 团队的答疑。额度只能用于 Anthropic 自家 API，不能用于 AWS Bedrock 或 Google Vertex AI；合作伙伴优惠由各合作方提供，并非所有优惠都能叠加。'
+      ),
+      [
+        step(
+          'Sign in to Claude Console',
+          '登录 Claude Console',
+          'Create or sign in to a Claude Console account using your company email, which must match your website’s domain.',
+          '用公司邮箱注册或登录 Claude Console，邮箱域名需与公司官网一致。'
+        ),
+        step(
+          'Submit the startup application',
+          '提交创业公司申请',
+          'Open the application from claude.com/programs/startups and describe what you are building. Most decisions arrive within minutes; manual reviews take two to three business days.',
+          '在 claude.com/programs/startups 打开申请表并说明你在做的产品。多数申请几分钟内就有结果，人工审核需 2–3 个工作日。'
+        ),
+        step(
+          'Claim credits and offers',
+          '领取额度与优惠',
+          'After approval, open the Claude Startups page in Console to claim the API credits, the Claude Team offer, and partner perks. Use the credits within six months.',
+          '获批后，在 Console 的 Claude Startups 页面领取 API 额度、Claude Team 优惠和合作伙伴福利。API 额度需在 6 个月内用完。'
+        ),
+      ],
+      [
+        text('$1,000 in Claude API credits', '1,000 美元 Claude API 额度'),
+        text(
+          'One free year of Claude Team (up to 5 Premium seats)',
+          '一年免费 Claude Team（最多 5 个 Premium 席位）'
+        ),
+        text(
+          'Partner offers from ElevenLabs, Hex, Granola, ClickHouse, Gamma, and more',
+          'ElevenLabs、Hex、Granola、ClickHouse、Gamma 等合作伙伴优惠'
+        ),
+        text(
+          'Biweekly 45-minute office hours with Anthropic’s Applied AI team',
+          '每两周一次、45 分钟的 Anthropic Applied AI 团队答疑'
+        ),
+        text(
+          'Higher API rate limits, Founder House, hackathons, and meetups',
+          '更高的 API 速率限制，以及 Founder House、黑客松和社区聚会'
+        ),
+      ],
+      [
+        text(
+          'Prototyping an AI product on the Claude API',
+          '基于 Claude API 开发 AI 产品原型'
+        ),
+        text(
+          'Giving a small team Claude and Claude Code',
+          '为小团队开通 Claude 与 Claude Code'
+        ),
+        text('Cutting early SaaS tool costs', '降低早期 SaaS 工具开支'),
+      ],
+      [
+        faq(
+          'Who is eligible for the Claude startup program?',
+          '哪些公司可以申请 Claude startup program？',
+          'Startups founded in the last five years or funded in the last two, including bootstrapped, pre-seed, and venture-backed companies. You need a Claude Console account, a company email on your website’s domain, and you must follow Anthropic’s usage policies.',
+          '成立不满 5 年或近 2 年内获得融资的初创公司均可申请，包括自筹资金、种子前和风投支持的公司。需要有 Claude Console 账号、与官网域名一致的公司邮箱，并遵守 Anthropic 的使用政策。'
+        ),
+        faq(
+          'How much is the program worth?',
+          '这个计划价值多少？',
+          'Anthropic’s own benefits ($1,000 in API credits plus a year of Claude Team) are worth up to about $7,000. Partner offers add up to $45K at list prices, and VC-backed founders in Anthropic’s partner network can get up to $100K in extra API credits.',
+          'Anthropic 自身提供的福利（1,000 美元 API 额度加一年 Claude Team）价值最高约 7,000 美元。合作伙伴优惠按标价合计最高 4.5 万美元；Anthropic 合作 VC 投资的创始人还可额外获得最高 10 万美元 API 额度。'
+        ),
+        faq(
+          'Can I use the credits on AWS Bedrock or Google Vertex AI?',
+          '额度能在 AWS Bedrock 或 Google Vertex AI 上使用吗？',
+          'No. Credits apply only to the first-party Claude API through Claude Console, and they expire six months after they are granted. The free Claude Team year is only for organizations new to Claude Team.',
+          '不能。额度只适用于通过 Claude Console 使用的 Claude 官方 API，并在发放 6 个月后过期。一年免费 Claude Team 仅限首次使用 Claude Team 的组织。'
+        ),
+      ]
+    ),
+  },
+  {
     slug: 'cue-by-manus',
     name: 'Cue by Manus',
     maker: 'Manus',
