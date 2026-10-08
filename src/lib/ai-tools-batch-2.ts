@@ -4225,4 +4225,125 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'krea-2',
+    name: 'Krea 2',
+    aliases: ['Krea 2 AI', 'Krea2', 'K2', 'Krea 2 Turbo', 'Krea 2 Raw'],
+    seoKeyword: 'Krea 2',
+    maker: 'Krea',
+    website: 'https://www.krea.ai/krea-2',
+    category: 'models',
+    tone: 'plum',
+    related: ['krea-realtime', 'nano-banana-2-1', 'openart'],
+    tags: [
+      ['image-model', 'Image model', '图像模型'],
+      ['style-reference', 'Style reference', '风格参考'],
+      ['open-weights', 'Open weights', '开放权重'],
+    ],
+    tagline: [
+      'Krea’s own aesthetic-first image model, with style references, moodboards, and open weights.',
+      'Krea 自研的审美优先图像模型，支持风格参考图、情绪板，并开放权重。',
+    ],
+    description: [
+      'Krea 2 (K2) is the first foundation image model Krea trained completely from scratch. It is built for aesthetics and creative control: you can guide a generation with one or more style reference images or a whole moodboard, set how strongly each reference applies, and choose how varied a batch should be. It runs in the Krea app in about 15 seconds per generation, and the weights are open on Hugging Face as Krea 2 RAW and Krea 2 Turbo.',
+      'Krea 2（K2）是 Krea 首个完全从零训练的基础图像模型，主打审美和创作控制：可以用一张或多张风格参考图、甚至整个情绪板来引导生成，调节每张参考图的影响强度，并设置同一批结果之间的差异程度。在 Krea 应用中每次生成约 15 秒，模型权重也以 Krea 2 RAW 和 Krea 2 Turbo 两个版本在 Hugging Face 上开放。',
+    ],
+    note: ['Best for: style-driven image generation', '适合：按风格生成图像'],
+    value: [
+      'Transfer the look of your references, from grainy film to clean studio shots, instead of fighting prompts for a style.',
+      '直接迁移参考图的风格，从颗粒感胶片到干净的棚拍都能还原，不用反复调提示词去凑风格。',
+    ],
+    problem: [
+      'Many image models drift toward the same polished look and repeat one concept across a batch, which makes distinct styles hard to hit.',
+      '很多图像模型生成的画面趋同，一批结果往往是同一构图的重复，很难做出鲜明的风格。',
+    ],
+    audience: [
+      'Designers, art directors, illustrators, and creators building visual moodboards, plus developers who want an open image model to fine-tune.',
+      '设计师、美术指导、插画师和做视觉情绪板的创作者，以及想要可微调开放图像模型的开发者。',
+    ],
+    pricing: [
+      'Free to try in the Krea app, with paid Krea plans for more generations. The open weights are free to download under Krea’s community license; commercial licenses are available from Krea.',
+      '可在 Krea 应用中免费试用，生成更多需订阅 Krea 付费套餐。开放权重可按 Krea 社区许可免费下载，商用授权可向 Krea 申请。',
+    ],
+    market: [
+      ['Launched by Krea on May 12, 2026', 'Krea 于 2026 年 5 月 12 日发布'],
+      [
+        'Released with open weights and inference code',
+        '同步开放权重与推理代码',
+      ],
+    ],
+    tech: [
+      ['Foundation image model trained from scratch', '从零训练的基础图像模型'],
+      [
+        'RAW base checkpoint (up to 1K) and 8-step Turbo (1K to 2K)',
+        'RAW 基础版（最高 1K）与 8 步 Turbo 版（1K 到 2K）',
+      ],
+      [
+        'Weights on Hugging Face: krea/krea-2-raw, krea/krea-2-turbo',
+        'Hugging Face 权重：krea/krea-2-raw、krea/krea-2-turbo',
+      ],
+    ],
+    whatIs: [
+      'Krea 2 is an image generation model from Krea, the AI creative suite known for real-time generation. Unlike earlier Krea models, K2 was trained from scratch, with a focus on style transfer and variety. You can feed it reference images (Krea’s example uses 13) or a curated moodboard, tune how closely the output follows each reference, and widen or narrow the spread of palettes and styles across a batch. Krea also published two open checkpoints: RAW, the undistilled base model recommended for fine-tuning and LoRA training, and Turbo, an 8-step distilled model for fast generation at 1K to 2K resolution.',
+      'Krea 2 是 Krea 推出的图像生成模型。Krea 是一个以实时生成著称的 AI 创作平台。和之前的 Krea 模型不同，K2 完全从零训练，重点在风格迁移和结果多样性。你可以上传参考图（官方示例用了 13 张）或整理好的情绪板，调节输出贴近每张参考图的程度，并控制一批结果在配色和风格上的差异大小。Krea 还开放了两个版本：RAW 是未蒸馏的基础模型，推荐用于微调和 LoRA 训练；Turbo 是 8 步蒸馏模型，可快速生成 1K 到 2K 分辨率的图片。',
+    ],
+    steps: [
+      [
+        'Open Krea 2 in Krea',
+        '在 Krea 中打开 Krea 2',
+        'Sign up at krea.ai and pick Krea 2 (or Krea 2 Turbo for faster iteration) in the image tool.',
+        '在 krea.ai 注册后，在图像工具中选择 Krea 2（想更快迭代可选 Krea 2 Turbo）。',
+      ],
+      [
+        'Add style references or a moodboard',
+        '添加风格参考图或情绪板',
+        'Upload reference images or choose a moodboard, then set how strongly each one should shape the result.',
+        '上传参考图或选择情绪板，再设置每张参考图对结果的影响强度。',
+      ],
+      [
+        'Prompt and tune variation',
+        '输入提示词并调节差异度',
+        'Write a prompt, generate a batch, and raise or lower variation to get a cohesive set or a wider range of looks.',
+        '输入提示词生成一批图片，调高或调低差异度，得到风格统一的一组图或更多样的效果。',
+      ],
+    ],
+    features: [
+      ['Multiple style reference images', '支持多张风格参考图'],
+      ['Moodboard-guided generation', '情绪板引导生成'],
+      ['Per-reference strength control', '可单独调节每张参考图强度'],
+      ['Batch variation control', '可控制批量结果的差异度'],
+      ['Open weights (RAW and Turbo)', '开放权重（RAW 与 Turbo）'],
+    ],
+    bestFor: [
+      ['Brand and campaign visuals in a set style', '统一风格的品牌与营销视觉'],
+      ['Exploring art directions from a moodboard', '基于情绪板探索美术方向'],
+      ['Fine-tuning a custom style with LoRA', '用 LoRA 微调自定义风格'],
+    ],
+    faqs: [
+      [
+        'What is Krea 2?',
+        'Krea 2 是什么？',
+        'Krea 2 (K2) is Krea’s first image model trained from scratch, focused on aesthetics, style references, and creative control.',
+        'Krea 2（K2）是 Krea 首个从零训练的图像模型，主打审美、风格参考和创作控制。',
+      ],
+      [
+        'Is Krea 2 open source?',
+        'Krea 2 开源吗？',
+        'Yes. The inference code is Apache 2.0 on GitHub, and the RAW and Turbo weights are on Hugging Face under Krea’s community license. Commercial licenses are available from Krea.',
+        '是的。推理代码以 Apache 2.0 协议发布在 GitHub，RAW 和 Turbo 权重按 Krea 社区许可发布在 Hugging Face，商用授权可向 Krea 申请。',
+      ],
+      [
+        'What is the difference between Krea 2 RAW and Turbo?',
+        'Krea 2 RAW 和 Turbo 有什么区别？',
+        'RAW is the undistilled base model for fine-tuning and LoRA training. Turbo is an 8-step distilled version for fast text-to-image generation, and LoRAs trained on RAW can be applied to it.',
+        'RAW 是未蒸馏的基础模型，适合微调和 LoRA 训练；Turbo 是 8 步蒸馏版，用于快速文生图，在 RAW 上训练的 LoRA 可以直接用在 Turbo 上。',
+      ],
+      [
+        'How is Krea 2 different from Krea Realtime?',
+        'Krea 2 和 Krea Realtime 有什么不同？',
+        'Krea Realtime renders frames live as you draw or prompt. Krea 2 is a still-image model built for higher-quality, style-controlled results in about 15 seconds.',
+        'Krea Realtime 在你绘制或输入提示词时实时出图；Krea 2 是静态图像模型，约 15 秒生成一次，追求更高画质和风格可控的结果。',
+      ],
+    ],
+  }),
 ];
