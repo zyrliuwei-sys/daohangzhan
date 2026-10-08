@@ -4107,4 +4107,122 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'cloudflare-clef',
+    name: 'Cloudflare Clef',
+    aliases: [
+      'Clef',
+      'Clef-flash',
+      'Cloudflare Clef AI',
+      'Clef decision model',
+      'Cloudflare 决策模型',
+    ],
+    seoKeyword: 'Cloudflare Clef',
+    maker: 'Cloudflare',
+    website: 'https://developers.cloudflare.com/workers-ai/models/clef/',
+    category: 'models',
+    tone: 'amber',
+    related: ['qwen-chat', 'mistral-large-4'],
+    tags: [
+      ['decision-model', 'Decision model', '决策模型'],
+      ['open-source', 'Open source', '开源'],
+      ['ai-agents', 'For AI agents', '面向 AI Agent'],
+    ],
+    tagline: [
+      'Cloudflare’s open-source decision models: ask questions, get probability-scored answers your code can act on.',
+      'Cloudflare 开源决策模型：提出问题，返回带概率的结构化答案，代码可直接据此行动。',
+    ],
+    description: [
+      'Clef and Clef-flash are open-source (Apache 2.0) decision models from Cloudflare, launched on Workers AI on October 1, 2026. Instead of writing a paragraph, they return typed answers with probabilities: yes/no, pick one option, or a score. Agents and apps use them to route tickets, escalate risky cases, or decide the next step.',
+      'Clef 和 Clef-flash 是 Cloudflare 于 2026 年 10 月 1 日在 Workers AI 上推出的开源决策模型（Apache 2.0 协议）。它们不输出大段文字，而是返回带概率的结构化答案：是/否、多选一或打分。Agent 和应用可以用它来分派工单、升级高风险情况或决定下一步操作。',
+    ],
+    note: [
+      'Best for: fast classification and routing steps inside AI agent workflows',
+      '适合：在 AI Agent 工作流中做快速分类和路由判断',
+    ],
+    value: [
+      'Reliable, machine-readable decisions with confidence scores, faster and cheaper than asking a chat LLM.',
+      '获得可直接被程序读取、带置信度的判断结果，比调用聊天大模型更快更便宜。',
+    ],
+    problem: [
+      'Chat LLMs answer in free text, so turning them into dependable yes/no or routing decisions takes fragile parsing and prompt tricks.',
+      '聊天大模型输出的是自由文本，想把它变成可靠的是/否或路由判断，需要脆弱的解析和提示词技巧。',
+    ],
+    audience: [
+      'Developers building AI agents, support automation, moderation, or security triage on Cloudflare or any stack.',
+      '构建 AI Agent、客服自动化、内容审核或安全分诊的开发者，无论是否使用 Cloudflare。',
+    ],
+    pricing: [
+      'Pay as you go on Workers AI (about $0.24 per million input tokens). The weights are free on Hugging Face under Apache 2.0.',
+      '在 Workers AI 上按量付费（输入约每百万 token 0.24 美元）。模型权重以 Apache 2.0 协议在 Hugging Face 免费开放。',
+    ],
+    market: [
+      ['AI decision and classification models', 'AI 决策与分类模型'],
+      ['AI agent infrastructure', 'AI Agent 基础设施'],
+    ],
+    tech: [
+      [
+        'Clef on Qwen3.8-27B, Clef-flash on Qwen3.5-9B',
+        'Clef 基于 Qwen3.8-27B，Clef-flash 基于 Qwen3.5-9B',
+      ],
+      ['64K context window with image input', '64K 上下文，支持图片输入'],
+      ['Workers AI: @cf/cloudflare/clef', 'Workers AI：@cf/cloudflare/clef'],
+    ],
+    whatIs: [
+      'Cloudflare Clef is a family of two “decision models”. You send a state (text or JSON, plus up to four images) and up to 64 questions. Each question is a yes/no check, a choice between named options, or a score on an ordered scale, and Clef returns a probability for every answer. Clef is the higher-accuracy model (about 209 ms median latency), while Clef-flash targets latency-critical calls (about 39 ms). Cloudflare reports leading results on intent benchmarks such as BANKING77 and CLINC150, and Clef-flash scores 98.76 on the BFCL tool-calling benchmark.',
+      'Cloudflare Clef 是由两个“决策模型”组成的模型系列。你传入一段状态（文本或 JSON，最多再加 4 张图片）和最多 64 个问题，每个问题可以是是/否判断、在几个命名选项中选择，或按有序等级打分，Clef 会为每个答案返回概率。Clef 是精度更高的版本（中位延迟约 209 毫秒），Clef-flash 则面向对延迟敏感的场景（约 39 毫秒）。Cloudflare 公布的数据显示，它在 BANKING77、CLINC150 等意图识别基准上领先，Clef-flash 在 BFCL 工具调用基准上得分 98.76。',
+    ],
+    steps: [
+      [
+        'Open Workers AI',
+        '打开 Workers AI',
+        'Use a Cloudflare account and call @cf/cloudflare/clef or @cf/cloudflare/clef-flash from a Worker or the REST API.',
+        '使用 Cloudflare 账号，在 Worker 或 REST API 中调用 @cf/cloudflare/clef 或 @cf/cloudflare/clef-flash。',
+      ],
+      [
+        'Describe the state and questions',
+        '写好状态和问题',
+        'Pass the ticket, order, or page as state, then define questions as noul (yes/no), choice, or score.',
+        '把工单、订单或网页内容作为 state 传入，再把问题定义为 noul（是/否）、choice（选择）或 score（打分）。',
+      ],
+      [
+        'Act on the probabilities',
+        '根据概率执行',
+        'Read the answers and their probabilities, then route, escalate, or defer to a human when confidence is low.',
+        '读取答案和对应概率，据此分派、升级，或在置信度低时交给人工处理。',
+      ],
+    ],
+    features: [
+      ['Yes/no, choice, and score questions', '支持是/否、选择、打分三种问题'],
+      ['Probability for every answer', '每个答案都带概率'],
+      ['Up to 64 questions per call', '单次调用最多 64 个问题'],
+      ['Image input (up to 4 images)', '支持图片输入（最多 4 张）'],
+      ['Open weights under Apache 2.0', 'Apache 2.0 开放权重'],
+    ],
+    bestFor: [
+      ['Support ticket triage and routing', '客服工单分诊与分派'],
+      ['Agent next-step and escalation decisions', 'Agent 下一步与升级决策'],
+      ['Moderation and security classification', '内容审核与安全分类'],
+    ],
+    faqs: [
+      [
+        'What is Cloudflare Clef?',
+        'Cloudflare Clef 是什么？',
+        'Clef is Cloudflare’s first open-source decision model family. It answers structured questions with probabilities instead of free text.',
+        'Clef 是 Cloudflare 首个开源决策模型系列，用带概率的结构化答案而不是自由文本来回答问题。',
+      ],
+      [
+        'What is the difference between Clef and Clef-flash?',
+        'Clef 和 Clef-flash 有什么区别？',
+        'Clef is the more accurate model with vision. Clef-flash is smaller and much faster for latency-critical decisions.',
+        'Clef 精度更高、支持视觉；Clef-flash 更小，速度快得多，适合对延迟敏感的判断。',
+      ],
+      [
+        'Is Cloudflare Clef free?',
+        'Cloudflare Clef 免费吗？',
+        'The weights are free on Hugging Face. Running it on Workers AI is billed per token, at about $0.24 per million input tokens.',
+        '模型权重在 Hugging Face 上免费开放；在 Workers AI 上运行按 token 计费，输入约每百万 token 0.24 美元。',
+      ],
+    ],
+  }),
 ];
