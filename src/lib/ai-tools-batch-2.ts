@@ -4480,4 +4480,158 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'cadcraft',
+    name: 'CADCraft',
+    aliases: [
+      'CAD Craft',
+      'CADCraft CAD',
+      'CADCraft AutoCAD alternative',
+      'CADCraft Rust',
+    ],
+    seoKeyword: 'CADCraft',
+    maker: 'ArtCraft (Storytold)',
+    website: 'https://getartcraft.com/apps/cadcraft',
+    category: 'workflow',
+    tone: 'amber',
+    related: ['tripo', 'vectorizer-ai', 'recraft'],
+    tags: [
+      ['cad', 'CAD drafting', 'CAD 制图'],
+      ['dwg-dxf', 'DWG / DXF', 'DWG / DXF'],
+      ['ai-agent', 'AI agent control', 'AI 智能体可控'],
+    ],
+    tagline: [
+      'A free, open-source AutoCAD-style CAD app that people and AI agents can both drive.',
+      '一款免费开源、类 AutoCAD 的 CAD 制图软件，人和 AI 智能体都能操作。',
+    ],
+    description: [
+      'CADCraft is a free, open-source computer-aided design and drafting app from the ArtCraft team, written from scratch in Rust. It works like AutoCAD, with a command line, object snaps, layers, dimensions, hatches, blocks, and paper-space layouts, and it opens and saves DWG and DXF files. It runs on macOS, Windows, Linux, and in the browser, and ships an MCP server, a JSON control channel, and a CLI so AI agents can draw and inspect drawings.',
+      'CADCraft 是 ArtCraft 团队推出的免费开源 CAD 制图软件，用 Rust 从零编写。操作方式与 AutoCAD 相似，有命令行、对象捕捉、图层、标注、填充、图块和图纸空间布局，可以打开并保存 DWG 和 DXF 文件。支持 macOS、Windows、Linux 和浏览器，并提供 MCP 服务器、JSON 控制通道和命令行工具，让 AI 智能体也能绘图和查看图纸。',
+    ],
+    note: [
+      'Best for: free 2D drafting with DWG and DXF files',
+      '适合：免费编辑 DWG / DXF 二维图纸',
+    ],
+    value: [
+      'AutoCAD-style 2D drafting with DWG and DXF support at no cost, plus hooks for AI agents to do the drawing.',
+      '零成本获得类 AutoCAD 的二维制图能力，支持 DWG 和 DXF，还能让 AI 智能体代为绘图。',
+    ],
+    problem: [
+      'Commercial CAD licenses are expensive, and most CAD apps give AI tools no clean way to draw or read a drawing.',
+      '商业 CAD 授权价格高，而且大多数 CAD 软件没有给 AI 工具留出直接绘图或读取图纸的接口。',
+    ],
+    audience: [
+      'Drafters, architects, engineers, makers, students, and developers building AI agents that work with CAD drawings.',
+      '制图员、建筑师、工程师、创客、学生，以及开发 CAD 相关 AI 智能体的开发者。',
+    ],
+    pricing: [
+      'Free and open source, dual-licensed under MIT or Apache-2.0, on every platform.',
+      '免费开源，采用 MIT 或 Apache-2.0 双许可，所有平台均免费。',
+    ],
+    market: [
+      [
+        'Open source on GitHub (storytold/cadcraft)',
+        '在 GitHub 开源（storytold/cadcraft）',
+      ],
+      [
+        'Version 0.5.0 available for macOS, Windows, Linux, and Web',
+        '0.5.0 版本已支持 macOS、Windows、Linux 和网页版',
+      ],
+    ],
+    tech: [
+      [
+        'Written in pure Rust, with a WebAssembly web build',
+        '纯 Rust 编写，网页版基于 WebAssembly',
+      ],
+      [
+        'Reads DWG R13 to 2018 and DXF R12 to 2018, writes R2000',
+        '可读取 DWG R13–2018 和 DXF R12–2018，保存为 R2000 格式',
+      ],
+      [
+        'MCP server, JSON control channel, and CLI for AI agents',
+        '为 AI 智能体提供 MCP 服务器、JSON 控制通道和命令行',
+      ],
+    ],
+    whatIs: [
+      'CADCraft is a free, open-source, AutoCAD-style CAD and drafting app that edits DWG and DXF files on desktop and web, and can be controlled by AI agents.',
+      'CADCraft 是一款免费开源、类 AutoCAD 的 CAD 制图软件，可在桌面和网页上编辑 DWG、DXF 文件，并能由 AI 智能体控制。',
+    ],
+    steps: [
+      [
+        'Download CADCraft',
+        '下载 CADCraft',
+        'Get the installer for macOS, Windows, or Linux from getartcraft.com or the GitHub releases page, or use the ArtCraft launcher.',
+        '在 getartcraft.com 或 GitHub Releases 页面下载 macOS、Windows 或 Linux 安装包，也可以通过 ArtCraft 启动器安装。',
+      ],
+      [
+        'Open or start a drawing',
+        '打开或新建图纸',
+        'Open an existing DWG or DXF file, or start a new drawing and set up layers.',
+        '打开现有的 DWG 或 DXF 文件，或新建图纸并设置图层。',
+      ],
+      [
+        'Draft with commands and snaps',
+        '用命令和捕捉绘图',
+        'Type AutoCAD-style commands, use object snaps, add dimensions and hatches, then save as DWG or DXF, or plot to PDF.',
+        '输入类 AutoCAD 命令，配合对象捕捉绘图，添加标注和填充，最后保存为 DWG / DXF 或打印为 PDF。',
+      ],
+    ],
+    features: [
+      [
+        'AutoCAD-style command line and object snaps',
+        '类 AutoCAD 的命令行与对象捕捉',
+      ],
+      ['Open and save DWG and DXF files', '打开并保存 DWG 和 DXF 文件'],
+      [
+        'Layers, dimensions, hatches, blocks, and layouts',
+        '图层、标注、填充、图块与布局',
+      ],
+      ['Parametric constraints', '参数化约束'],
+      ['Export to SVG, PNG, and PDF', '导出 SVG、PNG 和 PDF'],
+      [
+        'MCP server and CLI for AI agents',
+        '面向 AI 智能体的 MCP 服务器与命令行',
+      ],
+    ],
+    bestFor: [
+      [
+        'A free alternative to AutoCAD for 2D drafting',
+        '替代 AutoCAD 做二维制图的免费方案',
+      ],
+      [
+        'Viewing and editing DWG files without a paid license',
+        '无需付费授权即可查看和编辑 DWG 文件',
+      ],
+      [
+        'Letting an AI agent create or check CAD drawings',
+        '让 AI 智能体生成或检查 CAD 图纸',
+      ],
+    ],
+    faqs: [
+      [
+        'What is CADCraft?',
+        'CADCraft 是什么？',
+        'CADCraft is a free, open-source CAD and drafting app from the ArtCraft team. It works like AutoCAD and edits DWG and DXF files.',
+        'CADCraft 是 ArtCraft 团队推出的免费开源 CAD 制图软件，操作方式类似 AutoCAD，可编辑 DWG 和 DXF 文件。',
+      ],
+      [
+        'Is CADCraft free?',
+        'CADCraft 免费吗？',
+        'Yes. It is free on every platform and open source under the MIT or Apache-2.0 license.',
+        '免费。所有平台都可免费使用，并以 MIT 或 Apache-2.0 协议开源。',
+      ],
+      [
+        'Can CADCraft open DWG files?',
+        'CADCraft 能打开 DWG 文件吗？',
+        'Yes. It reads DWG from R13 to 2018 and DXF from R12 to 2018, and saves both in R2000 format.',
+        '可以。它能读取 R13 到 2018 版本的 DWG 和 R12 到 2018 版本的 DXF，并以 R2000 格式保存。',
+      ],
+      [
+        'Does CADCraft have AI features?',
+        'CADCraft 有 AI 功能吗？',
+        'It does not generate drawings by itself. Instead it ships an MCP server, a JSON control channel, and a CLI, so AI agents such as Claude Code can issue commands, inspect drawings, and render them.',
+        '它本身不内置 AI 生成功能，而是提供 MCP 服务器、JSON 控制通道和命令行，让 Claude Code 等 AI 智能体可以下达绘图命令、读取并渲染图纸。',
+      ],
+    ],
+  }),
 ];
