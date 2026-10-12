@@ -4346,4 +4346,138 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'gemini-3-8-flash',
+    name: 'Gemini 3.8 Flash',
+    aliases: [
+      'Gemini 3.8',
+      'gemini-3.8-flash',
+      'Gemini Flash 3.8',
+      'Gemini 3.8 Flash Cyber',
+    ],
+    seoKeyword: 'Gemini 3.8 Flash',
+    maker: 'Google',
+    website: 'https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash',
+    category: 'models',
+    tone: 'cobalt',
+    related: ['gemini-notebook', 'deepseek', 'qwen-chat'],
+    tags: [
+      ['llm', 'Language model', '大语言模型'],
+      ['agentic', 'Agentic coding', '智能体编程'],
+      ['api', 'Gemini API', 'Gemini API'],
+    ],
+    tagline: [
+      'Google’s fast, low-cost Gemini workhorse, upgraded for long-horizon coding and agent tasks.',
+      'Google 快速低价的 Gemini 主力模型，针对长链路编程和智能体任务全面升级。',
+    ],
+    description: [
+      'Gemini 3.8 Flash is the Flash-tier Gemini model Google released on September 2, 2026, as the successor to Gemini 3.7 Flash. Google calls it its most intelligent workhorse model: it keeps Flash speed and pricing while improving software engineering, agentic work, and multi-step reasoning in fields like finance and law. It takes text, images, video, audio, and PDFs with a 1M-token context window, and is available in the Gemini app, AI Mode in Search, Google AI Studio, and the Gemini API as gemini-3.8-flash.',
+      'Gemini 3.8 Flash 是 Google 于 2026 年 9 月 2 日发布的 Flash 级 Gemini 模型，接替 Gemini 3.7 Flash。Google 称它为“最智能的主力模型”：保持 Flash 的速度和价格，同时提升软件工程、智能体任务以及金融、法律等领域的多步推理能力。它支持文本、图片、视频、音频和 PDF 输入，上下文窗口达 100 万 token，可在 Gemini 应用、搜索 AI 模式、Google AI Studio 和 Gemini API（模型 ID：gemini-3.8-flash）中使用。',
+    ],
+    note: [
+      'Best for: fast, affordable agents and coding',
+      '适合：高性价比的智能体与编程任务',
+    ],
+    value: [
+      'Near-frontier reasoning and agentic coding at Flash speed and price, with adjustable thinking effort to trade quality against token cost.',
+      '以 Flash 的速度和价格获得接近前沿的推理和智能体编程能力，还能调节思考强度，在效果和 token 成本之间取舍。',
+    ],
+    problem: [
+      'Long-running agents and coding tasks get expensive on large models, while cheap models often give up early on hard, multi-step problems.',
+      '长时间运行的智能体和编程任务用大模型成本太高，而便宜的模型遇到困难的多步问题又容易半途放弃。',
+    ],
+    audience: [
+      'Developers building agents and coding tools, enterprises on Gemini Enterprise, and Google AI Pro or Ultra subscribers using the Gemini app.',
+      '构建智能体和编程工具的开发者、使用 Gemini Enterprise 的企业，以及在 Gemini 应用中使用的 Google AI Pro / Ultra 订阅用户。',
+    ],
+    pricing: [
+      'Gemini API introductory price of $0.75 per million input tokens and $3.75 per million output tokens until December 31, 2026, then $1.50 and $7.50 from January 1, 2027. In the Gemini app it is included with Google AI Pro and Ultra.',
+      'Gemini API 优惠价为每百万输入 token 0.75 美元、每百万输出 token 3.75 美元，有效期至 2026 年 12 月 31 日；2027 年 1 月 1 日起调整为 1.50 美元和 7.50 美元。Gemini 应用中随 Google AI Pro 和 Ultra 订阅提供。',
+    ],
+    market: [
+      [
+        'Released by Google on September 2, 2026',
+        'Google 于 2026 年 9 月 2 日发布',
+      ],
+      ['Successor to Gemini 3.7 Flash', '接替 Gemini 3.7 Flash'],
+      [
+        'Launched alongside Gemini 3.8 Flash Cyber for vetted security teams',
+        '同时发布面向受信安全团队的 Gemini 3.8 Flash Cyber',
+      ],
+    ],
+    tech: [
+      ['API model ID: gemini-3.8-flash', 'API 模型 ID：gemini-3.8-flash'],
+      [
+        '1,048,576-token input, 65,536-token output',
+        '输入上限 1,048,576 token，输出上限 65,536 token',
+      ],
+      [
+        'Input: text, image, video, audio, PDF; output: text',
+        '输入：文本、图片、视频、音频、PDF；输出：文本',
+      ],
+      ['Thinking levels low, medium, high', '思考强度可选 low、medium、high'],
+    ],
+    whatIs: [
+      'Gemini 3.8 Flash is a large language model in Google’s Gemini family, sitting in the Flash tier that balances intelligence, speed, and cost. Compared with 3.7 Flash, Google says it works more diligently on hard problems, taking extra reasoning steps and tool calls to finish long software engineering tasks end to end, and it scores 54.9% on HLE-Verified. It supports function calling, code execution, Search and Maps grounding, structured outputs, caching, file search, URL context, and computer use in preview. Google also released Gemini 3.8 Flash Cyber, a security-tuned variant for vulnerability detection and patching that is only available to trusted defenders through its Fairwind Program.',
+      'Gemini 3.8 Flash 是 Google Gemini 系列中的大语言模型，属于兼顾智能、速度和成本的 Flash 档位。Google 表示，相比 3.7 Flash，它在难题上更“肯下功夫”，会多做推理步骤和工具调用，把长链路的软件工程任务从头做到尾；在 HLE-Verified 上得分 54.9%。它支持函数调用、代码执行、搜索和地图接地、结构化输出、缓存、文件检索、URL 上下文，以及预览版计算机操作。Google 同时发布了 Gemini 3.8 Flash Cyber，这是专为漏洞发现和修补调优的安全版本，仅通过 Fairwind 计划向受信任的安全防御方开放。',
+    ],
+    steps: [
+      [
+        'Try it in the Gemini app',
+        '在 Gemini 应用中试用',
+        'With Google AI Pro or Ultra, pick Gemini 3.8 Flash in the Gemini app, or use AI Mode in Google Search.',
+        '订阅 Google AI Pro 或 Ultra 后，在 Gemini 应用中选择 Gemini 3.8 Flash，或在 Google 搜索的 AI 模式中使用。',
+      ],
+      [
+        'Get an API key in Google AI Studio',
+        '在 Google AI Studio 获取 API 密钥',
+        'Open Google AI Studio, test prompts with gemini-3.8-flash, and create an API key for the Gemini API.',
+        '打开 Google AI Studio，用 gemini-3.8-flash 测试提示词，并创建 Gemini API 密钥。',
+      ],
+      [
+        'Set thinking effort and tools',
+        '设置思考强度和工具',
+        'Choose a low, medium, or high thinking level and enable tools like function calling, code execution, or Search grounding for agent workflows.',
+        '选择 low、medium 或 high 思考强度，并为智能体流程开启函数调用、代码执行或搜索接地等工具。',
+      ],
+    ],
+    features: [
+      ['1M-token multimodal context', '100 万 token 多模态上下文'],
+      ['Long-horizon agentic coding', '长链路智能体编程'],
+      ['Adjustable thinking levels', '可调节思考强度'],
+      ['Function calling and code execution', '函数调用与代码执行'],
+      ['Search and Maps grounding', '搜索与地图接地'],
+    ],
+    bestFor: [
+      ['Coding agents and IDE assistants', '编程智能体与 IDE 助手'],
+      ['High-volume apps that need low cost', '对成本敏感的大规模应用'],
+      ['Finance and legal agent workflows', '金融与法律类智能体流程'],
+    ],
+    faqs: [
+      [
+        'When was Gemini 3.8 Flash released?',
+        'Gemini 3.8 Flash 什么时候发布的？',
+        'Google released Gemini 3.8 Flash on September 2, 2026.',
+        'Google 于 2026 年 9 月 2 日发布了 Gemini 3.8 Flash。',
+      ],
+      [
+        'How much does Gemini 3.8 Flash cost?',
+        'Gemini 3.8 Flash 多少钱？',
+        'In the Gemini API it costs $0.75 per million input tokens and $3.75 per million output tokens through December 31, 2026, rising to $1.50 and $7.50 from January 1, 2027.',
+        'Gemini API 中到 2026 年 12 月 31 日为每百万输入 token 0.75 美元、每百万输出 token 3.75 美元，2027 年 1 月 1 日起为 1.50 美元和 7.50 美元。',
+      ],
+      [
+        'What is the Gemini 3.8 Flash context window?',
+        'Gemini 3.8 Flash 的上下文窗口多大？',
+        'It accepts up to 1,048,576 input tokens and returns up to 65,536 output tokens.',
+        '最多支持 1,048,576 个输入 token，最多输出 65,536 个 token。',
+      ],
+      [
+        'What is Gemini 3.8 Flash Cyber?',
+        'Gemini 3.8 Flash Cyber 是什么？',
+        'A cybersecurity-tuned version of 3.8 Flash for vulnerability detection and automated patching, available only to trusted defenders through Google’s Fairwind Program.',
+        '它是针对网络安全调优的 3.8 Flash 版本，用于漏洞发现和自动修补，仅通过 Google 的 Fairwind 计划向受信任的安全防御方开放。',
+      ],
+    ],
+  }),
 ];
