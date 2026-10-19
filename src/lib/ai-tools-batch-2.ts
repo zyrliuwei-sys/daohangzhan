@@ -4634,4 +4634,156 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'moss-image',
+    name: 'MOSS-Image',
+    aliases: [
+      'MOSS Image',
+      'moss-image',
+      'MOSS-Image-Base',
+      'MOSS-Image-SFT',
+      'OpenMOSS MOSS-Image',
+    ],
+    seoKeyword: 'MOSS-Image',
+    maker: 'OpenMOSS (Fudan University / MOSI)',
+    website: 'https://openmoss.ai/MOSS-Image/',
+    category: 'models',
+    tone: 'moss',
+    related: ['krea-2', 'nano-banana-2-1', 'comfyui'],
+    tags: [
+      ['text-to-image', 'Text to image', '文生图'],
+      ['text-rendering', 'Chinese & English text', '中英文字渲染'],
+      ['open-weights', 'Open weights', '开源权重'],
+    ],
+    tagline: [
+      'An open-source 5B text-to-image model with sharp Chinese and English text and layout control by bounding box.',
+      '一款开源 5B 文生图模型，中英文字渲染清晰，并可用边界框控制画面布局。',
+    ],
+    description: [
+      'MOSS-Image is an open-source text-to-image model family from the OpenMOSS team, released on October 16, 2026. It pairs a 5B-parameter diffusion transformer with a Qwen3.5 text encoder and a FLUX.2 VAE. Besides plain prompts of up to 4K tokens, it accepts a layout JSON that places each object and each line of text in its own bounding box, which makes it well suited to posters, infographics, and other designs with readable Chinese or English text. It comes in two checkpoints, Base for fine-tuning and SFT for direct use, and runs in Python, a Gradio app, ComfyUI, or a free Hugging Face demo.',
+      'MOSS-Image 是 OpenMOSS 团队于 2026 年 10 月 16 日开源的文生图模型系列，由 50 亿参数的扩散 Transformer（DiT）、Qwen3.5 文本编码器和 FLUX.2 VAE 组成。除了最长 4K token 的普通提示词，它还支持布局 JSON，可以给每个物体、每行文字指定边界框，因此特别适合制作海报、信息图等需要清晰中英文字的设计。模型提供 Base（用于微调）和 SFT（直接出图）两个版本，可通过 Python、Gradio、ComfyUI 运行，也能在 Hugging Face 上免费试用。',
+    ],
+    note: [
+      'Best for: posters and infographics with readable Chinese or English text',
+      '适合：带清晰中英文字的海报和信息图',
+    ],
+    value: [
+      'A free, self-hostable image model that renders legible text and lets you place every element exactly where you want it.',
+      '免费、可本地部署的图像模型，文字清晰可读，还能把每个元素精确放到想要的位置。',
+    ],
+    problem: [
+      'Most open image models garble text, especially Chinese, and give no direct way to control where things appear on the canvas.',
+      '多数开源图像模型容易把文字画错，中文尤其明显，也没有直接控制画面元素位置的办法。',
+    ],
+    audience: [
+      'Designers making posters and infographics, ComfyUI users, and developers or researchers who want an open base model to fine-tune with LoRA.',
+      '制作海报和信息图的设计师、ComfyUI 用户，以及想用开源底模做 LoRA 微调的开发者和研究者。',
+    ],
+    pricing: [
+      'Free and open source. Weights are released under Apache-2.0; you pay only for your own GPU or hosting.',
+      '免费开源，权重采用 Apache-2.0 协议，只需承担自己的显卡或云服务器费用。',
+    ],
+    market: [
+      [
+        'Open-sourced on GitHub (OpenMOSS/MOSS-Image) and Hugging Face on October 16, 2026',
+        '2026 年 10 月 16 日在 GitHub（OpenMOSS/MOSS-Image）和 Hugging Face 开源',
+      ],
+      [
+        'Free online demo on Hugging Face Spaces',
+        'Hugging Face Spaces 提供免费在线演示',
+      ],
+    ],
+    tech: [
+      [
+        '5B diffusion transformer with a Qwen3.5 text encoder and FLUX.2 VAE',
+        '5B 扩散 Transformer + Qwen3.5 文本编码器 + FLUX.2 VAE',
+      ],
+      [
+        'Layout JSON prompts with per-item bounding boxes and text',
+        '布局 JSON 提示词，可为每个元素设置边界框和文字',
+      ],
+      [
+        'Diffusers pipeline, Gradio app, ComfyUI plugin, and vLLM-Omni serving',
+        '支持 Diffusers 管线、Gradio 应用、ComfyUI 插件和 vLLM-Omni 部署',
+      ],
+    ],
+    whatIs: [
+      'MOSS-Image is an open-source 5B text-to-image model from OpenMOSS that renders Chinese and English text well and lets you control layout with bounding-box JSON prompts.',
+      'MOSS-Image 是 OpenMOSS 开源的 5B 文生图模型，擅长渲染中英文字，并可通过边界框 JSON 提示词控制画面布局。',
+    ],
+    steps: [
+      [
+        'Try the online demo',
+        '试用在线演示',
+        'Open the MOSS-Image Space on Hugging Face and type a prompt to generate an image without installing anything.',
+        '打开 Hugging Face 上的 MOSS-Image Space，输入提示词即可出图，无需安装。',
+      ],
+      [
+        'Run it locally',
+        '本地运行',
+        'Clone the OpenMOSS/MOSS-Image repo and install the requirements, then use the Python pipeline or launch the Gradio app. ComfyUI users can install the plugin from ComfyUI Manager.',
+        '克隆 OpenMOSS/MOSS-Image 仓库并安装依赖，然后调用 Python 管线或启动 Gradio 应用；ComfyUI 用户可在 ComfyUI Manager 中直接安装插件。',
+      ],
+      [
+        'Control the layout',
+        '控制画面布局',
+        'For posters or infographics, write a layout JSON that gives each element a caption, a bounding box, and the exact text to draw.',
+        '制作海报或信息图时，编写布局 JSON，为每个元素写上描述、边界框和要渲染的文字。',
+      ],
+    ],
+    features: [
+      ['Clear Chinese and English text rendering', '清晰的中英文字渲染'],
+      [
+        'Layout control with bounding-box JSON prompts',
+        '用边界框 JSON 提示词控制布局',
+      ],
+      ['Long prompts up to 4K tokens', '支持最长 4K token 的长提示词'],
+      [
+        'Base checkpoint for LoRA fine-tuning and SFT checkpoint for direct use',
+        'Base 版本适合 LoRA 微调，SFT 版本可直接出图',
+      ],
+      ['Anime and photorealistic styles', '支持动漫和写实风格'],
+      ['Native ComfyUI plugin', '原生 ComfyUI 插件'],
+    ],
+    bestFor: [
+      [
+        'Posters, infographics, and covers with readable text',
+        '文字清晰的海报、信息图和封面',
+      ],
+      [
+        'Designs where elements must sit in exact positions',
+        '需要精确摆放元素位置的设计',
+      ],
+      [
+        'Fine-tuning a small open image model on your own style',
+        '用自己的风格微调一个轻量开源图像模型',
+      ],
+    ],
+    faqs: [
+      [
+        'What is MOSS-Image?',
+        'MOSS-Image 是什么？',
+        'MOSS-Image is an open-source text-to-image model from the OpenMOSS team. It is built on a 5B diffusion transformer and is known for clear Chinese and English text and layout control.',
+        'MOSS-Image 是 OpenMOSS 团队开源的文生图模型，基于 5B 扩散 Transformer，以清晰的中英文字渲染和布局控制见长。',
+      ],
+      [
+        'Is MOSS-Image free?',
+        'MOSS-Image 免费吗？',
+        'Yes. The weights are open under Apache-2.0, and you can try it free on Hugging Face Spaces or run it on your own GPU.',
+        '免费。权重以 Apache-2.0 协议开源，可以在 Hugging Face Spaces 免费试用，也可以在自己的显卡上运行。',
+      ],
+      [
+        'What is the difference between MOSS-Image-Base and MOSS-Image-SFT?',
+        'MOSS-Image-Base 和 MOSS-Image-SFT 有什么区别？',
+        'Base is the raw pretrained model, meant as a starting point for LoRA and other fine-tuning. SFT is tuned on curated data and gives cleaner text grouping and layouts out of the box.',
+        'Base 是未经后训练的预训练模型，适合作为 LoRA 等微调的起点；SFT 在精选数据上做了微调，直接出图时文字排布和版式更整洁。',
+      ],
+      [
+        'Can I use MOSS-Image in ComfyUI?',
+        'MOSS-Image 能在 ComfyUI 里用吗？',
+        'Yes. A native ComfyUI plugin is available through ComfyUI Manager, with an example workflow included.',
+        '可以。在 ComfyUI Manager 中搜索 MOSS-Image 即可安装原生插件，并附带示例工作流。',
+      ],
+    ],
+  }),
 ];
