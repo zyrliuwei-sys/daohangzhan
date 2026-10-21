@@ -5113,4 +5113,160 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'sky-001',
+    name: 'SKY-001',
+    aliases: [
+      'Sky-001',
+      'SKY 001',
+      'SKY 00-1',
+      'Skyfall AI SKY-001',
+      'Skyfall SKY-001',
+      'Engineering World Model',
+    ],
+    seoKeyword: 'sky-001',
+    maker: 'Skyfall AI',
+    website: 'https://skyfall.ai/',
+    category: 'workflow',
+    tone: 'cobalt',
+    related: ['cadcraft', 'tripo', 'marble'],
+    tags: [
+      ['world-model', 'Engineering world model', '工程世界模型'],
+      ['cad', 'CAD generation', 'CAD 生成'],
+      ['bim', 'BIM layouts', 'BIM 布局'],
+    ],
+    tagline: [
+      'Skyfall AI’s engineering world model that turns a prompt or image into a buildable CAD assembly.',
+      'Skyfall AI 推出的工程世界模型，可把文字或图片变成可构建的 CAD 装配体。',
+    ],
+    description: [
+      'SKY-001 is an engineering world model from Skyfall AI, a San Francisco and Toronto lab founded by members of the Maluuba team that Microsoft acquired. Announced on October 19, 2026, it takes a text prompt or a single image and produces a hierarchical CAD assembly: a parts tree plus the ordered 2D sketches and extrude or cut operations needed to build each part. It can also turn a building outline into a BIM layout of units and rooms. It is in research preview, with commercial deployment targeted for early 2027.',
+      'SKY-001 是 Skyfall AI 推出的工程世界模型。Skyfall AI 总部位于旧金山，研究中心在多伦多，创始成员来自被微软收购的 Maluuba 团队。该模型于 2026 年 10 月 19 日发布，输入一段文字或一张图片，就能生成分层的 CAD 装配体：包括零件树，以及构建每个零件所需的有序二维草图和拉伸、切除操作。它还能把建筑轮廓转换成包含单元和房间的 BIM 布局。目前处于研究预览阶段，计划 2027 年初商用。',
+    ],
+    note: [
+      'Best for: following AI-generated CAD and BIM design',
+      '适合：关注 AI 生成 CAD 和 BIM 设计的团队',
+    ],
+    value: [
+      'Generates editable, step-by-step CAD build sequences in seconds, at a fraction of the time and cost Skyfall measured for frontier LLMs.',
+      '几秒内生成可编辑、按步骤构建的 CAD 建模序列，据 Skyfall 测试，耗时和成本远低于前沿大语言模型。',
+    ],
+    problem: [
+      'Language models are strong at text and code but weak at the geometric, long-horizon reasoning needed to design physical objects part by part.',
+      '大语言模型擅长文本和代码，但不擅长逐个零件设计实物所需的几何空间推理和长链条规划。',
+    ],
+    audience: [
+      'Mechanical and hardware engineers, CAD and BIM teams, architects, digital-twin builders, and manufacturers exploring AI design automation.',
+      '机械与硬件工程师、CAD 和 BIM 团队、建筑师、数字孪生开发者，以及探索 AI 设计自动化的制造企业。',
+    ],
+    pricing: [
+      'No public pricing yet. SKY-001 is in research preview, and Skyfall targets commercial deployment in early 2027. Skyfall reports about $0.005 per CAD case in its own benchmark.',
+      '暂无公开定价。SKY-001 目前处于研究预览阶段，Skyfall 计划 2027 年初商用。Skyfall 在自家基准测试中报告每个 CAD 案例成本约 0.005 美元。',
+    ],
+    market: [
+      [
+        'Announced October 19, 2026 as the first engineering world model',
+        '2026 年 10 月 19 日发布，号称首个工程世界模型',
+      ],
+      [
+        'Skyfall AI is backed by Fidelity, Touring Capital, M13, and iNovia Capital',
+        'Skyfall AI 获得 Fidelity、Touring Capital、M13 和 iNovia Capital 投资',
+      ],
+    ],
+    tech: [
+      [
+        'Visual world model, not a next-token language model',
+        '视觉世界模型，而非逐词预测的语言模型',
+      ],
+      [
+        'Hierarchical Composer splits a design into assemblies and parts',
+        '分层组合器（Hierarchical Composer）把设计拆解为装配体和零件',
+      ],
+      [
+        'Construction World Model plans sketch and extrude steps for each part',
+        '构建世界模型（Construction World Model）为每个零件规划草图与拉伸步骤',
+      ],
+    ],
+    whatIs: [
+      'SKY-001 is Skyfall AI’s engineering world model. It turns a text prompt or image into a hierarchical CAD assembly with step-by-step build operations, and building outlines into BIM layouts.',
+      'SKY-001 是 Skyfall AI 的工程世界模型，可将文字或图片转换为带分步建模操作的分层 CAD 装配体，也能把建筑轮廓转换成 BIM 布局。',
+    ],
+    steps: [
+      [
+        'Describe or show the object',
+        '描述或展示目标物体',
+        'Give SKY-001 a text prompt or a single image of an engineered product, or a building outline for BIM.',
+        '向 SKY-001 输入一段文字或一张工程产品图片；做 BIM 时输入建筑轮廓。',
+      ],
+      [
+        'Let it decompose the design',
+        '让模型拆解设计',
+        'It generates rough 3D options, then breaks the chosen design down into assemblies and parts, down to screws and fasteners.',
+        '模型先并行生成多个粗略 3D 方案，再把选中的设计逐层拆解为装配体和零件，细到螺丝和紧固件。',
+      ],
+      [
+        'Review the build steps in CAD',
+        '在 CAD 中查看构建步骤',
+        'Each part comes with ordered sketches and extrude or cut operations that can be viewed and edited in CAD tools such as Autodesk Fusion.',
+        '每个零件都附带有序的草图和拉伸、切除操作，可在 Autodesk Fusion 等 CAD 软件中查看和编辑。',
+      ],
+    ],
+    features: [
+      ['Text or image to 3D CAD assembly', '文字或图片生成 3D CAD 装配体'],
+      ['Hierarchical parts tree down to fasteners', '细化到紧固件的分层零件树'],
+      [
+        'Ordered sketch, extrude, and cut build steps',
+        '有序的草图、拉伸和切除建模步骤',
+      ],
+      [
+        'BIM layouts of units and rooms from a building outline',
+        '从建筑轮廓生成单元和房间的 BIM 布局',
+      ],
+      ['Design variations and construction sequences', '设计变体与施工顺序'],
+      [
+        'Outputs viewable in CAD tools like Autodesk Fusion',
+        '输出结果可在 Autodesk Fusion 等 CAD 工具中查看',
+      ],
+    ],
+    bestFor: [
+      [
+        'Turning a concept image into a first-pass CAD model',
+        '把概念图转成初版 CAD 模型',
+      ],
+      [
+        'Exploring design variations for hardware and vehicles',
+        '探索硬件和载具的设计变体',
+      ],
+      [
+        'Drafting floor layouts for buildings and facilities',
+        '为建筑和设施起草楼层布局',
+      ],
+    ],
+    faqs: [
+      [
+        'What is SKY-001?',
+        'SKY-001 是什么？',
+        'SKY-001 is an engineering world model from Skyfall AI. It generates CAD assemblies with step-by-step build operations from a text prompt or image, and BIM layouts from building outlines.',
+        'SKY-001 是 Skyfall AI 推出的工程世界模型，可根据文字或图片生成带分步建模操作的 CAD 装配体，也能根据建筑轮廓生成 BIM 布局。',
+      ],
+      [
+        'Who made SKY-001?',
+        'SKY-001 是谁开发的？',
+        'Skyfall AI, led by Sam Pasupalak, Kaheer Suleman, and Sumit Pasupalak, who previously built Maluuba, the deep learning lab Microsoft acquired.',
+        '由 Skyfall AI 开发，团队由 Sam Pasupalak、Kaheer Suleman 和 Sumit Pasupalak 带领，他们此前创办了被微软收购的深度学习实验室 Maluuba。',
+      ],
+      [
+        'How does SKY-001 compare with GPT-6 Astra?',
+        'SKY-001 和 GPT-6 Astra 相比如何？',
+        'In Skyfall’s own CAD benchmark, SKY-001 scored 79.7% IoU in about 3.9 seconds at roughly $0.005 per case, versus 79.1% for GPT-6 Astra in about 199 seconds at $0.75. These are self-reported results; no public evaluation set has been released.',
+        '在 Skyfall 自己的 CAD 基准测试中，SKY-001 的 IoU 为 79.7%，单个案例约 3.9 秒、约 0.005 美元；GPT-6 Astra 为 79.1%，约 199 秒、0.75 美元。这些是厂商自报结果，尚未公开评测集。',
+      ],
+      [
+        'Can I use SKY-001 now?',
+        '现在能用 SKY-001 吗？',
+        'Not broadly yet. It is in research preview with no public API or open weights, and Skyfall plans commercial deployment in early 2027.',
+        '暂时还不能广泛使用。它目前处于研究预览阶段，没有公开 API 或开源权重，Skyfall 计划 2027 年初商用。',
+      ],
+    ],
+  }),
 ];
