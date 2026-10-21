@@ -4786,4 +4786,174 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'filmcraft',
+    name: 'FilmCraft',
+    aliases: [
+      'FilmCraft GitHub',
+      'filmcraft github',
+      'Film Craft',
+      'FilmCraft video editor',
+      'FilmCraft Premiere Pro alternative',
+      'storytold filmcraft',
+    ],
+    seoKeyword: 'FilmCraft GitHub',
+    maker: 'ArtCraft (Storytold)',
+    website: 'https://getartcraft.com/apps/filmcraft',
+    category: 'video-editing',
+    tone: 'coral',
+    related: ['cadcraft', 'viblo-ai', 'vozo-ai'],
+    tags: [
+      ['video-editor', 'Video editor', '视频剪辑'],
+      ['open-source', 'Open source', '开源'],
+      ['ai-agent', 'AI agent control', 'AI 智能体可控'],
+    ],
+    tagline: [
+      'A free, open-source Premiere Pro-style video editor written in Rust, with an MCP server so AI agents can edit too.',
+      '一款用 Rust 编写的免费开源视频剪辑软件，操作方式类似 Premiere Pro，并提供 MCP 服务器让 AI 智能体也能剪片。',
+    ],
+    description: [
+      'FilmCraft is a free, open-source video editor from the ArtCraft team, hosted on GitHub at storytold/filmcraft. It is a clean-room reimplementation of Adobe Premiere Pro written in pure Rust, with Premiere-style panels, workspaces, and shortcuts. It covers three-point editing and ripple, roll, slip, and slide trims, a Lumetri-style color panel with scopes, a GPU compositor with keyframes, effects, and transitions, broadcast loudness metering, titles and captions, and export to H.264, ProRes, and DNxHR. Timelines move to and from FCP7 XML, FCPXML, OpenTimelineIO, EDL, AAF, and OMF. Every action is one of 650+ engine commands, and an MCP server lets AI agents drive the editor. It runs on macOS, Windows, Linux, FreeBSD, and the web, and is still in alpha.',
+      'FilmCraft 是 ArtCraft 团队推出的免费开源视频剪辑软件，代码托管在 GitHub 的 storytold/filmcraft 仓库。它是用纯 Rust 对 Adobe Premiere Pro 的“净室”重新实现，面板、工作区和快捷键都与 Premiere 保持一致。功能涵盖三点编辑和波纹、滚动、滑移、滑动修剪，类 Lumetri 的调色面板与示波器，支持关键帧、特效和转场的 GPU 合成器，广播级响度表，字幕与标题，以及 H.264、ProRes、DNxHR 导出。时间线可与 FCP7 XML、FCPXML、OpenTimelineIO、EDL、AAF 和 OMF 互相转换。所有操作都对应 650 多个引擎命令之一，并通过 MCP 服务器开放给 AI 智能体。支持 macOS、Windows、Linux、FreeBSD 和网页版，目前处于 Alpha 阶段。',
+    ],
+    note: [
+      'Best for: a free, open-source alternative to Premiere Pro',
+      '适合：寻找免费开源的 Premiere Pro 替代品',
+    ],
+    value: [
+      'Premiere-style editing, color, audio, and export at no cost, on every desktop platform, with hooks that let AI agents do the cutting.',
+      '零成本获得类 Premiere 的剪辑、调色、音频和导出能力，全平台可用，还能让 AI 智能体代为剪辑。',
+    ],
+    problem: [
+      'Professional editors like Premiere Pro need a paid subscription, and most editors give AI tools no clean way to drive the timeline.',
+      'Premiere Pro 等专业剪辑软件需要付费订阅，而且大多数剪辑软件没有给 AI 工具留出直接操作时间线的接口。',
+    ],
+    audience: [
+      'Video editors and YouTubers who know Premiere, students, Linux users, and developers building AI agents that edit video.',
+      '熟悉 Premiere 的剪辑师和视频博主、学生、Linux 用户，以及开发视频剪辑 AI 智能体的开发者。',
+    ],
+    pricing: [
+      'Free and open source, dual-licensed under MIT or Apache-2.0.',
+      '免费开源，采用 MIT 或 Apache-2.0 双许可。',
+    ],
+    market: [
+      [
+        'Open source on GitHub (storytold/filmcraft), currently in alpha',
+        '在 GitHub 开源（storytold/filmcraft），目前处于 Alpha 阶段',
+      ],
+      [
+        'Part of the ArtCraft "Crafting Apps" family alongside CADCraft',
+        '与 CADCraft 同属 ArtCraft 的 “Crafting Apps” 系列',
+      ],
+    ],
+    tech: [
+      [
+        'Pure Rust, with a WebAssembly web build',
+        '纯 Rust 编写，网页版基于 WebAssembly',
+      ],
+      [
+        'wgpu GPU compositor on Metal, Vulkan, DirectX 12, and WebGPU',
+        '基于 wgpu 的 GPU 合成器，支持 Metal、Vulkan、DirectX 12 和 WebGPU',
+      ],
+      [
+        'In-house H.264, HEVC, ProRes, AV1, VP9, AAC, and Opus codecs',
+        '自研 H.264、HEVC、ProRes、AV1、VP9、AAC 和 Opus 编解码器',
+      ],
+      [
+        '650+ engine commands exposed through an MCP server and JSON control channel',
+        '650 多个引擎命令，通过 MCP 服务器和 JSON 控制通道开放',
+      ],
+    ],
+    whatIs: [
+      'FilmCraft is a free, open-source video editor on GitHub (storytold/filmcraft) that recreates Adobe Premiere Pro in Rust and lets AI agents drive it through an MCP server.',
+      'FilmCraft 是托管在 GitHub（storytold/filmcraft）上的免费开源视频剪辑软件，用 Rust 重新实现了 Adobe Premiere Pro，并可通过 MCP 服务器让 AI 智能体操作。',
+    ],
+    steps: [
+      [
+        'Download FilmCraft',
+        '下载 FilmCraft',
+        'Get it from the FilmCraft page on getartcraft.com, or from GitHub releases: MSI or ZIP for Windows, DMG for macOS, and AppImage, Flatpak, deb, or rpm for Linux. Developers can build it with cargo run --release -p filmcraft.',
+        '在 getartcraft.com 的 FilmCraft 页面下载，或到 GitHub Releases 获取安装包：Windows 用 MSI 或 ZIP，macOS 用 DMG，Linux 用 AppImage、Flatpak、deb 或 rpm。开发者也可以用 cargo run --release -p filmcraft 从源码构建。',
+      ],
+      [
+        'Import footage and cut',
+        '导入素材并剪辑',
+        'Import clips, build a sequence, and edit with the same panels and shortcuts you know from Premiere, including ripple, roll, slip, and slide trims.',
+        '导入素材、新建序列，用熟悉的 Premiere 面板和快捷键剪辑，包括波纹、滚动、滑移和滑动修剪。',
+      ],
+      [
+        'Grade, mix, and export',
+        '调色、混音并导出',
+        'Color grade in the Lumetri-style panel, add titles and captions, check loudness, then export to H.264 MP4, ProRes, or DNxHR, or hand the timeline off as XML or OTIO.',
+        '在类 Lumetri 面板中调色，添加标题和字幕，检查响度，然后导出 H.264 MP4、ProRes 或 DNxHR，也可以把时间线导出为 XML 或 OTIO 交给其他软件。',
+      ],
+    ],
+    features: [
+      [
+        'Premiere-style panels, workspaces, and shortcuts',
+        '与 Premiere 一致的面板、工作区和快捷键',
+      ],
+      [
+        'Three-point editing and ripple, roll, slip, and slide trims',
+        '三点编辑与波纹、滚动、滑移、滑动修剪',
+      ],
+      [
+        'Lumetri-style color grading with curves, wheels, and scopes',
+        '类 Lumetri 调色，含曲线、色轮和示波器',
+      ],
+      [
+        'GPU effects, transitions, keyframes, and blend modes',
+        'GPU 特效、转场、关键帧和混合模式',
+      ],
+      [
+        'Titles, captions (SRT, WebVTT, SCC), and loudness metering',
+        '标题、字幕（SRT、WebVTT、SCC）和响度表',
+      ],
+      [
+        'Export to H.264, ProRes, DNxHR; interchange via FCPXML, OTIO, EDL, AAF',
+        '导出 H.264、ProRes、DNxHR；支持 FCPXML、OTIO、EDL、AAF 交换',
+      ],
+      [
+        'MCP server so AI agents can edit the timeline',
+        'MCP 服务器，让 AI 智能体直接编辑时间线',
+      ],
+    ],
+    bestFor: [
+      [
+        'Editing video for free with a Premiere-like workflow',
+        '用类 Premiere 的工作流免费剪辑视频',
+      ],
+      ['Professional-style editing on Linux', '在 Linux 上做专业级剪辑'],
+      [
+        'Letting an AI agent such as Claude Code cut or assemble videos',
+        '让 Claude Code 等 AI 智能体剪辑或拼接视频',
+      ],
+    ],
+    faqs: [
+      [
+        'What is FilmCraft on GitHub?',
+        'GitHub 上的 FilmCraft 是什么？',
+        'FilmCraft (github.com/storytold/filmcraft) is a free, open-source video editor from the ArtCraft team. It recreates Adobe Premiere Pro in Rust and runs on macOS, Windows, Linux, and the web.',
+        'FilmCraft（github.com/storytold/filmcraft）是 ArtCraft 团队推出的免费开源视频剪辑软件，用 Rust 重新实现了 Adobe Premiere Pro，可在 macOS、Windows、Linux 和网页上运行。',
+      ],
+      [
+        'Is FilmCraft free?',
+        'FilmCraft 免费吗？',
+        'Yes. It is open source under the MIT or Apache-2.0 license. The ArtCraft name and logos are trademarks and are not covered by that license.',
+        '免费。它以 MIT 或 Apache-2.0 协议开源，不过 ArtCraft 的名称和标志属于商标，不在开源许可范围内。',
+      ],
+      [
+        'Can FilmCraft replace Premiere Pro?',
+        'FilmCraft 能替代 Premiere Pro 吗？',
+        'It already covers core editing, color, audio, titles, and export with Premiere-style controls, but it is still in alpha, so expect missing features and rough edges before relying on it for client work.',
+        '它已经具备类 Premiere 操作方式的剪辑、调色、音频、标题和导出等核心功能，但仍处于 Alpha 阶段，功能还不完整，正式商业项目使用前需谨慎。',
+      ],
+      [
+        'Does FilmCraft have AI features?',
+        'FilmCraft 有 AI 功能吗？',
+        'Few so far. Optional speech-to-text is off by default. Its main AI hook is an MCP server and JSON control channel, so agents like Claude Code can run any of its 650+ editing commands.',
+        '目前不多，可选的语音转文字默认关闭。它的主要 AI 能力是 MCP 服务器和 JSON 控制通道，让 Claude Code 等智能体可以调用 650 多个剪辑命令。',
+      ],
+    ],
+  }),
 ];
