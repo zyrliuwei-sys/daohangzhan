@@ -82,6 +82,163 @@ const PRICING_CHECK: Pair = [
 ];
 
 export const aiToolsBatch2: GeneralAiProduct[] = [
+  tool({
+    slug: 'minimax-m3-1-flash',
+    name: 'MiniMax M3.1 Flash',
+    aliases: [
+      'MiniMax 3.1 Flash',
+      'minimax 3.1 flash',
+      'MiniMax M3.1',
+      'M3.1 Flash',
+      'MiniMax-M3.1-Flash',
+      'MiniMax M3.1 Flash Preview',
+      'Space Bunny',
+    ],
+    seoKeyword: 'MiniMax 3.1 Flash',
+    maker: 'MiniMax',
+    website: 'https://www.minimax.io',
+    category: 'models',
+    tone: 'plum',
+    related: ['deepseek', 'kimi', 'qwen-chat'],
+    tags: [
+      ['llm', 'Language model', '大语言模型'],
+      ['ai-coding', 'Coding & agents', '编程与智能体'],
+      ['low-cost-api', 'Low-cost API', '低价 API'],
+    ],
+    tagline: [
+      'MiniMax’s fast, low-cost model for coding, agents, and computer use, with a 1M-token context.',
+      'MiniMax 推出的高速低价大模型，主打编程、智能体和电脑操作，支持 100 万 token 上下文。',
+    ],
+    description: [
+      'MiniMax M3.1 Flash (often searched as MiniMax 3.1 Flash) is a language model from Chinese AI company MiniMax, launched on October 19, 2026. It is built for agentic work: coding, tool use, computer use, and cybersecurity tasks. It takes text, image, and video input, returns text, and has a 1M-token context window. MiniMax says it runs about 3x faster than M3 at roughly a third of the cost, with typical output above 170 tokens per second. API pricing is $0.15 per million input tokens and $0.60 per million output tokens. It was tested anonymously as the "Space Bunny" stealth model, which topped OpenRouter’s usage charts before the reveal.',
+      'MiniMax M3.1 Flash（常被搜索为 MiniMax 3.1 Flash）是中国 AI 公司 MiniMax 于 2026 年 10 月 19 日发布的大语言模型，面向智能体场景：编程、工具调用、电脑操作（Computer Use）和网络安全任务。它支持文本、图像和视频输入，输出文本，上下文窗口为 100 万 token。官方称其速度约为 M3 的 3 倍，成本约为三分之一，日常输出速度超过每秒 170 token。API 价格为每百万输入 token 0.15 美元、每百万输出 token 0.60 美元。发布前它以匿名模型“Space Bunny”的身份测试，曾登上 OpenRouter 用量榜首。',
+    ],
+    note: [
+      'Best for: cheap, fast coding and agent workloads',
+      '适合：低成本、高速度的编程和智能体任务',
+    ],
+    value: [
+      'Near-frontier agent and coding performance at Flash-tier speed and price.',
+      '以 Flash 级别的速度和价格，获得接近前沿水平的智能体与编程能力。',
+    ],
+    problem: [
+      'Agent loops burn through millions of tokens, and top models make that slow and expensive.',
+      '智能体任务动辄消耗数百万 token，用顶级模型来跑既慢又贵。',
+    ],
+    audience: [
+      'Developers building coding agents, automation, and computer-use tools on a budget.',
+      '需要控制成本、构建编程智能体、自动化和电脑操作工具的开发者。',
+    ],
+    pricing: [
+      'API: $0.15 per 1M input tokens, $0.60 per 1M output tokens, $0.015 per 1M cached input tokens. Also included in the M Plan subscription and MiniMax Code.',
+      'API：每百万输入 token 0.15 美元，每百万输出 token 0.60 美元，缓存输入每百万 token 0.015 美元。也可通过 M Plan 订阅和 MiniMax Code 使用。',
+    ],
+    market: [
+      [
+        'Competes with low-cost fast models such as DeepSeek V4.1 Flash and Gemini Flash.',
+        '与 DeepSeek V4.1 Flash、Gemini Flash 等低价高速模型竞争。',
+      ],
+      [
+        'A larger M3.1 Pro model is announced as coming later.',
+        '官方预告更大的 M3.1 Pro 模型将在之后推出。',
+      ],
+    ],
+    tech: [
+      [
+        '1M-token context (input + output combined)',
+        '100 万 token 上下文（输入与输出合计）',
+      ],
+      [
+        'Text, image, and video input; text output',
+        '支持文本、图像、视频输入，输出文本',
+      ],
+      [
+        'OpenAI- and Anthropic-compatible API endpoints',
+        '兼容 OpenAI 和 Anthropic 格式的 API 接口',
+      ],
+    ],
+    whatIs: [
+      'MiniMax M3.1 Flash is the fast, low-cost member of MiniMax’s M3.1 model family. MiniMax reports scores of 73.7% on DeepSWE v1.1, 61.7 on OSWorld V2, 82% on CyberGym, and 76.2 on BankerToolBench, and Artificial Analysis ranks it near the top of its price class. These are mostly vendor-reported numbers, so test it on your own tasks. Thinking is always on, which helps quality but adds latency and output tokens.',
+      'MiniMax M3.1 Flash 是 MiniMax M3.1 模型系列中速度快、价格低的版本。官方公布的成绩包括 DeepSWE v1.1 73.7%、OSWorld V2 61.7 分、CyberGym 82%、BankerToolBench 76.2 分，Artificial Analysis 也将其列为同价位中的前列。这些数据大多为厂商自测，建议用自己的任务实测。模型始终开启思考模式，质量更好，但会增加延迟和输出 token。',
+    ],
+    steps: [
+      [
+        'Try it in MiniMax Code or the agent app',
+        '在 MiniMax Code 或 Agent 应用中试用',
+        'Use the MiniMax Code desktop app or MiniMax Agent on the web to try M3.1 Flash on real coding and agent tasks.',
+        '通过 MiniMax Code 桌面应用或网页版 MiniMax Agent，用真实的编程和智能体任务试用 M3.1 Flash。',
+      ],
+      [
+        'Get an API key',
+        '获取 API Key',
+        'Sign up on the MiniMax developer platform and get a key, or pick it on OpenRouter.',
+        '在 MiniMax 开放平台注册并获取 Key，也可以在 OpenRouter 上选用该模型。',
+      ],
+      [
+        'Plug it into your tools',
+        '接入你的工具',
+        'Point any OpenAI- or Anthropic-compatible client, such as Claude Code or Cline, at the MiniMax endpoint and select MiniMax-M3.1-Flash.',
+        '将任意兼容 OpenAI 或 Anthropic 格式的客户端（如 Claude Code、Cline）指向 MiniMax 接口，并选择 MiniMax-M3.1-Flash。',
+      ],
+    ],
+    features: [
+      [
+        'Built for coding, agents, and computer use',
+        '专为编程、智能体和电脑操作优化',
+      ],
+      ['1M-token context window', '100 万 token 上下文窗口'],
+      [
+        '170+ tokens/sec typical output speed (vendor-reported)',
+        '日常输出速度超过每秒 170 token（官方数据）',
+      ],
+      [
+        '$0.15 / $0.60 per 1M input / output tokens',
+        '每百万输入/输出 token 0.15 / 0.60 美元',
+      ],
+      ['Accepts image and video input', '支持图像和视频输入'],
+      [
+        'Available via API, M Plan, MiniMax Code, and OpenRouter',
+        '可通过 API、M Plan、MiniMax Code 和 OpenRouter 使用',
+      ],
+    ],
+    bestFor: [
+      ['Running coding agents at low cost', '低成本运行编程智能体'],
+      [
+        'High-volume automation and tool-calling workflows',
+        '大批量自动化和工具调用流程',
+      ],
+      [
+        'Long-context work over large codebases or documents',
+        '处理大型代码库或长文档',
+      ],
+    ],
+    faqs: [
+      [
+        'What is MiniMax 3.1 Flash?',
+        'MiniMax 3.1 Flash 是什么？',
+        'It is MiniMax M3.1 Flash, a fast, low-cost language model from MiniMax released on October 19, 2026, aimed at coding, AI agents, and computer use.',
+        '即 MiniMax M3.1 Flash，是 MiniMax 于 2026 年 10 月 19 日发布的高速低价大语言模型，主要面向编程、AI 智能体和电脑操作。',
+      ],
+      [
+        'How much does MiniMax M3.1 Flash cost?',
+        'MiniMax M3.1 Flash 多少钱？',
+        'API pricing is $0.15 per million input tokens and $0.60 per million output tokens, with cached input at $0.015 per million.',
+        'API 价格为每百万输入 token 0.15 美元、每百万输出 token 0.60 美元，缓存输入为每百万 token 0.015 美元。',
+      ],
+      [
+        'Is MiniMax M3.1 Flash the Space Bunny model?',
+        'MiniMax M3.1 Flash 就是 Space Bunny 吗？',
+        'Yes. MiniMax confirmed that Space Bunny, the anonymous stealth model that led OpenRouter’s usage charts, was an earlier version of M3.1 Flash.',
+        '是的。MiniMax 确认，曾登上 OpenRouter 用量榜首的匿名模型 Space Bunny 就是 M3.1 Flash 的早期版本。',
+      ],
+      [
+        'Is MiniMax M3.1 Flash open source?',
+        'MiniMax M3.1 Flash 开源吗？',
+        'Not yet. At launch it is available through the API and MiniMax’s apps, and MiniMax says the open weights will be released later.',
+        '暂未开源。发布时可通过 API 和 MiniMax 自家应用使用，官方表示之后会公开模型权重。',
+      ],
+    ],
+  }),
   // ─── AI assistants & agents ──────────────────────────────────────────────
   tool({
     slug: 'grok',
