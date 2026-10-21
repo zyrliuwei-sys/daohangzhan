@@ -5269,4 +5269,157 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'ruflo',
+    name: 'Ruflo',
+    aliases: [
+      'ruflo',
+      'Ruflo AI',
+      'RuFlo',
+      'ruvnet ruflo',
+      'Claude Flow',
+      'claude-flow',
+    ],
+    seoKeyword: 'ruflo',
+    maker: 'Reuven Cohen (rUv)',
+    website: 'https://github.com/ruvnet/ruflo',
+    category: 'coding',
+    tone: 'plum',
+    related: ['replit', 'lovable', 'emergent'],
+    tags: [
+      ['multi-agent', 'Multi-agent swarms', '多智能体集群'],
+      ['claude-code', 'Claude Code harness', 'Claude Code 编排层'],
+      ['open-source', 'Open source (MIT)', '开源（MIT）'],
+    ],
+    tagline: [
+      'An open-source agent meta-harness that runs coordinated agent swarms on top of Claude Code and Codex.',
+      '开源的智能体元编排框架，在 Claude Code 和 Codex 之上运行协同的智能体集群。',
+    ],
+    description: [
+      'Ruflo is an open-source agent meta-harness for Claude Code and Codex, built by Reuven Cohen (rUv) and formerly known as Claude Flow. Instead of one coding assistant working alone, Ruflo coordinates swarms of specialized agents for coding, testing, security review, and documentation, with hierarchical, mesh, or adaptive topologies. It adds a vector memory that persists across sessions, an MCP server with hundreds of tools, and a plugin marketplace. It is MIT-licensed and trended on GitHub in October 2026, passing 78,000 stars.',
+      'Ruflo 是一个面向 Claude Code 和 Codex 的开源智能体元编排框架（agent meta-harness），由 Reuven Cohen（rUv）开发，前身是 Claude Flow。它不再让单个编程助手独自工作，而是协调一组专职智能体分别负责编码、测试、安全审查和文档，支持分层、网状和自适应拓扑。它还提供跨会话保留的向量记忆、包含数百个工具的 MCP 服务器以及插件市场。项目采用 MIT 许可，2026 年 10 月登上 GitHub 热榜，星标超过 7.8 万。',
+    ],
+    note: [
+      'Best for: developers running multi-agent coding workflows in Claude Code',
+      '适合：在 Claude Code 中运行多智能体编程工作流的开发者',
+    ],
+    value: [
+      'Turns Claude Code or Codex into a coordinated team of role-based agents with shared memory, so larger tasks can be split up and run in parallel.',
+      '把 Claude Code 或 Codex 变成一支分工明确、共享记忆的智能体团队，大任务可以拆分后并行推进。',
+    ],
+    problem: [
+      'A single coding assistant session loses context between runs and handles big, multi-step changes one step at a time.',
+      '单个编程助手会话在多次运行之间会丢失上下文，处理大型多步骤改动时只能一步步来。',
+    ],
+    audience: [
+      'Developers and engineering teams already using Claude Code or Codex who want multi-agent orchestration, persistent memory, and automated workflows.',
+      '已经在使用 Claude Code 或 Codex、希望获得多智能体编排、持久记忆和自动化工作流的开发者与工程团队。',
+    ],
+    pricing: [
+      'Free and open source under the MIT license. You still pay for the underlying model usage, and running many agents at once can use several times more tokens than a single session.',
+      '基于 MIT 许可免费开源。底层模型的调用费用需自行承担，同时运行多个智能体时消耗的 token 可能是单个会话的数倍。',
+    ],
+    market: [
+      [
+        'Trended on GitHub in October 2026 with more than 78,000 stars',
+        '2026 年 10 月登上 GitHub 热榜，星标超过 7.8 万',
+      ],
+      [
+        'Renamed from Claude Flow, one of the earliest Claude Code orchestration projects',
+        '由 Claude Flow 更名而来，是最早的 Claude Code 编排项目之一',
+      ],
+    ],
+    tech: [
+      [
+        'TypeScript CLI and MCP server, with Rust components',
+        'TypeScript 命令行工具与 MCP 服务器，部分组件使用 Rust',
+      ],
+      [
+        'HNSW-indexed vector memory (AgentDB) shared across agents and sessions',
+        '基于 HNSW 索引的向量记忆（AgentDB），在智能体和会话间共享',
+      ],
+      [
+        'Federation for agents on different machines with zero-trust security',
+        '支持跨机器智能体联邦协作，采用零信任安全模型',
+      ],
+    ],
+    whatIs: [
+      'Ruflo is an open-source orchestration layer for AI coding agents. It plugs into Claude Code or Codex and lets you run a swarm of specialized agents that share memory and coordinate on a task.',
+      'Ruflo 是一个开源的 AI 编程智能体编排层。它接入 Claude Code 或 Codex，让一组共享记忆的专职智能体协同完成任务。',
+    ],
+    steps: [
+      [
+        'Install Ruflo',
+        '安装 Ruflo',
+        'In a Node.js project, run npx ruflo@latest init wizard, or add the Ruflo plugins from the Claude Code plugin marketplace.',
+        '在 Node.js 项目中运行 npx ruflo@latest init wizard，或在 Claude Code 插件市场中添加 Ruflo 插件。',
+      ],
+      [
+        'Connect it to Claude Code',
+        '接入 Claude Code',
+        'Register Ruflo as an MCP server so Claude Code can call its swarm, memory, and workflow tools.',
+        '把 Ruflo 注册为 MCP 服务器，让 Claude Code 可以调用它的集群、记忆和工作流工具。',
+      ],
+      [
+        'Launch a swarm on a task',
+        '为任务启动智能体集群',
+        'Describe the goal, pick a topology, and let coder, tester, reviewer, and documentation agents split the work and report back.',
+        '描述目标并选择拓扑结构，由编码、测试、审查和文档等智能体分工协作并汇报结果。',
+      ],
+    ],
+    features: [
+      [
+        '100+ specialized agents for code, tests, security, and docs',
+        '100 多个专职智能体，覆盖代码、测试、安全和文档',
+      ],
+      [
+        'Hierarchical, mesh, and adaptive swarm topologies',
+        '分层、网状和自适应集群拓扑',
+      ],
+      ['Persistent vector memory across sessions', '跨会话持久化的向量记忆'],
+      ['MCP server with hundreds of tools', '包含数百个工具的 MCP 服务器'],
+      ['Claude Code plugin marketplace', 'Claude Code 插件市场'],
+      ['Works with Claude Code and Codex', '支持 Claude Code 和 Codex'],
+    ],
+    bestFor: [
+      [
+        'Splitting large refactors across parallel agents',
+        '把大型重构拆分给多个智能体并行完成',
+      ],
+      [
+        'Automated test, review, and security passes',
+        '自动化测试、代码审查和安全检查',
+      ],
+      [
+        'Keeping project context across coding sessions',
+        '在多次编程会话间保留项目上下文',
+      ],
+    ],
+    faqs: [
+      [
+        'What is Ruflo?',
+        'Ruflo 是什么？',
+        'Ruflo is an open-source agent meta-harness for Claude Code and Codex. It coordinates swarms of specialized AI agents with shared memory, an MCP server, and a plugin marketplace.',
+        'Ruflo 是面向 Claude Code 和 Codex 的开源智能体元编排框架，通过共享记忆、MCP 服务器和插件市场协调一组专职 AI 智能体。',
+      ],
+      [
+        'Is Ruflo the same as Claude Flow?',
+        'Ruflo 和 Claude Flow 是同一个项目吗？',
+        'Yes. Ruflo was originally built as Claude Flow by Reuven Cohen (rUv) and was later renamed. It lives in the ruvnet/ruflo repository on GitHub.',
+        '是的。Ruflo 最初由 Reuven Cohen（rUv）以 Claude Flow 之名开发，后来更名为 Ruflo，代码仓库为 GitHub 上的 ruvnet/ruflo。',
+      ],
+      [
+        'Is Ruflo free?',
+        'Ruflo 免费吗？',
+        'Ruflo itself is free under the MIT license. Model usage through Claude Code or Codex is billed separately, and multi-agent runs use more tokens than a single session.',
+        'Ruflo 本身基于 MIT 许可免费。通过 Claude Code 或 Codex 产生的模型费用另计，多智能体运行比单个会话消耗更多 token。',
+      ],
+      [
+        'How do I install Ruflo?',
+        '如何安装 Ruflo？',
+        'Run npx ruflo@latest init wizard in your project, or install it globally with npm install -g ruflo@latest. Claude Code users can also add it from the plugin marketplace.',
+        '在项目中运行 npx ruflo@latest init wizard，或通过 npm install -g ruflo@latest 全局安装。Claude Code 用户也可以从插件市场添加。',
+      ],
+    ],
+  }),
 ];
