@@ -5422,4 +5422,157 @@ export const aiToolsBatch2: GeneralAiProduct[] = [
       ],
     ],
   }),
+  tool({
+    slug: 'microduck',
+    name: 'Microduck',
+    aliases: [
+      'microduck robot',
+      'Microduck',
+      'Micro Duck robot',
+      'Hugging Face Microduck',
+      'Pollen Robotics Microduck',
+      'Hugging Face duck robot',
+    ],
+    seoKeyword: 'microduck robot',
+    maker: 'Pollen Robotics (Hugging Face)',
+    website: 'https://pollen-robotics.com/microduck/',
+    category: 'workflow',
+    tone: 'amber',
+    related: ['sky-001', 'marble', 'lm-studio'],
+    tags: [
+      ['robotics', 'Walking biped robot', '双足行走机器人'],
+      ['physical-ai', 'Physical AI', '具身智能'],
+      ['reinforcement-learning', 'Trainable with RL', '可用强化学习训练'],
+    ],
+    tagline: [
+      'A $399 duck-shaped walking robot from Hugging Face and Pollen Robotics that developers can program and train with reinforcement learning.',
+      'Hugging Face 与 Pollen Robotics 推出的 399 美元鸭子造型双足机器人，开发者可以编程并用强化学习训练它。',
+    ],
+    description: [
+      'Microduck is a small duck-like biped robot from Pollen Robotics, the French robotics company owned by Hugging Face. Announced on August 27, 2026 at $399, it stands about 25 cm tall, weighs under 800 g, and has 15 motors across its legs, neck, and head, plus an articulated beak that can pick up small objects. It walks, sits, gets back up after falls, and even roller-skates. It ships with trained moves and a game controller, while developers get an open-source Rust SDK, a browser simulator, and a reinforcement-learning stack to teach it new behaviors. Pollen reported more than 10,000 pre-orders in its first week, with deliveries planned before Christmas 2026.',
+      'Microduck 是 Pollen Robotics 推出的小型鸭子造型双足机器人，Pollen Robotics 是 Hugging Face 旗下的法国机器人公司。该产品于 2026 年 8 月 27 日发布，售价 399 美元，高约 25 厘米，重量不到 800 克，腿部、颈部和头部共有 15 个电机，还有一个可以夹起小物件的活动鸭嘴。它能行走、坐下、摔倒后自己爬起来，甚至会滑旱冰。机器人出厂即带有训练好的动作和游戏手柄，开发者则可以使用开源的 Rust SDK、浏览器模拟器和强化学习工具链教它新动作。Pollen 表示首周预订量超过 1 万台，计划在 2026 年圣诞节前开始发货。',
+    ],
+    note: [
+      'Best for: AI developers, makers, and educators who want an affordable physical-AI robot',
+      '适合：想要一台平价具身智能机器人的 AI 开发者、创客和教育者',
+    ],
+    value: [
+      'Brings reinforcement-learning robotics to a desk-sized, $399 robot that is built to move, fall, and get back up, so you can train real locomotion without lab hardware.',
+      '把强化学习机器人研究带到一台 399 美元的桌面级机器人上，它本来就是为行走、摔倒和爬起而设计的，无需实验室设备也能训练真实的运动能力。',
+    ],
+    problem: [
+      'Legged robots for learning and research usually cost thousands of dollars and break easily, which makes hands-on reinforcement-learning experiments out of reach for most developers.',
+      '用于学习和研究的足式机器人通常要数千美元，而且容易损坏，大多数开发者很难亲手做强化学习实验。',
+    ],
+    audience: [
+      'AI and robotics developers, students, educators, and hobbyists who want to experiment with locomotion, sim-to-real training, and physical AI.',
+      '希望尝试运动控制、仿真到现实训练和具身智能的 AI 与机器人开发者、学生、教育者和爱好者。',
+    ],
+    pricing: [
+      '$399 per robot, including a game controller, battery, and USB cable. Pre-orders are open on the Pollen Robotics store for North America and Europe, with shipping planned before Christmas 2026. The software and SDK are free.',
+      '每台 399 美元，包含游戏手柄、电池和 USB 线。目前在 Pollen Robotics 官方商店面向北美和欧洲开放预订，计划 2026 年圣诞节前发货。软件和 SDK 免费。',
+    ],
+    market: [
+      [
+        'More than 10,000 units pre-ordered in the first week after launch',
+        '发布后第一周预订量超过 1 万台',
+      ],
+      [
+        'Second robot from Pollen Robotics after the Reachy Mini desktop robot',
+        'Pollen Robotics 继桌面机器人 Reachy Mini 之后的第二款机器人',
+      ],
+    ],
+    tech: [
+      [
+        'Rockchip RK3566 quad-core processor with a 0.8 TOPS NPU, 1 GB RAM, and 32 GB storage',
+        '瑞芯微 RK3566 四核处理器，带 0.8 TOPS NPU、1 GB 内存和 32 GB 存储',
+      ],
+      [
+        '15 motors, a front camera, an 8x8 time-of-flight depth sensor, two IMUs, a microphone, and a speaker',
+        '15 个电机、前置摄像头、8x8 ToF 深度传感器、两个 IMU、麦克风和扬声器',
+      ],
+      [
+        'Open-source Rust SDK with a 50 Hz control loop, plus Python simulation and RL tools',
+        '开源 Rust SDK，控制循环频率 50 Hz，另有 Python 仿真和强化学习工具',
+      ],
+    ],
+    whatIs: [
+      'Microduck is a programmable, duck-shaped walking robot from Hugging Face and Pollen Robotics. It is designed for physical AI: you can play with it out of the box or train new movements in simulation with reinforcement learning and run them on the real robot.',
+      'Microduck 是 Hugging Face 与 Pollen Robotics 推出的可编程鸭子造型行走机器人，专为具身智能设计：开箱即可玩，也可以在仿真中用强化学习训练新动作，再部署到真机上运行。',
+    ],
+    steps: [
+      [
+        'Pre-order the robot',
+        '预订机器人',
+        'Order Microduck from the Pollen Robotics store. It ships with a game controller, a rechargeable battery, and a USB cable.',
+        '在 Pollen Robotics 官方商店预订 Microduck，包装内含游戏手柄、可充电电池和 USB 线。',
+      ],
+      [
+        'Play with the built-in moves',
+        '体验内置动作',
+        'Use the controller to walk it around, trigger its trained moves, or have it follow a laser pointer, with no code required.',
+        '用手柄控制它行走、触发训练好的动作，或让它追踪激光笔，完全不需要写代码。',
+      ],
+      [
+        'Train and deploy new behaviors',
+        '训练并部署新动作',
+        'Try the browser simulator on Hugging Face, train a policy with the open-source RL stack, then run it on the robot through the Rust SDK.',
+        '先在 Hugging Face 上试用浏览器模拟器，再用开源强化学习工具训练策略，最后通过 Rust SDK 部署到机器人上。',
+      ],
+    ],
+    features: [
+      [
+        'Walks, sits, crouches, and gets up after falls',
+        '能行走、坐下、蹲伏，摔倒后自己爬起',
+      ],
+      ['Articulated beak that grabs small objects', '活动鸭嘴可夹取小物件'],
+      [
+        'Camera, depth sensor, mic, and speaker',
+        '摄像头、深度传感器、麦克风和扬声器',
+      ],
+      ['Open-source Rust SDK and RL stack', '开源 Rust SDK 和强化学习工具链'],
+      [
+        'Browser simulator hosted on Hugging Face',
+        '托管在 Hugging Face 上的浏览器模拟器',
+      ],
+      ['About one hour of battery life', '续航约一小时'],
+    ],
+    bestFor: [
+      [
+        'Learning reinforcement learning on real hardware',
+        '在真实硬件上学习强化学习',
+      ],
+      ['Sim-to-real locomotion experiments', '仿真到现实的运动控制实验'],
+      [
+        'Robotics classes, maker projects, and demos',
+        '机器人课程、创客项目和演示',
+      ],
+    ],
+    faqs: [
+      [
+        'What is the Microduck robot?',
+        'Microduck 机器人是什么？',
+        'Microduck is a 25 cm, duck-shaped biped robot from Pollen Robotics and Hugging Face. It walks, picks up small objects with its beak, and can be programmed and trained with reinforcement learning.',
+        'Microduck 是 Pollen Robotics 与 Hugging Face 推出的 25 厘米鸭子造型双足机器人，能行走、用鸭嘴夹取小物件，并可以编程和用强化学习训练。',
+      ],
+      [
+        'How much does Microduck cost?',
+        'Microduck 多少钱？',
+        'Microduck costs $399. Pre-orders are open on the Pollen Robotics store for North America and Europe.',
+        'Microduck 售价 399 美元，目前在 Pollen Robotics 官方商店面向北美和欧洲开放预订。',
+      ],
+      [
+        'When does Microduck ship?',
+        'Microduck 什么时候发货？',
+        'Pollen Robotics plans to start delivering Microduck before Christmas 2026.',
+        'Pollen Robotics 计划在 2026 年圣诞节前开始交付 Microduck。',
+      ],
+      [
+        'Is Microduck open source?',
+        'Microduck 是开源的吗？',
+        'Its Rust software stack, SDK, and Python simulation and reinforcement-learning tools are open source on GitHub. Pollen has not described the hardware as open-source hardware.',
+        '它的 Rust 软件栈、SDK 以及 Python 仿真和强化学习工具都在 GitHub 上开源，但 Pollen 并未将其硬件称为开源硬件。',
+      ],
+    ],
+  }),
 ];
